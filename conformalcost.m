@@ -14,15 +14,15 @@ for i = 1:numv
   end
 end
 %% edge lengths squared difference, cost, and gradient
-elsq_diff = elsq - elsq_T;
-J = .25*sum(sum(elsq_diff.^2));
+elsq_rat = elsq_T./elsq;
+J = .25*sum(sum((1 - elsq_rat).^2));
 GJ = zeros(numv,3);
 for vi = 1:numv
   for dim = 1:3
     ddvi = zeros(numv);
     ddvi(vi,:) = el(vi,:,dim);
     ddvi(:,vi) = -el(:,vi,dim);
-    GJ(vi,dim) = sum(sum(elsq_diff.*ddvi));
+    GJ(vi,dim) = sum(sum((elsq_rat - 1).*elsq_T.*ddvi));
   end
 end
 GJ = reshape(GJ',[],1);

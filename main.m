@@ -3,7 +3,7 @@ close all; clear;
 input_case = 2; % 1 - octa; 2 - icosa; 3 - obj file
 target_case = 2; % 1 - octa; 2 - rand conf deform; 3 - obj file
 alpha = .5; beta = .8; imax = 100; % gradient descent control param
-numeig = 180; % number of eigenvalues used, 0 means full input
+numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 def = .6; % scaling coefficient used for target case #2
 %% input mesh
