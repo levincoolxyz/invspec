@@ -35,4 +35,5 @@ for i = 1:imax
     vnext = v(:,i) - t*GJ;
   end
   v(:,i+1) = vnext;
+  fprintf('iter #%d; cost %g\n',i,J(i));
 end

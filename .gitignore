@@ -220,3 +220,6 @@ _site/
 
 #unix push commit
 pushnow.sh
+
+#meshes
+meshes/
