@@ -16,30 +16,30 @@ for i = 1:numv
 end
 elsq = elsq(isedge); % linear indices
 %% naively compare edge lengths squared difference, cost, and gradient
-% elsq_diff = elsq - elsq_T;
-% % J = .25*sum(sum(elsq_diff.^2));
-% J = .25*sum(elsq_diff.^2);
-% GJ = zeros(numv,3);
-% for vi = 1:numv
-%   for dim = 1:3
-%     ddvi = zeros(numv);
-%     ddvi(vi,:) = el(vi,:,dim);
-%     ddvi(:,vi) = -el(:,vi,dim);
-% %     GJ(vi,dim) = sum(sum(elsq_diff.*ddvi));
-%     GJ(vi,dim) = sum(elsq_diff.*ddvi(isedge));
-%   end
-% end
-% GJ = reshape(GJ',[],1);
-%% using spring analogy, cost, and gradient
-elsq_rat = elsq_T./elsq;
-J = .25*sum((1 - elsq_rat).^2);
+elsq_diff = elsq - elsq_T;
+% J = .25*sum(sum(elsq_diff.^2));
+J = .25*sum(elsq_diff.^2);
 GJ = zeros(numv,3);
 for vi = 1:numv
   for dim = 1:3
     ddvi = zeros(numv);
     ddvi(vi,:) = el(vi,:,dim);
     ddvi(:,vi) = -el(:,vi,dim);
-    GJ(vi,dim) = sum((1 - elsq_rat).*elsq_T./elsq./elsq.*ddvi(isedge));
+%     GJ(vi,dim) = sum(sum(elsq_diff.*ddvi));
+    GJ(vi,dim) = sum(elsq_diff.*ddvi(isedge));
   end
 end
 GJ = reshape(GJ',[],1);
+%% using spring analogy, cost, and gradient
+% elsq_rat = elsq_T./elsq;
+% J = .25*sum((1 - elsq_rat).^2);
+% GJ = zeros(numv,3);
+% for vi = 1:numv
+%   for dim = 1:3
+%     ddvi = zeros(numv);
+%     ddvi(vi,:) = el(vi,:,dim);
+%     ddvi(:,vi) = -el(:,vi,dim);
+%     GJ(vi,dim) = sum((1 - elsq_rat).*elsq_T./elsq./elsq.*ddvi(isedge));
+%   end
+% end
+% GJ = reshape(GJ',[],1);

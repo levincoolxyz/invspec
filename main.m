@@ -1,11 +1,14 @@
 close all; clear;
 %% initialization
-input_case = 2; % 1 - octa; 2 - icosa; 3 - obj file
+input_case = 3; % 1 - octa; 2 - icosa; 3 - obj file
 target_case = 2; % 1 - octa; 2 - rand conf deform; 3 - obj file
 alpha = .5; beta = .8; imax = 100; % gradient descent control param
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 def = .6; % scaling coefficient used for target case #2
+%% toy spherical harmonics
+% sphar = @(X,Y,Z)(3*X.^2-Y.^2).*Y.*Z; % too fine of detail
+sphar = @(X,Y,Z) 2*Z.^2-X.^2-Y.^2;
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -74,7 +77,8 @@ if target_case == 1
 
 % random small prescribed conformal deformation
 elseif target_case == 2
-  s_T = exp(-rand(numv,1)*def);
+%   s_T = exp(-rand(numv,1)*def);
+  s_T = exp(-sphar(v(:,1),v(:,2),v(:,3))); % spherically harmonisize
 %   D_Tp = sort(eig(diag(s_T)*inv(M)*L));
   D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;

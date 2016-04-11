@@ -1,11 +1,12 @@
 close all; clear;
 %% initialization
-input_case = 2; % 1 - octa; 2 - icosa; 3 - obj file
+input_case = 3; % 1 - octa; 2 - icosa; 3 - obj file
 target_case = 2; % 1 - octa; 2 - rand conf deform; 3 - obj file
 alpha = .5; beta = .8; imax = 100; % gradient descent control param
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 def = .6; % scaling coefficient used for target case #2
+%% toy spherical harm
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -24,7 +25,7 @@ elseif input_case == 2
   v=bsxfun(@rdivide,v,v_L2);
   clear s; clear t;
   f=fliplr(convhulln(v));
-%   temp = TriQuad({f v});
+%   temp = TriQuad({f v}); % refine mesh in a stupid way
 %   f = temp{1};
 %   v = temp{2};
   
@@ -48,7 +49,7 @@ for fi = 1:numf
   end
 end
 isedge = triu(isedge); % reduce redundancy
-isedge_ln = find(isedge);
+isedge = find(isedge); % linear indices
 %% compute initial edge lengths squared
 elsq0 = zeros(numv);
 for i = 1:numv
@@ -56,8 +57,8 @@ for i = 1:numv
     elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
   end
 end
-elsq0 = elsq0.*isedge;
-elsq0_ln = elsq0(isedge_ln);
+% elsq0 = elsq0.*isedge;
+elsq0 = elsq0(isedge); % linear indices
 %% compute laplacian
 [M,L] = lapbel(v,f);
 % D_0 = sort(eig(inv(M)*L));
@@ -79,7 +80,8 @@ elseif target_case == 2
   D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
-  elsq_T = elsq0.*conf_T;
+%   elsq_T = elsq0.*conf_T;
+  elsq_T = elsq0.*conf_T(isedge); % linear indices
   [Jc_Thist,vhist_T] = gradescent(@conformalcost,imax,alpha,beta,...
     reshape(v',[],1),isedge,elsq_T);
   Jc_T = Jc_Thist(end)
@@ -119,7 +121,8 @@ if target_case == 2
 end
 %% conformal fit
 conf = sqrt(kron(1./s_end',1./s_end));
-elsq_end = elsq0.*conf;
+% elsq_end = elsq0.*conf;
+elsq_end = elsq0.*conf(isedge); % linear indices
 [Jc,vhist] = gradescent(@conformalcost,imax,alpha,beta,...
   reshape(v',[],1),isedge,elsq_end);
 %% fit convergence
