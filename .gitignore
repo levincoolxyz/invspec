@@ -218,11 +218,5 @@ pip-log.txt
 #Jekyll
 _site/
 
-#unix push commit
-pushnow.sh
-
-#meshes
-meshes/
-
 #windows matlab bs
 *.asv

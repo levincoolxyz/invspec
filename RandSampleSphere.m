@@ -14,6 +14,9 @@ function X=RandSampleSphere(N,spl)
 %
 % AUTHOR: Anton Semechko (a.semechko@gmail.com)
 % DATE: May.2013
+% 
+% Modified by Feng Ling for a easier way to get uniform points on sphere
+% (2016/04/11)
 %
 
 % Default arguments
@@ -59,17 +62,15 @@ if strcmp(spl,'stratified')
     lon=(x+1)*pi;
     z=y;
     
+    % Convert z to latitude
+    lat=acos(z);
+
+    % Convert spherical to rectangular co-ords
+    x=cos(lon).*sin(lat);
+    y=sin(lon).*sin(lat);
+
+    X=[x,y,z];
 else
-    z=2*rand(N,1)-1;
-    lon=2*pi*rand(N,1);
+    X = randn(N,3);
+    X = bsxfun(@rdivide,X,sqrt(sum(X.^2,2)));
 end
-
-% Convert z to latitude
-lat=acos(z);
-
-% Convert spherical to rectangular co-ords
-x=cos(lon).*sin(lat);
-y=sin(lon).*sin(lat);
-        
-X=[x,y,z];
-

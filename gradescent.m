@@ -16,6 +16,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,v0,varargin)
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
+prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
 v(:,1) = v0;
@@ -28,12 +29,14 @@ for i = 1:imax
       break;
     end
   end
-  t = 1;
+  t = (prev_ln>10)*beta^(prev_ln-3) + (prev_ln<=10);
+%   t = 1;
   vnext = v(:,i) - t*GJ;
   while feval(costf,vnext,varargin{:}) > J(i) - alpha*t*sum(GJ.^2)
     t = beta*t;
     vnext = v(:,i) - t*GJ;
   end
   v(:,i+1) = vnext;
-  fprintf('iter #%d; cost %g\n',i,J(i));
+  prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
+  fprintf('descent iter#%d; J = %g; step = beta^%d\n',i,J(i),prev_ln);
 end

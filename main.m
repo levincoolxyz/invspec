@@ -1,14 +1,20 @@
 close all; clear;
 %% initialization
-input_case = 3; % 1 - octa; 2 - icosa; 3 - obj file
-target_case = 2; % 1 - octa; 2 - rand conf deform; 3 - obj file
+input_case = 4; % 1 - octa; 2 - icosa; 3 - obj file; 4 - sphere of ~ssize
+target_case = 3; % 1 - octa; 2 - (rand) conf deform; 3 - obj file
 alpha = .5; beta = .8; imax = 100; % gradient descent control param
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 def = .6; % scaling coefficient used for target case #2
+ssize = 500;
 %% toy spherical harmonics
-% sphar = @(X,Y,Z)(3*X.^2-Y.^2).*Y.*Z; % too fine of detail
-sphar = @(X,Y,Z) 2*Z.^2-X.^2-Y.^2;
+vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+% Y = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
+% Y = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
+Y = @(v) v(:,3)./vnorm(v);
+% sphar = @(v) (Y(v)+max(Y(v))-3*min(Y(v)))./(max(Y(v))-min(Y(v)));
+% sphar = @(v) 1./exp(abs(Y(v)));
+sphar = @(v) 1./(abs(Y(v))+1);
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -27,15 +33,19 @@ elseif input_case == 2
   v=bsxfun(@rdivide,v,v_L2);
   clear s; clear t;
   f=fliplr(convhulln(v));
-%   temp = TriQuad({f v}); % refine mesh in a stupid way
-%   f = temp{1};
-%   v = temp{2};
   
 % import wavefront object file (3)
 elseif input_case == 3
   filename = 'sphere_small';
   fid = fopen(['../meshes/' filename '.obj'],'rt');
   [v,f] = readwfobj(fid);
+
+% sphere of chosen size (4)
+elseif input_case == 4
+%   [x,y,z]=sphere(floor(sqrt(ssize)));
+%   v = unique([x(:) y(:) z(:)],'rows');
+  v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
+  f = fliplr(convhulln(v));
 end
 
 numv = size(v,1); % number of vertices
@@ -63,8 +73,6 @@ end
 elsq0 = elsq0(isedge); % linear indices
 %% compute laplacian
 [M,L] = lapbel(v,f);
-% D_0 = sort(eig(inv(M)*L));
-% D_0 = sort(eigs(L,M,numeig,0));
 D_0 = eigvf(L,M,numeig);
 %% target spectrum
 % skewed octahedron
@@ -72,14 +80,12 @@ if target_case == 1
   v_T = [0 0 .5; 0 1 0; 2 0 0 ;-2 0 0; 0 -3 0; 0 0 -.5];
   f_T = fliplr(convhulln(v));
   [M_T,L_T] = lapbel(v_T,f_T);
-%   D_T = sort(eig(inv(M_T)*L_T));
   D_T = eigvf(L_T,M_T,numeig);
 
 % random small prescribed conformal deformation
 elseif target_case == 2
-%   s_T = exp(-rand(numv,1)*def);
-  s_T = exp(-sphar(v(:,1),v(:,2),v(:,3))); % spherically harmonisize
-%   D_Tp = sort(eig(diag(s_T)*inv(M)*L));
+  s_T = exp(-rand(numv,1)*def);
+%   s_T = (sphar(v)); % spherically harmonisize
   D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
@@ -90,22 +96,20 @@ elseif target_case == 2
   Jc_T = Jc_Thist(end)
   v_T = reshape(vhist_T(:,end),3,[])';
   [M_T,L_T] = lapbel(v_T,f_T);
-%   D_T = sort(eig(inv(M_T)*L_T));
   D_T = eigvf(L_T,M_T,numeig);
 
 % import wavefront object file (3)
-elseif input_case == 3
-  filename = 'blub';
+elseif target_case == 3
+  filename = 'spot';
   fid = fopen(['../meshes/' filename '.obj'],'rt');
   [v_T,f_T] = readwfobj(fid);
   [M_T,L_T] = lapbel(v_T,f_T);
-%   D_T = sort(eig(inv(M_T)*L_T));
   D_T = eigvf(L_T,M_T,numeig);
-  D_T = D_T((end-numeig):end);
 end
 %% initial conformal factors
 s0 = exp(-zeros(numv,1));
 %% LiIEP via gradient descent
+alpha = .5; beta = .3; imax = 100; % gradient descent control param
 [J,s] = gradescent(@eigencost,imax,alpha,beta,s0,M,L,D_T,numeig);
 %% descent convergence
 % figure(); hold all; grid on;
@@ -115,7 +119,6 @@ s0 = exp(-zeros(numv,1));
 %% descent results
 J_end = J(end)
 s_end = s(:,end);
-% D_endp = sort(eig(diag(s_end)*inv(M)*L));
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% mfg. sol'n benchmark
 if target_case == 2
@@ -126,6 +129,7 @@ end
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
+alpha = .5; beta = .8; imax = 200; % gradient descent control param
 [Jc,vhist] = gradescent(@conformalcost,imax,alpha,beta,...
   reshape(v',[],1),isedge,elsq_end);
 %% fit convergence
@@ -137,7 +141,6 @@ elsq_end = elsq0.*conf(isedge); % linear indices
 Jc_end = Jc(end)
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
-% D_end = sort(eig(inv(M_end)*L_end));
 D_end = eigvf(L_end,M_end,numeig);
 %% visualisation
 % difference in mesh
@@ -167,11 +170,19 @@ title('resultant mesh');
 % difference in spectra
 subplot(2,3,4:6); hold all;
 plot(D_0,'bx:');
-plot(D_Tp,'ks:');
+if target_case == 2
+  plot(D_Tp,'ks:');
+end
 plot(D_T,'k.-');
 plot(D_endp,'rs:');
 plot(D_end,'ro-');
-legend('\lambda_{initial}','\lambda_{Target pre}','\lambda_{Target}',...
-  '\lambda_{result pre}','\lambda_{result}',...
-  'location','best');
+if target_case == 2
+  legend('\lambda_{initial}','\lambda_{Target pre}','\lambda_{Target}',...
+    '\lambda_{result pre}','\lambda_{result}',...
+    'location','best');
+else
+  legend('\lambda_{initial}','\lambda_{Target}',...
+    '\lambda_{result pre}','\lambda_{result}',...
+    'location','best');
+end
 xlabel('Number of eigenvalues'); ylabel('Eigenvalues of M^{-1}L');
