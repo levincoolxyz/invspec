@@ -8,6 +8,6 @@ some codes included here (on obtaining meshes of sphere, on spherical harmonics)
 
 project advised and supervised by Prof. Etienne Vouga and Prof. Keenan Crane
 
-![simple rand init](/rand.png?raw=true "Result #1")
-!["harmonics" init, bugs in the init conformal field](/harm_normal.png?raw=true "Result #2")
-![spot the cow init, 500 vertices approx, need better embedding, ShapeUP?](/spot.png?raw=true "Result #3")
+![Result #1](/rand.png?raw=true "simple rand init")
+![Result #2](/harm_normal.png?raw=true ""harmonics" init, bugs in the init conformal field")
+![Result #3](/spot.png?raw=true "spot the cow init, 500 vertices approx, need better embedding, ShapeUP?")
