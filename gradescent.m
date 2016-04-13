@@ -1,5 +1,5 @@
-function [J,v] = gradescent(costf,imax,alpha,beta,v0,varargin)
-% [J,v] = gradescent(costf,imax,alpha,beta,v0,varargin)
+function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
+% [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % gradient descent with backtracking
 % 
 % INPUTS
@@ -8,6 +8,8 @@ function [J,v] = gradescent(costf,imax,alpha,beta,v0,varargin)
 % imax        - the maximum allowed number of iteration
 % alpha,beta  - backtracking control parameters (cf. Section 5.1.2 in
 %               https://www.cs.cmu.edu/~ggordon/10725-F12/scribes/10725_Lecture5.pdf)
+% etol        - relative error tolerance
+% figureflag  - 1 => gives plot of energy, 0 not
 % v0          - initial condition (nx1) vector
 % varargin    - additional parameters passed on to costf
 % 
@@ -20,10 +22,11 @@ prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
 v(:,1) = v0;
+fprintf('About to descent, first step might be slow...\n');
 for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
   if i>10
-    if J(i) - J(i-1) == 0
+    if (J(i-1) - J(i))/J(i-1) <= etol
       J(i:end) = [];
       v(:,i:end) = [];
       break;
@@ -39,4 +42,11 @@ for i = 1:imax
   v(:,i+1) = vnext;
   prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
   fprintf('descent iter#%d; J = %g; step = beta^%d\n',i,J(i),prev_ln);
+end
+
+if(figfg)
+  figure(); hold all; grid on;
+  plot(J,'k.:')
+  set(gca,'xscale','log','yscale','log'); axis square
+  % linearregress(log(1:imax),log(J),1);
 end

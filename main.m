@@ -1,20 +1,24 @@
 close all; clear;
 %% initialization
 input_case = 4; % 1 - octa; 2 - icosa; 3 - obj file; 4 - sphere of ~ssize
-target_case = 3; % 1 - octa; 2 - (rand) conf deform; 3 - obj file
-alpha = .5; beta = .8; imax = 100; % gradient descent control param
+target_case = 2; % 1 - octa; 2 - (rand) conf deform; 3 - obj file
+etol = 1e-5; imax = 300; % gradient descent err tol and max(iter)
+aC = .5; bC = .8; % Conformal gradient descent control
+aS = .5; bS = .4; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 def = .6; % scaling coefficient used for target case #2
-ssize = 500;
+ssize = 200;
 %% toy spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 % Y = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 % Y = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
-Y = @(v) v(:,3)./vnorm(v);
+% Y = @(v) v(:,3)./vnorm(v);
+Y = @(v) sqrt(v(:,1).^2 + v(:,2).^2)./vnorm(v) + v(:,3)./vnorm(v);
 % sphar = @(v) (Y(v)+max(Y(v))-3*min(Y(v)))./(max(Y(v))-min(Y(v)));
 % sphar = @(v) 1./exp(abs(Y(v)));
-sphar = @(v) 1./(abs(Y(v))+1);
+sphar = @(v) (abs(Y(v)));
+% sphar = @(v) 1./(abs(Y(v))+1);
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -84,14 +88,14 @@ if target_case == 1
 
 % random small prescribed conformal deformation
 elseif target_case == 2
-  s_T = exp(-rand(numv,1)*def);
-%   s_T = (sphar(v)); % spherically harmonisize
+%   s_T = exp(-rand(numv,1)*def);
+  s_T = (sphar(v)); % spherically harmonisize
   D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
   elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [Jc_Thist,vhist_T] = gradescent(@conformalcost,imax,alpha,beta,...
+  [Jc_Thist,vhist_T] = gradescent(@conformalcost,imax,aC,bC,etol,1,...
     reshape(v',[],1),isedge,elsq_T);
   Jc_T = Jc_Thist(end)
   v_T = reshape(vhist_T(:,end),3,[])';
@@ -108,14 +112,8 @@ elseif target_case == 3
 end
 %% initial conformal factors
 s0 = exp(-zeros(numv,1));
-%% LiIEP via gradient descent
-alpha = .5; beta = .3; imax = 100; % gradient descent control param
-[J,s] = gradescent(@eigencost,imax,alpha,beta,s0,M,L,D_T,numeig);
-%% descent convergence
-% figure(); hold all; grid on;
-% plot(J,'k.:')
-% set(gca,'xscale','log','yscale','log'); axis square
-% % linearregress(log(1:imax),log(J),1);
+%% MIEP2 via gradient descent
+[J,s] = gradescent(@eigencost,imax,aS,bS,etol,1,s0,M,L,D_T,numeig);
 %% descent results
 J_end = J(end)
 s_end = s(:,end);
@@ -129,21 +127,15 @@ end
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
-alpha = .5; beta = .8; imax = 200; % gradient descent control param
-[Jc,vhist] = gradescent(@conformalcost,imax,alpha,beta,...
+[Jc,vhist] = gradescent(@conformalcost,imax,aC,bC,etol,1,...
   reshape(v',[],1),isedge,elsq_end);
-%% fit convergence
-% figure(); hold all; grid on;
-% plot(Jc,'k.:')
-% set(gca,'xscale','log','yscale','log'); axis square
-% % linearregress(log(1:imax),log(J),1);
 %% fit results
 Jc_end = Jc(end)
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);
 %% visualisation
-% difference in mesh
+% compare mesh
 Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
 Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
@@ -167,7 +159,7 @@ set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
 
-% difference in spectra
+% compare spectra
 subplot(2,3,4:6); hold all;
 plot(D_0,'bx:');
 if target_case == 2
