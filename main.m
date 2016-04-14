@@ -2,19 +2,19 @@ clear;
 %% initialization
 input_case = 4; % 1 - octa; 2 - icosa; 3 - *.obj; 4 - sphere of ~ssize
 target_case = 4; % 1 - octa; 2 - conf defms; 3 - *.obj; 4 - spharm defms
-imax = 1e3; % gradient descent maximum iterations
+imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
-aS = .5; bS = .4; etolS = 5e-3; % invSpec gradient descent control
+aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 purt = .8; % scaling coefficient used to control target purtabation
-ssize = 100;
+ssize = 200;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y33(v))*purt^3;
+sphar = @(v) abs(Y20(v))*purt^3;
 %% input mesh
 % regular octahedron (1)
 if input_case == 1

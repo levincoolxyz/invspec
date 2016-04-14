@@ -8,6 +8,5 @@ some codes included here (on obtaining meshes of sphere, on spherical harmonics)
 
 project advised and supervised by Prof. Etienne Vouga and Prof. Keenan Crane
 
-![Result #1](/rand.png?raw=true "simple rand init")
-![Result #2](/harm_normal.png?raw=true ""harmonics" init, bugs in the init conformal field")
-![Result #3](/spot.png?raw=true "spot the cow init, 500 vertices approx, need better embedding, ShapeUP?")
+![Result #1](/simple.png?raw=true "simple rand init")
+![Result #2](/Y20_localmin.png?raw=true "discrete Y20 spherical harmonic target, hit a local minimum")
