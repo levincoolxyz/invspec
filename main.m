@@ -1,24 +1,20 @@
 close all; clear;
 %% initialization
-input_case = 4; % 1 - octa; 2 - icosa; 3 - obj file; 4 - sphere of ~ssize
-target_case = 2; % 1 - octa; 2 - (rand) conf deform; 3 - obj file
-etol = 1e-5; imax = 300; % gradient descent err tol and max(iter)
-aC = .5; bC = .8; % Conformal gradient descent control
-aS = .5; bS = .4; % invSpec gradient descent control
+input_case = 4; % 1 - octa; 2 - icosa; 3 - *.obj; 4 - sphere of ~ssize
+target_case = 4; % 1 - octa; 2 - conf defms; 3 - *.obj; 4 - spharm defms
+imax = 1e3; % gradient descent maximum iterations
+aC = .5; bC = .8; etolC = 1e-4; % Conformal gradient descent control
+aS = .5; bS = .4; etolS = 1e-5; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-def = .6; % scaling coefficient used for target case #2
+purt = .6; % scaling coefficient used to control target purtabation
 ssize = 200;
-%% toy spherical harmonics
+%% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-% Y = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
-% Y = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
-% Y = @(v) v(:,3)./vnorm(v);
-Y = @(v) sqrt(v(:,1).^2 + v(:,2).^2)./vnorm(v) + v(:,3)./vnorm(v);
-% sphar = @(v) (Y(v)+max(Y(v))-3*min(Y(v)))./(max(Y(v))-min(Y(v)));
-% sphar = @(v) 1./exp(abs(Y(v)));
-sphar = @(v) (abs(Y(v)));
-% sphar = @(v) 1./(abs(Y(v))+1);
+Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
+Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
+Y10 = @(v) v(:,3)./vnorm(v);
+sphar = @(v) Y10(v)*purt;
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -78,6 +74,10 @@ elsq0 = elsq0(isedge); % linear indices
 %% compute laplacian
 [M,L] = lapbel(v,f);
 D_0 = eigvf(L,M,numeig);
+%% compute mean curvature vertex normal
+Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+H = vnorm(Hn);
+vn = Hn./repmat(H,1,3);
 %% target spectrum
 % skewed octahedron
 if target_case == 1
@@ -88,17 +88,15 @@ if target_case == 1
 
 % random small prescribed conformal deformation
 elseif target_case == 2
-%   s_T = exp(-rand(numv,1)*def);
-  s_T = (sphar(v)); % spherically harmonisize
+  s_T = exp(-rand(numv,1)*purt);
   D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
   elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [Jc_Thist,vhist_T] = gradescent(@conformalcost,imax,aC,bC,etol,1,...
+  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
     reshape(v',[],1),isedge,elsq_T);
-  Jc_T = Jc_Thist(end)
-  v_T = reshape(vhist_T(:,end),3,[])';
+  v_T = reshape(v_Thist(:,end),3,[])';
   [M_T,L_T] = lapbel(v_T,f_T);
   D_T = eigvf(L_T,M_T,numeig);
 
@@ -109,13 +107,19 @@ elseif target_case == 3
   [v_T,f_T] = readwfobj(fid);
   [M_T,L_T] = lapbel(v_T,f_T);
   D_T = eigvf(L_T,M_T,numeig);
+
+elseif target_case == 4
+  v_T = repmat(sphar(v),1,3).*vn + v;
+  f_T = f;
+  [M_T,L_T] = lapbel(v_T,f_T);
+  D_T = eigvf(L_T,M_T,numeig);
 end
 %% initial conformal factors
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via gradient descent
-[J,s] = gradescent(@eigencost,imax,aS,bS,etol,1,s0,M,L,D_T,numeig);
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,etolS,0,...
+  s0,M,L,D_T,numeig);
 %% descent results
-J_end = J(end)
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% mfg. sol'n benchmark
@@ -127,10 +131,9 @@ end
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
-[Jc,vhist] = gradescent(@conformalcost,imax,aC,bC,etol,1,...
+[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
   reshape(v',[],1),isedge,elsq_end);
 %% fit results
-Jc_end = Jc(end)
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);
