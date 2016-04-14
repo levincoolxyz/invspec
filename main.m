@@ -4,17 +4,17 @@ input_case = 4; % 1 - octa; 2 - icosa; 3 - *.obj; 4 - sphere of ~ssize
 target_case = 4; % 1 - octa; 2 - conf defms; 3 - *.obj; 4 - spharm defms
 imax = 1e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-4; % Conformal gradient descent control
-aS = .5; bS = .4; etolS = 1e-5; % invSpec gradient descent control
+aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .6; % scaling coefficient used to control target purtabation
+purt = .5; % scaling coefficient used to control target purtabation
 ssize = 200;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) Y10(v)*purt;
+sphar = @(v) abs(Y10(v))*purt^3;
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -141,7 +141,7 @@ D_end = eigvf(L_end,M_end,numeig);
 % compare mesh
 Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
-Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
+% Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
 
 figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
 subplot(2,3,1); hold all; view(3); grid on;
