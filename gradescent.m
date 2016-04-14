@@ -26,7 +26,7 @@ fprintf('About to descent, first step might be slow...\n');
 for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
   if i>10
-    if (J(i-1) - J(i))/J(i-1) <= etol
+    if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=1e-8
       J(i:end) = [];
       v(:,i:end) = [];
       break;

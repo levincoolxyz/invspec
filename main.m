@@ -1,20 +1,20 @@
-close all; clear;
+clear;
 %% initialization
 input_case = 4; % 1 - octa; 2 - icosa; 3 - *.obj; 4 - sphere of ~ssize
 target_case = 4; % 1 - octa; 2 - conf defms; 3 - *.obj; 4 - spharm defms
 imax = 1e3; % gradient descent maximum iterations
-aC = .5; bC = .8; etolC = 1e-4; % Conformal gradient descent control
-aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
+aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
+aS = .5; bS = .4; etolS = 5e-3; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .5; % scaling coefficient used to control target purtabation
-ssize = 200;
+purt = .8; % scaling coefficient used to control target purtabation
+ssize = 100;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y10(v))*purt^3;
+sphar = @(v) abs(Y33(v))*purt^3;
 %% input mesh
 % regular octahedron (1)
 if input_case == 1
@@ -109,7 +109,7 @@ elseif target_case == 3
   D_T = eigvf(L_T,M_T,numeig);
 
 elseif target_case == 4
-  v_T = repmat(sphar(v),1,3).*vn + v;
+  v_T = v - repmat(sphar(v),1,3).*vn;
   f_T = f;
   [M_T,L_T] = lapbel(v_T,f_T);
   D_T = eigvf(L_T,M_T,numeig);
@@ -138,25 +138,26 @@ v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);
 %% visualisation
+close all;
 % compare mesh
 Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
-% Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
+Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
 
 figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
-subplot(2,3,1); hold all; view(3); grid on;
+subplot(2,3,1); hold all; view(3); grid on; axis equal
 trimesh(Mesh0);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('original mesh');
 
-subplot(2,3,2); hold all; view(3); grid on;
+subplot(2,3,2); hold all; view(3); grid on; axis equal
 trimesh(Mesh_T);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('target mesh');
 
-subplot(2,3,3); hold all; view(3); grid on;
+subplot(2,3,3); hold all; view(3); grid on; axis equal
 trimesh(Mesh_end);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
