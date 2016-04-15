@@ -14,7 +14,7 @@ vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y20(v))*purt^3;
+sphar = @(v) abs(Y10(v))*purt^3;
 %% input mesh
 % import wavefront object file
 if input_case == 1
@@ -168,7 +168,7 @@ ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
 ym = get(gca,'ylim');
-text(floor(numeig/4),max(ym(2) + .18*diff(ym)),...
+text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end)],...
-  ['Convergence Energies: J_{MIEP2} = %g\t',...
+  ['Convergence Energies: J_{MIEP2} = %g     ',...
   'J_{embedding} = %g']));

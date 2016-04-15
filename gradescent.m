@@ -9,7 +9,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % alpha,beta  - backtracking control parameters (cf. Section 5.1.2 in
 %               https://www.cs.cmu.edu/~ggordon/10725-F12/scribes/10725_Lecture5.pdf)
 % etol        - relative error tolerance
-% figureflag  - 1 => gives log-log plot of energy, 0 not
+% figfg       - 1 => gives log-log plot of energy, 0 not
 % v0          - initial condition (nx1) vector
 % varargin    - additional parameters passed on to costf
 % 
