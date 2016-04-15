@@ -9,7 +9,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % alpha,beta  - backtracking control parameters (cf. Section 5.1.2 in
 %               https://www.cs.cmu.edu/~ggordon/10725-F12/scribes/10725_Lecture5.pdf)
 % etol        - relative error tolerance
-% figureflag  - 1 => gives plot of energy, 0 not
+% figureflag  - 1 => gives log-log plot of energy, 0 not
 % v0          - initial condition (nx1) vector
 % varargin    - additional parameters passed on to costf
 % 
@@ -22,7 +22,7 @@ prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
 v(:,1) = v0;
-fprintf('About to descent, first step might be slow...\n');
+fprintf('\nAbout to descent, first step might be slow...\n');
 for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
   if i>10
