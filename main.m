@@ -64,7 +64,6 @@ vn = Hn./repmat(H,1,3);
 % perturb with random conformal factors at vertices
 if target_case == 1
   s_T = exp(-rand(numv,1)*purt);
-  D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
@@ -92,6 +91,7 @@ elseif target_case == 3
 end
 %% implicit mean curvature flow to obtain target conformal factors
 % s_T = meancurvflow(v_T,f_T,L_T,M_T,1);
+% D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
 %% (test-only) can I flow it back?
 % conf_T = sqrt(kron(1./s_T',1./s_T));
 % elsq_T = elsq0.*conf_T(isedge); % linear indices
@@ -145,21 +145,30 @@ xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
 
 % compare spectra
-subplot(2,3,4:6); hold all;
-plot(D_0,'bx:');
-if target_case == 1
-  plot(D_Tp,'ks:');
-end
-plot(D_T,'k.-');
-plot(D_endp,'rs:');
-plot(D_end,'ro-');
-if target_case == 1
-  legend('\lambda_{initial}','\lambda_{Target pre}','\lambda_{Target}',...
-    '\lambda_{result pre}','\lambda_{result}',...
+subplot(2,3,4:6); hold all; grid on;
+plot((D_0 - D_T),'bx:');
+% plot((D_Tp - D_T),'gs');
+plot((D_endp - D_T),'k-','linewidth',2);
+plot((D_end - D_T),'ro');
+if exist('D_Tp','var')
+  legend('\lambda_{initial} - \lambda_{target}',...
+    '\lambda_{target embed} - \lambda_{target}',...
+    '\lambda_{MIEP2} - \lambda_{target}',...
+    '\lambda_{final embed} - \lambda_{target}',...
     'location','best');
 else
-  legend('\lambda_{initial}','\lambda_{Target}',...
-    '\lambda_{result pre}','\lambda_{result}',...
+  legend('\lambda_{initial} - \lambda_{target}',...
+    '\lambda_{MIEP2} - \lambda_{target}',...
+    '\lambda_{final embed} - \lambda_{target}',...
     'location','best');
 end
-xlabel('Number of eigenvalues'); ylabel('Eigenvalues of M^{-1}L');
+% set(gca,'yscale','log');
+xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
+ylabel('\propto eigenvalue magnitude');
+title('Deviation from target Laplacian eigenvalues in magnitude');
+
+ym = get(gca,'ylim');
+text(floor(numeig/4),max(ym(2) + .18*diff(ym)),...
+  num2str([J_hist(end) Jc_hist(end)],...
+  ['Convergence Energies: J_{MIEP2} = %g\t',...
+  'J_{embedding} = %g']));
