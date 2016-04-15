@@ -30,7 +30,7 @@ for i = 1:imax
       i = i + (i < imax);
       J(i:end) = [];
       v(:,i:end) = [];
-      fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
+      fprintf('Converged at iter#%d; J = %g\n\n',i,J(end));
       break;
     end
   end
