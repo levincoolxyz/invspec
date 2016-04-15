@@ -1,7 +1,10 @@
-function [s,M] = meancurvflow(v0,f0,L0,M0,h)
+function [s,v] = meancurvflow(v0,f0,L0,M0,h)
+close all;
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-cost = @(vnew,v) norm(vnorm(vnew - v));
+update = @(v,vold) norm(vnorm(v - vold));
+scl = @(M) (sum(diag(M)));
+scl0 = scl(M0);
 M = M0;
 L = L0;
 vold = v0;
@@ -10,15 +13,17 @@ I = eye(size(v0,1));
 iter = 1;
 while true
   for dim = 1:3
-    v(:,dim) = (I - h*inv(M)*L)\vold(:,dim);
+    v(:,dim) = (I - h*(M\L))\vold(:,dim);
   end
-%   trimesh(TriRep(f0,v));
-%   [M,L] = lapbel(v,f0);
-  M = lapbel(v,f0);
-  J = cost(v,vold);
-  fprintf('flow iter#%d; J = %g\n',iter,J);
+  v = v/scl(M)*scl0;
+  figure();trimesh(TriRep(f0,v)); axis equal;
+%   [M,L] = lapbel(v,f0); % traditional
+  M = lapbel(v,f0); % conformal
+%   [~,L] = lapbel(v,f0); % authalic
+  dv = update(v,vold);
+  fprintf('flow iter#%d; J = %g\n',iter,dv);
   iter = iter + 1;
-  if J <= 1e-5
+  if dv <= 1e-5
     break;
   end
   vold = v;
