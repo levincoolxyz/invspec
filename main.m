@@ -7,7 +7,7 @@ aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
 numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .8; % scaling coefficient used to control target purtabation
+purt = .5; % scaling coefficient used to control target purtabation
 ssize = 200;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
@@ -91,14 +91,14 @@ elseif target_case == 3
   D_T = eigvf(L_T,M_T,numeig);
 end
 %% implicit mean curvature flow to obtain target conformal factors
-s_T = meancurvflow(v_T,f_T,L_T,M_T,1);
+% s_T = meancurvflow(v_T,f_T,L_T,M_T,1);
 %% (test-only) can I flow it back?
-conf_T = sqrt(kron(1./s_T',1./s_T));
-elsq_T = elsq0.*conf_T(isedge); % linear indices
-[Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
-  reshape(v',[],1),isedge,elsq_T);
-v_c = reshape(v_Thist(:,end),3,[])';
-norm(vnorm(v_T - v_c))
+% conf_T = sqrt(kron(1./s_T',1./s_T));
+% elsq_T = elsq0.*conf_T(isedge); % linear indices
+% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
+%   reshape(v',[],1),isedge,elsq_T);
+% v_c = reshape(v_Thist(:,end),3,[])';
+% norm(vnorm(v_T - v_c))
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
@@ -107,8 +107,8 @@ s0 = exp(-zeros(numv,1));
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% percent error in conformal factors
-s_err = norm(s_T - s_end)./norm(s_T)*100;
-fprintf('conformal factors error = %g%%\n',s_err);
+% s_err = norm(s_T - s_end)./norm(s_T)*100;
+% fprintf('conformal factors error = %g%%\n',s_err);
 %% conformal embedding/fit
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;

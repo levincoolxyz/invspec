@@ -15,7 +15,7 @@ function X=RandSampleSphere(N,spl)
 % AUTHOR: Anton Semechko (a.semechko@gmail.com)
 % DATE: May.2013
 % 
-% Modified by Feng Ling for a easier way to get uniform points on sphere
+% Modified by Feng Ling for an easier way to get uniform points on sphere
 % (2016/04/11)
 %
 
