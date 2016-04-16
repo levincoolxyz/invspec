@@ -1,20 +1,20 @@
 clear;
 %% initialization
-input_case = 2; % 1 - import *.obj; 2 - sphere with ssize # of vertices
+input_case = 3; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
-numeig = 200; % number of eigenvalues used, 0 means full input
+numeig = 0; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .5; % scaling coefficient used to control target purtabation
-ssize = 100;
+purt = .8; % scaling coefficient used to control target purtabation
+ssize = 500;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y10(v))*purt^3;
+sphar = @(v) abs(Y33(v))*purt^3;
 %% input mesh
 % import wavefront object file
 if input_case == 1
@@ -28,6 +28,11 @@ elseif input_case == 2
 %   v = unique([x(:) y(:) z(:)],'rows');
   v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
   f = fliplr(convhulln(v));
+
+% load *.mat
+elseif input_case == 2
+  filename = 'sphere500';
+  load([filename '.mat']);
 end
 
 numv = size(v,1); % number of vertices
@@ -93,12 +98,12 @@ end
 s_T = meancurvflow(v_T,f_T,L_T,M_T,1);
 % D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
 %% (test-only) can I flow it back?
-conf_T = sqrt(kron(1./s_T',1./s_T));
-elsq_T = elsq0.*conf_T(isedge); % linear indices
-[Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
-  reshape(v',[],1),isedge,elsq_T);
-v_c = reshape(v_Thist(:,end),3,[])';
-norm(vnorm(v_T - v_c))
+% conf_T = sqrt(kron(1./s_T',1./s_T));
+% elsq_T = elsq0.*conf_T(isedge); % linear indices
+% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
+%   reshape(v',[],1),isedge,elsq_T);
+% v_c = reshape(v_Thist(:,end),3,[])';
+% norm(vnorm(v_T - v_c))
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
@@ -174,4 +179,4 @@ text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
   'J_{embedding} = %g']));
 
 saveas(gcf,num2str([input_case, target_case, numeig, purt, ssize],...
-  'i%dt%de%dp%ds%d.png'))
+  'i%dt%de%dp%gs%d.png'))
