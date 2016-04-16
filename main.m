@@ -30,9 +30,9 @@ elseif input_case == 2
   f = fliplr(convhulln(v));
 
 % load *.mat
-elseif input_case == 2
+elseif input_case == 3
   filename = 'sphere500';
-  load([filename '.mat']);
+  load(filename);
 end
 
 numv = size(v,1); % number of vertices
