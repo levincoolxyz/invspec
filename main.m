@@ -4,8 +4,8 @@ input_case = 2; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
-aS = .5; bS = .4; etolS = 1e-4; % invSpec gradient descent control
-numeig = 0; % number of eigenvalues used, 0 means full input
+aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
+numeig = 250; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 purt = .8; % scaling coefficient used to control target purtabation
 ssize = 300;
@@ -180,6 +180,7 @@ text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
 
 endname = num2str([input_case, target_case, numeig, purt, ssize],...
   'i%dt%de%dp%gs%d');
-%   ['i%dt%de%dp%gs%d' fun2str(sphar)]);
+%   ['i%dt%de%dp%gs%d' func2str(sphar)]);
 saveas(gcf,[endname '.png'])
-save([endname '.mat'],'Mesh0','Mesh_T','Mesh_end','D_0','D_T','D_endp','D_end')
+save([endname '.mat'],'v','f','v_end','v_T','f_T',...
+  'D_0','D_T','D_endp','D_end')
