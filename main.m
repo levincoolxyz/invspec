@@ -1,14 +1,14 @@
 clear;
 %% initialization
-input_case = 2; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
+input_case = 3; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
-numeig = 250; % number of eigenvalues used, 0 means full input
+numeig = 300; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 purt = .8; % scaling coefficient used to control target purtabation
-ssize = 300;
+ssize = 500;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
@@ -29,9 +29,10 @@ elseif input_case == 2
   v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
   f = fliplr(convhulln(v));
 
-% load *.mat
+% load face-vertex from *.mat
 elseif input_case == 3
-  filename = 'sphere500';
+  filename = 'sphere300';
+%   filename = 'sphere500';
   load(filename);
 end
 
@@ -76,26 +77,23 @@ if target_case == 1
   [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
     reshape(v',[],1),isedge,elsq_T);
   v_T = reshape(v_Thist(:,end),3,[])';
-  [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
 
 % perturb with spherical harmonics
 elseif target_case == 2
   v_T = v - repmat(sphar(v),1,3).*vn;
   f_T = f;
-  [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
   
 % import wavefront object file
 elseif target_case == 3
   filename = 'spot';
   fid = fopen(['../meshes/' filename '.obj'],'rt');
   [v_T,f_T] = readwfobj(fid);
-  [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
 end
+
+[M_T,L_T] = lapbel(v_T,f_T);
+D_T = eigvf(L_T,M_T,numeig);
 %% implicit mean curvature flow to obtain target conformal factors
-s_T = meancurvflow(v_T,f_T,L_T,M_T,1);
+% s_T = meancurvflow(v_T,f_T,L_T,M_T,10);
 % D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
 %% (test-only) can I flow it back?
 % conf_T = sqrt(kron(1./s_T',1./s_T));

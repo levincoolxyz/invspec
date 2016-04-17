@@ -7,6 +7,11 @@ else
 %   [V,D] = eig(inv(M)*L);
 end
 
+% normalize eigenvectors
+for i = 1:size(V,2)
+  V(:,i) = V(:,i)./norm(V(:,i));
+end
+
 if (nargout <= 1)
   varargout{1} = sort(diag(D));
 else
