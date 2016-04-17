@@ -218,8 +218,9 @@ pip-log.txt
 #Jekyll
 _site/
 
-#windows matlab bs
+#matlab stuff
 *.asv
 
 #ut cs job queue
 *.condor
+condor.log
