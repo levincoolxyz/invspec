@@ -7,14 +7,14 @@ aC = .5; bC = .4; tC = 50; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; tS = 200; etolS = 1e-3; % invSpec gradient descent control
 numeig = 300; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .8; % scaling coefficient used to control target purtabation
+pert = .8; % scaling coefficient used to control target perturbation
 ssize = 500;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y33(v))*purt^3;
+sphar = @(v) abs(Y33(v))*pert^3;
 %% input mesh
 % import wavefront object file
 if input_case == 1
@@ -69,7 +69,7 @@ vn = Hn./repmat(H,1,3);
 %% target spectrum (+mesh for testing)
 % perturb with random conformal factors at vertices
 if target_case == 1
-  s_T = exp(-rand(numv,1)*purt);
+  s_T = exp(-rand(numv,1)*pert);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
@@ -177,7 +177,7 @@ text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
   'J_{embedding} = %g']));
 
 %% store for record
-endname = num2str([input_case, target_case, numeig, purt, ssize],...
+endname = num2str([input_case, target_case, numeig, pert, ssize],...
   'i%dt%de%dp%gs%d');
 %   ['i%dt%de%dp%gs%d' func2str(sphar)]);
 saveas(gcf,[endname '.png']);

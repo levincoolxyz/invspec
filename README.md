@@ -19,3 +19,4 @@ Some codes here (on (sphere) meshes optimization and a demo of spherical harmoni
 ![Result #2](/Y20_0.8.png?raw=true "discrete Y20 spherical harmonic target, converged at a local minimum")
 ![Result #3](/Y20_0.6.png?raw=true "discrete Y20 spherical harmonic target (with less perturbation)")
 ![Result #3](/Y33_0.8.png?raw=true "discrete Y33 spherical harmonic target")
+![Result #3](/Y33_0.7.png?raw=true "discrete Y33 spherical harmonic target, finer mesh less perturbation")
