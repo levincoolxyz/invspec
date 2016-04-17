@@ -1,45 +1,31 @@
-clear;
-%% initialization parameters
-input_case = 2; % 1 - *.obj; 2 - sphere of ssize # of vtx; 3 - *.mat
-target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
-imax = 3e3; % gradient descent maximum iterations
-aC = .5; bC = .3; tC = 50; etolC = 1e-4; % Conformal descent control
-aS = .5; bS = .4; tS = 200; etolS = 1e-4; % invSpec descent control
-numeig = 300; % number of eigenvalues used, 0 => full of input
-rng(1432543); % rand seed
-pert = .8; % scaling coefficient used to control target perturbation
-ssize = 600;
-%% some spherical harmonics
+function [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
+  D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+  imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+  numeig,pert)
+
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
-Y32 = @(v) ((v(:,1).^2-v(:,2).^2).*v(:,3))./vnorm(v);
-Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
-Y10 = @(v) v(:,3)./vnorm(v);
-sphar = @(v) abs(Y33(v))*pert^3;
-%% input mesh
+%% initial mesh
 % import wavefront object file
-if input_case == 1
-  filename = 'sphere_small';
-  fid = fopen(['../meshes/' filename '.obj'],'rt');
+if init_data.num == 1
+  fid = fopen(['../meshes/' init_data.dat '.obj'],'rt');
   [v,f] = readwfobj(fid);
 
 % sphere of chosen size
-elseif input_case == 2
-%   [x,y,z]=sphere(floor(sqrt(ssize)));
-%   v = unique([x(:) y(:) z(:)],'rows');
+elseif init_data.num == 2
+  ssize = str2num(init_data.dat);
   v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
   f = fliplr(convhulln(v));
 
 % load face-vertex from *.mat
-elseif input_case == 3
-%   filename = 'sphere300';
-  filename = 'sphere500';
-  load(filename);
+elseif init_data.num == 3
+  load(init_data.dat);
 end
 
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
-numeig = numv*(numeig <= 0) + min(numv,numeig)*(numeig > 0);
+numeig = numv*(numeig <= 0) + ...
+  ceil(numv*numeig)*(numeig < 1 && numeig > 0) + ...
+  min(numv,numeig)*(numeig >= 1);
 %% when is there an edge (mild redundancy)
 isedge = zeros(numv);
 for fi = 1:numf
@@ -69,7 +55,7 @@ H = vnorm(Hn);
 vn = Hn./repmat(H,1,3);
 %% target spectrum (+mesh for testing)
 % perturb with random conformal factors at vertices
-if target_case == 1
+if target_data.num == 1
   s_T = exp(-rand(numv,1)*pert);
   f_T = f;
   conf_T = sqrt(kron(1./s_T',1./s_T));
@@ -79,15 +65,14 @@ if target_case == 1
     reshape(v',[],1),isedge,elsq_T);
   v_T = reshape(v_Thist(:,end),3,[])';
 
-% perturb with spherical harmonics
-elseif target_case == 2
-  v_T = v - repmat(sphar(v),1,3).*vn;
+% perturb with given scalar field
+elseif target_data.num == 2
+  v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
   f_T = f;
   
 % import wavefront object file
-elseif target_case == 3
-  filename = 'spot';
-  fid = fopen(['../meshes/' filename '.obj'],'rt');
+elseif target_data.num == 3
+  fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
   [v_T,f_T] = readwfobj(fid);
 end
 
@@ -122,65 +107,5 @@ elsq_end = elsq0.*conf(isedge); % linear indices
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);
-%% visualing results
-close all;
-% compare mesh
-Mesh0 = TriRep(f,v); %triangulation(f,v);
-Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
-Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
 
-figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
-subplot(2,3,1); hold all; view(3); grid on; axis equal
-trimesh(Mesh0);
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('original mesh');
-
-subplot(2,3,2); hold all; view(3); grid on; axis equal
-trimesh(Mesh_T);
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('target mesh');
-
-subplot(2,3,3); hold all; view(3); grid on; axis equal
-trimesh(Mesh_end);
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('resultant mesh');
-
-% compare spectra
-subplot(2,3,4:6); hold all; grid on;
-plot((D_0 - D_T),'bx:');
-% plot((D_Tp - D_T),'gs');
-plot((D_endp - D_T),'k-','linewidth',2);
-plot((D_end - D_T),'ro');
-if exist('D_Tp','var')
-  legend('\lambda_{initial} - \lambda_{target}',...
-    '\lambda_{target embed} - \lambda_{target}',...
-    '\lambda_{MIEP2} - \lambda_{target}',...
-    '\lambda_{final embed} - \lambda_{target}',...
-    'location','best');
-else
-  legend('\lambda_{initial} - \lambda_{target}',...
-    '\lambda_{MIEP2} - \lambda_{target}',...
-    '\lambda_{final embed} - \lambda_{target}',...
-    'location','best');
 end
-% set(gca,'yscale','log');
-xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
-ylabel('\propto eigenvalue magnitude');
-title('Deviation from target Laplacian eigenvalues in magnitude');
-
-ym = get(gca,'ylim');
-text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
-  num2str([J_hist(end) Jc_hist(end)],...
-  ['Convergence Energies: J_{MIEP2} = %g     ',...
-  'J_{embedding} = %g']));
-
-%% store for record
-endname = num2str([input_case, target_case, numeig, pert, ssize],...
-  'i%dt%de%dp%gs%d');
-%   ['i%dt%de%dp%gs%d' func2str(sphar)]);
-saveas(gcf,[endname '.png']);
-save([endname '.mat'],'v','f','v_end','v_T','f_T',...
-  'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
