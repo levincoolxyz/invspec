@@ -2,8 +2,8 @@ clear;
 %% initialization parameters
 input_case = 2; % 1 - *.obj; 2 - sphere of ssize # of vtx; 3 - *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
-imax = 2e3; % gradient descent maximum iterations
-aC = .5; bC = .4; tC = 30; etolC = 1e-4; % Conformal descent control
+imax = 3e3; % gradient descent maximum iterations
+aC = .5; bC = .3; tC = 50; etolC = 1e-4; % Conformal descent control
 aS = .5; bS = .4; tS = 200; etolS = 1e-4; % invSpec descent control
 numeig = 300; % number of eigenvalues used, 0 => full of input
 rng(1432543); % rand seed
@@ -12,6 +12,7 @@ ssize = 600;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
+Y32 = @(v) ((v(:,1).^2-v(:,2).^2).*v(:,3))./vnorm(v);
 Y20 = @(v) (2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./vnorm(v);
 Y10 = @(v) v(:,3)./vnorm(v);
 sphar = @(v) abs(Y33(v))*pert^3;
