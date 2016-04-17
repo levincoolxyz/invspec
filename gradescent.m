@@ -1,5 +1,5 @@
-function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
-% [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
+function [J,v] = gradescent(costf,imax,alpha,beta,t0,etol,figfg,v0,varargin)
+% [J,v] = gradescent(costf,imax,alpha,beta,t0,etol,figfg,v0,varargin)
 % gradient descent with backtracking
 % 
 % INPUTS
@@ -8,6 +8,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % imax        - the maximum allowed number of iteration
 % alpha,beta  - backtracking control parameters (cf. Section 5.1.2 in
 %               https://www.cs.cmu.edu/~ggordon/10725-F12/scribes/10725_Lecture5.pdf)
+% t0          - initial stepsize multiplier
 % etol        - relative error tolerance
 % figfg       - 1 => gives log-log plot of energy, 0 not
 % v0          - initial condition (nx1) vector
@@ -18,7 +19,6 @@ function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
-t0 = 100;
 prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
@@ -35,7 +35,7 @@ for i = 1:imax
       break;
     end
   end
-  t = ((prev_ln>10)*beta^(prev_ln-3) + (prev_ln<=10))*t0;
+  t = ((prev_ln>4)*beta^(prev_ln-3) + (prev_ln<=4))*t0;
 %   t = t0;
   vnext = v(:,i) - t*GJ;
   prev_ln = 1;
@@ -46,7 +46,7 @@ for i = 1:imax
   end
   v(:,i+1) = vnext;
 %   prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
-  fprintf('descent iter#%d; J = %g; step = %g\n',i,J(i),t0*beta^(prev_ln-1));
+  fprintf('descent iter#%d; J = %g; step *= %g\n',i,J(i),t0*beta^(prev_ln-1));
 end
 
 if(figfg)

@@ -1,8 +1,6 @@
 function [J,GJ] = eigencost(s,M,L,lambda_T,numeig)
 nums = numel(s);
 %% get eigenvalues and eigenvectors
-% [V,D] = eig(diag(s)*inv(M)*L);
-% [lambda,ix] = sort(diag(D));
 [V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
 %% Mean square difference
 % lambda_diff = lambda-lambda_T;

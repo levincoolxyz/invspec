@@ -2,9 +2,9 @@ clear;
 %% initialization
 input_case = 3; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
-imax = 5e3; % gradient descent maximum iterations
-aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
-aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
+imax = 2e3; % gradient descent maximum iterations
+aC = .5; bC = .4; tC = 50; etolC = 1e-3; % Conformal gradient descent control
+aS = .5; bS = .4; tS = 200; etolS = 1e-3; % invSpec gradient descent control
 numeig = 300; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
 purt = .7; % scaling coefficient used to control target purtabation
@@ -74,7 +74,7 @@ if target_case == 1
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
   elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
+  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
     reshape(v',[],1),isedge,elsq_T);
   v_T = reshape(v_Thist(:,end),3,[])';
 
@@ -98,14 +98,14 @@ D_T = eigvf(L_T,M_T,numeig);
 %% (test-only) can I flow it back?
 % conf_T = sqrt(kron(1./s_T',1./s_T));
 % elsq_T = elsq0.*conf_T(isedge); % linear indices
-% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
+% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
 %   reshape(v',[],1),isedge,elsq_T);
 % v_c = reshape(v_Thist(:,end),3,[])';
 % norm(vnorm(v_T - v_c))
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
-[J_hist,s] = gradescent(@eigencost,imax,aS,bS,etolS,0,...
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
   s0,M,L,D_T,numeig);
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
@@ -116,7 +116,7 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
-[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,etolC,0,...
+[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
   reshape(v',[],1),isedge,elsq_end);
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
