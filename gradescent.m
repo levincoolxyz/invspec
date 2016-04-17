@@ -18,6 +18,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,etol,figfg,v0,varargin)
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
+t0 = 100;
 prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
@@ -25,25 +26,25 @@ v(:,1) = v0;
 fprintf('\nAbout to descent, first step might be slow...\n');
 for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
-  if i>10
-    if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
-      fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
-      i = i + (i < imax);
-      J(i:end) = [];
-      v(:,i:end) = [];
-      break;
-    end
+  if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
+    fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
+    i = i + (i < imax);
+    J(i:end) = [];
+    v(:,i:end) = [];
+    break;
   end
-  t = (prev_ln>10)*beta^(prev_ln-3) + (prev_ln<=10);
-%   t = 1;
+  t = ((prev_ln>10)*beta^(prev_ln-3) + (prev_ln<=10))*t0;
+%   t = t0;
   vnext = v(:,i) - t*GJ;
+  prev_ln = 1;
   while feval(costf,vnext,varargin{:}) > J(i) - alpha*t*sum(GJ.^2)
     t = beta*t;
     vnext = v(:,i) - t*GJ;
+    prev_ln = prev_ln + 1;
   end
   v(:,i+1) = vnext;
-  prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
-  fprintf('descent iter#%d; J = %g; step = beta^%d\n',i,J(i),prev_ln);
+%   prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
+  fprintf('descent iter#%d; J = %g; step = %g\n',i,J(i),t0*beta^(prev_ln-1));
 end
 
 if(figfg)

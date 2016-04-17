@@ -1,14 +1,14 @@
 clear;
 %% initialization
-input_case = 3; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
+input_case = 2; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; etolS = 1e-3; % invSpec gradient descent control
 numeig = 300; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .8; % scaling coefficient used to control target purtabation
-ssize = 500;
+purt = .7; % scaling coefficient used to control target purtabation
+ssize = 200;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
