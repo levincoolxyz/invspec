@@ -7,8 +7,8 @@ aC = .5; bC = .4; tC = 50; etolC = 1e-3; % Conformal gradient descent control
 aS = .5; bS = .4; tS = 200; etolS = 1e-3; % invSpec gradient descent control
 numeig = 300; % number of eigenvalues used, 0 means full input
 rng(1432543); % rand seed
-purt = .7; % scaling coefficient used to control target purtabation
-ssize = 200;
+purt = .8; % scaling coefficient used to control target purtabation
+ssize = 500;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y33 = @(v) ((v(:,1).^2-3*v(:,2).^2).*v(:,1))./vnorm(v);
