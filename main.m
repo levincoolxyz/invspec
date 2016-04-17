@@ -31,8 +31,8 @@ elseif input_case == 2
 
 % load face-vertex from *.mat
 elseif input_case == 3
-  filename = 'sphere300';
-%   filename = 'sphere500';
+%   filename = 'sphere300';
+  filename = 'sphere500';
   load(filename);
 end
 
@@ -176,9 +176,10 @@ text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
   ['Convergence Energies: J_{MIEP2} = %g     ',...
   'J_{embedding} = %g']));
 
+%% store for record
 endname = num2str([input_case, target_case, numeig, purt, ssize],...
   'i%dt%de%dp%gs%d');
 %   ['i%dt%de%dp%gs%d' func2str(sphar)]);
-saveas(gcf,[endname '.png'])
+saveas(gcf,[endname '.png']);
 save([endname '.mat'],'v','f','v_end','v_T','f_T',...
-  'D_0','D_T','D_endp','D_end')
+  'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
