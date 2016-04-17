@@ -5,7 +5,7 @@ To calculate an approximate solution to the classic (Laplace-Beltrami) inverse s
 
 ### Content
 Included is a suite of MATLAB codes implementing the naive direct gradient descent approach.
-main.m is the top-level script that generates results.
+test_script.m is the top-level script that generates results.
 
 ### People
 Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Prof. Keenan Crane**
