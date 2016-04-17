@@ -2,14 +2,13 @@ function varargout = eigvf(L,M,numeig)
 
 if numeig < size(M,1)
   [V,D] = eigs(L,M,numeig,-1e-6);
+  % normalize eigenvectors
+  for i = 1:size(V,2)
+    V(:,i) = V(:,i)./norm(V(:,i));
+  end
 else
   [V,D] = eig(M\L);
 %   [V,D] = eig(inv(M)*L);
-end
-
-% normalize eigenvectors
-for i = 1:size(V,2)
-  V(:,i) = V(:,i)./norm(V(:,i));
 end
 
 if (nargout <= 1)
