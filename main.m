@@ -1,6 +1,6 @@
 clear;
 %% initialization
-input_case = 2; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
+input_case = 3; % 1 - import *.obj; 2 - sphere of ssize # of vtx; 3 - load *.mat
 target_case = 2; % 1 - rand conf defms; 2 - spharm defms; 3 - *.obj;
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; etolC = 1e-3; % Conformal gradient descent control

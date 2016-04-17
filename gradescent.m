@@ -26,12 +26,14 @@ v(:,1) = v0;
 fprintf('\nAbout to descent, first step might be slow...\n');
 for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
-  if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
-    fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
-    i = i + (i < imax);
-    J(i:end) = [];
-    v(:,i:end) = [];
-    break;
+  if i>1
+  	if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
+      fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
+      i = i + (i < imax);
+      J(i:end) = [];
+      v(:,i:end) = [];
+      break;
+    end
   end
   t = ((prev_ln>10)*beta^(prev_ln-3) + (prev_ln<=10))*t0;
 %   t = t0;
