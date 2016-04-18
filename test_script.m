@@ -18,7 +18,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '200';
+init_data.dat = '300';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = 'sphere500';
@@ -31,7 +31,7 @@ target_data.dat = @(v) abs(Y32(v));
 % target_data.num = 3;
 % target_data.dat = 'spot';
 % for pert = linspace(.8,.9,2)
-for pert = 1.5
+for pert = 2
 %% testing time
 [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
