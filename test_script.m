@@ -9,7 +9,7 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
 imax = 3e3; % gradient descent maximum iterations
 aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
-aS = .5; bS = .4; tS = 100; etolS = 1e-4; % invSpec descent control
+aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
 numeig = .6; % number of eigenvalues used, <1 => percent, <=0 => all
 pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
@@ -18,7 +18,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '300';
+init_data.dat = '200';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = 'sphere500';
@@ -26,12 +26,11 @@ init_data.dat = '300';
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
 target_data.num = 2;
-target_data.dat = @(v) abs(Y10(v));
+target_data.dat = @(v) abs(Y32(v));
 %% target case == 3; import face-vtx from *.obj file
 % target_data.num = 3;
 % target_data.dat = 'spot';
-% for pert = linspace(.5,.6,3)
-for pert = .6
+for pert = linspace(.5,.7,3)
 %% testing time
 [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
