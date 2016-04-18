@@ -30,7 +30,8 @@ target_data.dat = @(v) abs(Y10(v));
 %% target case == 3; import face-vtx from *.obj file
 % target_data.num = 3;
 % target_data.dat = 'spot';
-for pert = linspace(.2752,.512,5)
+% for pert = linspace(.2752,.512,5)
+for pert = .512
 %% testing time
 [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
