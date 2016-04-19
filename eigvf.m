@@ -7,7 +7,8 @@ if numeig < size(M,1)
     V(:,i) = V(:,i)./norm(V(:,i));
   end
 else
-  [V,D] = eig(M\L);
+  [V,D] = eig(L,M);
+%   [V,D] = eig(M\L);
 %   [V,D] = eig(inv(M)*L);
 end
 
