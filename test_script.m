@@ -32,7 +32,7 @@ target_data.dat = @(v) abs(Y33(v));
 % target_data.dat = 'spot';
 % for pert = linspace(.3,.6,4)
 % for pert = .5
-for numeig = .1:.1:.5
+for numeig = .6:.1:1
 %% testing time
 [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
@@ -63,6 +63,7 @@ trimesh(Mesh_end);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
+view([-140 20]);
 
 % compare spectra
 subplot(2,3,4:6); hold all; grid on;
@@ -88,7 +89,8 @@ ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
 ym = get(gca,'ylim');
-text(floor(numeig/4.5),max(ym(2) + .18*diff(ym)),...
+xm = get(gca,'xlim');
+text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end)],...
   ['Convergence Energies: J_{MIEP2} = %g     ',...
   'J_{embedding} = %g']));
