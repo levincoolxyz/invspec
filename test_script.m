@@ -41,7 +41,7 @@ for numeig = .6:.1:1
 %% visualing results
 close all;
 figh = visualize(v,f,v_end,v_T,f_T,,...
-  D_0,D_T,D_endp,D_end);
+  J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
 %% store for record
 if isa(target_data.dat,'function_handle')
   dumb = func2str(target_data.dat);
