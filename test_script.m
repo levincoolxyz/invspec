@@ -21,7 +21,7 @@ rng(1432543); % rand seed
 % init_data.dat = '300';
 %% input case == 3; import face-vtx from *.mat file
 init_data.num = 3; 
-init_data.dat = 'sphere300';
+init_data.dat = '300';
 %% target case == 1; random conformal factor (on vtx) deformation
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
