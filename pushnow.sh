@@ -1,5 +1,5 @@
 #!/bin/bash
-if ! type zenity >/dev/null && [ ! `echo $DISPLAY` == "" ]
+if type zenity >/dev/null && [ ! `echo $DISPLAY` == "" ] && [ `$1` == "" ];
   then
     CommitComment=$(zenity --entry --text "Care to comment?" --entry-text "generic new commit");
 elif [ ! `$1` == "" ]; then
