@@ -10,7 +10,7 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 imax = 3e3; % gradient descent maximum iterations
 aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
 aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
-numeig = .6; % number of eigenvalues used, <1 => percent, <=0 => all
+numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
@@ -32,8 +32,7 @@ target_data.dat = @(v) abs(Y33(v));
 % target_data.dat = 'spot';
 % for pert = linspace(.3,.6,4)
 % for pert = .5
-% for numeig = .6:.1:1
-for numeig = 0
+for numeig = .6:.1:1
 %% testing time
 [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...

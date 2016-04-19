@@ -14,10 +14,10 @@ Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Pro
 Some codes here (on (sphere) meshes optimization and a demo of spherical harmonics) are not mine.
 
 ### Some Results
-![Result #1](/rand_0.8.png?raw=true "target constructed with small random discrete conformal factors")
-![Result #3](/Y10_0.8.png?raw=true "discrete Y10 spherical harmonic target, wat")
-![Result #3](/Y10_0.5.png?raw=true "discrete Y10 spherical harmonic target (with smaller perturbation, a.k.a. ellipsoid)")
-![Result #2](/Y20_0.8.png?raw=true "discrete Y20 spherical harmonic target, converged at a local minimum")
-![Result #3](/Y20_0.6.png?raw=true "discrete Y20 spherical harmonic target (with less perturbation)")
-![Result #3](/Y33_0.8.png?raw=true "discrete Y33 spherical harmonic target")
-![Result #3](/Y33_0.7.png?raw=true "discrete Y33 spherical harmonic target, finer mesh less perturbation")
+![Result #1](/rand_0.512.png?raw=true "target constructed with small random discrete conformal factors")
+![Result #3](/Y10_0.512.png?raw=true "discrete Y10 spherical harmonic target, wat")
+![Result #3](/Y10_0.125.png?raw=true "discrete Y10 spherical harmonic target (with smaller perturbation, a.k.a. ellipsoid)")
+![Result #2](/Y20_0.512.png?raw=true "discrete Y20 spherical harmonic target, converged at a local minimum")
+![Result #3](/Y20_0.216.png?raw=true "discrete Y20 spherical harmonic target (with less perturbation)")
+![Result #3](/i3_300_t2_abs(Y33(v))_e0-1p0.512.gif?raw=true "discrete Y33 spherical harmonic target varying percent of eigenvalues used")
+![Result #3](/Y33_0.343.png?raw=true "discrete Y33 spherical harmonic target, 500 vtx mesh result")

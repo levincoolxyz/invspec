@@ -24,8 +24,8 @@ end
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
 numeig = numv*(numeig <= 0) + ...
-  ceil(numv*numeig)*(numeig < 1 && numeig > 0) + ...
-  min(numv,numeig)*(numeig >= 1);
+  ceil(numv*numeig)*(numeig <= 1 && numeig > 0) + ...
+  min(numv,numeig)*(numeig > 1);
 %% when is there an edge (mild redundancy)
 isedge = zeros(numv);
 for fi = 1:numf
