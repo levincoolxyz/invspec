@@ -26,7 +26,7 @@ function [V,Tri,Ue_i,Ue]=ParticleSampleSphere(varargin)
 %   - 'Etol' : convergence tolerance. Etol must be a real, positive number.
 %              Etol=1E-5 is the default setting.
 %   - 'Nitr' : Maximum number of iterations. Nitr must be a non-negative 
-%              integer. Nitr=1E3 is the default setting.
+%              integer. Nitr=5E3 is the default setting.
 %
 % OUTPUT:
 %   - V     : N-by-3 array of vertex positions.
@@ -229,7 +229,7 @@ function [V,s,Etol,Nitr]=VerifyInputArgs(VarsIn)
 % Make sure all supplied input arguments have valid format
 
 % Default settings
-s=1; Etol=1E-5; Nitr=1E3;
+s=1; Etol=1E-5; Nitr=5E3;
 V=[];
 if isempty(VarsIn)
     V=RandSampleSphere;
