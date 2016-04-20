@@ -27,7 +27,6 @@ target_data.dat = @(v) abs(Y32(v));
 numeig = 100;
 pert = .6; % scaling coefficient used to control target perturbation
 for ssize = 1e2:1e2:1e3
-% for ssize = 200
   v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
   f = fliplr(convhulln(v));
   [M,L] = lapbel(v,f);
@@ -46,8 +45,7 @@ end
 legend('100','200','300','400','500','600','700','800','900','1E3',...
   'location','best');
 xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-title(['First 100 eigenvalues of |Y32| perturbed sphere '...
-  'with different mesh refinement']);
+title('First 100 eigenvalues of |Y32| perturbed sphere with different mesh refinement');
 saveas(gcf,'Y32_spectrum.png');
 %% compare mesh refinement sphere spectrum
 close all;
@@ -56,7 +54,7 @@ for l = 0:9
     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
 end
 figure(); hold all; grid on;
-for i = 1:size(D,2)
+for i = 1:10
   plot(D(:,i))
 end
 plot(D_s)
