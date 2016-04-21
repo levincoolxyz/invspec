@@ -1,5 +1,7 @@
-function [J,v] = gradescent(costf,imax,alpha,beta,t0,etol,figfg,v0,varargin)
-% [J,v] = gradescent(costf,imax,alpha,beta,t0,etol,figfg,v0,varargin)
+function [J,v] = gradescent(costf,imax,alpha,beta,t0,...
+  etol,figfg,v0,varargin)
+% [J,v] = gradescent(costf,imax,alpha,beta,t0,...
+%   etol,figfg,v0,varargin)
 % gradient descent with backtracking
 % 
 % INPUTS
@@ -45,8 +47,8 @@ for i = 1:imax
     prev_ln = prev_ln + 1;
   end
   v(:,i+1) = vnext;
-%   prev_ln = ceil(log(t)/log(beta))+1; %previous ln search, use as heuristic
-  fprintf('descent iter#%d; J = %g; step *= %g\n',i,J(i),t0*beta^(prev_ln-1));
+  fprintf('descent iter#%d; J = %g; stepsize *= %g\n',...
+    i,J(i),t0*beta^(prev_ln-1));
 end
 
 if(figfg)

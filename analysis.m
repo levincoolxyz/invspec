@@ -48,7 +48,8 @@ xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
 title(['First 100 eigenvalues of |Y32| perturbed sphere' ...
   'with different mesh refinement']);
 saveas(gcf,'Y32_spectrum.png');
-%% compare mesh refinement sphere spectrum
+
+%% compare mesh refinement on sphere spectrum
 close all;
 D_s = [];
 for l = 0:9
@@ -64,3 +65,14 @@ legend('100','200','300','400','500','600','700','800','900','1E3',...
 xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
 title('First 100 eigenvalues of sphere');
 saveas(gcf,'sphere_spectrum.png');
+
+%% conformal Mean Curvature Flow for conformal factors
+% s_T = meancurvflow(v_T,f_T,10,'c',L_T,M_T);
+% D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
+%% can I flow it back?
+% conf_T = sqrt(kron(1./s_T',1./s_T));
+% elsq_T = elsq0.*conf_T(isedge); % linear indices
+% [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+%   reshape(v',[],1),isedge,elsq_T);
+% v_c = reshape(v_Thist(:,end),3,[])';
+% norm(vnorm(v_T - v_c))

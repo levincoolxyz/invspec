@@ -5,6 +5,8 @@ Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
 Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
 
+% insert principal component analysis for alignment
+
 figh = figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
 subplot(2,3,1); hold all; view(3); grid on; axis equal
 trimesh(Mesh0);
@@ -26,25 +28,20 @@ title('resultant mesh');
 view([-140 20]);
 
 % compare spectra
+
 subplot(2,3,4:6); hold all; grid on;
-plot((D_0 - D_T),'bx:');
-% plot((D_Tp - D_T),'gs');
+% plot((D_endp - D_T)./D_T,'k-','linewidth',2);
+% plot((D_end - D_T)./D_T,'ro');
+% legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
+%   '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
+%   'location','southeast');
 plot((D_endp - D_T),'k-','linewidth',2);
 plot((D_end - D_T),'ro');
-% if exist('D_Tp','var')
-%   legend('\lambda_{initial} - \lambda_{target}',...
-%     '\lambda_{target embed} - \lambda_{target}',...
-%     '\lambda_{MIEP2} - \lambda_{target}',...
-%     '\lambda_{final embed} - \lambda_{target}',...
-%     'location','southeast');
-% else
-  legend('\lambda_{initial} - \lambda_{target}',...
-    '\lambda_{MIEP2} - \lambda_{target}',...
-    '\lambda_{final embed} - \lambda_{target}',...
-    'location','southeast');
-% end
-% set(gca,'yscale','log');
+legend('\lambda_{MIEP2} - \lambda_{target}',...
+  '\lambda_{final embed} - \lambda_{target}',...
+  'location','southeast');
 xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
+% ylabel('Eigenvalue deviation [%]');
 ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
@@ -54,5 +51,7 @@ text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end)],...
   ['Convergence Energies: J_{MIEP2} = %g     ',...
   'J_{embedding} = %g']));
+
+% more graph to compare conformal factors
 
 end

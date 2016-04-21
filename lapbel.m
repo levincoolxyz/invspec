@@ -1,4 +1,16 @@
 function [M,L] = lapbel(v,f)
+% function [M,L] = lapbel(v,f)
+% computes the Laplace-Beltrami operator of discrete surfaces
+% 
+% INPUTS
+% v,f  - face-vertex data of the input surface
+% 
+% OUTPUTS
+% M    - diagonal part (mass matrix)
+% L    - symmetric negative definite part
+%        thus M^(-1)*L is the Laplace-Beltrami operator
+% 
+
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
 %% cot of angle at x and dual area associated to x in each face 

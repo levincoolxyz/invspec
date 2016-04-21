@@ -61,7 +61,7 @@ if target_data.num == 1
   conf_T = sqrt(kron(1./s_T',1./s_T));
 %   elsq_T = elsq0.*conf_T;
   elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+  [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
     reshape(v',[],1),isedge,elsq_T);
   v_T = reshape(v_Thist(:,end),3,[])';
 
@@ -78,16 +78,6 @@ end
 
 [M_T,L_T] = lapbel(v_T,f_T);
 D_T = eigvf(L_T,M_T,numeig);
-%% implicit mean curvature flow to obtain target conformal factors
-% s_T = meancurvflow(v_T,f_T,L_T,M_T,10);
-% D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
-%% (test-only) can I flow it back?
-% conf_T = sqrt(kron(1./s_T',1./s_T));
-% elsq_T = elsq0.*conf_T(isedge); % linear indices
-% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-%   reshape(v',[],1),isedge,elsq_T);
-% v_c = reshape(v_Thist(:,end),3,[])';
-% norm(vnorm(v_T - v_c))
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
