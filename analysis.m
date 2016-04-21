@@ -1,3 +1,13 @@
+
+vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+%% control parameters
+imax = 3e3; % gradient descent maximum iterations
+aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
+aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
+numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
+pert = .512; % scaling coefficient used to control target perturbation
+rng(1432543); % rand seed
+
 %% test perturbation effect
 % close all;
 % figure(); hold all; grid on;
@@ -66,13 +76,24 @@ xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
 title('First 100 eigenvalues of sphere');
 saveas(gcf,'sphere_spectrum.png');
 
-%% conformal Mean Curvature Flow for conformal factors
-% s_T = meancurvflow(v_T,f_T,10,'c',L_T,M_T);
-% D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
-%% can I flow it back?
-% conf_T = sqrt(kron(1./s_T',1./s_T));
-% elsq_T = elsq0.*conf_T(isedge); % linear indices
-% [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-%   reshape(v',[],1),isedge,elsq_T);
-% v_c = reshape(v_Thist(:,end),3,[])';
-% norm(vnorm(v_T - v_c))
+%% cMCF test
+numeig = ceil(.6*200);
+imax = 3e3;
+% for pert = [0.4 .6 .7 .8 .9 1 1.5]
+for pert = 1
+  load(num2str(pert,'i2_200_t2_abs(Y32(v))_e0.6p%g.mat'));
+  [M,L] = lapbel(v,f);
+  [M_T,L_T] = lapbel(v_T,f_T);
+  %% conformal Mean Curvature Flow for conformal factors
+  s_T = meancurvflow(v_T,f_T,1000,'c',L_T,M_T);
+  % D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
+  %% can I flow it back?
+  conf_T = sqrt(kron(1./s_T',1./s_T));
+  elsq_T = elsq0.*conf_T(isedge); % linear indices
+  [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+    reshape(v',[],1),isedge,elsq_T);
+  v_c = reshape(v_Thist(:,end),3,[])';
+  norm(vnorm(v_T - v_c))
+  Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
+  Mesh_c = TriRep(f,v_c); %triangulation(f,v_end);
+end

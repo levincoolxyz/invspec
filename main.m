@@ -20,7 +20,7 @@ elseif init_data.num == 2
 elseif init_data.num == 3
   load(init_data.dat);
 end
-
+%% learn to count
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
 numeig = numv*(numeig <= 0) + ...
