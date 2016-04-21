@@ -10,4 +10,5 @@ for i = 1:size(datalist{1},1)
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
   saveas(figh,[token '.png']);
 %   [token,remain] = strtok(remain);
+  close all;
 end
