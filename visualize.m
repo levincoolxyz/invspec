@@ -35,21 +35,23 @@ subplot(2,3,4:6); hold all; grid on;
 % legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
 %   '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
 %   'location','southeast');
-plot((D_endp - D_T),'k-','linewidth',2);
-plot((D_end - D_T),'ro');
+plot((D_endp - D_T),'k+-','linewidth',2);
+plot((D_end - D_T),'ro:');
 legend('\lambda_{MIEP2} - \lambda_{target}',...
   '\lambda_{final embed} - \lambda_{target}',...
-  'location','northeast');
+  'location','southeast');
 %   'location','best');
-%   'location','southeast');
 xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
 % ylabel('Eigenvalue deviation [%]');
 ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
-ym = get(gca,'ylim');
-set(gca,'xlim',[0 numel(D_0)])
-xm = get(gca,'xlim');
+fig = gcf;
+ax = fig.CurrentAxes;
+pause(.5);
+set(ax,'xlim',[0 numel(D_0)])
+xm = get(ax,'xlim');
+ym = get(ax,'ylim');
 text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end)],...
   ['Convergence Energies: J_{MIEP2} = %g     ',...
