@@ -30,28 +30,27 @@ target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 % target_data.num = 3;
 % target_data.dat = 'spot';
-% for pert = linspace(.3,.6,4)
-% for pert = .5
-for numeig = .6:.1:1
 %% testing time
-[v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
-  D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
-  imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeig,pert);
-%% visualing results
-close all;
-figh = visualize(v,f,v_end,v_T,f_T,...
-  J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
-%% store for record
-if isa(target_data.dat,'function_handle')
-  dumb = func2str(target_data.dat);
-  dumb = dumb(5:end);
-else
-  dumb = target_data.dat;
-end
-endname = num2str([init_data.num, target_data.num, numeig, pert],...
-  ['i%d_' init_data.dat '_t%d_' dumb '_e%gp%g']);
-saveas(figh,[endname '.png']);
-save([endname '.mat'],'v','f','v_end','v_T','f_T',...
-  'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
+% for pert = .3:.1:2
+for numeig = .1:.1:1
+  [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+    imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+    numeig,pert);
+  %% visualing results
+  close all;
+  figh = visualize(v,f,v_end,v_T,f_T,...
+    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
+  %% store for record
+  if isa(target_data.dat,'function_handle')
+    dumb = func2str(target_data.dat);
+    dumb = dumb(5:end);
+  else
+    dumb = target_data.dat;
+  end
+  endname = num2str([init_data.num, target_data.num, numeig, pert],...
+    ['i%d_' init_data.dat '_t%d_' dumb '_e%gp%g']);
+  saveas(figh,[endname '.png']);
+  save([endname '.mat'],'v','f','v_end','v_T','f_T',...
+    'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
 end

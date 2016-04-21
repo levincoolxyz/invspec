@@ -61,6 +61,28 @@ saveas(gcf,'Y32_spectrum.png');
 
 %% compare mesh refinement on sphere spectrum
 close all;
+numeig = 1000;
+D_s = [];
+for l = 0:29
+    D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
+end
+filename = 'sphere_large';
+fid = fopen(['../meshes/' filename '.obj'],'rt');
+[v,f] = readwfobj(fid);
+[M,L] = lapbel(v,f);
+D = eigvf(L,M,numeig);
+  
+figure(); hold all; grid on;
+plot(D)
+plot(D_s)
+legend('100','200','300','400','500','600','700','800','900','1E3',...
+  'theoretical','location','best');
+xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
+title('First 100 eigenvalues of sphere');
+saveas(gcf,'sphere_spectrum_fine.png');
+
+%% compare sphere spectrum on fine mesh
+close all;
 D_s = [];
 for l = 0:9
     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
@@ -70,10 +92,10 @@ for i = 1:size(D,2)
   plot(D(:,i))
 end
 plot(D_s)
-legend('100','200','300','400','500','600','700','800','900','1E3',...
+legend('sphere_large',...
   'theoretical','location','best');
 xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-title('First 100 eigenvalues of sphere');
+title('First 1000 eigenvalues of sphere');
 saveas(gcf,'sphere_spectrum.png');
 
 %% cMCF test
