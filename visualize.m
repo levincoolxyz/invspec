@@ -39,7 +39,8 @@ plot((D_endp - D_T),'k-','linewidth',2);
 plot((D_end - D_T),'ro');
 legend('\lambda_{MIEP2} - \lambda_{target}',...
   '\lambda_{final embed} - \lambda_{target}',...
-  'location','best');
+  'location','northeast');
+%   'location','best');
 %   'location','southeast');
 xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
 % ylabel('Eigenvalue deviation [%]');
@@ -47,6 +48,7 @@ ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
 ym = get(gca,'ylim');
+set(gca,'xlim',[0 numel(D_0)])
 xm = get(gca,'xlim');
 text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end)],...
