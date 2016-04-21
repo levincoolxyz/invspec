@@ -39,7 +39,8 @@ plot((D_endp - D_T),'k-','linewidth',2);
 plot((D_end - D_T),'ro');
 legend('\lambda_{MIEP2} - \lambda_{target}',...
   '\lambda_{final embed} - \lambda_{target}',...
-  'location','southeast');
+  'location','best');
+%   'location','southeast');
 xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
 % ylabel('Eigenvalue deviation [%]');
 ylabel('\propto eigenvalue magnitude');
