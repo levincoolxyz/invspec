@@ -8,8 +8,9 @@ for i = 1:size(datalist{1},1)
   load([token '.mat']);
   figh = visualize(v,f,v_end,v_T,f_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
-  colormap('jet');
-  saveas(figh,[token '.png']);
+  pause(.1);
+  hgexport(figh,[token '.png'],...
+      hgexport('factorystyle'), 'Format', 'png');
 %   [token,remain] = strtok(remain);
   close all;
 end

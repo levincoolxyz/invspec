@@ -48,7 +48,7 @@ title('Deviation from target Laplacian eigenvalues in magnitude');
 
 fig = gcf;
 ax = fig.CurrentAxes;
-pause(.5);
+pause(.1);
 set(ax,'xlim',[0 numel(D_0)])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
@@ -57,6 +57,7 @@ text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   ['Convergence Energies: J_{MIEP2} = %g     ',...
   'J_{embedding} = %g']));
 
+colormap('jet');
 % more graph to compare conformal factors
 
 end
