@@ -21,9 +21,7 @@ function [J,v] = gradescent(costf,imax,alpha,beta,t0,...
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
-c1 = 0;
-c2 = inf;
-t = t0;
+prev_ln = 1;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
 v(:,1) = v0;
@@ -39,23 +37,18 @@ for i = 1:imax
       break;
     end
   end
+  t = ((prev_ln>4)*beta^(prev_ln-3) + (prev_ln<=4))*t0;
+%   t = t0;
   vnext = v(:,i) - t*GJ;
-  [Jnew,GJnew] = feval(costf,vnext,varargin{:});
-  if Jnew >= J(i) - alpha*t*norm(GJ)
-    c2 = t;
-  elseif norm(GJnew)>= beta*norm(GJ)
-    c1 = t;
-  else
-      break;
+  prev_ln = 1;
+  while feval(costf,vnext,varargin{:}) > J(i) - alpha*t*sum(GJ.^2)
+    t = beta*t;
+    vnext = v(:,i) - t*GJ;
+    prev_ln = prev_ln + 1;
   end
-  if c2 < inf
-      t = .5*(c1+c2);
-  else
-      t = 2*c1;
-  end
-  v(:,i+1) = t*GJ;
-  fprintf('descent iter#%d; J = %g;\n',...
-    i,J(i));
+  v(:,i+1) = vnext;
+  fprintf('descent iter#%d; J = %g; stepsize *= %g\n',...
+    i,J(i),t0*beta^(prev_ln-1));
 end
 
 if(figfg)
