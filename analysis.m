@@ -84,20 +84,43 @@ for l = 0:31
     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
 end
 
-filename = 'sphere_large';
-fid = fopen(['../meshes/' filename '.obj'],'rt');
-[v,f] = readwfobj(fid);
-[M,L] = lapbel(v,f);
-L = sparse(L);
-M = sparse(M);
-D = sort(eigs(L,M,numeig,-1e-6));
+% filename = 'sphere_large';
+% fid = fopen(['../meshes/' filename '.obj'],'rt');
+% [v,f] = readwfobj(fid);
+% [M,L] = lapbel(v,f);
+% L = sparse(L);
+% M = sparse(M);
+% D = sort(eigs(L,M,numeig,-1e-6));
 
+load fine_sphere_spec
+
+load 300
+[M,L] = lapbel(v,f);
+D300 = eigvf(L,M,numeig);
+D300 = [nan(numeig-numel(D300),1);D300];
+
+load 500
+[M,L] = lapbel(v,f);
+D500 = eigvf(L,M,numeig);
+D500 = [nan(numeig-numel(D500),1);D500];
+
+% v = ParticleSampleSphere('Vo',RandSampleSphere(numeig));
+% f = fliplr(convhulln(v));
+% [M,L] = lapbel(v,f);
+% D1024 = eigvf(L,M,numeig);
+%%
 figure(); hold all; grid on;
-plot(D-D_s');
-set(gca,'xlim',[0 1024],'ylim',[0 24],'yscale','log'); 
-title('First 1024 eigenvalue difference');
-xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-saveas(gcf,'sphere_spectrum_fine.png');
+plot(abs(D300-D_s'));
+plot(abs(D500-D_s'));
+% plot(abs(D1024-D_s'));
+plot(abs(D-D_s'));
+ym = get(gca,'ylim');
+set(gca,'xlim',[0 1024],'ylim',[0 ym(2)],'yscale','log'); 
+% legend('300','500','1024','40962','location','southwest');
+legend('300','500','40962','location','southwest');
+title('Absolute eigenvalue differences');
+xlabel('# of eigenvalues'); ylabel('\propto Eigenvalue of M^{-1}L');
+saveas(gcf,'sphere_spectrum_2.png');
 
 %% cMCF test
 % numeig = ceil(.6*200);
