@@ -1,6 +1,7 @@
 function varargout = eigvf(L,M,numeig)
 
-Mnorm = @(v) sqrt(dot(v,M*v));
+% Mnorm = @(v) sqrt(dot(v,M*v)); %why does this ruin things?
+Mnorm = @(v) sqrt(dot(v,v));
 
 if numeig < size(M,1)
   [V,D] = eigs(L,M,numeig,-1e-6);

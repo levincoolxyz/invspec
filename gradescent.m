@@ -1,6 +1,6 @@
-function [J,v] = gradescent(costf,imax,alpha,beta,t0,...
+function [J,v] = gradescent(costf,imax,c1,c2,t0,...
   etol,figfg,v0,varargin)
-% [J,v] = gradescent(costf,imax,alpha,beta,t0,...
+% [J,v] = gradescent(costf,imax,c1,c2,t0,...
 %   etol,figfg,v0,varargin)
 % gradient descent with backtracking
 % 
@@ -21,41 +21,48 @@ function [J,v] = gradescent(costf,imax,alpha,beta,t0,...
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
-c1 = 0;
-c2 = inf;
-t = t0;
+tau = t0;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
 v(:,1) = v0;
 fprintf('\nAbout to descent, first step might be slow...\n');
 for i = 1:imax
+  a = 0;
+  b = inf;
+  tau_old = 0;
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
+  u = -GJ;
   if i>1
   	if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
-      fprintf('Converged at iter#%d; J = %g\n\n',i,J(i));
+      fprintf('Converged at iter#%d; J = %g; |GJ| = %g; tau = %g\n',...
+        i,J(i),norm(GJ),tau);
       i = i + (i < imax);
       J(i:end) = [];
       v(:,i:end) = [];
       break;
     end
   end
-  vnext = v(:,i) - t*GJ;
-  [Jnew,GJnew] = feval(costf,vnext,varargin{:});
-  if Jnew >= J(i) - alpha*t*norm(GJ)
-    c2 = t;
-  elseif norm(GJnew)>= beta*norm(GJ)
-    c1 = t;
-  else
+  while abs((tau-tau_old)/tau)>1e-3
+    tau_old = tau;
+    vp1 = v(:,i) + tau*u;
+    [Jp1,GJp1] = feval(costf,vp1,varargin{:});
+    up1 = -GJp1;
+    if Jp1 > J(i) + c1*tau*dot(GJ,u)
+      b = tau;
+    elseif dot(GJp1,up1) < c2*dot(GJ,u)
+      a = tau;
+    else
       break;
+    end
+    if b < inf
+      tau = .5*(a+b);
+    else
+      tau = 2*a;
+    end
   end
-  if c2 < inf
-      t = .5*(c1+c2);
-  else
-      t = 2*c1;
-  end
-  v(:,i+1) = t*GJ;
-  fprintf('descent iter#%d; J = %g;\n',...
-    i,J(i));
+  v(:,i+1) = v(:,i) + tau*u;
+  fprintf('descent iter#%d; J = %g; |GJ| = %g; tau = %g\n',...
+    i,J(i),norm(GJ),tau);
 end
 
 if(figfg)

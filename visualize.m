@@ -1,11 +1,21 @@
 function [figh] = visualize(v,f,v_end,v_T,f_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
+
+% principal component analysis for alignment
+dcm = pca(v);
+dcm_T = pca(v_T);
+dcm_end = pca(v_end);
+% dcm = dcm*det(dcm);
+% dcm_T = dcm_T*det(dcm_T);
+% dcm_end = dcm_end*det(dcm_end);
+v = dcmrot(v,dcm);
+v_T = dcmrot(v_T,dcm_T);
+v_end = dcmrot(v_end,dcm_end);
+
 % compare mesh
 Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
 Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
-
-% insert principal component analysis for alignment
 
 figh = figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
 subplot(2,3,1); hold all; view(3); grid on; axis equal
@@ -25,7 +35,7 @@ trimesh(Mesh_end);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
-view([-140 20]);
+% view([-140 20]);
 
 % compare spectra
 
