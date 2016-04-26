@@ -88,14 +88,15 @@ filename = 'sphere_large';
 fid = fopen(['../meshes/' filename '.obj'],'rt');
 [v,f] = readwfobj(fid);
 [M,L] = lapbel(v,f);
-D = eigvf(L,M,numeig);
+L = sparse(L);
+M = sparse(M);
+D = sort(eigs(L,M,numeig,-1e-6));
 
 figure(); hold all; grid on;
-plot(D);
-plot(D_s);
-legend('sphere_large','theoretical','location','best');
+plot(D-D_s');
+set(gca,'xlim',[0 1024],'ylim',[0 24],'yscale','log'); 
+title('First 1024 eigenvalue difference');
 xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-title('First 1024 eigenvalues of sphere');
 saveas(gcf,'sphere_spectrum_fine.png');
 
 %% cMCF test
