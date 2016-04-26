@@ -108,7 +108,7 @@ D500 = [nan(numeig-numel(D500),1);D500];
 % f = fliplr(convhulln(v));
 % [M,L] = lapbel(v,f);
 % D1024 = eigvf(L,M,numeig);
-%%
+
 figure(); hold all; grid on;
 plot(abs(D300-D_s'));
 plot(abs(D500-D_s'));
