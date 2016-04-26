@@ -1,18 +1,20 @@
 function [figh] = visualize(v,f,v_end,v_T,f_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
 
-% principal component analysis for alignment
-dcm = pca(v);
-dcm_T = pca(v_T);
-dcm_end = pca(v_end);
-% dcm = dcm*det(dcm);
-% dcm_T = dcm_T*det(dcm_T);
-% dcm_end = dcm_end*det(dcm_end);
+%% principal component analysis for alignment
+dcm = pa(v,f); % princomp(v); %pca(v);
+dcm_T = pa(v_T,f_T); % princomp(v_T); %pca(v_T);
+dcm_end = pa(v_end,f); % princomp(v_end); %pca(v_end);
+% ensure orientation preserving
+dcm = dcm*det(dcm);
+dcm_T = dcm_T*det(dcm_T);
+dcm_end = dcm_end*det(dcm_end);
+% rotate vertices
 v = dcmrot(v,dcm);
 v_T = dcmrot(v_T,dcm_T);
 v_end = dcmrot(v_end,dcm_end);
 
-% compare mesh
+%% compare mesh
 Mesh0 = TriRep(f,v); %triangulation(f,v);
 Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
 Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
@@ -35,9 +37,8 @@ trimesh(Mesh_end);
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
-% view([-140 20]);
 
-% compare spectra
+%% compare spectra
 
 subplot(2,3,4:6); hold all; grid on;
 % plot((D_endp - D_T)./D_T,'k-','linewidth',2);
@@ -57,7 +58,11 @@ ylabel('\propto eigenvalue magnitude');
 title('Deviation from target Laplacian eigenvalues in magnitude');
 
 fig = gcf;
-ax = fig.CurrentAxes;
+if isstruct(fig)
+  ax = fig.CurrentAxes;
+else
+  ax = gca;
+end
 pause(.1);
 set(ax,'xlim',[0 numel(D_0)])
 xm = get(ax,'xlim');
