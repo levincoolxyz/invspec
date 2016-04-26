@@ -13,7 +13,7 @@ function [dcm,MoI] = pa(v,f)
 
 numv = size(v,1);
 numf = size(f,1);
-[zentrum,vol] = volCenter(v,f)
+[zentrum,vol] = volCenter(v,f);
 % shift to volume center (and assume that it's inside the mesh)
 v = v - repmat(zentrum,numv,1);
 
