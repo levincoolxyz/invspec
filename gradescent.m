@@ -42,7 +42,7 @@ for i = 1:imax
       break;
     end
   end
-  while abs((tau-tau_old)/tau)>1e-3
+  while abs((tau-tau_old)/tau)>1e-1
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
     [Jp1,GJp1] = feval(costf,vp1,varargin{:});
