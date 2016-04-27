@@ -11,9 +11,9 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 % aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
 % aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
 imax = 1e3; % gradient descent maximum iterations
-aC = .5; bC = .8; tC = 30; etolC = 5e-4; % Conformal descent control
-aS = .5; bS = .8; tS = 150; etolS = 5e-4; % invSpec descent control
-numeig = .5; % number of eigenvalues used, <=1 => percent, <=0 => all
+aC = .5; bC = .9; tC = 30; etolC = 5e-4; % Conformal descent control
+aS = .5; bS = .9; tS = 150; etolS = 5e-4; % invSpec descent control
+numeig = .3; % number of eigenvalues used, <=1 => percent, <=0 => all
 pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
@@ -21,7 +21,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '1000';
+init_data.dat = '300';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';

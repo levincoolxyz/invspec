@@ -1,0 +1,80 @@
+MATLAB is selecting SOFTWARE OPENGL rendering.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2015 The MathWorks, Inc.
+                   R2015b (8.6.0.267246) 64-bit (glnxa64)
+                              August 20, 2015
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+
+	Academic License
+
+
+Wait while particle positions are being optimized ...
+Iteration #     Net Energy      Time (sec)     
+0               924148.784715   1.9            
+50              891072.934074   22.4           
+100             891051.322547   40.2           
+150             891048.126824   59.9           
+200             891047.631816   78.3           
+250             891047.161265   100.5          
+300             891046.501449   118.7          
+350             891046.123578   139.0          
+400             891044.822660   158.5          
+450             891043.918623   175.4          
+500             891043.590485   192.2          
+550             891043.323295   207.7          
+600             891043.220226   224.6          
+650             891043.132796   243.2          
+700             891042.919432   261.6          
+750             891042.887298   283.6          
+800             891042.870049   298.8          
+850             891042.855825   318.9          
+900             891042.843696   339.1          
+950             891042.828907   361.8          
+1000            891042.775232   391.6          
+1050            891042.736746   411.2          
+1100            891042.719398   440.3          
+1150            891042.688470   468.3          
+1200            891042.628778   487.3          
+1250            891042.619370   501.6          
+1300            891042.615038   515.3          
+1350            891042.612269   530.8          
+1376            891042.611271   540.3          
+Optimization completed after 1376 iterations. Elapsed time: 540.3 sec
+
+About to descent, first step might be slow...
+descent iter#1; J = 0.359406; |GJ| = 0.0246358; tau = 540
+descent iter#2; J = 0.0241579; |GJ| = 0.0121389; tau = 48.6
+descent iter#3; J = 0.0181046; |GJ| = 0.00874937; tau = 48.6
+descent iter#4; J = 0.0148876; |GJ| = 0.00724906; tau = 48.6
+descent iter#5; J = 0.0126137; |GJ| = 0.00645886; tau = 145.8
+descent iter#6; J = 0.00778352; |GJ| = 0.00486708; tau = 145.8
+descent iter#7; J = 0.00506733; |GJ| = 0.00364235; tau = 76.8949
+descent iter#8; J = 0.00426912; |GJ| = 0.00335072; tau = 76.8949
+descent iter#9; J = 0.00353771; |GJ| = 0.00276695; tau = 290.663
+descent iter#10; J = 0.00228169; |GJ| = 0.00454589; tau = 26.1597
+descent iter#11; J = 0.00182574; |GJ| = 0.00227938; tau = 26.1597
+descent iter#12; J = 0.00170301; |GJ| = 0.00179735; tau = 78.479
+descent iter#13; J = 0.00148722; |GJ| = 0.00151982; tau = 124.169
+descent iter#14; J = 0.00126695; |GJ| = 0.00169473; tau = 37.2508
+descent iter#15; J = 0.00117552; |GJ| = 0.0012842; tau = 111.752
+descent iter#16; J = 0.00101235; |GJ| = 0.00112768; tau = 422.424
+descent iter#17; J = 0.000624419; |GJ| = 0.00117537; tau = 38.0182
+descent iter#18; J = 0.000584708; |GJ| = 0.000673698; tau = 431.126
+descent iter#19; J = 0.000449343; |GJ| = 0.00108632; tau = 38.8014
+descent iter#20; J = 0.000419149; |GJ| = 0.000469601; tau = 146.669
+descent iter#21; J = 0.000398001; |GJ| = 0.000696085; tau = 44.0007
+descent iter#22; J = 0.000383722; |GJ| = 0.000432491; tau = 166.323
+descent iter#23; J = 0.000368266; |GJ| = 0.000787314; tau = 49.8968
+descent iter#24; J = 0.000352563; |GJ| = 0.000479156; tau = 49.8968
+descent iter#25; J = 0.000344935; |GJ| = 0.000415763; tau = 49.8968
+descent iter#26; J = 0.000337822; |GJ| = 0.000364314; tau = 188.61
+descent iter#27; J = 0.000319446; |GJ| = 0.000530694; tau = 56.583
+descent iter#28; J = 0.000311235; |GJ| = 0.000414408; tau = 71.2946
+descent iter#29; J = 0.0003053; |GJ| = 0.000466574; tau = 21.3884
+descent iter#30; J = 0.000301057; |GJ| = 0.000343019; tau = 101.522
+descent iter#31; J = 0.000292366; |GJ| = 0.00037111; tau = 30.4566

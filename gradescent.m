@@ -55,9 +55,9 @@ for i = 1:imax
       break;
     end
     if b < inf
-      tau = .5*(a+b);
+      tau = .3*(a+b);
     else
-      tau = 2*a;
+      tau = 3*a;
     end
   end
   v(:,i+1) = v(:,i) + tau*u;

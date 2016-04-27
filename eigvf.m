@@ -1,6 +1,6 @@
 function varargout = eigvf(L,M,numeig)
 
-% Mnorm = @(v) sqrt(dot(v,M*v)); %why does this ruin things?
+% Mnorm = @(v) sqrt(dot(v,M*v)); %kosher but need 2 work it into gradient
 Mnorm = @(v) sqrt(dot(v,v));
 
 if numeig < size(M,1)

@@ -110,16 +110,16 @@ D500 = [nan(numeig-numel(D500),1);D500];
 % D1024 = eigvf(L,M,numeig);
 
 figure(); hold all; grid on;
-plot(abs(D300-D_s'));
-plot(abs(D500-D_s'));
-% plot(abs(D1024-D_s'));
-plot(abs(D-D_s'));
+plot(abs((D300-D_s')./D_s')*100);
+plot(abs((D500-D_s')./D_s')*100);
+% plot(abs((D1024-D_s')./D_s')*100);
+plot(abs((D-D_s')./D_s')*100);
 ym = get(gca,'ylim');
 set(gca,'xlim',[0 1024],'ylim',[0 ym(2)],'yscale','log'); 
 % legend('300','500','1024','40962','location','southwest');
 legend('300','500','40962','location','southwest');
-title('Absolute eigenvalue differences');
-xlabel('# of eigenvalues'); ylabel('\propto Eigenvalue of M^{-1}L');
+title('Relative eigenvalue differences');
+xlabel('# of eigenvalues'); ylabel('[%]');
 saveas(gcf,'sphere_spectrum_2.png');
 
 %% cMCF test

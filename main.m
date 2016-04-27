@@ -12,9 +12,14 @@ if init_data.num == 1
 
 % sphere of chosen size
 elseif init_data.num == 2
-  ssize = str2num(init_data.dat);
-  v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
-  f = fliplr(convhulln(v));
+  if exist([init_data.dat '.mat'],'file')
+    load([init_data.dat '.mat']);
+  else
+    ssize = str2num(init_data.dat);
+    v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
+    f = fliplr(convhulln(v));
+    save([init_data.dat '.mat'],'f','v');
+  end
 
 % load face-vertex from *.mat
 elseif init_data.num == 3
@@ -48,6 +53,11 @@ end
 elsq0 = elsq0(isedge); % linear indices
 %% compute laplacian
 [M,L] = lapbel(v,f);
+% sparsify if large enough
+if numv>500
+    L = sparse(L);
+    M = sparse(M);
+end
 D_0 = eigvf(L,M,numeig);
 %% compute mean curvature vertex normal
 Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
