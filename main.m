@@ -48,6 +48,7 @@ elseif target_data.num == 2
   vn = Hn./repmat(H,1,3);
   v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
   f_T = f;
+  s_T = meancurvflow(v_T,f_T,1,'c');
   
 % import wavefront object file
 elseif target_data.num == 3

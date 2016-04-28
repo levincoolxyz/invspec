@@ -155,3 +155,29 @@ xx = [linspace(-abs(x0),0) linspace(0,abs(x0))];
 [Jxx,dJxx] = J(xx);
 plot(xx,Jxx,'-');
 plot(vhist,Jhist,'x-','markersize',20)
+
+%% matlab sparse eigs performance test
+ssize = [300 500 1000];
+numeig = .1:.1:.9;
+rat = zeros(numel(ssize),numel(numeig));
+for i = 1:numel(ssize)
+  load([num2str(ssize(i)) '.mat']);
+  for j = 1:numel(numeig)
+    [M,L] = lapbel(v,f);
+    tic
+    [V,lambda,ix] = eigvf(L,M,ceil(numeig(j)*ssize(i)));
+    t1 = toc;
+    M = sparse(M);
+    L = sparse(L);
+    tic
+    [V,lambda,ix] = eigvf(L,M,ceil(numeig(j)*ssize(i)));
+    t2 = toc;
+    rat(i,j) = t2/t1;
+  end
+end
+
+[X,Y] = meshgrid(ssize,numeig);
+figure(); hold all; grid on; view([60 35]);
+surf(X,Y,rat');
+xlabel('# vtx'); ylabel('amount of eigenvalues requested');
+zlabel('ratio of performance time');
