@@ -21,18 +21,18 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '300';
+init_data.dat = '1000';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';
 %% target case == 1; random conformal factor (on vtx) deformation
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
-target_data.num = 2;
-target_data.dat = @(v) abs(Y33(v));
+% target_data.num = 2;
+% target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
-% target_data.dat = 'spot';
+target_data.num = 3;
+target_data.dat = 'bunny2k';
 %% testing time
 % for pert = .3:.1:2
 % for numeig = .1:.1:1
