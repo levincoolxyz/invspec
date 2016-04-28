@@ -223,4 +223,7 @@ _site/
 
 #ut cs job queue
 *.condor
-condor.log
+condor.*
+
+#tacc job queue
+*.sbatch
