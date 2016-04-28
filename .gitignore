@@ -227,3 +227,4 @@ condor.*
 
 #tacc job queue
 *.sbatch
+lslog.o*
