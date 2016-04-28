@@ -5,26 +5,89 @@ function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% initial mesh
-% import wavefront object file
-if init_data.num == 1
-  fid = fopen(['../meshes/' init_data.dat '.obj'],'rt');
-  [v,f] = readwfobj(fid);
+if target_data.num ~= 3
+  % import wavefront object file
+  if init_data.num == 1
+    fid = fopen(['../meshes/' init_data.dat '.obj'],'rt');
+    [v,f] = readwfobj(fid);
 
-% sphere of chosen size
-elseif init_data.num == 2
-  if exist([init_data.dat '.mat'],'file')
-    load([init_data.dat '.mat']);
-  else
-    ssize = str2num(init_data.dat);
-    v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
-    f = fliplr(convhulln(v));
-    save([init_data.dat '.mat'],'f','v');
+  % sphere of chosen size
+  elseif init_data.num == 2
+    if exist([init_data.dat '.mat'],'file')
+      load([init_data.dat '.mat']);
+    else
+      ssize = str2num(init_data.dat);
+      v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
+      f = fliplr(convhulln(v));
+      save([init_data.dat '.mat'],'f','v');
+    end
+
+  % load face-vertex from *.mat
+  elseif init_data.num == 3
+    load(init_data.dat);
   end
-
-% load face-vertex from *.mat
-elseif init_data.num == 3
-  load(init_data.dat);
+  [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
+%% target spectrum (+mesh for testing)
+% perturb with random conformal factors at vertices
+if target_data.num == 1
+  s_T = exp(-rand(numv,1)*pert);
+  f_T = f;
+  conf_T = sqrt(kron(1./s_T',1./s_T));
+%   elsq_T = elsq0.*conf_T;
+  elsq_T = elsq0.*conf_T(isedge); % linear indices
+  [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+    reshape(v',[],1),isedge,elsq_T);
+  v_T = reshape(v_Thist(:,end),3,[])';
+
+% perturb with given scalar field
+elseif target_data.num == 2
+  % compute mean curvature vertex normal
+  Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+  H = vnorm(Hn);
+  vn = Hn./repmat(H,1,3);
+  v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+  f_T = f;
+  
+% import wavefront object file
+elseif target_data.num == 3
+  fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
+  [v_T,f_T] = readwfobj(fid);
+  [s_T,v] = meancurvflow(v_T,f_T,10000,'c');
+  f = f_T;
+  [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+end
+
+[M_T,L_T] = lapbel(v_T,f_T);
+% sparsify if large enough
+if numv>500
+    L_T = sparse(L_T);
+    M_T = sparse(M_T);
+end
+D_T = eigvf(L_T,M_T,numeig);
+%% initial conformal factors guess
+s0 = exp(-zeros(numv,1));
+%% MIEP2 via naive gradient descent
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+  s0,M,L,D_T,numeig);
+s_end = s(:,end);
+D_endp = eigvf(L,diag(1./s_end)*M,numeig);
+%% percent error in conformal factors
+% s_err = norm(s_T - s_end)./norm(s_T)*100;
+% fprintf('conformal factors error = %g%%\n',s_err);
+%% conformal embedding/fit
+conf = sqrt(kron(1./s_end',1./s_end));
+% elsq_end = elsq0.*conf;
+elsq_end = elsq0.*conf(isedge); % linear indices
+[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+  reshape(v',[],1),isedge,elsq_end);
+v_end = reshape(vhist(:,end),3,[])';
+[M_end,L_end] = lapbel(v_end,f);
+D_end = eigvf(L_end,M_end,numeig);
+
+end
+
+function [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig)
 %% learn to count
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
@@ -59,55 +122,4 @@ if numv>500
     M = sparse(M);
 end
 D_0 = eigvf(L,M,numeig);
-%% compute mean curvature vertex normal
-Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
-H = vnorm(Hn);
-vn = Hn./repmat(H,1,3);
-%% target spectrum (+mesh for testing)
-% perturb with random conformal factors at vertices
-if target_data.num == 1
-  s_T = exp(-rand(numv,1)*pert);
-  f_T = f;
-  conf_T = sqrt(kron(1./s_T',1./s_T));
-%   elsq_T = elsq0.*conf_T;
-  elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-    reshape(v',[],1),isedge,elsq_T);
-  v_T = reshape(v_Thist(:,end),3,[])';
-
-% perturb with given scalar field
-elseif target_data.num == 2
-  v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
-  f_T = f;
-  
-% import wavefront object file
-elseif target_data.num == 3
-  fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
-  [v_T,f_T] = readwfobj(fid);
-  [s_T,v] = meancurvflow(v_T,f_T,10000,'c');
-  f = f_T;
-end
-
-[M_T,L_T] = lapbel(v_T,f_T);
-D_T = eigvf(L_T,M_T,numeig);
-%% initial conformal factors guess
-s0 = exp(-zeros(numv,1));
-%% MIEP2 via naive gradient descent
-[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-  s0,M,L,D_T,numeig);
-s_end = s(:,end);
-D_endp = eigvf(L,diag(1./s_end)*M,numeig);
-%% percent error in conformal factors
-% s_err = norm(s_T - s_end)./norm(s_T)*100;
-% fprintf('conformal factors error = %g%%\n',s_err);
-%% conformal embedding/fit
-conf = sqrt(kron(1./s_end',1./s_end));
-% elsq_end = elsq0.*conf;
-elsq_end = elsq0.*conf(isedge); % linear indices
-[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-  reshape(v',[],1),isedge,elsq_end);
-v_end = reshape(vhist(:,end),3,[])';
-[M_end,L_end] = lapbel(v_end,f);
-D_end = eigvf(L_end,M_end,numeig);
-
 end
