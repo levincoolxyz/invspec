@@ -1,4 +1,4 @@
-function [v,f,v_end,v_T,f_T,J_hist,Jc_hist,...
+function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
   numeig,pert)
@@ -84,6 +84,8 @@ elseif target_data.num == 2
 elseif target_data.num == 3
   fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
   [v_T,f_T] = readwfobj(fid);
+  [s_T,v] = meancurvflow(v_T,f_T,10000,'c');
+  f = f_T;
 end
 
 [M_T,L_T] = lapbel(v_T,f_T);

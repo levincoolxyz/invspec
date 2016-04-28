@@ -1,4 +1,4 @@
-function [figh] = visualize(v,f,v_end,v_T,f_T,...
+function [figh] = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
 
 %% principal component analysis for alignment
@@ -73,6 +73,7 @@ text(floor(max(xm)/4.5),max(ym(2) + .18*diff(ym)),...
   'J_{embedding} = %g']));
 
 colormap('jet');
-% more graph to compare conformal factors
+
+%% correlate conformal factors
 
 end
