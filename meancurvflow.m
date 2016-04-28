@@ -20,7 +20,7 @@ if (nargin<5) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
 % close all;
 numv = size(v0,1);
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-update = @(v,vold) norm(vnorm(v - vold));
+vdiff = @(v,vold) norm(vnorm(v - vold));
 
 zentrum0 = volCenter(v0,f0);
 v0 = v0 - repmat(zentrum0,numv,1);
@@ -34,6 +34,7 @@ v = ones(size(v0));
 I = eye(size(v0,1));
 
 % figure();trimesh(TriRep(f0,v0)); axis equal;
+sphericity_old = std(vnorm(v0));
 
 iter = 1;
 while true
@@ -47,6 +48,7 @@ while true
   
   v = v*scl/scl0;
 %   figure(); trimesh(TriRep(f0,v)); axis equal; pause(.5)
+  sphericity = std(vnorm(v));
 
   if type == 't'
     [M,L] = lapbel(v,f0); % traditional
@@ -58,26 +60,27 @@ while true
     error('wat?');
   end
   
-  dv = update(v,vold);
-  fprintf('flow iter#%d; J = %g\n',iter,dv);
+  dv = vdiff(v,vold);
+  fprintf('flow iter#%d; v difference = %g\n',iter,dv);
   iter = iter + 1;
-  if dv <= 1e-3
+  if abs(sphericity_old - sphericity) <= 1e-5
     break;
   end
   vold = v;
+  sphericity_old = sphericity;
 end
 
 % s = diag(inv(M)*M0);
 s = diag(M\M0);
 end
 
-function [vol] = calcVol(v,f)
-vol = 0;
-for fi = 1:size(f,1)
-  vi = f(fi,:);
-  vol = vol + dot(v(vi(1),:),cross(v(vi(2),:),v(vi(3),:)))/6;
-end
-end
+% function [vol] = calcVol(v,f)
+% vol = 0;
+% for fi = 1:size(f,1)
+%   vi = f(fi,:);
+%   vol = vol + dot(v(vi(1),:),cross(v(vi(2),:),v(vi(3),:)))/6;
+% end
+% end
 
 function scl = makeUnitArea(v,f)
 area = 0;

@@ -122,7 +122,7 @@ title('Relative eigenvalue differences');
 xlabel('# of eigenvalues'); ylabel('[%]');
 saveas(gcf,'sphere_spectrum_2.png');
 
-%% cMCF test
+%% cMCF test/debug
 % numeig = ceil(.6*200);
 % imax = 3e3;
 % % for pert = [0.4 .6 .7 .8 .9 1 1.5]
@@ -143,3 +143,15 @@ saveas(gcf,'sphere_spectrum_2.png');
 %   Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
 %   Mesh_c = TriRep(f,v_c); %triangulation(f,v_end);
 % end
+
+%% line search debug
+close all;
+% J = @(x) deal(abs(x),(x>0)-(x<0));
+J = @(x) deal(x.^2,2*x);
+x0 = -118;
+[Jhist,vhist] = gradescent(J,1e3,.5,.95,1,1e-8,0,x0);
+figure(); hold all; grid on;
+xx = [linspace(-abs(x0),0) linspace(0,abs(x0))];
+[Jxx,dJxx] = J(xx);
+plot(xx,Jxx,'-');
+plot(vhist,Jhist,'x-','markersize',20)

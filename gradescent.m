@@ -8,8 +8,7 @@ function [J,v] = gradescent(costf,imax,c1,c2,t0,...
 % costf       - string or handle of the cost function which returns a
 %               scalar cost and a gradient (nx1) vector in that order
 % imax        - the maximum allowed number of iteration
-% alpha,beta  - backtracking control parameters (cf. Section 5.1.2 in
-%               https://www.cs.cmu.edu/~ggordon/10725-F12/scribes/10725_Lecture5.pdf)
+% c1,c2       - line search control parameters
 % t0          - initial stepsize multiplier
 % etol        - relative error tolerance
 % figfg       - 1 => gives log-log plot of energy, 0 not
@@ -42,7 +41,8 @@ for i = 1:imax
       break;
     end
   end
-  while abs((tau-tau_old)/tau)>1e-1
+  scale = 2;
+  while abs((tau-tau_old)/tau)>eps
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
     [Jp1,GJp1] = feval(costf,vp1,varargin{:});
@@ -55,9 +55,9 @@ for i = 1:imax
       break;
     end
     if b < inf
-      tau = .3*(a+b);
+      tau = (a+b)/scale;
     else
-      tau = 3*a;
+      tau = a*scale;
     end
   end
   v(:,i+1) = v(:,i) + tau*u;
