@@ -41,21 +41,21 @@ title('resultant mesh');
 %% compare spectra
 
 subplot(2,3,4:6); hold all; grid on;
-% plot((D_endp - D_T)./D_T,'k-','linewidth',2);
-% plot((D_end - D_T)./D_T,'ro');
-% legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
-%   '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
+v1 = (D_endp - D_T)./D_T;
+v2 = (D_end - D_T)./D_T;
+plot(v1(1:end-1),'k-','linewidth',2);
+plot(v2(1:end-1),'ro');
+legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
+  '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
+  'location','northwest');
+% plot((D_endp - D_T),'k+-','linewidth',2);
+% plot((D_end - D_T),'ro:');
+% legend('\lambda_{MIEP2} - \lambda_{target}',...
+%   '\lambda_{final embed} - \lambda_{target}',...
 %   'location','southeast');
-plot((D_endp - D_T),'k+-','linewidth',2);
-plot((D_end - D_T),'ro:');
-legend('\lambda_{MIEP2} - \lambda_{target}',...
-  '\lambda_{final embed} - \lambda_{target}',...
-  'location','southeast');
-%   'location','best');
-xlabel('# of eigenvalues (#1 is of the highest frequency)'); 
-% ylabel('Eigenvalue deviation [%]');
-ylabel('\propto eigenvalue magnitude');
-title('Deviation from target Laplacian eigenvalues in magnitude');
+xlabel('# of eigenvalues (#1 is of the highest frequency)');
+% ylabel('\propto eigenvalue magnitude');
+title('Deviation from target Laplacian eigenvalues');
 
 fig = gcf;
 if isstruct(fig)
