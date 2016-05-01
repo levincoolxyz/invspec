@@ -2,6 +2,10 @@ function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
   numeig,pert)
+% function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+%   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+%   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+%   numeig,pert)
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% initial mesh
@@ -29,43 +33,55 @@ if target_data.num ~= 3
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
 %% target spectrum (+mesh for testing)
-% perturb with random conformal factors at vertices
-if target_data.num == 1
-  s_T = exp(-rand(numv,1)*pert);
-  f_T = f;
-  conf_T = sqrt(kron(1./s_T',1./s_T));
-%   elsq_T = elsq0.*conf_T;
-  elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-    reshape(v',[],1),isedge,elsq_T);
-  v_T = reshape(v_Thist(:,end),3,[])';
+if isfield(target_data,'D_T')
+  v_T = [];
+  f_T = [];
+  s_T = [];
+  D_T = target_data.D_T;
+  if numel(D_T) >= numeig
+    D_T = D_T(1:numeig);
+  else
+    D_T = [D_0(1:(numeig-numel(D_T))); D_T];
+  end
+else
+  % perturb with random conformal factors at vertices
+  if target_data.num == 1
+    s_T = exp(-rand(numv,1)*pert);
+    f_T = f;
+    conf_T = sqrt(kron(1./s_T',1./s_T));
+  %   elsq_T = elsq0.*conf_T;
+    elsq_T = elsq0.*conf_T(isedge); % linear indices
+    [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+      reshape(v',[],1),isedge,elsq_T);
+    v_T = reshape(v_Thist(:,end),3,[])';
 
-% perturb with given scalar field
-elseif target_data.num == 2
-  % compute mean curvature vertex normal
-  Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
-  H = vnorm(Hn);
-  vn = Hn./repmat(H,1,3);
-  v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
-  f_T = f;
-  s_T = meancurvflow(v_T,f_T,1,'c');
-  
-% import wavefront object file
-elseif target_data.num == 3
-  fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
-  [v_T,f_T] = readwfobj(fid);
-  [s_T,v] = meancurvflow(v_T,f_T,1,'c',target_data.Nmcf);
-  f = f_T;
-  [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-end
+  % perturb with given scalar field
+  elseif target_data.num == 2
+    % compute mean curvature vertex normal
+    Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+    H = vnorm(Hn);
+    vn = Hn./repmat(H,1,3);
+    v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+    f_T = f;
+    s_T = meancurvflow(v_T,f_T,1,'c');
 
-[M_T,L_T] = lapbel(v_T,f_T);
-% sparsify if large enough
-if numv>500
-    L_T = sparse(L_T);
-    M_T = sparse(M_T);
+  % import wavefront object file
+  elseif target_data.num == 3
+    fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
+    [v_T,f_T] = readwfobj(fid);
+    [s_T,v] = meancurvflow(v_T,f_T,1,'c',target_data.Nmcf);
+    f = f_T;
+    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+  end
+
+  [M_T,L_T] = lapbel(v_T,f_T);
+  % sparsify if large enough
+  if numv>500
+      L_T = sparse(L_T);
+      M_T = sparse(M_T);
+  end
+  D_T = eigvf(L_T,M_T,numeig);
 end
-D_T = eigvf(L_T,M_T,numeig);
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent

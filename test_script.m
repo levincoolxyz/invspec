@@ -21,7 +21,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '1000';
+init_data.dat = '300';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';
@@ -33,6 +33,15 @@ init_data.dat = '1000';
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
 target_data.dat = 'bunny2k';
+target_data.Nmcf = imax;
+%% target case == 4; prescribed eigenvalue target
+% target_data.num = 4;
+% target_data.dat = 'D-T';
+% D_s = [];
+% for l = 0:20
+%     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
+% end
+% target_data.D_T = D_s';
 %% testing time
 % for pert = .3:.1:2
 % for numeig = .1:.1:1
