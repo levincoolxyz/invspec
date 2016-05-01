@@ -174,11 +174,12 @@ xlabel('x'); ylabel('y'); zlabel('z');
 title('initial mesh');
 
 subplot(2,3,2); hold all; view(3); grid on; axis equal
-trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T)
+trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T,'edgecolor','none')
 set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
 xlabel('x'); ylabel('y'); zlabel('z');
-colorbar; title('S^{-1}');
-text(0,0,-3,num2str(std(vnorm(v0)),'std(|v|) = %g'));
+% colorbar;
+title('S^{-1}');
+text(0,2.5,2,num2str(std(vnorm(v0)),'std(|v|) = %g'));
 
 subplot(2,3,3); hold all; view(3); grid on; axis equal
 trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
@@ -204,7 +205,7 @@ pause(.1);
 set(ax,'xlim',[0 numel(D_0)])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
-text(floor(max(xm)/4),max(ym(2) + .18*diff(ym)),...
+text(floor(max(xm)/3),max(ym(2) + .18*diff(ym)),...
   num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
 
 colormap('jet');
