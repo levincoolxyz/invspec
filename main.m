@@ -26,7 +26,7 @@ if target_data.num ~= 3
   elseif init_data.num == 3
     load(init_data.dat);
   end
-  [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+  [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
 %% target spectrum (+mesh for testing)
 % perturb with random conformal factors at vertices
@@ -56,7 +56,7 @@ elseif target_data.num == 3
   [v_T,f_T] = readwfobj(fid);
   [s_T,v] = meancurvflow(v_T,f_T,1,'c');
   f = f_T;
-  [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+  [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
 
 [M_T,L_T] = lapbel(v_T,f_T);
@@ -88,7 +88,7 @@ D_end = eigvf(L_end,M_end,numeig);
 
 end
 
-function [numv,numf,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig)
+function [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig)
 %% learn to count
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces

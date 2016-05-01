@@ -1,32 +1,32 @@
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
-% imax = 3e3; % gradient descent maximum iterations
-% aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
-% aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
+imax = 1e3; % gradient descent maximum iterations
+aC = .4; bC = .9; tC = 30; etolC = 5e-4; % Conformal descent control
+aS = .7; bS = .8; tS = 150; etolS = 5e-4; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 % pert = .512; % scaling coefficient used to control target perturbation
-% rng(1432543); % rand seed
+rng(1432543); % rand seed
 
 %% test perturbation effect
-% close all;
-% figure(); hold all; grid on;
-% numeig = ceil(.6*200);
-% for pert = [0.4 .6 .7 .8 .9 1 1.5]
-%   load(num2str(pert,'i2_200_t2_abs(Y32(v))_e0.6p%g.mat'));
-%   [M,L] = lapbel(v,f);
-%   [M_T,L_T] = lapbel(v_T,f_T);
-%   [M_end,L_end] = lapbel(v_end,f);
-%   D_T = eigvf(L_T,M_T,numeig);
+close all;
+figure(); hold all; grid on;
+numeig = ceil(.6*200);
+for pert = [0.4 .6 .7 .8 .9 1 1.5]
+  load(num2str(pert,'i2_200_t2_abs(Y32(v))_e0.6p%g.mat'));
+  [M,L] = lapbel(v,f);
+  [M_T,L_T] = lapbel(v_T,f_T);
+  [M_end,L_end] = lapbel(v_end,f);
+  D_T = eigvf(L_T,M_T,numeig);
 
-% %   figure(); hold all; grid on;
-% %   ylim([0 .2]);
-% %   plot(diag(M))
-% %   plot(diag(M_T))
-% %   plot(diag(M_end))
-%   plot(D_T);
-%   pause(1);
-% end
+%   figure(); hold all; grid on;
+%   ylim([0 .2]);
+%   plot(diag(M))
+%   plot(diag(M_T))
+%   plot(diag(M_end))
+  plot(D_T);
+  pause(1);
+end
 
 %% test mesh refinement laplacian eig convergence
 % close all;
@@ -60,21 +60,21 @@ vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 % saveas(gcf,'Y32_spectrum.png');
 
 %% compare mesh refinement on sphere spectrum
-% close all;
-% D_s = [];
-% for l = 0:9
-%     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
-% end
-% figure(); hold all; grid on;
-% for i = 1:size(D,2)
-%   plot(D(:,i))
-% end
-% plot(D_s)
-% legend('100','200','300','400','500','600','700','800','900','1E3',...
-%   'theoretical','location','best');
-% xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-% title('First 100 eigenvalues of sphere');
-% saveas(gcf,'sphere_spectrum.png');
+close all;
+D_s = [];
+for l = 0:9
+    D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
+end
+figure(); hold all; grid on;
+for i = 1:size(D,2)
+  plot(D(:,i))
+end
+plot(D_s)
+legend('100','200','300','400','500','600','700','800','900','1E3',...
+  'theoretical','location','best');
+xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
+title('First 100 eigenvalues of sphere');
+saveas(gcf,'sphere_spectrum.png');
 
 %% compare sphere spectrum on fine mesh
 close all;
@@ -122,34 +122,98 @@ title('Relative eigenvalue differences');
 xlabel('# of eigenvalues'); ylabel('[%]');
 saveas(gcf,'sphere_spectrum_2.png');
 
-%% cMCF test/debug
-% numeig = ceil(.6*200);
-% imax = 3e3;
-% % for pert = [0.4 .6 .7 .8 .9 1 1.5]
-% for pert = 1
-%   load(num2str(pert,'i2_200_t2_abs(Y32(v))_e0.6p%g.mat'));
-%   [M,L] = lapbel(v,f);
-%   [M_T,L_T] = lapbel(v_T,f_T);
-%   %% conformal Mean Curvature Flow for conformal factors
-%   s_T = meancurvflow(v_T,f_T,1000,'c',L_T,M_T);
-%   % D_Tp = eigvf(L,diag(1./s_T)*M,numeig);
-%   %% can I flow it back?
-%   conf_T = sqrt(kron(1./s_T',1./s_T));
-%   elsq_T = elsq0.*conf_T(isedge); % linear indices
-%   [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-%     reshape(v',[],1),isedge,elsq_T);
-%   v_c = reshape(v_Thist(:,end),3,[])';
-%   norm(vnorm(v_T - v_c))
-%   Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
-%   Mesh_c = TriRep(f,v_c); %triangulation(f,v_end);
-% end
+%% cMCF debug
+load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
+[M_T,L_T] = lapbel(v_T,f_T);
+D_T = eigvf(L_T,M_T,numeig);
 
+[s_T,v0] = meancurvflow(v_T,f_T,1,'c');
+
+%% prepare to flow it back
+numv = size(v,1); % number of vertices
+numf = size(f,1); % number of faces
+numeig = ceil(.5*numv);
+
+% when is there an edge (mild redundancy)
+isedge = zeros(numv);
+for fi = 1:numf
+  for idx = 0:2
+    i = f(fi,idx+1);
+    j = f(fi,mod(idx+1,3)+1);
+    isedge(i,j) = 1;
+  end
+end
+isedge = triu(isedge); % reduce redundancy
+isedge = find(isedge); % linear indices
+
+% compute initial edge lengths squared
+elsq0 = zeros(numv);
+for i = 1:numv
+  for j = (i+1):numv % skipping the symmetric lower triangular part
+    elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
+  end
+end
+elsq0 = elsq0(isedge); % linear indices
+
+%% re-embedding
+conf_T = sqrt(kron(1./s_T',1./s_T));
+elsq_T = elsq0.*conf_T(isedge); % linear indices
+[Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+  reshape(v0',[],1),isedge,elsq_T);
+v_c = reshape(v_Thist(:,end),3,[])';
+
+[M_c,L_c] = lapbel(v_c,f);
+D_c = eigvf(L_c,M_c,numeig);
+%% how well does it do?
+close all;
+figure(); hold all; set(gcf,'outerposition',[0, 0, 1024, 768]);
+subplot(2,3,1); hold all; view(3); grid on; axis equal
+trimesh(f,v_T(:,1),v_T(:,2),v_T(:,3))
+set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+xlabel('x'); ylabel('y'); zlabel('z');
+title('initial mesh');
+
+subplot(2,3,2); hold all; view(3); grid on; axis equal
+trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T)
+set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+xlabel('x'); ylabel('y'); zlabel('z');
+colorbar; title('S^{-1}');
+text(0,0,-3,num2str(std(vnorm(v0)),'std(|v|) = %g'));
+
+subplot(2,3,3); hold all; view(3); grid on; axis equal
+trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
+set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+xlabel('x'); ylabel('y'); zlabel('z');
+title('re-embedded mesh');
+
+subplot(2,3,4:6); hold all; grid on;
+v = (D_c - D_T)./D_T;
+plot(v(1:end-1),'ro:','linewidth',2);
+legend('(\lambda_{cMCF embed} - \lambda_{0})/\lambda_{0}',...
+  'location','northwest');
+xlabel('# of eigenvalues (#1 is of the highest frequency)');
+title('Deviation from target Laplacian eigenvalues');
+
+fig = gcf;
+if isstruct(fig)
+  ax = fig.CurrentAxes;
+else
+  ax = gca;
+end
+pause(.1);
+set(ax,'xlim',[0 numel(D_0)])
+xm = get(ax,'xlim');
+ym = get(ax,'ylim');
+text(floor(max(xm)/4),max(ym(2) + .18*diff(ym)),...
+  num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
+
+colormap('jet');
 %% line search debug
 close all;
-% J = @(x) deal(abs(x),(x>0)-(x<0));
-J = @(x) deal(x.^2,2*x);
+J = @(x) deal(abs(x),(x>0)-(x<0));
+% J = @(x) deal(x.^2,2*x);
 x0 = -118;
-[Jhist,vhist] = gradescent(J,1e3,.5,.95,1,1e-8,0,x0);
+[Jhist,vhist] = gradescent(J,imax,.5,.95,1,1e-8,0,x0);
 figure(); hold all; grid on;
 xx = [linspace(-abs(x0),0) linspace(0,abs(x0))];
 [Jxx,dJxx] = J(xx);

@@ -5,8 +5,8 @@ function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
 % INPUTS
 % v0,f0    - face-vertex data of the initial surface
 % h        - step size of the flow
-% L0,M0    - precomupted initial Laplace-Beltrami operator
 % type     - type of flow wanted ('t','c','a')
+% L0,M0    - precomupted initial Laplace-Beltrami operator (optional)
 % 
 % OUTPUTS
 % s        - resultant conformal factors
@@ -45,8 +45,8 @@ while true
   v = v - repmat(volCenter(v,f0),numv,1);
 %   scl = calcVol(v,f0)^(1/3);
   scl = makeUnitArea(v,f0);
-  
   v = v*scl/scl0;
+  
 %   figure(); trimesh(TriRep(f0,v)); axis equal; pause(.5)
   sphericity = std(vnorm(v));
 
@@ -71,7 +71,7 @@ while true
 end
 
 % s = diag(inv(M)*M0);
-s = diag(M\M0);
+s = 1./diag(M\M0);
 end
 
 % function [vol] = calcVol(v,f)
