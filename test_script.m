@@ -67,7 +67,8 @@ for silly = 1:3
   if target_data.num == 3
     endname = [endname num2str(target_data.Nmcf,'_Nmcf%d')];
   end
-  saveas(figh,[endname '.png']);
+  hgexport(figh,[endname '.png'],...
+    hgexport('factorystyle'), 'Format', 'png'); 
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
 end
