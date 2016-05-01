@@ -36,6 +36,8 @@ target_data.dat = 'bunny2k';
 %% testing time
 % for pert = .3:.1:2
 % for numeig = .1:.1:1
+for silly = 1:3
+  target_data.Nmcf = silly;
   [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
     D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
     imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
@@ -53,7 +55,10 @@ target_data.dat = 'bunny2k';
   end
   endname = num2str([init_data.num, target_data.num, numeig, pert],...
     ['i%d_' init_data.dat '_t%d_' dumb '_e%gp%g']);
+  if target_data.num == 3
+    endname = [endname num2str(target_data.Nmcf,'_Nmcf%d')];
+  end
   saveas(figh,[endname '.png']);
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
-% end
+end

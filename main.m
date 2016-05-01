@@ -54,7 +54,7 @@ elseif target_data.num == 2
 elseif target_data.num == 3
   fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
   [v_T,f_T] = readwfobj(fid);
-  [s_T,v] = meancurvflow(v_T,f_T,1,'c');
+  [s_T,v] = meancurvflow(v_T,f_T,1,'c',target_data.Nmcf);
   f = f_T;
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end

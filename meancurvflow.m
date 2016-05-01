@@ -1,4 +1,4 @@
-function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
+function [s,v] = meancurvflow(v0,f0,h,type,imax,L0,M0)
 % function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
 % Mean Curvature Flow of discrete surfaces
 % 
@@ -15,7 +15,8 @@ function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
 
 if (nargin<3) || isempty(h), h = 100; end
 if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
-if (nargin<5) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
+if (nargin<5) || isempty(imax), imax = 100; end
+if (nargin<6) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
 
 % close all;
 numv = size(v0,1);
@@ -37,7 +38,7 @@ I = eye(size(v0,1));
 sphericity_old = std(vnorm(v0));
 
 iter = 1;
-while true
+while iter<=imax
   for dim = 1:3
     A = (I - h*(M\L));
     v(:,dim) = A\vold(:,dim);
@@ -61,7 +62,7 @@ while true
   end
   
   dv = vdiff(v,vold);
-  fprintf('flow iter#%d; v difference = %g\n',iter,dv);
+  fprintf('flow iter#%d; |dv| = %g\n',iter,dv);
   iter = iter + 1;
   if abs(sphericity_old - sphericity) <= 1e-5
     break;

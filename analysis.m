@@ -1,4 +1,4 @@
-
+clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
 imax = 1e3; % gradient descent maximum iterations
@@ -8,7 +8,7 @@ aS = .7; bS = .8; tS = 150; etolS = 5e-4; % invSpec descent control
 % pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 
-%% test perturbation effect
+%% test perturbation effect on eigenvalues
 close all;
 figure(); hold all; grid on;
 numeig = ceil(.6*200);
@@ -123,92 +123,89 @@ xlabel('# of eigenvalues'); ylabel('[%]');
 saveas(gcf,'sphere_spectrum_2.png');
 
 %% cMCF debug
-load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
-[M_T,L_T] = lapbel(v_T,f_T);
-D_T = eigvf(L_T,M_T,numeig);
+  load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
+  [M_T,L_T] = lapbel(v_T,f_T);
+  D_T = eigvf(L_T,M_T,numeig);
+  [s_T,v0] = meancurvflow(v_T,f_T,1,'c');
+  %% prepare to flow it back
+  numv = size(v,1); % number of vertices
+  numf = size(f,1); % number of faces
+  numeig = ceil(.5*numv);
 
-[s_T,v0] = meancurvflow(v_T,f_T,1,'c');
-
-%% prepare to flow it back
-numv = size(v,1); % number of vertices
-numf = size(f,1); % number of faces
-numeig = ceil(.5*numv);
-
-% when is there an edge (mild redundancy)
-isedge = zeros(numv);
-for fi = 1:numf
-  for idx = 0:2
-    i = f(fi,idx+1);
-    j = f(fi,mod(idx+1,3)+1);
-    isedge(i,j) = 1;
+  % when is there an edge (mild redundancy)
+  isedge = zeros(numv);
+  for fi = 1:numf
+    for idx = 0:2
+      i = f(fi,idx+1);
+      j = f(fi,mod(idx+1,3)+1);
+      isedge(i,j) = 1;
+    end
   end
-end
-isedge = triu(isedge); % reduce redundancy
-isedge = find(isedge); % linear indices
+  isedge = triu(isedge); % reduce redundancy
+  isedge = find(isedge); % linear indices
 
-% compute initial edge lengths squared
-elsq0 = zeros(numv);
-for i = 1:numv
-  for j = (i+1):numv % skipping the symmetric lower triangular part
-    elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
+  % compute initial edge lengths squared
+  elsq0 = zeros(numv);
+  for i = 1:numv
+    for j = (i+1):numv % skipping the symmetric lower triangular part
+      elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
+    end
   end
-end
-elsq0 = elsq0(isedge); % linear indices
+  elsq0 = elsq0(isedge); % linear indices
+  %% re-embedding
+  conf_T = sqrt(kron(1./s_T',1./s_T));
+  elsq_T = elsq0.*conf_T(isedge); % linear indices
+  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+    reshape(v0',[],1),isedge,elsq_T);
+  v_c = reshape(v_Thist(:,end),3,[])';
 
-%% re-embedding
-conf_T = sqrt(kron(1./s_T',1./s_T));
-elsq_T = elsq0.*conf_T(isedge); % linear indices
-[Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-  reshape(v0',[],1),isedge,elsq_T);
-v_c = reshape(v_Thist(:,end),3,[])';
+  [M_c,L_c] = lapbel(v_c,f);
+  D_c = eigvf(L_c,M_c,numeig);
+  %% how well does it do?
+  close all;
+  figure(); hold all; set(gcf,'outerposition',[0, 0, 1024, 768]);
+  subplot(2,3,1); hold all; view(3); grid on; axis equal
+  trimesh(f,v_T(:,1),v_T(:,2),v_T(:,3))
+  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  xlabel('x'); ylabel('y'); zlabel('z');
+  title('initial mesh');
 
-[M_c,L_c] = lapbel(v_c,f);
-D_c = eigvf(L_c,M_c,numeig);
-%% how well does it do?
-close all;
-figure(); hold all; set(gcf,'outerposition',[0, 0, 1024, 768]);
-subplot(2,3,1); hold all; view(3); grid on; axis equal
-trimesh(f,v_T(:,1),v_T(:,2),v_T(:,3))
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('initial mesh');
+  subplot(2,3,2); hold all; view(3); grid on; axis equal
+  trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T,'edgecolor','none')
+  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  xlabel('x'); ylabel('y'); zlabel('z');
+  % colorbar;
+  title('S^{-1}');
+  text(0,2.5,2,num2str(std(vnorm(v0)),'std(|v|) = %g'));
 
-subplot(2,3,2); hold all; view(3); grid on; axis equal
-trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T,'edgecolor','none')
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-% colorbar;
-title('S^{-1}');
-text(0,2.5,2,num2str(std(vnorm(v0)),'std(|v|) = %g'));
+  subplot(2,3,3); hold all; view(3); grid on; axis equal
+  trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
+  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  xlabel('x'); ylabel('y'); zlabel('z');
+  title('re-embedded mesh');
 
-subplot(2,3,3); hold all; view(3); grid on; axis equal
-trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('re-embedded mesh');
+  subplot(2,3,4:6); hold all; grid on;
+  v = (D_c - D_T)./D_T;
+  plot(v(1:end-1),'ro:','linewidth',2);
+  legend('(\lambda_{cMCF embed} - \lambda_{0})/\lambda_{0}',...
+    'location','northwest');
+  xlabel('# of eigenvalues (#1 is of the highest frequency)');
+  title('Deviation from target Laplacian eigenvalues');
 
-subplot(2,3,4:6); hold all; grid on;
-v = (D_c - D_T)./D_T;
-plot(v(1:end-1),'ro:','linewidth',2);
-legend('(\lambda_{cMCF embed} - \lambda_{0})/\lambda_{0}',...
-  'location','northwest');
-xlabel('# of eigenvalues (#1 is of the highest frequency)');
-title('Deviation from target Laplacian eigenvalues');
+  fig = gcf;
+  if isstruct(fig)
+    ax = fig.CurrentAxes;
+  else
+    ax = gca;
+  end
+  pause(.1);
+  set(ax,'xlim',[0 numel(D_0)])
+  xm = get(ax,'xlim');
+  ym = get(ax,'ylim');
+  text(floor(max(xm)/3),max(ym(2) + .18*diff(ym)),...
+    num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
 
-fig = gcf;
-if isstruct(fig)
-  ax = fig.CurrentAxes;
-else
-  ax = gca;
-end
-pause(.1);
-set(ax,'xlim',[0 numel(D_0)])
-xm = get(ax,'xlim');
-ym = get(ax,'ylim');
-text(floor(max(xm)/3),max(ym(2) + .18*diff(ym)),...
-  num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
-
-colormap('jet');
+  colormap('jet');
 %% line search debug
 close all;
 J = @(x) deal(abs(x),(x>0)-(x<0));
