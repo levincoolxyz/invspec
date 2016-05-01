@@ -32,7 +32,7 @@ for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
   u = -GJ;
   if i>1
-  	if (J(i-1) - J(i))/J(i-1) <= etol || (J(i-1) - J(i)) <=10*eps
+  	if abs((J(i-1) - J(i))/J(i-1)) <= etol || abs(J(i-1) - J(i)) <=10*eps
       fprintf('Converged at iter#%d; J = %g; |GJ| = %g; tau = %g\n',...
         i,J(i),norm(GJ),tau);
       i = i + (i < imax);
