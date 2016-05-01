@@ -6,8 +6,8 @@ for i = 1:size(datalist{1},1)
 % while size(token,1)>=1
   token = char(datalist{1}(i));
   load([token '.mat']);
-  figh = visualize(v,f,v_end,v_T,f_T,...
-  J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
+    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
   pause(.1);
   hgexport(figh,[token '.png'],...
       hgexport('factorystyle'), 'Format', 'png');
