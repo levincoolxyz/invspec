@@ -39,6 +39,10 @@ sphericity_old = std(vnorm(v0));
 
 iter = 1;
 while iter<=imax
+  if numv > 500
+    M = sparse(M);
+    L = sparse(L);
+  end
   for dim = 1:3
     A = (I - h*(M\L));
     v(:,dim) = A\vold(:,dim);

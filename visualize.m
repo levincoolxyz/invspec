@@ -1,5 +1,7 @@
 function [figh] = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
+% function [figh] = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
+%   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
 
 %% principal component analysis for alignment
 dcm = pa(v,f); % princomp(v); %pca(v);

@@ -120,17 +120,18 @@ for fi = 1:numf
     isedge(i,j) = 1;
   end
 end
-isedge = triu(isedge); % reduce redundancy
+isedge = tril(isedge); % reduce redundancy
 isedge = find(isedge); % linear indices
 %% compute initial edge lengths squared
 elsq0 = zeros(numv);
-for i = 1:numv
-  for j = (i+1):numv % skipping the symmetric lower triangular part
+temp = mod(isedge-1,numv)+1;
+temp2 = fix((isedge-1)/numv);
+for j = 1:numv
+  for i = temp(temp2 == (j-1))'
     elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
   end
 end
-% elsq0 = elsq0.*isedge;
-elsq0 = elsq0(isedge); % linear indices
+elsq0 = nonzeros(elsq0);
 %% compute laplacian
 [M,L] = lapbel(v,f);
 % sparsify if large enough

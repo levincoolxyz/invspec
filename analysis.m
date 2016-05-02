@@ -2,8 +2,8 @@ clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
 imax = 1e3; % gradient descent maximum iterations
-aC = .4; bC = .9; tC = 30; etolC = 5e-4; % Conformal descent control
-aS = .7; bS = .8; tS = 150; etolS = 5e-4; % invSpec descent control
+aC = .4; bC = .9; tC = 10; etolC = 5e-4; % Conformal descent control
+aS = .7; bS = .8; tS = 100; etolS = 5e-4; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 % pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
@@ -123,15 +123,16 @@ xlabel('# of eigenvalues'); ylabel('[%]');
 saveas(gcf,'sphere_spectrum_2.png');
 
 %% cMCF debug
-  load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
-  [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
-  [s_T,v0] = meancurvflow(v_T,f_T,1,'c');
-  %% prepare to flow it back
+%   load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
+  load i2_1000_t3_bunny2k_e0.3p0.512.mat
   numv = size(v,1); % number of vertices
   numf = size(f,1); % number of faces
   numeig = ceil(.5*numv);
-
+  
+%   [M_T,L_T] = lapbel(v_T,f_T);
+%   D_T = eigvf(L_T,M_T,numeig);
+%   [s_T,v0] = meancurvflow(v_T,f_T,1,'c');
+  %% prepare to flow it back
   % when is there an edge (mild redundancy)
   isedge = zeros(numv);
   for fi = 1:numf
@@ -141,17 +142,19 @@ saveas(gcf,'sphere_spectrum_2.png');
       isedge(i,j) = 1;
     end
   end
-  isedge = triu(isedge); % reduce redundancy
+  isedge = tril(isedge); % reduce redundancy
   isedge = find(isedge); % linear indices
 
   % compute initial edge lengths squared
   elsq0 = zeros(numv);
-  for i = 1:numv
-    for j = (i+1):numv % skipping the symmetric lower triangular part
+  temp = mod(isedge-1,numv)+1;
+  temp2 = fix((isedge-1)/numv);
+  for j = 1:numv
+    for i = temp(temp2 == (j-1))'
       elsq0(i,j) = sum((v(i,:)-v(j,:)).^2);
     end
   end
-  elsq0 = elsq0(isedge); % linear indices
+  elsq0 = nonzeros(elsq0);
   %% re-embedding
   conf_T = sqrt(kron(1./s_T',1./s_T));
   elsq_T = elsq0.*conf_T(isedge); % linear indices
