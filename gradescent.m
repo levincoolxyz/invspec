@@ -48,7 +48,7 @@ for i = 1:imax
     elseif abs(tau - tau_old) > 1e-5
       fprintf('new tau is %g\n',tau);
     else
-      fprintf('refining tau');
+      fprintf('...');
     end
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
