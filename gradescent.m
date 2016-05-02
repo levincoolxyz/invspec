@@ -43,6 +43,9 @@ for i = 1:imax
   end
   scale = 2;
   while abs((tau-tau_old)/tau)>eps
+    if tau < eps
+      fprintf('WARNING: stepsize is getting loooow, tau = %g\n',tau);
+    end
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
     [Jp1,GJp1] = feval(costf,vp1,varargin{:});
