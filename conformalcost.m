@@ -1,34 +1,43 @@
-function [J,GJ] = conformalcost(v,isedge,elsq_T)
+function varargout = conformalcost(v,isedge,elsq_T)
 %% initialization
 v = reshape(v,3,[])';
 numv = size(v,1); % number of vertices
 %% compute (upper triangular) edge lengths and squared
-el = zeros(numv,numv,3);
+if (nargout > 1)
+  el = zeros(numv,numv,3);
+end
 elsq = zeros(numv);
 temp = mod(isedge-1,numv)+1;
 temp2 = fix((isedge-1)/numv);
 for j = 1:numv
   for i = temp(temp2 == (j-1))'
-    for dim = 1:3
-      el(i,j,dim) = v(i,dim)-v(j,dim);
+    if (nargout > 1)
+      for dim = 1:3
+        el(i,j,dim) = v(i,dim)-v(j,dim);
+      end
     end
     elsq(i,j) = sum((v(i,:)-v(j,:)).^2);
   end
 end
 elsq = nonzeros(elsq);
-%% naively compare edge lengths squared difference, cost, and gradient
+%% edge lengths squared difference, cost, and gradient
 elsq_diff = elsq - elsq_T;
+% elsq_rat = elsq_T./elsq; % technically correct version
 J = .25*sum(elsq_diff.^2);
-% elsq_rat = elsq_T./elsq;
 % J = .25*sum((1 - elsq_rat).^2);
-GJ = zeros(numv,3);
-for vi = 1:numv
-  for dim = 1:3
-    ddvi = zeros(numv);
-    ddvi(vi,:) = el(vi,:,dim);
-    ddvi(:,vi) = -el(:,vi,dim);
-    GJ(vi,dim) = sum(elsq_diff.*ddvi(isedge));
-%     GJ(vi,dim) = sum((1 - elsq_rat).*elsq_T./elsq./elsq.*ddvi(isedge));
+if (nargout <= 1)
+  varargout{1} = J;
+else
+  varargout{1} = J;
+  GJ = zeros(numv,3);
+  for vi = 1:numv
+    for dim = 1:3
+      ddvi = zeros(numv);
+      ddvi(vi,:) = el(vi,:,dim);
+      ddvi(:,vi) = -el(:,vi,dim);
+      GJ(vi,dim) = sum(elsq_diff.*ddvi(isedge));
+%       GJ(vi,dim) = sum((1 - elsq_rat).*elsq_T./elsq./elsq.*ddvi(isedge));
+    end
   end
+  varargout{2} = reshape(GJ',[],1);
 end
-GJ = reshape(GJ',[],1);
