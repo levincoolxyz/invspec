@@ -41,7 +41,8 @@ for i = 1:imax
       break;
     end
   end
-  scale = 2;
+  c3 = .1;
+  c4 = 2;
   while abs((tau-tau_old)/tau)>eps
     if tau < eps
       fprintf('WARNING: stepsize is getting loooow, tau = %g\n',tau);
@@ -62,9 +63,9 @@ for i = 1:imax
       break;
     end
     if b < inf
-      tau = (a+b)/scale;
+      tau = (a+b)*c3;
     else
-      tau = a*scale;
+      tau = a*c4;
     end
   end
   fprintf('\n');
