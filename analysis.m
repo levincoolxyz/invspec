@@ -210,9 +210,10 @@ rng(1432543); % rand seed
     num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
 
   colormap('jet');
+  save('cMCF test.mat','v0','f','v_T','f_T','v_c','D_c','D_T','Jc_hist');
   hgexport(gcf,'cMCF re-embed test.png',...
     hgexport('factorystyle'), 'Format', 'png'); 
-  
+
 %% line search testing/debug
 % close all;
 % imax = 1e3;
