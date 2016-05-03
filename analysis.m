@@ -214,22 +214,22 @@ rng(1432543); % rand seed
     hgexport('factorystyle'), 'Format', 'png'); 
   
 %% line search testing/debug
-% close all;
-% imax = 1e3;
-% % J = @(x) deal(-abs(x),-(x>0)+(x<0));
-% % J = @(x) deal(abs(x),(x>0)-(x<0));
-% % J = @(x) deal(abs(x).^.3,((x>0)-(x<0))*abs(x)^(-2/3)/3);
-% % J = @(x) deal(x.^2,2*x);
+close all;
+imax = 1e3;
+% J = @(x) deal(-abs(x),-(x>0)+(x<0));
+J = @(x) deal(abs(x),(x>0)-(x<0));
+% J = @(x) deal(abs(x).^.3,((x>0)-(x<0))*abs(x)^(-2/3)/3);
+% J = @(x) deal(x.^2,2*x);
 % J = @(x) deal(4*x.^3-(x-2).^2+.4*(x+2).^4,12*x.^2-2*(x-2)+1.6*(x+2).^3);
-% x0 = -118;
-% [Jhist,vhist] = gradescent(J,imax,.5,.5,1,1e-8,0,x0);
-% figure(); hold all; grid on;
-% xx = [linspace(-abs(x0),0,1e3) linspace(0,abs(x0),1e3)];
-% [Jxx,dJxx] = J(xx);
-% plot(xx,Jxx,'-');
-% plot(vhist,Jhist,'x-','markersize',20)
-% 
-% % conclusion: the smoother the function, the lower c2 needs to be
+x0 = -118;
+[Jhist,vhist] = gradescent(J,imax,.5,.5,1,1e-8,0,x0);
+figure(); hold all; grid on;
+xx = [linspace(-abs(x0),0,1e5) linspace(0,abs(x0),1e5)];
+[Jxx,dJxx] = J(xx);
+plot(xx,Jxx,'-');
+plot(vhist,Jhist,'x-','markersize',20)
+
+% conclusion: the smoother the function, the lower c2 needs to be
 % %% matlab sparse eigs performance test
 % ssize = [300 500 1000];
 % numeig = .1:.1:.9;

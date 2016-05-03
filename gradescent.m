@@ -41,13 +41,14 @@ for i = 1:imax
       break;
     end
   end
-  c3 = .1;
+%   c3 = .1;
+  c3 = .5;
   c4 = 2;
   while abs((tau-tau_old)/tau)>eps
     if tau < eps
       fprintf('WARNING: stepsize is getting loooow, tau = %g\n',tau);
     elseif abs((tau - tau_old)/tau) > 1e-5
-      fprintf('new tau is %g\n',tau);
+      fprintf('try tau = %g\n',tau);
     else
       fprintf('.');
     end
