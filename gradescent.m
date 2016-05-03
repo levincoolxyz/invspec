@@ -45,10 +45,10 @@ for i = 1:imax
   while abs((tau-tau_old)/tau)>eps
     if tau < eps
       fprintf('WARNING: stepsize is getting loooow, tau = %g\n',tau);
-    elseif abs(tau - tau_old) > 1e-5
+    elseif abs((tau - tau_old)/tau) > 1e-5
       fprintf('new tau is %g\n',tau);
     else
-      fprintf('...');
+      fprintf('.');
     end
     tau_old = tau;
     vp1 = v(:,i) + tau*u;

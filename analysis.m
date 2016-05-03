@@ -2,7 +2,7 @@ clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
 imax = 1e3; % gradient descent maximum iterations
-aC = .4; bC = .9; tC = 10; etolC = 5e-4; % Conformal descent control
+aC = .4; bC = .9; tC = 10; etolC = 1e-3; % Conformal descent control
 aS = .7; bS = .8; tS = 100; etolS = 5e-4; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 % pert = .512; % scaling coefficient used to control target perturbation
