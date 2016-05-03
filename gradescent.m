@@ -63,7 +63,7 @@ for i = 1:imax
       break;
     end
     if b < inf
-      tau = (a+b)*c3;
+      tau = (1-c3)*a+c3*b;
     else
       tau = a*c4;
     end
