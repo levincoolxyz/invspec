@@ -2,8 +2,8 @@ clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
 imax = 1e3; % gradient descent maximum iterations
-aC = .4; bC = .9; tC = 10; etolC = 1e-3; % Conformal descent control
-aS = .7; bS = .8; tS = 100; etolS = 5e-4; % invSpec descent control
+aC = .4; bC = .6; tC = 15; etolC = 1e-4; % Conformal descent control
+aS = .6; bS = .7; tS = 100; etolS = 1e-4; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 % pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
@@ -167,17 +167,18 @@ rng(1432543); % rand seed
   [M_c,L_c] = lapbel(v_c,f);
   D_c = eigvf(L_c,M_c,numeig);
   %% how well does it do?
+  viewlim = [-1 1];
   close all;
   figure(); hold all; set(gcf,'outerposition',[0, 0, 1024, 768]);
   subplot(2,3,1); hold all; view(3); grid on; axis equal
   trimesh(f,v_T(:,1),v_T(:,2),v_T(:,3))
-  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  set(gca,'xlim',viewlim,'ylim',viewlim,'zlim',viewlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('initial mesh');
 
   subplot(2,3,2); hold all; view(3); grid on; axis equal
   trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T,'edgecolor','none')
-  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  set(gca,'xlim',viewlim,'ylim',viewlim,'zlim',viewlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   % colorbar;
   title('S^{-1}');
@@ -185,7 +186,7 @@ rng(1432543); % rand seed
 
   subplot(2,3,3); hold all; view(3); grid on; axis equal
   trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
-  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  set(gca,'xlim',viewlim,'ylim',viewlim,'zlim',viewlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('re-embedded mesh');
 
@@ -209,9 +210,10 @@ rng(1432543); % rand seed
   ym = get(ax,'ylim');
   text(floor(max(xm)/3),max(ym(2) + .18*diff(ym)),...
     num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
-
   colormap('jet');
-  save('cMCF test.mat','v0','f','v_T','f_T','v_c','D_c','D_T','Jc_hist');
+
+  save('cMCF test.mat','v0','f','v_T','f_T','v_c','D_c',...
+    's_T','D_T','Jc_hist');
   hgexport(gcf,'cMCF re-embed test.png',...
     hgexport('factorystyle'), 'Format', 'png'); 
 
