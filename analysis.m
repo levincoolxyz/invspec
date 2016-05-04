@@ -124,10 +124,11 @@ rng(1432543); % rand seed
 
 %% cMCF debug
 %   load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
+%   numeig = ceil(.5*numv);
   load i2_1000_t3_bunny2k_e0.3p0.512.mat
   numv = size(v,1); % number of vertices
   numf = size(f,1); % number of faces
-  numeig = ceil(.5*numv);
+  numeig = ceil(.3*numv);
   
 %   [M_T,L_T] = lapbel(v_T,f_T);
 %   D_T = eigvf(L_T,M_T,numeig);
