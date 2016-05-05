@@ -13,7 +13,7 @@ function [s,v] = meancurvflow(v0,f0,h,type,imax,L0,M0)
 % v        - resultant vertex coordinates
 % 
 
-if (nargin<3) || isempty(h), h = 100; end
+if (nargin<3) || isempty(h), h = 1; end
 if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
 if (nargin<5) || isempty(imax), imax = 100; end
 if (nargin<6) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
@@ -35,9 +35,10 @@ v = ones(size(v0));
 I = eye(size(v0,1));
 
 % figure();trimesh(TriRep(f0,v0)); axis equal;
-sphericity_old = std(vnorm(v0));
+% saveas(gcf,'mcf000.png'); close(gcf);
 
 iter = 1;
+sphericity_old = std(vnorm(v0));
 while iter<=imax
   if numv > 500
     M = sparse(M);
@@ -52,8 +53,8 @@ while iter<=imax
   scl = makeUnitArea(v,f0);
   v = v*scl/scl0;
   
-%   figure(); trimesh(TriRep(f0,v)); axis equal; pause(.5)
-  sphericity = std(vnorm(v));
+%   figure(); trimesh(TriRep(f0,v)); axis equal;
+%   saveas(gcf,num2str(iter,'mcf%03d.png')); close(gcf);
 
   if type == 't'
     [M,L] = lapbel(v,f0); % traditional
@@ -65,10 +66,14 @@ while iter<=imax
     error('wat?');
   end
   
+  sphericity = std(vnorm(v));
   dv = vdiff(v,vold);
   fprintf('flow iter#%d; |dv| = %g\n',iter,dv);
   iter = iter + 1;
   if abs(sphericity_old - sphericity) <= 1e-5
+    break;
+  end
+  if sphericity > 2
     break;
   end
   vold = v;
@@ -77,6 +82,10 @@ end
 
 % s = diag(inv(M)*M0);
 s = 1./diag(M\M0);
+
+% unix(['convert -delay 10 -loop 0 mcf*.png mcf' num2str(h,'%g') '.gif']);
+% unix('rm mcf*.png');
+
 end
 
 % function [vol] = calcVol(v,f)

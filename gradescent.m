@@ -55,10 +55,9 @@ for i = 1:imax
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
     [Jp1,GJp1] = feval(costf,vp1,varargin{:});
-    up1 = -GJp1;
     if Jp1 > J(i) + c1*tau*dot(GJ,u)
       b = tau;
-    elseif dot(GJp1,up1) < c2*dot(GJ,u)
+    elseif dot(GJp1,u) < c2*dot(GJ,u)
       a = tau;
     else
       break;

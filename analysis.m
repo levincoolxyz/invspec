@@ -224,9 +224,10 @@ rng(1432543); % rand seed
 % J = @(x) deal(abs(x),(x>0)-(x<0));
 % % J = @(x) deal(abs(x).^.3,((x>0)-(x<0))*abs(x)^(-2/3)/3);
 % % J = @(x) deal(x.^2,2*x);
-% % J = @(x) deal(4*x.^3-(x-2).^2+.4*(x+2).^4,12*x.^2-2*(x-2)+1.6*(x+2).^3);
+% % J=@(x)deal(4*x.^3-(x-2).^2+.4*(x+2).^4,12*x.^2-2*(x-2)+1.6*(x+2).^3);
 % x0 = -118;
-% [Jhist,vhist] = gradescent(J,imax,.5,.5,1,1e-8,0,x0);
+% [Jhist,vhist] = gradescent(J,imax,.5,.6,1,1e-8,0,x0);
+% % [Jhist,vhist] = gradescent(J,imax,.7,.8,150,1e-8,0,x0);
 % figure(); hold all; grid on;
 % xx = [linspace(-abs(x0),0,1e5) linspace(0,abs(x0),1e5)];
 % [Jxx,dJxx] = J(xx);

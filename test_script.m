@@ -7,10 +7,9 @@ Y32 = @(v) (v(:,1).^2-v(:,2).^2).*v(:,3)./(vnorm(v)).^3;
 Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
-% imax = 3e3; % gradient descent maximum iterations
-% aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
-% aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
 imax = 1e3; % gradient descent maximum iterations
+% aC = .7; bC = .8; tC = 10; etolC = 1e-4; % Conformal descent control
+% aS = .8; bS = .9; tS = 150; etolS = 1e-4; % invSpec descent control
 aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = .3; % number of eigenvalues used, <=1 => percent, <=0 => all
