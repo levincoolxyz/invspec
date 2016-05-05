@@ -45,8 +45,10 @@ while iter<=imax
     L = sparse(L);
   end
   for dim = 1:3
-    A = (I - h*(M\L));
-    v(:,dim) = A\vold(:,dim);
+%     A = (I - h*(M\L));
+%     v(:,dim) = A\vold(:,dim);
+    A = (M - h*L);
+    v(:,dim) = A\(M*vold(:,dim));
   end
   v = v - repmat(volCenter(v,f0),numv,1);
 %   scl = calcVol(v,f0)^(1/3);
