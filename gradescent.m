@@ -41,9 +41,8 @@ for i = 1:imax
       break;
     end
   end
-%   c3 = .1;
-  c3 = .5;
-  c4 = 2;
+%   c3 = .5;
+%   c4 = 2;
   while abs((tau-tau_old)/tau)>eps
     if tau < eps
       warning('wee:too:low','small stepsize. tau = %g',tau);
@@ -63,9 +62,11 @@ for i = 1:imax
       break;
     end
     if b < inf
-      tau = (1-c3)*a+c3*b;
+%       tau = (1-c3)*a+c3*b;
+      tau = (a+b)/2;
     else
-      tau = a*c4;
+%       tau = a*c4;
+      tau = 2*a;
     end
   end
   fprintf('\n');

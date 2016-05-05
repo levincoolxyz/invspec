@@ -1,9 +1,9 @@
 clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
-imax = 1e3; % gradient descent maximum iterations
-aC = .4; bC = .6; tC = 15; etolC = 1e-4; % Conformal descent control
-aS = .6; bS = .7; tS = 100; etolS = 1e-4; % invSpec descent control
+imax = 5e3; % gradient descent maximum iterations
+aC = .7; bC = .8; tC = 10; etolC = 1e-5; % Conformal descent control
+aS = .8; bS = .9; tS = 150; etolS = 1e-8; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
 % pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
@@ -125,10 +125,12 @@ rng(1432543); % rand seed
 %% cMCF debug
 %   load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
 %   numeig = ceil(.5*numv);
-  load i2_1000_t3_bunny2k_e0.3p0.512.mat
+%   load i2_1000_t3_bunny2k_e0.3p0.512.mat
+%   load i2_300_t3_bunny282_e0.3p0.512_Nmcf1000.mat
+  load i2_300_t3_bunny326_e0.2p0.512_Nmcf1000.mat
   numv = size(v,1); % number of vertices
   numf = size(f,1); % number of faces
-  numeig = ceil(.3*numv);
+  numeig = ceil(.2*numv);
   
 %   [M_T,L_T] = lapbel(v_T,f_T);
 %   D_T = eigvf(L_T,M_T,numeig);
@@ -164,9 +166,10 @@ rng(1432543); % rand seed
     reshape(v0',[],1),isedge,elsq_T);
   v_c = reshape(v_Thist(:,end),3,[])';
 
+  %% how well does it do?
   [M_c,L_c] = lapbel(v_c,f);
   D_c = eigvf(L_c,M_c,numeig);
-  %% how well does it do?
+  
   viewlim = [-1 1];
   close all;
   figure(); hold all; set(gcf,'outerposition',[0, 0, 1024, 768]);
@@ -175,6 +178,7 @@ rng(1432543); % rand seed
   set(gca,'xlim',viewlim,'ylim',viewlim,'zlim',viewlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('initial mesh');
+  view([-20 80])
 
   subplot(2,3,2); hold all; view(3); grid on; axis equal
   trisurf(f,v0(:,1),v0(:,2),v0(:,3),s_T,'edgecolor','none')
@@ -183,13 +187,15 @@ rng(1432543); % rand seed
   % colorbar;
   title('S^{-1}');
   text(0,2.5,2,num2str(std(vnorm(v0)),'std(|v|) = %g'));
-
+  view([-20 80])
+  
   subplot(2,3,3); hold all; view(3); grid on; axis equal
   trimesh(f,v_c(:,1),v_c(:,2),v_c(:,3))
   set(gca,'xlim',viewlim,'ylim',viewlim,'zlim',viewlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('re-embedded mesh');
-
+  view([-20 80])
+  
   subplot(2,3,4:6); hold all; grid on;
   v = (D_c - D_T)./D_T;
   plot(v(1:end-1),'ro:','linewidth',2);
@@ -209,7 +215,7 @@ rng(1432543); % rand seed
   xm = get(ax,'xlim');
   ym = get(ax,'ylim');
   text(floor(max(xm)/3),max(ym(2) + .18*diff(ym)),...
-    num2str(Jc_hist(end),'Convergence Energies: J_{re-embed} = %g'));
+    num2str(Jc_hist(end),'Ending Energies: J_{re-embed} = %g'));
   colormap('jet');
 
   save('cMCF test.mat','v0','f','v_T','f_T','v_c','D_c',...
