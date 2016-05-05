@@ -46,7 +46,7 @@ for i = 1:imax
   c4 = 2;
   while abs((tau-tau_old)/tau)>eps
     if tau < eps
-      fprintf('WARNING: stepsize is getting loooow, tau = %g\n',tau);
+      warning('wee:too:low','small stepsize. tau = %g',tau);
     elseif abs((tau - tau_old)/tau) > 1e-5
       fprintf('try tau = %g\n',tau);
     else
