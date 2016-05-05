@@ -11,8 +11,8 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 % aC = .5; bC = .2; tC = 30; etolC = 5e-4; % Conformal descent control
 % aS = .5; bS = .4; tS = 150; etolS = 5e-4; % invSpec descent control
 imax = 1e3; % gradient descent maximum iterations
-aC = .4; bC = .9; tC = 10; etolC = 5e-4; % Conformal descent control
-aS = .7; bS = .8; tS = 150; etolS = 5e-4; % invSpec descent control
+aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
+aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = .3; % number of eigenvalues used, <=1 => percent, <=0 => all
 pert = .512; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
@@ -21,7 +21,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '200';
+init_data.dat = '300';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';
@@ -31,9 +31,10 @@ init_data.dat = '200';
 target_data.num = 2;
 target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
+target_data.num = 3;
 % target_data.dat = 'bunny2k';
-% target_data.Nmcf = imax;
+target_data.dat = 'bunny282';
+target_data.Nmcf = imax;
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
 % target_data.dat = 'D-T';
