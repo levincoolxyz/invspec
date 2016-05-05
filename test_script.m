@@ -8,12 +8,12 @@ Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
 imax = 1e3; % gradient descent maximum iterations
-aC = .7; bC = .8; tC = 10; etolC = 1e-8; % Conformal descent control
+aC = .7; bC = .8; tC = 10; etolC = 1e-2; % Conformal descent control
 aS = .8; bS = .9; tS = 150; etolS = 1e-8; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = .2; % number of eigenvalues used, <=1 => percent, <=0 => all
-pert = .512; % scaling coefficient used to control target perturbation
+numeig = .1; % number of eigenvalues used, <=1 => percent, <=0 => all
+pert = 5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 

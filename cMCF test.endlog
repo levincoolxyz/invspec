@@ -1,0 +1,5369 @@
+descent iter#4005; J = 3.95669e-06; |GJ| = 1.68967e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4006; J = 3.95644e-06; |GJ| = 8.06283e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4007; J = 3.95637e-06; |GJ| = 6.10879e-06; tau = 5
+try tau = 5
+
+descent iter#4008; J = 3.95621e-06; |GJ| = 6.57963e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4009; J = 3.95606e-06; |GJ| = 7.63433e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4010; J = 3.95595e-06; |GJ| = 5.95267e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4011; J = 3.95565e-06; |GJ| = 8.37368e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4012; J = 3.95558e-06; |GJ| = 6.1568e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4013; J = 3.95542e-06; |GJ| = 6.69761e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4014; J = 3.95533e-06; |GJ| = 5.85238e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4015; J = 3.95474e-06; |GJ| = 1.09122e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4016; J = 3.95463e-06; |GJ| = 6.63156e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4017; J = 3.95454e-06; |GJ| = 5.84128e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4018; J = 3.95395e-06; |GJ| = 1.06268e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4019; J = 3.95384e-06; |GJ| = 6.56924e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4020; J = 3.95375e-06; |GJ| = 5.8306e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4021; J = 3.95316e-06; |GJ| = 1.03543e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4022; J = 3.95305e-06; |GJ| = 6.51047e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4023; J = 3.95296e-06; |GJ| = 5.82031e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4024; J = 3.95237e-06; |GJ| = 1.00941e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4025; J = 3.95227e-06; |GJ| = 6.45504e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4026; J = 3.95218e-06; |GJ| = 5.81039e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4027; J = 3.95158e-06; |GJ| = 9.84592e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4028; J = 3.95148e-06; |GJ| = 6.40277e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4029; J = 3.95139e-06; |GJ| = 5.8008e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4030; J = 3.95079e-06; |GJ| = 9.60927e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4031; J = 3.9507e-06; |GJ| = 6.35349e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4032; J = 3.95061e-06; |GJ| = 5.79154e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4033; J = 3.94953e-06; |GJ| = 1.66719e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4034; J = 3.94928e-06; |GJ| = 7.97108e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4035; J = 3.94922e-06; |GJ| = 6.0546e-06; tau = 5
+try tau = 5
+
+descent iter#4036; J = 3.94906e-06; |GJ| = 6.51547e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4037; J = 3.94891e-06; |GJ| = 7.54921e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4038; J = 3.9488e-06; |GJ| = 5.90178e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4039; J = 3.94851e-06; |GJ| = 8.27545e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4040; J = 3.94844e-06; |GJ| = 6.10142e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4041; J = 3.94828e-06; |GJ| = 6.63065e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4042; J = 3.94819e-06; |GJ| = 5.80351e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4043; J = 3.94761e-06; |GJ| = 1.07599e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4044; J = 3.9475e-06; |GJ| = 6.56563e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4045; J = 3.94741e-06; |GJ| = 5.79263e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4046; J = 3.94683e-06; |GJ| = 1.04783e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4047; J = 3.94673e-06; |GJ| = 6.50431e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4048; J = 3.94664e-06; |GJ| = 5.78216e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4049; J = 3.94605e-06; |GJ| = 1.02095e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4050; J = 3.94595e-06; |GJ| = 6.44649e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4051; J = 3.94586e-06; |GJ| = 5.77207e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4052; J = 3.94528e-06; |GJ| = 9.95299e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4053; J = 3.94518e-06; |GJ| = 6.39199e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4054; J = 3.94509e-06; |GJ| = 5.76234e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4055; J = 3.9445e-06; |GJ| = 9.70835e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4056; J = 3.94441e-06; |GJ| = 6.34061e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4057; J = 3.94432e-06; |GJ| = 5.75295e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4058; J = 3.94373e-06; |GJ| = 9.47515e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4059; J = 3.94364e-06; |GJ| = 6.29219e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4060; J = 3.94355e-06; |GJ| = 5.74386e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4061; J = 3.94248e-06; |GJ| = 1.63955e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4062; J = 3.94224e-06; |GJ| = 7.8736e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4063; J = 3.94218e-06; |GJ| = 6.00068e-06; tau = 5
+try tau = 5
+
+descent iter#4064; J = 3.94202e-06; |GJ| = 6.45083e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4065; J = 3.94187e-06; |GJ| = 7.46145e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4066; J = 3.94177e-06; |GJ| = 5.8512e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4067; J = 3.94148e-06; |GJ| = 8.16888e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4068; J = 3.94141e-06; |GJ| = 6.04594e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4069; J = 3.94126e-06; |GJ| = 6.56238e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4070; J = 3.94117e-06; |GJ| = 5.75548e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4071; J = 3.9406e-06; |GJ| = 1.06064e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4072; J = 3.94049e-06; |GJ| = 6.49852e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4073; J = 3.9404e-06; |GJ| = 5.74481e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4074; J = 3.93983e-06; |GJ| = 1.03285e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4075; J = 3.93973e-06; |GJ| = 6.43834e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4076; J = 3.93964e-06; |GJ| = 5.73455e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4077; J = 3.93906e-06; |GJ| = 1.00634e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4078; J = 3.93896e-06; |GJ| = 6.38163e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4079; J = 3.93888e-06; |GJ| = 5.72467e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4080; J = 3.9383e-06; |GJ| = 9.81055e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4081; J = 3.9382e-06; |GJ| = 6.3282e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4082; J = 3.93812e-06; |GJ| = 5.71514e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4083; J = 3.93753e-06; |GJ| = 9.56954e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4084; J = 3.93744e-06; |GJ| = 6.27786e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4085; J = 3.93736e-06; |GJ| = 5.70595e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4086; J = 3.93677e-06; |GJ| = 9.33996e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4087; J = 3.93669e-06; |GJ| = 6.23044e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4088; J = 3.9366e-06; |GJ| = 5.69706e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4089; J = 3.93555e-06; |GJ| = 1.61235e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4090; J = 3.93531e-06; |GJ| = 7.77112e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4091; J = 3.93525e-06; |GJ| = 5.94633e-06; tau = 5
+try tau = 5
+
+descent iter#4092; J = 3.9351e-06; |GJ| = 6.3838e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4093; J = 3.93495e-06; |GJ| = 7.36784e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4094; J = 3.93485e-06; |GJ| = 5.8011e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4095; J = 3.93456e-06; |GJ| = 8.05853e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4096; J = 3.9345e-06; |GJ| = 5.99012e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4097; J = 3.93434e-06; |GJ| = 6.49192e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4098; J = 3.93426e-06; |GJ| = 5.708e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4099; J = 3.9337e-06; |GJ| = 1.04315e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4100; J = 3.93359e-06; |GJ| = 6.42947e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4101; J = 3.9335e-06; |GJ| = 5.69758e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4102; J = 3.93294e-06; |GJ| = 1.01588e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4103; J = 3.93284e-06; |GJ| = 6.37063e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4104; J = 3.93275e-06; |GJ| = 5.68756e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4105; J = 3.93218e-06; |GJ| = 9.89865e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4106; J = 3.93209e-06; |GJ| = 6.31521e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4107; J = 3.932e-06; |GJ| = 5.67791e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4108; J = 3.93143e-06; |GJ| = 9.65064e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4109; J = 3.93134e-06; |GJ| = 6.26301e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4110; J = 3.93125e-06; |GJ| = 5.6686e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4111; J = 3.93068e-06; |GJ| = 9.41434e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4112; J = 3.93059e-06; |GJ| = 6.21385e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4113; J = 3.93051e-06; |GJ| = 5.65962e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4114; J = 3.92948e-06; |GJ| = 1.63368e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4115; J = 3.92924e-06; |GJ| = 7.8058e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4116; J = 3.92917e-06; |GJ| = 5.9197e-06; tau = 5
+try tau = 5
+
+descent iter#4117; J = 3.92902e-06; |GJ| = 6.3739e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4118; J = 3.92888e-06; |GJ| = 7.39105e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4119; J = 3.92878e-06; |GJ| = 5.76848e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4120; J = 3.9285e-06; |GJ| = 8.09941e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4121; J = 3.92843e-06; |GJ| = 5.96511e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4122; J = 3.92828e-06; |GJ| = 6.48532e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4123; J = 3.92819e-06; |GJ| = 5.67193e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4124; J = 3.92765e-06; |GJ| = 1.05374e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4125; J = 3.92754e-06; |GJ| = 6.42061e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4126; J = 3.92745e-06; |GJ| = 5.66135e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4127; J = 3.9269e-06; |GJ| = 1.02568e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4128; J = 3.9268e-06; |GJ| = 6.35968e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4129; J = 3.92671e-06; |GJ| = 5.65118e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4130; J = 3.92615e-06; |GJ| = 9.98906e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4131; J = 3.92606e-06; |GJ| = 6.30231e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4132; J = 3.92597e-06; |GJ| = 5.6414e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4133; J = 3.92541e-06; |GJ| = 9.73387e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4134; J = 3.92532e-06; |GJ| = 6.2483e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4135; J = 3.92523e-06; |GJ| = 5.63198e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4136; J = 3.92467e-06; |GJ| = 9.49073e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4137; J = 3.92458e-06; |GJ| = 6.19746e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4138; J = 3.9245e-06; |GJ| = 5.6229e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4139; J = 3.92393e-06; |GJ| = 9.2592e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4140; J = 3.92385e-06; |GJ| = 6.14962e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4141; J = 3.92376e-06; |GJ| = 5.61414e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4142; J = 3.92274e-06; |GJ| = 1.6016e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4143; J = 3.92251e-06; |GJ| = 7.69143e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4144; J = 3.92245e-06; |GJ| = 5.86477e-06; tau = 5
+try tau = 5
+
+descent iter#4145; J = 3.9223e-06; |GJ| = 6.30328e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4146; J = 3.92216e-06; |GJ| = 7.28782e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4147; J = 3.92206e-06; |GJ| = 5.71884e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4148; J = 3.92179e-06; |GJ| = 7.97571e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4149; J = 3.92172e-06; |GJ| = 5.90838e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4150; J = 3.92157e-06; |GJ| = 6.41058e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4151; J = 3.92149e-06; |GJ| = 5.62558e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4152; J = 3.92094e-06; |GJ| = 1.03378e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4153; J = 3.92084e-06; |GJ| = 6.34768e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4154; J = 3.92076e-06; |GJ| = 5.61528e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4155; J = 3.92021e-06; |GJ| = 1.00637e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4156; J = 3.92011e-06; |GJ| = 6.28846e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4157; J = 3.92003e-06; |GJ| = 5.60538e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4158; J = 3.91948e-06; |GJ| = 9.80227e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4159; J = 3.91938e-06; |GJ| = 6.23274e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4160; J = 3.9193e-06; |GJ| = 5.59587e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4161; J = 3.91874e-06; |GJ| = 9.55316e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4162; J = 3.91865e-06; |GJ| = 6.18029e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4163; J = 3.91857e-06; |GJ| = 5.58671e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4164; J = 3.91801e-06; |GJ| = 9.31591e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4165; J = 3.91793e-06; |GJ| = 6.13095e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4166; J = 3.91785e-06; |GJ| = 5.57787e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4167; J = 3.91685e-06; |GJ| = 1.61853e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4168; J = 3.91662e-06; |GJ| = 7.7157e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4169; J = 3.91655e-06; |GJ| = 5.83769e-06; tau = 5
+try tau = 5
+
+descent iter#4170; J = 3.91641e-06; |GJ| = 6.29035e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4171; J = 3.91627e-06; |GJ| = 7.30263e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4172; J = 3.91617e-06; |GJ| = 5.68665e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4173; J = 3.9159e-06; |GJ| = 8.00474e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4174; J = 3.91583e-06; |GJ| = 5.88262e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4175; J = 3.91569e-06; |GJ| = 6.40027e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4176; J = 3.9156e-06; |GJ| = 5.5905e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4177; J = 3.91507e-06; |GJ| = 1.04212e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4178; J = 3.91496e-06; |GJ| = 6.33543e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4179; J = 3.91488e-06; |GJ| = 5.58006e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4180; J = 3.91434e-06; |GJ| = 1.01402e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4181; J = 3.91424e-06; |GJ| = 6.27442e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4182; J = 3.91416e-06; |GJ| = 5.57005e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4183; J = 3.91362e-06; |GJ| = 9.87228e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4184; J = 3.91353e-06; |GJ| = 6.21702e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4185; J = 3.91344e-06; |GJ| = 5.56043e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4186; J = 3.9129e-06; |GJ| = 9.61701e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4187; J = 3.91281e-06; |GJ| = 6.16304e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4188; J = 3.91273e-06; |GJ| = 5.55117e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4189; J = 3.91218e-06; |GJ| = 9.37393e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4190; J = 3.91209e-06; |GJ| = 6.11226e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4191; J = 3.91201e-06; |GJ| = 5.54227e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4192; J = 3.91146e-06; |GJ| = 9.14258e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4193; J = 3.91138e-06; |GJ| = 6.06452e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4194; J = 3.91129e-06; |GJ| = 5.53368e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4195; J = 3.91031e-06; |GJ| = 1.58199e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4196; J = 3.91008e-06; |GJ| = 7.59057e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4197; J = 3.91002e-06; |GJ| = 5.78232e-06; tau = 5
+try tau = 5
+
+descent iter#4198; J = 3.90988e-06; |GJ| = 6.21656e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4199; J = 3.90974e-06; |GJ| = 7.19075e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4200; J = 3.90965e-06; |GJ| = 5.63752e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4201; J = 3.90938e-06; |GJ| = 7.869e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4202; J = 3.90931e-06; |GJ| = 5.82516e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4203; J = 3.90917e-06; |GJ| = 6.32176e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4204; J = 3.90908e-06; |GJ| = 5.54525e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4205; J = 3.90856e-06; |GJ| = 1.01994e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4206; J = 3.90846e-06; |GJ| = 6.2591e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4207; J = 3.90837e-06; |GJ| = 5.53514e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4208; J = 3.90784e-06; |GJ| = 9.92613e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4209; J = 3.90775e-06; |GJ| = 6.20016e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4210; J = 3.90767e-06; |GJ| = 5.52543e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4211; J = 3.90713e-06; |GJ| = 9.66573e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4212; J = 3.90704e-06; |GJ| = 6.14473e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4213; J = 3.90696e-06; |GJ| = 5.51611e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4214; J = 3.90642e-06; |GJ| = 9.41771e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4215; J = 3.90633e-06; |GJ| = 6.09262e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4216; J = 3.90625e-06; |GJ| = 5.50714e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4217; J = 3.90571e-06; |GJ| = 9.18163e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4218; J = 3.90563e-06; |GJ| = 6.04362e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4219; J = 3.90555e-06; |GJ| = 5.4985e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4220; J = 3.90458e-06; |GJ| = 1.59458e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4221; J = 3.90435e-06; |GJ| = 7.60428e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4222; J = 3.90429e-06; |GJ| = 5.75468e-06; tau = 5
+try tau = 5
+
+descent iter#4223; J = 3.90415e-06; |GJ| = 6.20041e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4224; J = 3.90401e-06; |GJ| = 7.19699e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4225; J = 3.90392e-06; |GJ| = 5.60567e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4226; J = 3.90365e-06; |GJ| = 7.8861e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4227; J = 3.90359e-06; |GJ| = 5.79852e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4228; J = 3.90345e-06; |GJ| = 6.30759e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4229; J = 3.90336e-06; |GJ| = 5.51107e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4230; J = 3.90285e-06; |GJ| = 1.02602e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4231; J = 3.90275e-06; |GJ| = 6.24332e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4232; J = 3.90266e-06; |GJ| = 5.50085e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4233; J = 3.90214e-06; |GJ| = 9.98128e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4234; J = 3.90205e-06; |GJ| = 6.1829e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4235; J = 3.90197e-06; |GJ| = 5.49106e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4236; J = 3.90144e-06; |GJ| = 9.71547e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4237; J = 3.90135e-06; |GJ| = 6.1261e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4238; J = 3.90127e-06; |GJ| = 5.48166e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4239; J = 3.90074e-06; |GJ| = 9.46235e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4240; J = 3.90065e-06; |GJ| = 6.07271e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4241; J = 3.90057e-06; |GJ| = 5.47263e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4242; J = 3.90004e-06; |GJ| = 9.22145e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4243; J = 3.89995e-06; |GJ| = 6.02255e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4244; J = 3.89987e-06; |GJ| = 5.46394e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4245; J = 3.89934e-06; |GJ| = 8.99231e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4246; J = 3.89926e-06; |GJ| = 5.97541e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4247; J = 3.89918e-06; |GJ| = 5.45557e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4248; J = 3.89822e-06; |GJ| = 1.55407e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4249; J = 3.898e-06; |GJ| = 7.46987e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4250; J = 3.89794e-06; |GJ| = 5.69907e-06; tau = 5
+try tau = 5
+
+descent iter#4251; J = 3.8978e-06; |GJ| = 6.12402e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4252; J = 3.89767e-06; |GJ| = 7.07771e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4253; J = 3.89758e-06; |GJ| = 5.55713e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4254; J = 3.89731e-06; |GJ| = 7.73997e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4255; J = 3.89725e-06; |GJ| = 5.74059e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4256; J = 3.89711e-06; |GJ| = 6.22597e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4257; J = 3.89703e-06; |GJ| = 5.46694e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4258; J = 3.89652e-06; |GJ| = 1.00192e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4259; J = 3.89642e-06; |GJ| = 6.16422e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4260; J = 3.89634e-06; |GJ| = 5.45708e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4261; J = 3.89582e-06; |GJ| = 9.74911e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4262; J = 3.89573e-06; |GJ| = 6.10618e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4263; J = 3.89565e-06; |GJ| = 5.44762e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4264; J = 3.89513e-06; |GJ| = 9.4919e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4265; J = 3.89504e-06; |GJ| = 6.05164e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4266; J = 3.89496e-06; |GJ| = 5.43854e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4267; J = 3.89444e-06; |GJ| = 9.24708e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4268; J = 3.89436e-06; |GJ| = 6.00041e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4269; J = 3.89428e-06; |GJ| = 5.42982e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4270; J = 3.89375e-06; |GJ| = 9.01419e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4271; J = 3.89367e-06; |GJ| = 5.95228e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4272; J = 3.89359e-06; |GJ| = 5.42142e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4273; J = 3.89265e-06; |GJ| = 1.56248e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4274; J = 3.89243e-06; |GJ| = 7.47322e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4275; J = 3.89237e-06; |GJ| = 5.67081e-06; tau = 5
+try tau = 5
+
+descent iter#4276; J = 3.89223e-06; |GJ| = 6.10465e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4277; J = 3.8921e-06; |GJ| = 7.0755e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4278; J = 3.89201e-06; |GJ| = 5.52557e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4279; J = 3.89175e-06; |GJ| = 7.74545e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4280; J = 3.89169e-06; |GJ| = 5.71305e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4281; J = 3.89155e-06; |GJ| = 6.20798e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4282; J = 3.89147e-06; |GJ| = 5.43362e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4283; J = 3.89096e-06; |GJ| = 1.00582e-05; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4284; J = 3.89087e-06; |GJ| = 6.14495e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4285; J = 3.89079e-06; |GJ| = 5.42368e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4286; J = 3.89028e-06; |GJ| = 9.78354e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4287; J = 3.89019e-06; |GJ| = 6.08574e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4288; J = 3.89011e-06; |GJ| = 5.41417e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4289; J = 3.8896e-06; |GJ| = 9.52202e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4290; J = 3.88951e-06; |GJ| = 6.03012e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4291; J = 3.88943e-06; |GJ| = 5.40504e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4292; J = 3.88891e-06; |GJ| = 9.27314e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4293; J = 3.88883e-06; |GJ| = 5.97789e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4294; J = 3.88875e-06; |GJ| = 5.39628e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4295; J = 3.88823e-06; |GJ| = 9.03643e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4296; J = 3.88815e-06; |GJ| = 5.92885e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4297; J = 3.88807e-06; |GJ| = 5.38785e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4298; J = 3.88755e-06; |GJ| = 8.81144e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4299; J = 3.88748e-06; |GJ| = 5.88281e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4300; J = 3.8874e-06; |GJ| = 5.37974e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4301; J = 3.88646e-06; |GJ| = 1.51857e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4302; J = 3.88625e-06; |GJ| = 7.33123e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4303; J = 3.88619e-06; |GJ| = 5.61524e-06; tau = 5
+try tau = 5
+
+descent iter#4304; J = 3.88606e-06; |GJ| = 6.02634e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4305; J = 3.88593e-06; |GJ| = 6.95027e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4306; J = 3.88584e-06; |GJ| = 5.47775e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4307; J = 3.88558e-06; |GJ| = 7.59084e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4308; J = 3.88552e-06; |GJ| = 5.65497e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4309; J = 3.88539e-06; |GJ| = 6.12405e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4310; J = 3.88531e-06; |GJ| = 5.39062e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4311; J = 3.88481e-06; |GJ| = 9.80115e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4312; J = 3.88471e-06; |GJ| = 6.06382e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4313; J = 3.88464e-06; |GJ| = 5.38107e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4314; J = 3.88413e-06; |GJ| = 9.53643e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4315; J = 3.88404e-06; |GJ| = 6.00726e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4316; J = 3.88397e-06; |GJ| = 5.37192e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4317; J = 3.88346e-06; |GJ| = 9.28449e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4318; J = 3.88337e-06; |GJ| = 5.95416e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4319; J = 3.8833e-06; |GJ| = 5.36313e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4320; J = 3.88279e-06; |GJ| = 9.04484e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4321; J = 3.8827e-06; |GJ| = 5.90432e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4322; J = 3.88263e-06; |GJ| = 5.3547e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4323; J = 3.88211e-06; |GJ| = 8.81705e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4324; J = 3.88204e-06; |GJ| = 5.85753e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4325; J = 3.88196e-06; |GJ| = 5.34658e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4326; J = 3.88104e-06; |GJ| = 1.52305e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4327; J = 3.88083e-06; |GJ| = 7.32472e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4328; J = 3.88077e-06; |GJ| = 5.58639e-06; tau = 5
+try tau = 5
+
+descent iter#4329; J = 3.88064e-06; |GJ| = 6.00389e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4330; J = 3.88051e-06; |GJ| = 6.94001e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4331; J = 3.88042e-06; |GJ| = 5.44647e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4332; J = 3.88017e-06; |GJ| = 7.58528e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4333; J = 3.88011e-06; |GJ| = 5.62657e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4334; J = 3.87997e-06; |GJ| = 6.10242e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4335; J = 3.8799e-06; |GJ| = 5.35811e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4336; J = 3.8794e-06; |GJ| = 9.81947e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4337; J = 3.87931e-06; |GJ| = 6.04124e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4338; J = 3.87923e-06; |GJ| = 5.34852e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4339; J = 3.87874e-06; |GJ| = 9.55127e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4340; J = 3.87865e-06; |GJ| = 5.98381e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4341; J = 3.87857e-06; |GJ| = 5.33934e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4342; J = 3.87807e-06; |GJ| = 9.29607e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4343; J = 3.87799e-06; |GJ| = 5.92992e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4344; J = 3.87791e-06; |GJ| = 5.33054e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4345; J = 3.87741e-06; |GJ| = 9.05338e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4346; J = 3.87733e-06; |GJ| = 5.87935e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4347; J = 3.87725e-06; |GJ| = 5.32209e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4348; J = 3.87674e-06; |GJ| = 8.82273e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4349; J = 3.87667e-06; |GJ| = 5.83191e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4350; J = 3.87659e-06; |GJ| = 5.31397e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4351; J = 3.87568e-06; |GJ| = 1.52811e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4352; J = 3.87547e-06; |GJ| = 7.31437e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4353; J = 3.87542e-06; |GJ| = 5.55707e-06; tau = 5
+try tau = 5
+
+descent iter#4354; J = 3.87529e-06; |GJ| = 5.97945e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4355; J = 3.87516e-06; |GJ| = 6.92506e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4356; J = 3.87507e-06; |GJ| = 5.41543e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4357; J = 3.87482e-06; |GJ| = 7.57693e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4358; J = 3.87476e-06; |GJ| = 5.5978e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4359; J = 3.87463e-06; |GJ| = 6.07896e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4360; J = 3.87455e-06; |GJ| = 5.3259e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4361; J = 3.87407e-06; |GJ| = 9.8204e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4362; J = 3.87398e-06; |GJ| = 6.01702e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4363; J = 3.8739e-06; |GJ| = 5.31629e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4364; J = 3.87341e-06; |GJ| = 9.54992e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4365; J = 3.87332e-06; |GJ| = 5.95888e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4366; J = 3.87325e-06; |GJ| = 5.30711e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4367; J = 3.87275e-06; |GJ| = 9.29253e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4368; J = 3.87267e-06; |GJ| = 5.90433e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4369; J = 3.87259e-06; |GJ| = 5.2983e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4370; J = 3.8721e-06; |GJ| = 9.04774e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4371; J = 3.87202e-06; |GJ| = 5.85316e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4372; J = 3.87194e-06; |GJ| = 5.28986e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4373; J = 3.87144e-06; |GJ| = 8.8151e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4374; J = 3.87136e-06; |GJ| = 5.80516e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4375; J = 3.87129e-06; |GJ| = 5.28175e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4376; J = 3.8704e-06; |GJ| = 1.52926e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4377; J = 3.87019e-06; |GJ| = 7.30021e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4378; J = 3.87013e-06; |GJ| = 5.52798e-06; tau = 5
+try tau = 5
+
+descent iter#4379; J = 3.87e-06; |GJ| = 5.95486e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4380; J = 3.86988e-06; |GJ| = 6.9087e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4381; J = 3.86979e-06; |GJ| = 5.38455e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4382; J = 3.86954e-06; |GJ| = 7.56269e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4383; J = 3.86948e-06; |GJ| = 5.56895e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4384; J = 3.86935e-06; |GJ| = 6.05472e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4385; J = 3.86928e-06; |GJ| = 5.29421e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4386; J = 3.8688e-06; |GJ| = 9.82221e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4387; J = 3.86871e-06; |GJ| = 5.99207e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4388; J = 3.86863e-06; |GJ| = 5.28459e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4389; J = 3.86815e-06; |GJ| = 9.5491e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4390; J = 3.86806e-06; |GJ| = 5.93329e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4391; J = 3.86798e-06; |GJ| = 5.27539e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4392; J = 3.8675e-06; |GJ| = 9.28929e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4393; J = 3.86741e-06; |GJ| = 5.87816e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4394; J = 3.86734e-06; |GJ| = 5.26659e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4395; J = 3.86685e-06; |GJ| = 9.04226e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4396; J = 3.86677e-06; |GJ| = 5.82647e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4397; J = 3.8667e-06; |GJ| = 5.25815e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4398; J = 3.8662e-06; |GJ| = 8.80754e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4399; J = 3.86613e-06; |GJ| = 5.778e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4400; J = 3.86605e-06; |GJ| = 5.25006e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4401; J = 3.86556e-06; |GJ| = 8.58465e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4402; J = 3.86549e-06; |GJ| = 5.73257e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4403; J = 3.86541e-06; |GJ| = 5.24228e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4404; J = 3.86452e-06; |GJ| = 1.47853e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4405; J = 3.86432e-06; |GJ| = 7.14206e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4406; J = 3.86427e-06; |GJ| = 5.47199e-06; tau = 5
+try tau = 5
+
+descent iter#4407; J = 3.86414e-06; |GJ| = 5.87199e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4408; J = 3.86402e-06; |GJ| = 6.77057e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4409; J = 3.86393e-06; |GJ| = 5.33778e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4410; J = 3.86369e-06; |GJ| = 7.39012e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4411; J = 3.86363e-06; |GJ| = 5.51004e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4412; J = 3.8635e-06; |GJ| = 5.96539e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4413; J = 3.86343e-06; |GJ| = 5.25317e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4414; J = 3.86295e-06; |GJ| = 9.53197e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4415; J = 3.86286e-06; |GJ| = 5.90614e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4416; J = 3.86279e-06; |GJ| = 5.24399e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4417; J = 3.86231e-06; |GJ| = 9.27084e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4418; J = 3.86223e-06; |GJ| = 5.85059e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4419; J = 3.86215e-06; |GJ| = 5.2352e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4420; J = 3.86167e-06; |GJ| = 9.02256e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4421; J = 3.86159e-06; |GJ| = 5.7985e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4422; J = 3.86152e-06; |GJ| = 5.22679e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4423; J = 3.86103e-06; |GJ| = 8.78664e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4424; J = 3.86095e-06; |GJ| = 5.74968e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4425; J = 3.86088e-06; |GJ| = 5.21873e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4426; J = 3.86039e-06; |GJ| = 8.56263e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4427; J = 3.86032e-06; |GJ| = 5.70393e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4428; J = 3.86025e-06; |GJ| = 5.21098e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4429; J = 3.85937e-06; |GJ| = 1.47621e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4430; J = 3.85917e-06; |GJ| = 7.11911e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4431; J = 3.85912e-06; |GJ| = 5.44239e-06; tau = 5
+try tau = 5
+
+descent iter#4432; J = 3.85899e-06; |GJ| = 5.84465e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4433; J = 3.85887e-06; |GJ| = 6.74701e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4434; J = 3.85878e-06; |GJ| = 5.30719e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4435; J = 3.85854e-06; |GJ| = 7.36613e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4436; J = 3.85849e-06; |GJ| = 5.48046e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4437; J = 3.85836e-06; |GJ| = 5.93793e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4438; J = 3.85829e-06; |GJ| = 5.22224e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4439; J = 3.85782e-06; |GJ| = 9.5154e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4440; J = 3.85773e-06; |GJ| = 5.87828e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4441; J = 3.85766e-06; |GJ| = 5.21307e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4442; J = 3.85718e-06; |GJ| = 9.25269e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4443; J = 3.8571e-06; |GJ| = 5.82237e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4444; J = 3.85703e-06; |GJ| = 5.20431e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4445; J = 3.85655e-06; |GJ| = 9.00298e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4446; J = 3.85647e-06; |GJ| = 5.76998e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4447; J = 3.8564e-06; |GJ| = 5.19593e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4448; J = 3.85592e-06; |GJ| = 8.76577e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4449; J = 3.85584e-06; |GJ| = 5.72089e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4450; J = 3.85577e-06; |GJ| = 5.1879e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4451; J = 3.85529e-06; |GJ| = 8.54058e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4452; J = 3.85522e-06; |GJ| = 5.6749e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4453; J = 3.85515e-06; |GJ| = 5.18019e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4454; J = 3.85428e-06; |GJ| = 1.47444e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4455; J = 3.85408e-06; |GJ| = 7.09246e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4456; J = 3.85403e-06; |GJ| = 5.41231e-06; tau = 5
+try tau = 5
+
+descent iter#4457; J = 3.8539e-06; |GJ| = 5.81537e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4458; J = 3.85378e-06; |GJ| = 6.71897e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4459; J = 3.8537e-06; |GJ| = 5.27681e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4460; J = 3.85346e-06; |GJ| = 7.33944e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4461; J = 3.85341e-06; |GJ| = 5.45048e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4462; J = 3.85328e-06; |GJ| = 5.9087e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4463; J = 3.85321e-06; |GJ| = 5.19158e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4464; J = 3.85274e-06; |GJ| = 9.48258e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4465; J = 3.85266e-06; |GJ| = 5.84883e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4466; J = 3.85258e-06; |GJ| = 5.18245e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4467; J = 3.85212e-06; |GJ| = 9.21943e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4468; J = 3.85203e-06; |GJ| = 5.79272e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4469; J = 3.85196e-06; |GJ| = 5.17373e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4470; J = 3.85149e-06; |GJ| = 8.9693e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4471; J = 3.85141e-06; |GJ| = 5.74016e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4472; J = 3.85134e-06; |GJ| = 5.1654e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4473; J = 3.85087e-06; |GJ| = 8.7317e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4474; J = 3.85079e-06; |GJ| = 5.69092e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4475; J = 3.85072e-06; |GJ| = 5.15741e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4476; J = 3.85025e-06; |GJ| = 8.50616e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4477; J = 3.85017e-06; |GJ| = 5.6448e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4478; J = 3.8501e-06; |GJ| = 5.14975e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4479; J = 3.84925e-06; |GJ| = 1.46906e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4480; J = 3.84905e-06; |GJ| = 7.06223e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4481; J = 3.849e-06; |GJ| = 5.38243e-06; tau = 5
+try tau = 5
+
+descent iter#4482; J = 3.84888e-06; |GJ| = 5.78591e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4483; J = 3.84876e-06; |GJ| = 6.68956e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4484; J = 3.84867e-06; |GJ| = 5.24656e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4485; J = 3.84844e-06; |GJ| = 7.30727e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4486; J = 3.84838e-06; |GJ| = 5.42042e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4487; J = 3.84826e-06; |GJ| = 5.8787e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4488; J = 3.84819e-06; |GJ| = 5.16139e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4489; J = 3.84773e-06; |GJ| = 9.45057e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4490; J = 3.84764e-06; |GJ| = 5.81867e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4491; J = 3.84757e-06; |GJ| = 5.1523e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4492; J = 3.84711e-06; |GJ| = 9.18668e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4493; J = 3.84703e-06; |GJ| = 5.76244e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4494; J = 3.84696e-06; |GJ| = 5.14363e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4495; J = 3.84649e-06; |GJ| = 8.93593e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4496; J = 3.84642e-06; |GJ| = 5.70978e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4497; J = 3.84635e-06; |GJ| = 5.13534e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4498; J = 3.84588e-06; |GJ| = 8.69782e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4499; J = 3.8458e-06; |GJ| = 5.66047e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4500; J = 3.84573e-06; |GJ| = 5.1274e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4501; J = 3.84526e-06; |GJ| = 8.47185e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4502; J = 3.84519e-06; |GJ| = 5.61431e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4503; J = 3.84512e-06; |GJ| = 5.11979e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4504; J = 3.84428e-06; |GJ| = 1.46425e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4505; J = 3.84408e-06; |GJ| = 7.02836e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4506; J = 3.84403e-06; |GJ| = 5.35205e-06; tau = 5
+try tau = 5
+
+descent iter#4507; J = 3.84391e-06; |GJ| = 5.75452e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4508; J = 3.84379e-06; |GJ| = 6.6557e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4509; J = 3.84371e-06; |GJ| = 5.21651e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4510; J = 3.84348e-06; |GJ| = 7.27246e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4511; J = 3.84342e-06; |GJ| = 5.38995e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4512; J = 3.8433e-06; |GJ| = 5.84695e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4513; J = 3.84323e-06; |GJ| = 5.13145e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4514; J = 3.84278e-06; |GJ| = 9.40259e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4515; J = 3.84269e-06; |GJ| = 5.78694e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4516; J = 3.84262e-06; |GJ| = 5.12243e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4517; J = 3.84216e-06; |GJ| = 9.13911e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4518; J = 3.84208e-06; |GJ| = 5.73075e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4519; J = 3.84201e-06; |GJ| = 5.11382e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4520; J = 3.84155e-06; |GJ| = 8.88876e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4521; J = 3.84148e-06; |GJ| = 5.67813e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4522; J = 3.84141e-06; |GJ| = 5.10559e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4523; J = 3.84094e-06; |GJ| = 8.65105e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4524; J = 3.84087e-06; |GJ| = 5.62887e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4525; J = 3.8408e-06; |GJ| = 5.09772e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4526; J = 3.84034e-06; |GJ| = 8.42547e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4527; J = 3.84027e-06; |GJ| = 5.58277e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4528; J = 3.8402e-06; |GJ| = 5.09018e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4529; J = 3.83936e-06; |GJ| = 1.45593e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4530; J = 3.83917e-06; |GJ| = 6.99106e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4531; J = 3.83912e-06; |GJ| = 5.32186e-06; tau = 5
+try tau = 5
+
+descent iter#4532; J = 3.839e-06; |GJ| = 5.72297e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4533; J = 3.83888e-06; |GJ| = 6.62059e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4534; J = 3.8388e-06; |GJ| = 5.18658e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4535; J = 3.83857e-06; |GJ| = 7.23238e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4536; J = 3.83852e-06; |GJ| = 5.3594e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4537; J = 3.8384e-06; |GJ| = 5.81447e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4538; J = 3.83833e-06; |GJ| = 5.10197e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4539; J = 3.83788e-06; |GJ| = 9.3557e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4540; J = 3.83779e-06; |GJ| = 5.75455e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4541; J = 3.83772e-06; |GJ| = 5.09301e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4542; J = 3.83727e-06; |GJ| = 9.09231e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4543; J = 3.83719e-06; |GJ| = 5.69846e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4544; J = 3.83712e-06; |GJ| = 5.08447e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4545; J = 3.83667e-06; |GJ| = 8.84214e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4546; J = 3.83659e-06; |GJ| = 5.64596e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4547; J = 3.83652e-06; |GJ| = 5.07631e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4548; J = 3.83607e-06; |GJ| = 8.60466e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4549; J = 3.83599e-06; |GJ| = 5.59683e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4550; J = 3.83593e-06; |GJ| = 5.0685e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4551; J = 3.83547e-06; |GJ| = 8.3794e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4552; J = 3.8354e-06; |GJ| = 5.55087e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4553; J = 3.83533e-06; |GJ| = 5.06103e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4554; J = 3.8345e-06; |GJ| = 1.44822e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4555; J = 3.83431e-06; |GJ| = 6.95027e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4556; J = 3.83426e-06; |GJ| = 5.2912e-06; tau = 5
+try tau = 5
+
+descent iter#4557; J = 3.83414e-06; |GJ| = 5.68955e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4558; J = 3.83403e-06; |GJ| = 6.58119e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4559; J = 3.83395e-06; |GJ| = 5.15685e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4560; J = 3.83372e-06; |GJ| = 7.18983e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4561; J = 3.83367e-06; |GJ| = 5.32846e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4562; J = 3.83355e-06; |GJ| = 5.78031e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4563; J = 3.83348e-06; |GJ| = 5.07273e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4564; J = 3.83304e-06; |GJ| = 9.29336e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4565; J = 3.83295e-06; |GJ| = 5.72065e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4566; J = 3.83288e-06; |GJ| = 5.06386e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4567; J = 3.83244e-06; |GJ| = 9.0312e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4568; J = 3.83236e-06; |GJ| = 5.66481e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4569; J = 3.83229e-06; |GJ| = 5.0554e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4570; J = 3.83184e-06; |GJ| = 8.78222e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4571; J = 3.83177e-06; |GJ| = 5.61257e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4572; J = 3.8317e-06; |GJ| = 5.04732e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4573; J = 3.83125e-06; |GJ| = 8.54589e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4574; J = 3.83117e-06; |GJ| = 5.56369e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4575; J = 3.83111e-06; |GJ| = 5.0396e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4576; J = 3.83065e-06; |GJ| = 8.32174e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4577; J = 3.83058e-06; |GJ| = 5.51798e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4578; J = 3.83052e-06; |GJ| = 5.03221e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4579; J = 3.8297e-06; |GJ| = 1.43714e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4580; J = 3.82951e-06; |GJ| = 6.90628e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4581; J = 3.82946e-06; |GJ| = 5.26074e-06; tau = 5
+try tau = 5
+
+descent iter#4582; J = 3.82934e-06; |GJ| = 5.65604e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4583; J = 3.82923e-06; |GJ| = 6.54068e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4584; J = 3.82915e-06; |GJ| = 5.12725e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4585; J = 3.82893e-06; |GJ| = 7.1423e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4586; J = 3.82887e-06; |GJ| = 5.29746e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4587; J = 3.82876e-06; |GJ| = 5.7455e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4588; J = 3.82869e-06; |GJ| = 5.04394e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4589; J = 3.82825e-06; |GJ| = 9.23241e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4590; J = 3.82817e-06; |GJ| = 5.68616e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4591; J = 3.8281e-06; |GJ| = 5.03515e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4592; J = 3.82766e-06; |GJ| = 8.97115e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4593; J = 3.82758e-06; |GJ| = 5.63065e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4594; J = 3.82751e-06; |GJ| = 5.02678e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4595; J = 3.82707e-06; |GJ| = 8.7231e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4596; J = 3.82699e-06; |GJ| = 5.57873e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4597; J = 3.82693e-06; |GJ| = 5.01879e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4598; J = 3.82648e-06; |GJ| = 8.48777e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4599; J = 3.82641e-06; |GJ| = 5.53017e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4600; J = 3.82634e-06; |GJ| = 5.01116e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4601; J = 3.82589e-06; |GJ| = 8.26463e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4602; J = 3.82582e-06; |GJ| = 5.48478e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4603; J = 3.82576e-06; |GJ| = 5.00385e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4604; J = 3.82495e-06; |GJ| = 1.42671e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4605; J = 3.82477e-06; |GJ| = 6.85904e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4606; J = 3.82472e-06; |GJ| = 5.22983e-06; tau = 5
+try tau = 5
+
+descent iter#4607; J = 3.8246e-06; |GJ| = 5.62075e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4608; J = 3.82449e-06; |GJ| = 6.49611e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4609; J = 3.82441e-06; |GJ| = 5.09784e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4610; J = 3.82419e-06; |GJ| = 7.09253e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4611; J = 3.82413e-06; |GJ| = 5.26611e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4612; J = 3.82402e-06; |GJ| = 5.70912e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4613; J = 3.82395e-06; |GJ| = 5.01538e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4614; J = 3.82352e-06; |GJ| = 9.15675e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4615; J = 3.82344e-06; |GJ| = 5.65027e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4616; J = 3.82337e-06; |GJ| = 5.0067e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4617; J = 3.82293e-06; |GJ| = 8.89749e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4618; J = 3.82285e-06; |GJ| = 5.59523e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4619; J = 3.82279e-06; |GJ| = 4.99843e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4620; J = 3.82235e-06; |GJ| = 8.65138e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4621; J = 3.82227e-06; |GJ| = 5.54376e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4622; J = 3.82221e-06; |GJ| = 4.99055e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4623; J = 3.82177e-06; |GJ| = 8.41791e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4624; J = 3.8217e-06; |GJ| = 5.49565e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4625; J = 3.82163e-06; |GJ| = 4.98302e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4626; J = 3.82118e-06; |GJ| = 8.19657e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4627; J = 3.82112e-06; |GJ| = 5.45067e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4628; J = 3.82105e-06; |GJ| = 4.97581e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4629; J = 3.82025e-06; |GJ| = 1.41307e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4630; J = 3.82007e-06; |GJ| = 6.80889e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4631; J = 3.82002e-06; |GJ| = 5.19915e-06; tau = 5
+try tau = 5
+
+descent iter#4632; J = 3.8199e-06; |GJ| = 5.58544e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4633; J = 3.81979e-06; |GJ| = 6.45063e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4634; J = 3.81972e-06; |GJ| = 5.06858e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4635; J = 3.8195e-06; |GJ| = 7.03815e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4636; J = 3.81945e-06; |GJ| = 5.23475e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4637; J = 3.81933e-06; |GJ| = 5.6722e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4638; J = 3.81926e-06; |GJ| = 4.98726e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4639; J = 3.81883e-06; |GJ| = 9.08277e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4640; J = 3.81875e-06; |GJ| = 5.6139e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4641; J = 3.81869e-06; |GJ| = 4.97869e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4642; J = 3.81826e-06; |GJ| = 8.82519e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4643; J = 3.81818e-06; |GJ| = 5.55938e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4644; J = 3.81811e-06; |GJ| = 4.97053e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4645; J = 3.81768e-06; |GJ| = 8.58076e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4646; J = 3.81761e-06; |GJ| = 5.50843e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4647; J = 3.81754e-06; |GJ| = 4.96275e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4648; J = 3.8171e-06; |GJ| = 8.34897e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4649; J = 3.81703e-06; |GJ| = 5.46082e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4650; J = 3.81697e-06; |GJ| = 4.95532e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4651; J = 3.81653e-06; |GJ| = 8.12933e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4652; J = 3.81646e-06; |GJ| = 5.41633e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4653; J = 3.8164e-06; |GJ| = 4.94822e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4654; J = 3.8156e-06; |GJ| = 1.40012e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4655; J = 3.81543e-06; |GJ| = 6.7558e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4656; J = 3.81538e-06; |GJ| = 5.16808e-06; tau = 5
+try tau = 5
+
+descent iter#4657; J = 3.81526e-06; |GJ| = 5.54851e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4658; J = 3.81515e-06; |GJ| = 6.40142e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4659; J = 3.81508e-06; |GJ| = 5.03952e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4660; J = 3.81486e-06; |GJ| = 6.98183e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4661; J = 3.81481e-06; |GJ| = 5.20309e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4662; J = 3.81469e-06; |GJ| = 5.63386e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4663; J = 3.81463e-06; |GJ| = 4.95938e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4664; J = 3.8142e-06; |GJ| = 8.99503e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4665; J = 3.81413e-06; |GJ| = 5.57626e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4666; J = 3.81406e-06; |GJ| = 4.95094e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4667; J = 3.81363e-06; |GJ| = 8.74017e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4668; J = 3.81356e-06; |GJ| = 5.52242e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4669; J = 3.81349e-06; |GJ| = 4.94291e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4670; J = 3.81306e-06; |GJ| = 8.49837e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4671; J = 3.81299e-06; |GJ| = 5.47211e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4672; J = 3.81292e-06; |GJ| = 4.93525e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4673; J = 3.81249e-06; |GJ| = 8.26911e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4674; J = 3.81242e-06; |GJ| = 5.4251e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4675; J = 3.81236e-06; |GJ| = 4.92793e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4676; J = 3.81192e-06; |GJ| = 8.05189e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4677; J = 3.81186e-06; |GJ| = 5.3812e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4678; J = 3.81179e-06; |GJ| = 4.92094e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4679; J = 3.81101e-06; |GJ| = 1.38416e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4680; J = 3.81083e-06; |GJ| = 6.70012e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4681; J = 3.81079e-06; |GJ| = 5.13727e-06; tau = 5
+try tau = 5
+
+descent iter#4682; J = 3.81067e-06; |GJ| = 5.51165e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4683; J = 3.81056e-06; |GJ| = 6.35149e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4684; J = 3.81049e-06; |GJ| = 5.01063e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4685; J = 3.81027e-06; |GJ| = 6.92133e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4686; J = 3.81022e-06; |GJ| = 5.17146e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4687; J = 3.81011e-06; |GJ| = 5.59511e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4688; J = 3.81004e-06; |GJ| = 4.93194e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4689; J = 3.80962e-06; |GJ| = 8.90927e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4690; J = 3.80955e-06; |GJ| = 5.53825e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4691; J = 3.80948e-06; |GJ| = 4.92362e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4692; J = 3.80906e-06; |GJ| = 8.6568e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4693; J = 3.80898e-06; |GJ| = 5.48513e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4694; J = 3.80892e-06; |GJ| = 4.91571e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4695; J = 3.80849e-06; |GJ| = 8.41738e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4696; J = 3.80842e-06; |GJ| = 5.43552e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4697; J = 3.80836e-06; |GJ| = 4.90817e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4698; J = 3.80793e-06; |GJ| = 8.19047e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4699; J = 3.80786e-06; |GJ| = 5.38918e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4700; J = 3.8078e-06; |GJ| = 4.90098e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4701; J = 3.80703e-06; |GJ| = 1.41956e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4702; J = 3.80685e-06; |GJ| = 6.77629e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4703; J = 3.8068e-06; |GJ| = 5.13095e-06; tau = 5
+try tau = 5
+
+descent iter#4704; J = 3.80669e-06; |GJ| = 5.52682e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4705; J = 3.80658e-06; |GJ| = 6.41018e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4706; J = 3.80651e-06; |GJ| = 4.99679e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4707; J = 3.80629e-06; |GJ| = 7.00781e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4708; J = 3.80624e-06; |GJ| = 5.16737e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4709; J = 3.80613e-06; |GJ| = 5.61499e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4710; J = 3.80606e-06; |GJ| = 4.91332e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4711; J = 3.80565e-06; |GJ| = 9.07324e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4712; J = 3.80557e-06; |GJ| = 5.55511e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4713; J = 3.80551e-06; |GJ| = 4.90473e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4714; J = 3.80509e-06; |GJ| = 8.81074e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4715; J = 3.80502e-06; |GJ| = 5.49915e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4716; J = 3.80495e-06; |GJ| = 4.89657e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4717; J = 3.80453e-06; |GJ| = 8.56167e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4718; J = 3.80446e-06; |GJ| = 5.44688e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4719; J = 3.8044e-06; |GJ| = 4.8888e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4720; J = 3.80397e-06; |GJ| = 8.3255e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4721; J = 3.8039e-06; |GJ| = 5.39807e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4722; J = 3.80384e-06; |GJ| = 4.8814e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4723; J = 3.80341e-06; |GJ| = 8.10173e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4724; J = 3.80335e-06; |GJ| = 5.3525e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4725; J = 3.80329e-06; |GJ| = 4.87433e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4726; J = 3.80252e-06; |GJ| = 1.4009e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4727; J = 3.80235e-06; |GJ| = 6.7139e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4728; J = 3.8023e-06; |GJ| = 5.09969e-06; tau = 5
+try tau = 5
+
+descent iter#4729; J = 3.80219e-06; |GJ| = 5.48785e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4730; J = 3.80208e-06; |GJ| = 6.35482e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4731; J = 3.80201e-06; |GJ| = 4.96805e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4732; J = 3.8018e-06; |GJ| = 6.93981e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4733; J = 3.80175e-06; |GJ| = 5.13513e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4734; J = 3.80163e-06; |GJ| = 5.57376e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4735; J = 3.80157e-06; |GJ| = 4.8864e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4736; J = 3.80116e-06; |GJ| = 8.97397e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4737; J = 3.80108e-06; |GJ| = 5.51485e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4738; J = 3.80102e-06; |GJ| = 4.87796e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4739; J = 3.80061e-06; |GJ| = 8.71459e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4740; J = 3.80053e-06; |GJ| = 5.45983e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4741; J = 3.80047e-06; |GJ| = 4.86995e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4742; J = 3.80005e-06; |GJ| = 8.46859e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4743; J = 3.79998e-06; |GJ| = 5.40845e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4744; J = 3.79992e-06; |GJ| = 4.86232e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4745; J = 3.7995e-06; |GJ| = 8.23544e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4746; J = 3.79943e-06; |GJ| = 5.3605e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4747; J = 3.79937e-06; |GJ| = 4.85505e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4748; J = 3.79895e-06; |GJ| = 8.01464e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4749; J = 3.79888e-06; |GJ| = 5.31575e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4750; J = 3.79882e-06; |GJ| = 4.84811e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4751; J = 3.79806e-06; |GJ| = 1.38308e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4752; J = 3.79789e-06; |GJ| = 6.64908e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4753; J = 3.79784e-06; |GJ| = 5.06812e-06; tau = 5
+try tau = 5
+
+descent iter#4754; J = 3.79773e-06; |GJ| = 5.44745e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4755; J = 3.79763e-06; |GJ| = 6.29618e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4756; J = 3.79755e-06; |GJ| = 4.93954e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4757; J = 3.79735e-06; |GJ| = 6.87044e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4758; J = 3.7973e-06; |GJ| = 5.10267e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4759; J = 3.79719e-06; |GJ| = 5.53134e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4760; J = 3.79712e-06; |GJ| = 4.85971e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4761; J = 3.79672e-06; |GJ| = 8.86208e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4762; J = 3.79664e-06; |GJ| = 5.47355e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4763; J = 3.79658e-06; |GJ| = 4.85144e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4764; J = 3.79617e-06; |GJ| = 8.60685e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4765; J = 3.7961e-06; |GJ| = 5.4196e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4766; J = 3.79603e-06; |GJ| = 4.84359e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4767; J = 3.79562e-06; |GJ| = 8.36484e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4768; J = 3.79555e-06; |GJ| = 5.36923e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4769; J = 3.79549e-06; |GJ| = 4.83612e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4770; J = 3.79507e-06; |GJ| = 8.13553e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4771; J = 3.79501e-06; |GJ| = 5.32223e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4772; J = 3.79494e-06; |GJ| = 4.829e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4773; J = 3.79453e-06; |GJ| = 7.91841e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4774; J = 3.79446e-06; |GJ| = 5.27838e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4775; J = 3.7944e-06; |GJ| = 4.8222e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4776; J = 3.79365e-06; |GJ| = 1.36252e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4777; J = 3.79348e-06; |GJ| = 6.58232e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4778; J = 3.79343e-06; |GJ| = 5.03688e-06; tau = 5
+try tau = 5
+
+descent iter#4779; J = 3.79332e-06; |GJ| = 5.40736e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4780; J = 3.79322e-06; |GJ| = 6.23734e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4781; J = 3.79315e-06; |GJ| = 4.91123e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4782; J = 3.79294e-06; |GJ| = 6.79764e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4783; J = 3.79289e-06; |GJ| = 5.07035e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4784; J = 3.79278e-06; |GJ| = 5.48878e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4785; J = 3.79272e-06; |GJ| = 4.83346e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4786; J = 3.79232e-06; |GJ| = 8.75323e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4787; J = 3.79224e-06; |GJ| = 5.43214e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4788; J = 3.79218e-06; |GJ| = 4.82536e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4789; J = 3.79177e-06; |GJ| = 8.50177e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4790; J = 3.7917e-06; |GJ| = 5.37928e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4791; J = 3.79164e-06; |GJ| = 4.81766e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4792; J = 3.79123e-06; |GJ| = 8.26345e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4793; J = 3.79117e-06; |GJ| = 5.32996e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4794; J = 3.7911e-06; |GJ| = 4.81034e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4795; J = 3.79069e-06; |GJ| = 8.03775e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4796; J = 3.79063e-06; |GJ| = 5.28396e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4797; J = 3.79057e-06; |GJ| = 4.80337e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4798; J = 3.78983e-06; |GJ| = 1.39316e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4799; J = 3.78965e-06; |GJ| = 6.64714e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4800; J = 3.78961e-06; |GJ| = 5.02994e-06; tau = 5
+try tau = 5
+
+descent iter#4801; J = 3.7895e-06; |GJ| = 5.41911e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4802; J = 3.78939e-06; |GJ| = 6.28687e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4803; J = 3.78932e-06; |GJ| = 4.89773e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4804; J = 3.78912e-06; |GJ| = 6.87128e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4805; J = 3.78907e-06; |GJ| = 5.06533e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4806; J = 3.78896e-06; |GJ| = 5.50457e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4807; J = 3.7889e-06; |GJ| = 4.81578e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4808; J = 3.7885e-06; |GJ| = 8.89331e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4809; J = 3.78843e-06; |GJ| = 5.44527e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4810; J = 3.78836e-06; |GJ| = 4.80744e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4811; J = 3.78796e-06; |GJ| = 8.63307e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4812; J = 3.78789e-06; |GJ| = 5.38991e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4813; J = 3.78783e-06; |GJ| = 4.79953e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4814; J = 3.78743e-06; |GJ| = 8.38631e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4815; J = 3.78736e-06; |GJ| = 5.33826e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4816; J = 3.7873e-06; |GJ| = 4.79201e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4817; J = 3.78689e-06; |GJ| = 8.15252e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4818; J = 3.78682e-06; |GJ| = 5.29008e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4819; J = 3.78676e-06; |GJ| = 4.78486e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4820; J = 3.78635e-06; |GJ| = 7.93116e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4821; J = 3.78629e-06; |GJ| = 5.24516e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4822; J = 3.78623e-06; |GJ| = 4.77804e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4823; J = 3.78549e-06; |GJ| = 1.37013e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4824; J = 3.78533e-06; |GJ| = 6.57417e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4825; J = 3.78528e-06; |GJ| = 4.9983e-06; tau = 5
+try tau = 5
+
+descent iter#4826; J = 3.78517e-06; |GJ| = 5.37705e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4827; J = 3.78507e-06; |GJ| = 6.22301e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4828; J = 3.785e-06; |GJ| = 4.86956e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4829; J = 3.7848e-06; |GJ| = 6.7916e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4830; J = 3.78475e-06; |GJ| = 5.03245e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4831; J = 3.78464e-06; |GJ| = 5.45973e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4832; J = 3.78458e-06; |GJ| = 4.79002e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4833; J = 3.78419e-06; |GJ| = 8.77208e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4834; J = 3.78411e-06; |GJ| = 5.40178e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4835; J = 3.78405e-06; |GJ| = 4.78187e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4836; J = 3.78365e-06; |GJ| = 8.51628e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4837; J = 3.78358e-06; |GJ| = 5.34773e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4838; J = 3.78352e-06; |GJ| = 4.77413e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4839; J = 3.78312e-06; |GJ| = 8.27388e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4840; J = 3.78305e-06; |GJ| = 5.29732e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4841; J = 3.78299e-06; |GJ| = 4.76679e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4842; J = 3.78259e-06; |GJ| = 8.04433e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4843; J = 3.78253e-06; |GJ| = 5.25031e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4844; J = 3.78247e-06; |GJ| = 4.7598e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4845; J = 3.78206e-06; |GJ| = 7.8271e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4846; J = 3.782e-06; |GJ| = 5.2065e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4847; J = 3.78194e-06; |GJ| = 4.75314e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4848; J = 3.78121e-06; |GJ| = 1.34812e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4849; J = 3.78104e-06; |GJ| = 6.49953e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4850; J = 3.781e-06; |GJ| = 4.96646e-06; tau = 5
+try tau = 5
+
+descent iter#4851; J = 3.78089e-06; |GJ| = 5.3339e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4852; J = 3.78079e-06; |GJ| = 6.15655e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4853; J = 3.78072e-06; |GJ| = 4.84167e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4854; J = 3.78052e-06; |GJ| = 6.71132e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4855; J = 3.78047e-06; |GJ| = 4.99949e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4856; J = 3.78037e-06; |GJ| = 5.41405e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4857; J = 3.78031e-06; |GJ| = 4.76449e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4858; J = 3.77991e-06; |GJ| = 8.63997e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4859; J = 3.77984e-06; |GJ| = 5.3576e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4860; J = 3.77978e-06; |GJ| = 4.75655e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4861; J = 3.77939e-06; |GJ| = 8.38958e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4862; J = 3.77932e-06; |GJ| = 5.30495e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4863; J = 3.77926e-06; |GJ| = 4.74901e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4864; J = 3.77886e-06; |GJ| = 8.15237e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4865; J = 3.77879e-06; |GJ| = 5.25587e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4866; J = 3.77873e-06; |GJ| = 4.74185e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4867; J = 3.77833e-06; |GJ| = 7.9278e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4868; J = 3.77827e-06; |GJ| = 5.21012e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4869; J = 3.77821e-06; |GJ| = 4.73504e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4870; J = 3.77749e-06; |GJ| = 1.37371e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4871; J = 3.77732e-06; |GJ| = 6.55663e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4872; J = 3.77728e-06; |GJ| = 4.95939e-06; tau = 5
+try tau = 5
+
+descent iter#4873; J = 3.77717e-06; |GJ| = 5.34407e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4874; J = 3.77707e-06; |GJ| = 6.20116e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4875; J = 3.777e-06; |GJ| = 4.82839e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4876; J = 3.77681e-06; |GJ| = 6.77501e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4877; J = 3.77676e-06; |GJ| = 4.99398e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4878; J = 3.77665e-06; |GJ| = 5.42748e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4879; J = 3.77659e-06; |GJ| = 4.74758e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4880; J = 3.77621e-06; |GJ| = 8.77088e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4881; J = 3.77613e-06; |GJ| = 5.36855e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4882; J = 3.77607e-06; |GJ| = 4.73941e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4883; J = 3.77568e-06; |GJ| = 8.51191e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4884; J = 3.77561e-06; |GJ| = 5.3136e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4885; J = 3.77555e-06; |GJ| = 4.73166e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4886; J = 3.77516e-06; |GJ| = 8.26652e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4887; J = 3.77509e-06; |GJ| = 5.26238e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4888; J = 3.77503e-06; |GJ| = 4.72432e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4889; J = 3.77464e-06; |GJ| = 8.03417e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4890; J = 3.77457e-06; |GJ| = 5.21464e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4891; J = 3.77452e-06; |GJ| = 4.71734e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4892; J = 3.77412e-06; |GJ| = 7.81433e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4893; J = 3.77406e-06; |GJ| = 5.17017e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4894; J = 3.774e-06; |GJ| = 4.71069e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4895; J = 3.77328e-06; |GJ| = 1.34945e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4896; J = 3.77312e-06; |GJ| = 6.47629e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4897; J = 3.77308e-06; |GJ| = 4.92719e-06; tau = 5
+try tau = 5
+
+descent iter#4898; J = 3.77297e-06; |GJ| = 5.29911e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4899; J = 3.77287e-06; |GJ| = 6.13006e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4900; J = 3.7728e-06; |GJ| = 4.80065e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4901; J = 3.77261e-06; |GJ| = 6.68844e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4902; J = 3.77256e-06; |GJ| = 4.96052e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4903; J = 3.77246e-06; |GJ| = 5.37971e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4904; J = 3.77239e-06; |GJ| = 4.72253e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4905; J = 3.77201e-06; |GJ| = 8.62733e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4906; J = 3.77194e-06; |GJ| = 5.32249e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4907; J = 3.77188e-06; |GJ| = 4.71458e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4908; J = 3.77149e-06; |GJ| = 8.37444e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4909; J = 3.77142e-06; |GJ| = 5.26914e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4910; J = 3.77137e-06; |GJ| = 4.70705e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4911; J = 3.77098e-06; |GJ| = 8.13489e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4912; J = 3.77091e-06; |GJ| = 5.21943e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4913; J = 3.77085e-06; |GJ| = 4.69991e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4914; J = 3.77046e-06; |GJ| = 7.90814e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4915; J = 3.7704e-06; |GJ| = 5.17311e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4916; J = 3.77034e-06; |GJ| = 4.69312e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4917; J = 3.76994e-06; |GJ| = 7.69367e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4918; J = 3.76988e-06; |GJ| = 5.12997e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4919; J = 3.76983e-06; |GJ| = 4.68665e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4920; J = 3.76911e-06; |GJ| = 1.32291e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4921; J = 3.76895e-06; |GJ| = 6.39514e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4922; J = 3.76891e-06; |GJ| = 4.89549e-06; tau = 5
+try tau = 5
+
+descent iter#4923; J = 3.76881e-06; |GJ| = 5.25488e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4924; J = 3.76871e-06; |GJ| = 6.05967e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4925; J = 3.76864e-06; |GJ| = 4.7732e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4926; J = 3.76845e-06; |GJ| = 6.59975e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4927; J = 3.7684e-06; |GJ| = 4.9274e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4928; J = 3.7683e-06; |GJ| = 5.3323e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4929; J = 3.76824e-06; |GJ| = 4.69792e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4930; J = 3.76786e-06; |GJ| = 8.48855e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4931; J = 3.76779e-06; |GJ| = 5.27678e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4932; J = 3.76773e-06; |GJ| = 4.69019e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4933; J = 3.76734e-06; |GJ| = 8.24128e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4934; J = 3.76728e-06; |GJ| = 5.22503e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4935; J = 3.76722e-06; |GJ| = 4.68287e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4936; J = 3.76683e-06; |GJ| = 8.00719e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4937; J = 3.76677e-06; |GJ| = 5.17683e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4938; J = 3.76671e-06; |GJ| = 4.67592e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4939; J = 3.76632e-06; |GJ| = 7.78575e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4940; J = 3.76626e-06; |GJ| = 5.13195e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4941; J = 3.7662e-06; |GJ| = 4.66932e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4942; J = 3.7655e-06; |GJ| = 1.34687e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4943; J = 3.76534e-06; |GJ| = 6.44378e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4944; J = 3.76529e-06; |GJ| = 4.88752e-06; tau = 5
+try tau = 5
+
+descent iter#4945; J = 3.76519e-06; |GJ| = 5.26162e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4946; J = 3.76509e-06; |GJ| = 6.09612e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4947; J = 3.76503e-06; |GJ| = 4.76006e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4948; J = 3.76483e-06; |GJ| = 6.6552e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4949; J = 3.76479e-06; |GJ| = 4.92093e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4950; J = 3.76469e-06; |GJ| = 5.34216e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4951; J = 3.76463e-06; |GJ| = 4.68149e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4952; J = 3.76425e-06; |GJ| = 8.59526e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4953; J = 3.76418e-06; |GJ| = 5.28449e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4954; J = 3.76412e-06; |GJ| = 4.67357e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4955; J = 3.76374e-06; |GJ| = 8.34099e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4956; J = 3.76367e-06; |GJ| = 5.23075e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4957; J = 3.76361e-06; |GJ| = 4.66608e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4958; J = 3.76323e-06; |GJ| = 8.10018e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4959; J = 3.76317e-06; |GJ| = 5.18069e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4960; J = 3.76311e-06; |GJ| = 4.65898e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4961; J = 3.76272e-06; |GJ| = 7.87228e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4962; J = 3.76266e-06; |GJ| = 5.13407e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4963; J = 3.76261e-06; |GJ| = 4.65224e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4964; J = 3.76222e-06; |GJ| = 7.65677e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4965; J = 3.76216e-06; |GJ| = 5.09067e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4966; J = 3.7621e-06; |GJ| = 4.64583e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4967; J = 3.7614e-06; |GJ| = 1.31834e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4968; J = 3.76125e-06; |GJ| = 6.35767e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4969; J = 3.7612e-06; |GJ| = 4.85556e-06; tau = 5
+try tau = 5
+
+descent iter#4970; J = 3.7611e-06; |GJ| = 5.21587e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4971; J = 3.761e-06; |GJ| = 6.02173e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4972; J = 3.76094e-06; |GJ| = 4.73279e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4973; J = 3.76075e-06; |GJ| = 6.56105e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4974; J = 3.7607e-06; |GJ| = 4.88743e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4975; J = 3.7606e-06; |GJ| = 5.293e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4976; J = 3.76054e-06; |GJ| = 4.65735e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4977; J = 3.76017e-06; |GJ| = 8.44647e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4978; J = 3.7601e-06; |GJ| = 5.2372e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4979; J = 3.76004e-06; |GJ| = 4.64967e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4980; J = 3.75966e-06; |GJ| = 8.19842e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4981; J = 3.7596e-06; |GJ| = 5.18524e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4982; J = 3.75954e-06; |GJ| = 4.6424e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4983; J = 3.75916e-06; |GJ| = 7.96365e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4984; J = 3.7591e-06; |GJ| = 5.13685e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4985; J = 3.75904e-06; |GJ| = 4.63551e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4986; J = 3.75866e-06; |GJ| = 7.74161e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#4987; J = 3.7586e-06; |GJ| = 5.09182e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+try tau = 40
+
+descent iter#4988; J = 3.75854e-06; |GJ| = 4.62897e-06; tau = 40
+try tau = 40
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4989; J = 3.75785e-06; |GJ| = 1.34048e-05; tau = 1.25
+try tau = 1.25
+
+descent iter#4990; J = 3.75769e-06; |GJ| = 6.40208e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4991; J = 3.75765e-06; |GJ| = 4.84743e-06; tau = 5
+try tau = 5
+
+descent iter#4992; J = 3.75755e-06; |GJ| = 5.22139e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4993; J = 3.75745e-06; |GJ| = 6.0548e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+
+descent iter#4994; J = 3.75739e-06; |GJ| = 4.71984e-06; tau = 10
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4995; J = 3.7572e-06; |GJ| = 6.61173e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+try tau = 5
+
+descent iter#4996; J = 3.75715e-06; |GJ| = 4.88068e-06; tau = 5
+try tau = 5
+try tau = 2.5
+
+descent iter#4997; J = 3.75705e-06; |GJ| = 5.30139e-06; tau = 2.5
+try tau = 2.5
+try tau = 5
+try tau = 10
+try tau = 20
+
+descent iter#4998; J = 3.75699e-06; |GJ| = 4.64132e-06; tau = 20
+try tau = 20
+try tau = 10
+try tau = 5
+try tau = 2.5
+try tau = 1.25
+
+descent iter#4999; J = 3.75662e-06; |GJ| = 8.54416e-06; tau = 1.25
+try tau = 1.25
+try tau = 2.5
+
+descent iter#5000; J = 3.75655e-06; |GJ| = 5.2436e-06; tau = 2.5

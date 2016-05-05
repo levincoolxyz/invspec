@@ -84,14 +84,16 @@ else
 end
 %% initial conformal factors guess
 % s0 = exp(-zeros(numv,1));
-% s0 = s_T + exp(-rand(numv,1)*pert);
-s0 = s_T;
+s0 = s_T + rand(numv,1)*pert;
+% s0 = s_T;
 %% MIEP2 via naive gradient descent
 [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
   s0,M,L,D_T,numeig);
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
-%% percent error in conformal factors
+%% debug error checking
+% figure();plot(s_T);hold all;plot(s0);plot(s_end,'x')
+% figure();plot(D_T);hold all;plot(D_0);plot(D_endp,'x')
 % s_err = norm(s_T - s_end)./norm(s_T)*100;
 % fprintf('conformal factors error = %g%%\n',s_err);
 %% conformal embedding/fit
