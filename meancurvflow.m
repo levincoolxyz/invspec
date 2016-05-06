@@ -32,7 +32,7 @@ M = M0;
 L = L0;
 vold = v0;
 v = ones(size(v0));
-I = eye(size(v0,1));
+% I = eye(size(v0,1));
 
 % figure();trimesh(TriRep(f0,v0)); axis equal;
 % saveas(gcf,'mcf000.png'); close(gcf);

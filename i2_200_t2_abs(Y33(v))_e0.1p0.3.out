@@ -1,0 +1,3855 @@
+>> test_script
+flow iter#1; |dv| = 1.44276
+flow iter#2; |dv| = 0.479903
+flow iter#3; |dv| = 0.259494
+flow iter#4; |dv| = 0.342602
+flow iter#5; |dv| = 0.377006
+flow iter#6; |dv| = 0.339768
+flow iter#7; |dv| = 0.262794
+flow iter#8; |dv| = 0.175643
+flow iter#9; |dv| = 0.0983662
+flow iter#10; |dv| = 0.0424669
+flow iter#11; |dv| = 0.0210422
+flow iter#12; |dv| = 0.0292952
+flow iter#13; |dv| = 0.0332786
+flow iter#14; |dv| = 0.0303304
+flow iter#15; |dv| = 0.0236637
+flow iter#16; |dv| = 0.0160578
+flow iter#17; |dv| = 0.00927837
+flow iter#18; |dv| = 0.0042498
+flow iter#19; |dv| = 0.0017792
+flow iter#20; |dv| = 0.00222282
+flow iter#21; |dv| = 0.00267546
+flow iter#22; |dv| = 0.00253906
+flow iter#23; |dv| = 0.00204821
+flow iter#24; |dv| = 0.00144128
+flow iter#25; |dv| = 0.000880995
+flow iter#26; |dv| = 0.000463592
+
+About to descent, first step might be slow...
+
+descent iter#1; J = 0.0613621; |GJ| = 0.0228348; tau = 75
+
+descent iter#2; J = 0.0249857; |GJ| = 0.0186855; tau = 37.5
+
+descent iter#3; J = 0.0130102; |GJ| = 0.0149176; tau = 37.5
+
+descent iter#4; J = 0.00574845; |GJ| = 0.0104018; tau = 37.5
+
+descent iter#5; J = 0.00241094; |GJ| = 0.00626163; tau = 18.75
+
+descent iter#6; J = 0.0017376; |GJ| = 0.00494342; tau = 18.75
+
+descent iter#7; J = 0.00131814; |GJ| = 0.00394199; tau = 18.75
+
+descent iter#8; J = 0.00105069; |GJ| = 0.00322312; tau = 18.75
+
+descent iter#9; J = 0.000871098; |GJ| = 0.00272537; tau = 18.75
+
+descent iter#10; J = 0.000742165; |GJ| = 0.00238135; tau = 18.75
+
+descent iter#11; J = 0.000643487; |GJ| = 0.00213461; tau = 37.5
+
+descent iter#12; J = 0.000493231; |GJ| = 0.00177731; tau = 37.5
+
+descent iter#13; J = 0.000387785; |GJ| = 0.00152727; tau = 37.5
+
+descent iter#14; J = 0.000309826; |GJ| = 0.00132119; tau = 37.5
+
+descent iter#15; J = 0.000251448; |GJ| = 0.00114769; tau = 37.5
+
+descent iter#16; J = 0.000207351; |GJ| = 0.00100117; tau = 37.5
+
+descent iter#17; J = 0.000173747; |GJ| = 0.00087714; tau = 37.5
+
+descent iter#18; J = 0.00014791; |GJ| = 0.000771866; tau = 37.5
+
+descent iter#19; J = 0.000127861; |GJ| = 0.000682312; tau = 37.5
+
+descent iter#20; J = 0.000112155; |GJ| = 0.000606004; tau = 37.5
+
+descent iter#21; J = 9.97294e-05; |GJ| = 0.000540919; tau = 37.5
+
+descent iter#22; J = 8.97936e-05; |GJ| = 0.000485384; tau = 75
+
+descent iter#23; J = 7.45575e-05; |GJ| = 0.000392369; tau = 75
+
+descent iter#24; J = 6.44178e-05; |GJ| = 0.000326469; tau = 75
+
+descent iter#25; J = 5.72452e-05; |GJ| = 0.000280161; tau = 75
+
+descent iter#26; J = 5.1843e-05; |GJ| = 0.000247417; tau = 150
+
+descent iter#27; J = 4.36751e-05; |GJ| = 0.000203855; tau = 150
+
+descent iter#28; J = 3.7792e-05; |GJ| = 0.000181012; tau = 300
+
+descent iter#29; J = 2.86926e-05; |GJ| = 0.000156178; tau = 300
+
+descent iter#30; J = 2.22511e-05; |GJ| = 0.000173929; tau = 37.5
+
+descent iter#31; J = 2.12788e-05; |GJ| = 0.000131828; tau = 150
+
+descent iter#32; J = 1.88731e-05; |GJ| = 0.000138309; tau = 75
+
+descent iter#33; J = 1.7642e-05; |GJ| = 0.000120372; tau = 75
+
+descent iter#34; J = 1.66045e-05; |GJ| = 0.000116534; tau = 150
+
+descent iter#35; J = 1.46785e-05; |GJ| = 0.000110638; tau = 150
+
+descent iter#36; J = 1.3189e-05; |GJ| = 0.000131466; tau = 37.5
+
+descent iter#37; J = 1.26263e-05; |GJ| = 0.00010064; tau = 150
+
+descent iter#38; J = 1.12085e-05; |GJ| = 9.62406e-05; tau = 75
+
+descent iter#39; J = 1.05836e-05; |GJ| = 9.23095e-05; tau = 75
+
+descent iter#40; J = 9.9721e-06; |GJ| = 8.57208e-05; tau = 300
+
+descent iter#41; J = 8.00966e-06; |GJ| = 0.00010071; tau = 37.5
+
+descent iter#42; J = 7.68212e-06; |GJ| = 7.56037e-05; tau = 150
+
+descent iter#43; J = 6.88684e-06; |GJ| = 7.23865e-05; tau = 75
+
+descent iter#44; J = 6.53864e-06; |GJ| = 6.95901e-05; tau = 75
+
+descent iter#45; J = 6.19326e-06; |GJ| = 6.43293e-05; tau = 300
+
+descent iter#46; J = 5.10156e-06; |GJ| = 7.78635e-05; tau = 37.5
+
+descent iter#47; J = 4.90728e-06; |GJ| = 5.70083e-05; tau = 75
+
+descent iter#48; J = 4.67176e-06; |GJ| = 5.33319e-05; tau = 300
+
+descent iter#49; J = 3.90146e-06; |GJ| = 5.91576e-05; tau = 37.5
+
+descent iter#50; J = 3.78432e-06; |GJ| = 4.69748e-05; tau = 150
+
+descent iter#51; J = 3.47248e-06; |GJ| = 4.4382e-05; tau = 75
+
+descent iter#52; J = 3.33842e-06; |GJ| = 4.32024e-05; tau = 75
+
+descent iter#53; J = 3.20363e-06; |GJ| = 4.02659e-05; tau = 300
+
+descent iter#54; J = 2.76938e-06; |GJ| = 4.60425e-05; tau = 37.5
+
+descent iter#55; J = 2.69876e-06; |GJ| = 3.56406e-05; tau = 150
+
+descent iter#56; J = 2.5199e-06; |GJ| = 3.38323e-05; tau = 75
+
+descent iter#57; J = 2.44368e-06; |GJ| = 3.29074e-05; tau = 75
+
+descent iter#58; J = 2.36564e-06; |GJ| = 3.05543e-05; tau = 300
+
+descent iter#59; J = 2.11884e-06; |GJ| = 3.61369e-05; tau = 37.5
+
+descent iter#60; J = 2.07542e-06; |GJ| = 2.72009e-05; tau = 150
+
+descent iter#61; J = 1.9715e-06; |GJ| = 2.59907e-05; tau = 75
+
+descent iter#62; J = 1.92772e-06; |GJ| = 2.52345e-05; tau = 75
+
+descent iter#63; J = 1.88182e-06; |GJ| = 2.33445e-05; tau = 300
+
+descent iter#64; J = 1.73994e-06; |GJ| = 2.86226e-05; tau = 37.5
+
+descent iter#65; J = 1.71264e-06; |GJ| = 2.09277e-05; tau = 75
+
+descent iter#66; J = 1.68051e-06; |GJ| = 1.96386e-05; tau = 300
+
+descent iter#67; J = 1.57674e-06; |GJ| = 2.18745e-05; tau = 75
+
+descent iter#68; J = 1.54797e-06; |GJ| = 1.77941e-05; tau = 75
+
+descent iter#69; J = 1.52809e-06; |GJ| = 1.72616e-05; tau = 75
+
+descent iter#70; J = 1.5064e-06; |GJ| = 1.59694e-05; tau = 300
+
+descent iter#71; J = 1.44083e-06; |GJ| = 2.00562e-05; tau = 37.5
+
+descent iter#72; J = 1.4271e-06; |GJ| = 1.44717e-05; tau = 75
+
+descent iter#73; J = 1.41156e-06; |GJ| = 1.36098e-05; tau = 300
+
+descent iter#74; J = 1.36195e-06; |GJ| = 1.54001e-05; tau = 75
+
+descent iter#75; J = 1.34726e-06; |GJ| = 1.25626e-05; tau = 75
+
+descent iter#76; J = 1.33767e-06; |GJ| = 1.21784e-05; tau = 75
+
+descent iter#77; J = 1.32669e-06; |GJ| = 1.1311e-05; tau = 300
+
+descent iter#78; J = 1.29401e-06; |GJ| = 1.4391e-05; tau = 37.5
+
+descent iter#79; J = 1.28667e-06; |GJ| = 1.04025e-05; tau = 150
+
+descent iter#80; J = 1.271e-06; |GJ| = 1.02312e-05; tau = 37.5
+
+descent iter#81; J = 1.26761e-06; |GJ| = 9.49558e-06; tau = 300
+
+descent iter#82; J = 1.2428e-06; |GJ| = 1.01115e-05; tau = 75
+
+descent iter#83; J = 1.23564e-06; |GJ| = 8.76512e-06; tau = 75
+
+descent iter#84; J = 1.23076e-06; |GJ| = 8.59437e-06; tau = 150
+
+descent iter#85; J = 1.2199e-06; |GJ| = 8.54855e-06; tau = 37.5
+
+descent iter#86; J = 1.2176e-06; |GJ| = 7.91859e-06; tau = 600
+
+descent iter#87; J = 1.18548e-06; |GJ| = 1.12006e-05; tau = 37.5
+
+descent iter#88; J = 1.18097e-06; |GJ| = 7.04974e-06; tau = 75
+
+descent iter#89; J = 1.1771e-06; |GJ| = 6.6621e-06; tau = 300
+
+descent iter#90; J = 1.16575e-06; |GJ| = 8.56304e-06; tau = 75
+
+descent iter#91; J = 1.16105e-06; |GJ| = 6.85364e-06; tau = 23.4375
+
+descent iter#92; J = 1.16016e-06; |GJ| = 6.29205e-06; tau = 93.75
+
+descent iter#93; J = 1.15704e-06; |GJ| = 6.34677e-06; tau = 93.75
+
+descent iter#94; J = 1.15312e-06; |GJ| = 6.10777e-06; tau = 93.75
+
+descent iter#95; J = 1.1502e-06; |GJ| = 6.16159e-06; tau = 93.75
+
+descent iter#96; J = 1.14649e-06; |GJ| = 5.9409e-06; tau = 93.75
+
+descent iter#97; J = 1.14374e-06; |GJ| = 5.99329e-06; tau = 93.75
+
+descent iter#98; J = 1.14021e-06; |GJ| = 5.78953e-06; tau = 93.75
+
+descent iter#99; J = 1.13761e-06; |GJ| = 5.84007e-06; tau = 93.75
+
+descent iter#100; J = 1.13426e-06; |GJ| = 5.65193e-06; tau = 93.75
+
+descent iter#101; J = 1.13179e-06; |GJ| = 5.7003e-06; tau = 93.75
+
+descent iter#102; J = 1.12858e-06; |GJ| = 5.52654e-06; tau = 93.75
+
+descent iter#103; J = 1.12623e-06; |GJ| = 5.5725e-06; tau = 93.75
+
+descent iter#104; J = 1.12315e-06; |GJ| = 5.41197e-06; tau = 93.75
+
+descent iter#105; J = 1.12091e-06; |GJ| = 5.45534e-06; tau = 93.75
+
+descent iter#106; J = 1.11795e-06; |GJ| = 5.30696e-06; tau = 93.75
+
+descent iter#107; J = 1.1158e-06; |GJ| = 5.34764e-06; tau = 93.75
+
+descent iter#108; J = 1.11294e-06; |GJ| = 5.21039e-06; tau = 93.75
+
+descent iter#109; J = 1.11088e-06; |GJ| = 5.24832e-06; tau = 93.75
+
+descent iter#110; J = 1.10812e-06; |GJ| = 5.12127e-06; tau = 93.75
+
+descent iter#111; J = 1.10613e-06; |GJ| = 5.15645e-06; tau = 93.75
+
+descent iter#112; J = 1.10345e-06; |GJ| = 5.03873e-06; tau = 93.75
+
+descent iter#113; J = 1.10153e-06; |GJ| = 5.07119e-06; tau = 93.75
+
+descent iter#114; J = 1.09894e-06; |GJ| = 4.962e-06; tau = 93.75
+
+descent iter#115; J = 1.09708e-06; |GJ| = 4.99178e-06; tau = 93.75
+
+descent iter#116; J = 1.09455e-06; |GJ| = 4.8904e-06; tau = 93.75
+
+descent iter#117; J = 1.09275e-06; |GJ| = 4.91759e-06; tau = 93.75
+
+descent iter#118; J = 1.0903e-06; |GJ| = 4.82332e-06; tau = 93.75
+
+descent iter#119; J = 1.08854e-06; |GJ| = 4.84802e-06; tau = 93.75
+
+descent iter#120; J = 1.08615e-06; |GJ| = 4.76025e-06; tau = 93.75
+
+descent iter#121; J = 1.08444e-06; |GJ| = 4.78256e-06; tau = 93.75
+
+descent iter#122; J = 1.08211e-06; |GJ| = 4.70072e-06; tau = 93.75
+
+descent iter#123; J = 1.08044e-06; |GJ| = 4.72078e-06; tau = 93.75
+
+descent iter#124; J = 1.07816e-06; |GJ| = 4.64435e-06; tau = 93.75
+
+descent iter#125; J = 1.07654e-06; |GJ| = 4.66227e-06; tau = 93.75
+
+descent iter#126; J = 1.07431e-06; |GJ| = 4.59078e-06; tau = 93.75
+
+descent iter#127; J = 1.07272e-06; |GJ| = 4.60669e-06; tau = 93.75
+
+descent iter#128; J = 1.07054e-06; |GJ| = 4.53971e-06; tau = 93.75
+
+descent iter#129; J = 1.06899e-06; |GJ| = 4.55373e-06; tau = 93.75
+
+descent iter#130; J = 1.06686e-06; |GJ| = 4.49087e-06; tau = 93.75
+
+descent iter#131; J = 1.06534e-06; |GJ| = 4.50314e-06; tau = 93.75
+
+descent iter#132; J = 1.06324e-06; |GJ| = 4.44404e-06; tau = 93.75
+
+descent iter#133; J = 1.06175e-06; |GJ| = 4.45468e-06; tau = 93.75
+
+descent iter#134; J = 1.0597e-06; |GJ| = 4.39901e-06; tau = 93.75
+
+descent iter#135; J = 1.05824e-06; |GJ| = 4.40815e-06; tau = 93.75
+
+descent iter#136; J = 1.05623e-06; |GJ| = 4.35561e-06; tau = 93.75
+
+descent iter#137; J = 1.05479e-06; |GJ| = 4.36336e-06; tau = 93.75
+
+descent iter#138; J = 1.05282e-06; |GJ| = 4.3137e-06; tau = 93.75
+
+descent iter#139; J = 1.05141e-06; |GJ| = 4.32016e-06; tau = 93.75
+
+descent iter#140; J = 1.04947e-06; |GJ| = 4.27313e-06; tau = 93.75
+
+descent iter#141; J = 1.04809e-06; |GJ| = 4.27842e-06; tau = 93.75
+
+descent iter#142; J = 1.04618e-06; |GJ| = 4.23379e-06; tau = 93.75
+
+descent iter#143; J = 1.04482e-06; |GJ| = 4.23801e-06; tau = 93.75
+
+descent iter#144; J = 1.04295e-06; |GJ| = 4.19558e-06; tau = 93.75
+
+descent iter#145; J = 1.04161e-06; |GJ| = 4.19883e-06; tau = 93.75
+
+descent iter#146; J = 1.03977e-06; |GJ| = 4.15842e-06; tau = 93.75
+
+descent iter#147; J = 1.03846e-06; |GJ| = 4.16079e-06; tau = 93.75
+
+descent iter#148; J = 1.03665e-06; |GJ| = 4.12223e-06; tau = 93.75
+
+descent iter#149; J = 1.03535e-06; |GJ| = 4.12379e-06; tau = 93.75
+
+descent iter#150; J = 1.03357e-06; |GJ| = 4.08694e-06; tau = 93.75
+
+descent iter#151; J = 1.0323e-06; |GJ| = 4.08778e-06; tau = 93.75
+
+descent iter#152; J = 1.03054e-06; |GJ| = 4.05249e-06; tau = 93.75
+
+descent iter#153; J = 1.02929e-06; |GJ| = 4.05268e-06; tau = 93.75
+
+descent iter#154; J = 1.02757e-06; |GJ| = 4.01883e-06; tau = 93.75
+
+descent iter#155; J = 1.02633e-06; |GJ| = 4.01844e-06; tau = 93.75
+
+descent iter#156; J = 1.02463e-06; |GJ| = 3.98592e-06; tau = 93.75
+
+descent iter#157; J = 1.02341e-06; |GJ| = 3.985e-06; tau = 93.75
+
+descent iter#158; J = 1.02174e-06; |GJ| = 3.95371e-06; tau = 93.75
+
+descent iter#159; J = 1.02054e-06; |GJ| = 3.95233e-06; tau = 93.75
+
+descent iter#160; J = 1.01889e-06; |GJ| = 3.92217e-06; tau = 93.75
+
+descent iter#161; J = 1.01771e-06; |GJ| = 3.92038e-06; tau = 93.75
+
+descent iter#162; J = 1.01609e-06; |GJ| = 3.89127e-06; tau = 93.75
+
+descent iter#163; J = 1.01492e-06; |GJ| = 3.88912e-06; tau = 93.75
+
+descent iter#164; J = 1.01332e-06; |GJ| = 3.86097e-06; tau = 93.75
+
+descent iter#165; J = 1.01217e-06; |GJ| = 3.85851e-06; tau = 93.75
+
+descent iter#166; J = 1.0106e-06; |GJ| = 3.83126e-06; tau = 93.75
+
+descent iter#167; J = 1.00946e-06; |GJ| = 3.82853e-06; tau = 93.75
+
+descent iter#168; J = 1.00791e-06; |GJ| = 3.80211e-06; tau = 117.188
+
+descent iter#169; J = 1.00653e-06; |GJ| = 3.91463e-06; tau = 117.188
+....................................
+descent iter#170; J = 1.00455e-06; |GJ| = 4.12278e-06; tau = 3.33067e-12
+Converged at iter#171; J = 1.00455e-06; |GJ| = 4.12278e-06; tau = 3.33067e-12
+
+About to descent, first step might be slow...
+
+descent iter#1; J = 0.133274; |GJ| = 0.134413; tau = 2.5
+
+descent iter#2; J = 0.09566; |GJ| = 0.104196; tau = 2.5
+
+descent iter#3; J = 0.0726026; |GJ| = 0.0901737; tau = 2.5
+
+descent iter#4; J = 0.0568252; |GJ| = 0.0907407; tau = 1.25
+
+descent iter#5; J = 0.0494127; |GJ| = 0.0729209; tau = 2.5
+
+descent iter#6; J = 0.03875; |GJ| = 0.0775768; tau = 0.625
+
+descent iter#7; J = 0.0355899; |GJ| = 0.0608267; tau = 5
+
+descent iter#8; J = 0.0208292; |GJ| = 0.0659811; tau = 0.625
+
+descent iter#9; J = 0.0186967; |GJ| = 0.0448746; tau = 2.5
+
+descent iter#10; J = 0.0144241; |GJ| = 0.0450665; tau = 1.25
+
+descent iter#11; J = 0.0125756; |GJ| = 0.0392607; tau = 1.25
+
+descent iter#12; J = 0.0109999; |GJ| = 0.0351191; tau = 1.25
+
+descent iter#13; J = 0.00965601; |GJ| = 0.0320074; tau = 2.5
+
+descent iter#14; J = 0.00759378; |GJ| = 0.0343669; tau = 0.625
+
+descent iter#15; J = 0.00699911; |GJ| = 0.0256155; tau = 5
+
+descent iter#16; J = 0.00430826; |GJ| = 0.022712; tau = 0.625
+
+descent iter#17; J = 0.00404132; |GJ| = 0.0175725; tau = 5
+
+descent iter#18; J = 0.00275428; |GJ| = 0.0162661; tau = 0.625
+
+descent iter#19; J = 0.00261806; |GJ| = 0.0125676; tau = 5
+
+descent iter#20; J = 0.0019452; |GJ| = 0.0114756; tau = 1.25
+
+descent iter#21; J = 0.0018255; |GJ| = 0.0101622; tau = 1.25
+
+descent iter#22; J = 0.00172209; |GJ| = 0.00933895; tau = 1.25
+
+descent iter#23; J = 0.00162972; |GJ| = 0.00868913; tau = 1.25
+
+descent iter#24; J = 0.00154668; |GJ| = 0.00814972; tau = 2.5
+
+descent iter#25; J = 0.00141249; |GJ| = 0.00938477; tau = 0.625
+
+descent iter#26; J = 0.00136863; |GJ| = 0.00695017; tau = 5
+
+descent iter#27; J = 0.00115386; |GJ| = 0.00664926; tau = 1.25
+
+descent iter#28; J = 0.00111202; |GJ| = 0.00615847; tau = 1.25
+
+descent iter#29; J = 0.00107366; |GJ| = 0.00577136; tau = 1.25
+
+descent iter#30; J = 0.00103823; |GJ| = 0.0054531; tau = 1.25
+
+descent iter#31; J = 0.0010054; |GJ| = 0.00518589; tau = 2.5
+
+descent iter#32; J = 0.000950508; |GJ| = 0.00610812; tau = 0.625
+
+descent iter#33; J = 0.000931833; |GJ| = 0.00457265; tau = 10
+
+descent iter#34; J = 0.000758949; |GJ| = 0.00574451; tau = 0.625
+
+descent iter#35; J = 0.000744307; |GJ| = 0.00345732; tau = 5
+
+descent iter#36; J = 0.000690607; |GJ| = 0.0041259; tau = 0.625
+
+descent iter#37; J = 0.000682032; |GJ| = 0.00311494; tau = 10
+
+descent iter#38; J = 0.00059835; |GJ| = 0.00445329; tau = 0.625
+
+descent iter#39; J = 0.000589455; |GJ| = 0.00268504; tau = 5
+
+descent iter#40; J = 0.000558787; |GJ| = 0.00367732; tau = 0.625
+
+descent iter#41; J = 0.000552224; |GJ| = 0.00254127; tau = 5
+
+descent iter#42; J = 0.000525366; |GJ| = 0.00346261; tau = 0.625
+
+descent iter#43; J = 0.000519362; |GJ| = 0.00246513; tau = 2.5
+
+descent iter#44; J = 0.000506102; |GJ| = 0.00253325; tau = 2.5
+
+descent iter#45; J = 0.000494335; |GJ| = 0.00301409; tau = 0.625
+
+descent iter#46; J = 0.000489645; |GJ| = 0.0022862; tau = 5
+
+descent iter#47; J = 0.000467549; |GJ| = 0.00312028; tau = 0.625
+
+descent iter#48; J = 0.000462617; |GJ| = 0.00224565; tau = 2.5
+
+descent iter#49; J = 0.000451669; |GJ| = 0.00236408; tau = 2.5
+
+descent iter#50; J = 0.000441879; |GJ| = 0.00283268; tau = 0.625
+
+descent iter#51; J = 0.000437736; |GJ| = 0.00212542; tau = 5
+
+descent iter#52; J = 0.000419627; |GJ| = 0.003131; tau = 0.625
+
+descent iter#53; J = 0.000414773; |GJ| = 0.00212469; tau = 2.5
+
+descent iter#54; J = 0.000405525; |GJ| = 0.00230592; tau = 1.25
+
+descent iter#55; J = 0.000400186; |GJ| = 0.00198514; tau = 5
+
+descent iter#56; J = 0.000384088; |GJ| = 0.00301216; tau = 0.625
+
+descent iter#57; J = 0.000379764; |GJ| = 0.00194769; tau = 2.5
+
+descent iter#58; J = 0.000371534; |GJ| = 0.00213108; tau = 1.25
+
+descent iter#59; J = 0.000366973; |GJ| = 0.00190226; tau = 2.5
+
+descent iter#60; J = 0.000359222; |GJ| = 0.00216508; tau = 1.25
+
+descent iter#61; J = 0.000354867; |GJ| = 0.00193116; tau = 1.25
+
+descent iter#62; J = 0.000350804; |GJ| = 0.00183098; tau = 2.5
+
+descent iter#63; J = 0.000343471; |GJ| = 0.00207513; tau = 1.25
+
+descent iter#64; J = 0.000339437; |GJ| = 0.00188311; tau = 1.25
+
+descent iter#65; J = 0.00033561; |GJ| = 0.00178632; tau = 2.5
+
+descent iter#66; J = 0.000328757; |GJ| = 0.00206494; tau = 1.25
+
+descent iter#67; J = 0.000324922; |GJ| = 0.00186063; tau = 1.25
+
+descent iter#68; J = 0.000321292; |GJ| = 0.00175393; tau = 2.5
+
+descent iter#69; J = 0.000314938; |GJ| = 0.00210279; tau = 0.625
+
+descent iter#70; J = 0.000312635; |GJ| = 0.00164842; tau = 10
+
+descent iter#71; J = 0.000289057; |GJ| = 0.00297268; tau = 0.3125
+
+descent iter#72; J = 0.000286719; |GJ| = 0.0021328; tau = 0.3125
+
+descent iter#73; J = 0.000285441; |GJ| = 0.00176091; tau = 0.625
+
+descent iter#74; J = 0.000283697; |GJ| = 0.00154056; tau = 20
+
+descent iter#75; J = 0.000244055; |GJ| = 0.00382806; tau = 0.3125
+
+descent iter#76; J = 0.000240309; |GJ| = 0.00249272; tau = 0.3125
+
+descent iter#77; J = 0.00023865; |GJ| = 0.00183083; tau = 0.625
+
+descent iter#78; J = 0.000236939; |GJ| = 0.00138388; tau = 10
+
+descent iter#79; J = 0.000220927; |GJ| = 0.00280275; tau = 0.3125
+
+descent iter#80; J = 0.000218872; |GJ| = 0.00195072; tau = 0.3125
+
+descent iter#81; J = 0.000217819; |GJ| = 0.0015549; tau = 0.625
+
+descent iter#82; J = 0.000216496; |GJ| = 0.00130748; tau = 10
+
+descent iter#83; J = 0.000201226; |GJ| = 0.00216324; tau = 0.625
+
+descent iter#84; J = 0.000199116; |GJ| = 0.00127203; tau = 2.5
+
+descent iter#85; J = 0.000195501; |GJ| = 0.00140705; tau = 1.25
+
+descent iter#86; J = 0.000193547; |GJ| = 0.00129108; tau = 1.25
+
+descent iter#87; J = 0.000191685; |GJ| = 0.00123633; tau = 2.5
+
+descent iter#88; J = 0.000188258; |GJ| = 0.00137149; tau = 1.25
+
+descent iter#89; J = 0.000186411; |GJ| = 0.00126159; tau = 1.25
+
+descent iter#90; J = 0.000184645; |GJ| = 0.00120638; tau = 2.5
+
+descent iter#91; J = 0.000181415; |GJ| = 0.00135175; tau = 1.25
+
+descent iter#92; J = 0.00017966; |GJ| = 0.00123699; tau = 1.25
+
+descent iter#93; J = 0.000177986; |GJ| = 0.00117832; tau = 2.5
+
+descent iter#94; J = 0.000174957; |GJ| = 0.0013423; tau = 1.25
+
+descent iter#95; J = 0.000173285; |GJ| = 0.00121787; tau = 1.25
+
+descent iter#96; J = 0.000171699; |GJ| = 0.00115324; tau = 2.5
+
+descent iter#97; J = 0.000168877; |GJ| = 0.00134806; tau = 1.25
+
+descent iter#98; J = 0.00016728; |GJ| = 0.00120831; tau = 1.25
+
+descent iter#99; J = 0.000165774; |GJ| = 0.00113419; tau = 2.5
+
+descent iter#100; J = 0.000163175; |GJ| = 0.00138366; tau = 0.625
+
+descent iter#101; J = 0.000162193; |GJ| = 0.00105942; tau = 10
+
+descent iter#102; J = 0.000152584; |GJ| = 0.00197793; tau = 0.3125
+
+descent iter#103; J = 0.000151555; |GJ| = 0.00139875; tau = 0.3125
+
+descent iter#104; J = 0.000151008; |GJ| = 0.00113921; tau = 0.625
+
+descent iter#105; J = 0.000150285; |GJ| = 0.00098368; tau = 20
+
+descent iter#106; J = 0.00013441; |GJ| = 0.0025383; tau = 0.3125
+
+descent iter#107; J = 0.000132769; |GJ| = 0.00163439; tau = 0.3125
+
+descent iter#108; J = 0.000132061; |GJ| = 0.00118081; tau = 0.625
+
+descent iter#109; J = 0.00013136; |GJ| = 0.000868702; tau = 10
+
+descent iter#110; J = 0.000125192; |GJ| = 0.00183373; tau = 0.3125
+
+descent iter#111; J = 0.000124317; |GJ| = 0.0012571; tau = 0.3125
+
+descent iter#112; J = 0.000123883; |GJ| = 0.00098599; tau = 0.625
+
+descent iter#113; J = 0.000123357; |GJ| = 0.000814772; tau = 10
+
+descent iter#114; J = 0.000117467; |GJ| = 0.00138832; tau = 0.625
+
+descent iter#115; J = 0.000116609; |GJ| = 0.000793408; tau = 2.5
+
+descent iter#116; J = 0.000115204; |GJ| = 0.000884384; tau = 1.25
+
+descent iter#117; J = 0.000114441; |GJ| = 0.000812168; tau = 1.25
+
+descent iter#118; J = 0.000113711; |GJ| = 0.000776706; tau = 2.5
+
+descent iter#119; J = 0.000112373; |GJ| = 0.000873585; tau = 1.25
+
+descent iter#120; J = 0.000111641; |GJ| = 0.000799475; tau = 1.25
+
+descent iter#121; J = 0.000110941; |GJ| = 0.000762488; tau = 2.5
+
+descent iter#122; J = 0.000109667; |GJ| = 0.000868206; tau = 1.25
+
+descent iter#123; J = 0.000108961; |GJ| = 0.000789697; tau = 1.25
+
+descent iter#124; J = 0.000108288; |GJ| = 0.000750172; tau = 2.5
+
+descent iter#125; J = 0.000107077; |GJ| = 0.000869273; tau = 1.25
+
+descent iter#126; J = 0.000106395; |GJ| = 0.000784091; tau = 1.25
+
+descent iter#127; J = 0.000105746; |GJ| = 0.000740585; tau = 2.5
+
+descent iter#128; J = 0.0001046; |GJ| = 0.000881284; tau = 0.625
+
+descent iter#129; J = 0.000104191; |GJ| = 0.000701004; tau = 10
+
+descent iter#130; J = 9.98708e-05; |GJ| = 0.00125858; tau = 0.3125
+
+descent iter#131; J = 9.94503e-05; |GJ| = 0.000910853; tau = 0.625
+
+descent iter#132; J = 9.90326e-05; |GJ| = 0.00067339; tau = 10
+
+descent iter#133; J = 9.52703e-05; |GJ| = 0.00140771; tau = 0.3125
+
+descent iter#134; J = 9.47535e-05; |GJ| = 0.000971293; tau = 0.3125
+
+descent iter#135; J = 9.44935e-05; |GJ| = 0.000768189; tau = 0.625
+
+descent iter#136; J = 9.41723e-05; |GJ| = 0.000641788; tau = 20
+
+descent iter#137; J = 8.75694e-05; |GJ| = 0.0019123; tau = 0.3125
+
+descent iter#138; J = 8.66416e-05; |GJ| = 0.00121548; tau = 0.3125
+
+descent iter#139; J = 8.62532e-05; |GJ| = 0.000856991; tau = 0.3125
+
+descent iter#140; J = 8.60487e-05; |GJ| = 0.000693309; tau = 0.625
+
+descent iter#141; J = 8.57826e-05; |GJ| = 0.000593242; tau = 20
+
+descent iter#142; J = 7.99661e-05; |GJ| = 0.00165762; tau = 0.3125
+
+descent iter#143; J = 7.92656e-05; |GJ| = 0.00106914; tau = 0.3125
+
+descent iter#144; J = 7.89626e-05; |GJ| = 0.000769946; tau = 0.3125
+
+descent iter#145; J = 7.8796e-05; |GJ| = 0.000635357; tau = 0.625
+
+descent iter#146; J = 7.85694e-05; |GJ| = 0.000553766; tau = 20
+
+descent iter#147; J = 7.34489e-05; |GJ| = 0.00148536; tau = 0.3125
+
+descent iter#148; J = 7.2882e-05; |GJ| = 0.000979385; tau = 0.3125
+
+descent iter#149; J = 7.2625e-05; |GJ| = 0.000722849; tau = 0.625
+
+descent iter#150; J = 7.23592e-05; |GJ| = 0.000537268; tau = 5
+
+descent iter#151; J = 7.11281e-05; |GJ| = 0.000721326; tau = 0.625
+
+descent iter#152; J = 7.08629e-05; |GJ| = 0.000534598; tau = 5
+
+descent iter#153; J = 6.96905e-05; |GJ| = 0.000739161; tau = 0.625
+
+descent iter#154; J = 6.94129e-05; |GJ| = 0.000538859; tau = 2.5
+
+descent iter#155; J = 6.87775e-05; |GJ| = 0.000548817; tau = 2.5
+
+descent iter#156; J = 6.82006e-05; |GJ| = 0.00065739; tau = 0.625
+
+descent iter#157; J = 6.79761e-05; |GJ| = 0.00050735; tau = 5
+
+descent iter#158; J = 6.6825e-05; |GJ| = 0.000667683; tau = 0.625
+
+descent iter#159; J = 6.65948e-05; |GJ| = 0.000506519; tau = 5
+
+descent iter#160; J = 6.55029e-05; |GJ| = 0.00070398; tau = 0.625
+
+descent iter#161; J = 6.52508e-05; |GJ| = 0.000512559; tau = 2.5
+
+descent iter#162; J = 6.46735e-05; |GJ| = 0.000537751; tau = 2.5
+
+descent iter#163; J = 6.41406e-05; |GJ| = 0.000641819; tau = 0.625
+
+descent iter#164; J = 6.39258e-05; |GJ| = 0.000493878; tau = 5
+
+descent iter#165; J = 6.28813e-05; |GJ| = 0.000686204; tau = 0.625
+
+descent iter#166; J = 6.26413e-05; |GJ| = 0.000500123; tau = 2.5
+
+descent iter#167; J = 6.2092e-05; |GJ| = 0.000529632; tau = 2.5
+
+descent iter#168; J = 6.15843e-05; |GJ| = 0.000633098; tau = 0.625
+
+descent iter#169; J = 6.13752e-05; |GJ| = 0.000485423; tau = 5
+
+descent iter#170; J = 6.03892e-05; |GJ| = 0.000695496; tau = 0.625
+
+descent iter#171; J = 6.01448e-05; |GJ| = 0.000494721; tau = 2.5
+
+descent iter#172; J = 5.96213e-05; |GJ| = 0.000530844; tau = 1.25
+
+descent iter#173; J = 5.93252e-05; |GJ| = 0.000473854; tau = 5
+
+descent iter#174; J = 5.83661e-05; |GJ| = 0.000699395; tau = 0.625
+
+descent iter#175; J = 5.81289e-05; |GJ| = 0.000473431; tau = 5
+
+descent iter#176; J = 5.72178e-05; |GJ| = 0.000740446; tau = 0.625
+
+descent iter#177; J = 5.69566e-05; |GJ| = 0.000477508; tau = 2.5
+
+descent iter#178; J = 5.64635e-05; |GJ| = 0.000528262; tau = 1.25
+
+descent iter#179; J = 5.61834e-05; |GJ| = 0.000472388; tau = 2.5
+
+descent iter#180; J = 5.57017e-05; |GJ| = 0.000540625; tau = 1.25
+
+descent iter#181; J = 5.54264e-05; |GJ| = 0.000484948; tau = 1.25
+
+descent iter#182; J = 5.51666e-05; |GJ| = 0.000462946; tau = 2.5
+
+descent iter#183; J = 5.4686e-05; |GJ| = 0.000517954; tau = 1.25
+
+descent iter#184; J = 5.44213e-05; |GJ| = 0.000476618; tau = 1.25
+
+descent iter#185; J = 5.41667e-05; |GJ| = 0.0004582; tau = 5
+
+descent iter#186; J = 5.33146e-05; |GJ| = 0.000750632; tau = 0.625
+
+descent iter#187; J = 5.30573e-05; |GJ| = 0.000454371; tau = 5
+
+descent iter#188; J = 5.22168e-05; |GJ| = 0.000740849; tau = 0.625
+
+descent iter#189; J = 5.19655e-05; |GJ| = 0.000450786; tau = 5
+
+descent iter#190; J = 5.11375e-05; |GJ| = 0.00073336; tau = 0.625
+
+descent iter#191; J = 5.08908e-05; |GJ| = 0.000447501; tau = 5
+
+descent iter#192; J = 5.00767e-05; |GJ| = 0.000729525; tau = 0.625
+
+descent iter#193; J = 4.98326e-05; |GJ| = 0.000444534; tau = 5
+
+descent iter#194; J = 4.90341e-05; |GJ| = 0.000729567; tau = 0.625
+
+descent iter#195; J = 4.87904e-05; |GJ| = 0.000442007; tau = 2.5
+
+descent iter#196; J = 4.83512e-05; |GJ| = 0.000492338; tau = 1.25
+
+descent iter#197; J = 4.81096e-05; |GJ| = 0.000453065; tau = 2.5
+
+descent iter#198; J = 4.76939e-05; |GJ| = 0.000549737; tau = 0.625
+
+descent iter#199; J = 4.75362e-05; |GJ| = 0.000429149; tau = 10
+
+descent iter#200; J = 4.59721e-05; |GJ| = 0.000874254; tau = 0.3125
+
+descent iter#201; J = 4.57708e-05; |GJ| = 0.000618136; tau = 0.3125
+
+descent iter#202; J = 4.56645e-05; |GJ| = 0.00049781; tau = 0.625
+
+descent iter#203; J = 4.55282e-05; |GJ| = 0.000421066; tau = 10
+
+descent iter#204; J = 4.39344e-05; |GJ| = 0.000732968; tau = 0.625
+
+descent iter#205; J = 4.36914e-05; |GJ| = 0.000428484; tau = 2.5
+
+descent iter#206; J = 4.32885e-05; |GJ| = 0.000485314; tau = 1.25
+
+descent iter#207; J = 4.30614e-05; |GJ| = 0.000439043; tau = 1.25
+
+descent iter#208; J = 4.28457e-05; |GJ| = 0.000420665; tau = 5
+
+descent iter#209; J = 4.21187e-05; |GJ| = 0.000674058; tau = 0.625
+
+descent iter#210; J = 4.19084e-05; |GJ| = 0.000418212; tau = 5
+
+descent iter#211; J = 4.11992e-05; |GJ| = 0.000680907; tau = 0.625
+
+descent iter#212; J = 4.09858e-05; |GJ| = 0.000416207; tau = 2.5
+
+descent iter#213; J = 4.05973e-05; |GJ| = 0.00046361; tau = 1.25
+
+descent iter#214; J = 4.03831e-05; |GJ| = 0.00042549; tau = 2.5
+
+descent iter#215; J = 4.00141e-05; |GJ| = 0.000512715; tau = 0.625
+
+descent iter#216; J = 3.98762e-05; |GJ| = 0.000403516; tau = 10
+
+descent iter#217; J = 3.84946e-05; |GJ| = 0.000819847; tau = 0.3125
+
+descent iter#218; J = 3.83173e-05; |GJ| = 0.000581256; tau = 0.3125
+
+descent iter#219; J = 3.82233e-05; |GJ| = 0.000468418; tau = 0.625
+
+descent iter#220; J = 3.81026e-05; |GJ| = 0.000395556; tau = 10
+
+descent iter#221; J = 3.67074e-05; |GJ| = 0.000701734; tau = 0.625
+
+descent iter#222; J = 3.64856e-05; |GJ| = 0.000403668; tau = 2.5
+
+descent iter#223; J = 3.61337e-05; |GJ| = 0.000461707; tau = 1.25
+
+descent iter#224; J = 3.59323e-05; |GJ| = 0.000412863; tau = 1.25
+
+descent iter#225; J = 3.57425e-05; |GJ| = 0.000394144; tau = 5
+
+descent iter#226; J = 3.51064e-05; |GJ| = 0.000632014; tau = 0.625
+
+descent iter#227; J = 3.49213e-05; |GJ| = 0.00039194; tau = 5
+
+descent iter#228; J = 3.43064e-05; |GJ| = 0.000646302; tau = 0.625
+
+descent iter#229; J = 3.41148e-05; |GJ| = 0.000390331; tau = 2.5
+
+descent iter#230; J = 3.37771e-05; |GJ| = 0.000437901; tau = 1.25
+
+descent iter#231; J = 3.35888e-05; |GJ| = 0.000398296; tau = 2.5
+
+descent iter#232; J = 3.32681e-05; |GJ| = 0.00048101; tau = 0.625
+
+descent iter#233; J = 3.31469e-05; |GJ| = 0.000376837; tau = 10
+
+descent iter#234; J = 3.19597e-05; |GJ| = 0.000785181; tau = 0.3125
+
+descent iter#235; J = 3.17973e-05; |GJ| = 0.000553712; tau = 0.3125
+
+descent iter#236; J = 3.17123e-05; |GJ| = 0.00044234; tau = 0.625
+
+descent iter#237; J = 3.16056e-05; |GJ| = 0.000368602; tau = 10
+
+descent iter#238; J = 3.0418e-05; |GJ| = 0.000686906; tau = 0.625
+
+descent iter#239; J = 3.02084e-05; |GJ| = 0.000378548; tau = 2.5
+
+descent iter#240; J = 2.99092e-05; |GJ| = 0.000442134; tau = 1.25
+
+descent iter#241; J = 2.97322e-05; |GJ| = 0.000386868; tau = 1.25
+
+descent iter#242; J = 2.95681e-05; |GJ| = 0.000366386; tau = 5
+
+descent iter#243; J = 2.90297e-05; |GJ| = 0.000601362; tau = 0.625
+
+descent iter#244; J = 2.88635e-05; |GJ| = 0.000364507; tau = 2.5
+
+descent iter#245; J = 2.85691e-05; |GJ| = 0.000408585; tau = 1.25
+
+descent iter#246; J = 2.84051e-05; |GJ| = 0.000371389; tau = 2.5
+
+descent iter#247; J = 2.81257e-05; |GJ| = 0.000447355; tau = 0.625
+
+descent iter#248; J = 2.80208e-05; |GJ| = 0.000351286; tau = 10
+
+descent iter#249; J = 2.69906e-05; |GJ| = 0.000731099; tau = 0.3125
+
+descent iter#250; J = 2.68499e-05; |GJ| = 0.000515633; tau = 0.3125
+
+descent iter#251; J = 2.67762e-05; |GJ| = 0.000411714; tau = 0.625
+
+descent iter#252; J = 2.66838e-05; |GJ| = 0.000342624; tau = 10
+
+descent iter#253; J = 2.5662e-05; |GJ| = 0.000642085; tau = 0.625
+
+descent iter#254; J = 2.54791e-05; |GJ| = 0.000351312; tau = 2.5
+
+descent iter#255; J = 2.5223e-05; |GJ| = 0.00041164; tau = 1.25
+
+descent iter#256; J = 2.50708e-05; |GJ| = 0.000358802; tau = 1.25
+
+descent iter#257; J = 2.49301e-05; |GJ| = 0.000339165; tau = 2.5
+
+descent iter#258; J = 2.46716e-05; |GJ| = 0.000375778; tau = 1.25
+
+descent iter#259; J = 2.45298e-05; |GJ| = 0.000344953; tau = 2.5
+
+descent iter#260; J = 2.42845e-05; |GJ| = 0.000410729; tau = 0.625
+
+descent iter#261; J = 2.41952e-05; |GJ| = 0.000327338; tau = 10
+
+descent iter#262; J = 2.32853e-05; |GJ| = 0.00065482; tau = 0.3125
+
+descent iter#263; J = 2.3172e-05; |GJ| = 0.000466146; tau = 0.3125
+
+descent iter#264; J = 2.31114e-05; |GJ| = 0.000376604; tau = 0.625
+
+descent iter#265; J = 2.30334e-05; |GJ| = 0.00031828; tau = 10
+
+descent iter#266; J = 2.21368e-05; |GJ| = 0.000567838; tau = 0.625
+
+descent iter#267; J = 2.1992e-05; |GJ| = 0.000322948; tau = 2.5
+
+descent iter#268; J = 2.17694e-05; |GJ| = 0.000371416; tau = 1.25
+
+descent iter#269; J = 2.16409e-05; |GJ| = 0.000329385; tau = 1.25
+
+descent iter#270; J = 2.15208e-05; |GJ| = 0.000313265; tau = 5
+
+descent iter#271; J = 2.11218e-05; |GJ| = 0.000503677; tau = 0.625
+
+descent iter#272; J = 2.10044e-05; |GJ| = 0.000310448; tau = 2.5
+
+descent iter#273; J = 2.07891e-05; |GJ| = 0.000345358; tau = 1.25
+
+descent iter#274; J = 2.06705e-05; |GJ| = 0.000315599; tau = 2.5
+
+descent iter#275; J = 2.0467e-05; |GJ| = 0.000377583; tau = 0.625
+
+descent iter#276; J = 2.03918e-05; |GJ| = 0.000298649; tau = 10
+
+descent iter#277; J = 1.96425e-05; |GJ| = 0.00060878; tau = 0.3125
+
+descent iter#278; J = 1.95448e-05; |GJ| = 0.000430805; tau = 0.3125
+
+descent iter#279; J = 1.94932e-05; |GJ| = 0.000345575; tau = 0.625
+
+descent iter#280; J = 1.94279e-05; |GJ| = 0.000289429; tau = 10
+
+descent iter#281; J = 1.86942e-05; |GJ| = 0.00052924; tau = 0.625
+
+descent iter#282; J = 1.85695e-05; |GJ| = 0.000293901; tau = 2.5
+
+descent iter#283; J = 1.83877e-05; |GJ| = 0.000341282; tau = 1.25
+
+descent iter#284; J = 1.82815e-05; |GJ| = 0.000299972; tau = 1.25
+
+descent iter#285; J = 1.81828e-05; |GJ| = 0.000284132; tau = 5
+
+descent iter#286; J = 1.78597e-05; |GJ| = 0.00046602; tau = 0.625
+
+descent iter#287; J = 1.77601e-05; |GJ| = 0.000281432; tau = 2.5
+
+descent iter#288; J = 1.75848e-05; |GJ| = 0.000315333; tau = 1.25
+
+descent iter#289; J = 1.74875e-05; |GJ| = 0.000286266; tau = 2.5
+
+descent iter#290; J = 1.73224e-05; |GJ| = 0.000345568; tau = 0.625
+
+descent iter#291; J = 1.726e-05; |GJ| = 0.00026987; tau = 10
+
+descent iter#292; J = 1.66575e-05; |GJ| = 0.000566601; tau = 0.3125
+
+descent iter#293; J = 1.65731e-05; |GJ| = 0.000397598; tau = 0.3125
+
+descent iter#294; J = 1.65294e-05; |GJ| = 0.000315735; tau = 0.625
+
+descent iter#295; J = 1.64753e-05; |GJ| = 0.000261041; tau = 10
+
+descent iter#296; J = 1.58866e-05; |GJ| = 0.0004938; tau = 0.625
+
+descent iter#297; J = 1.57791e-05; |GJ| = 0.000266026; tau = 2.5
+
+descent iter#298; J = 1.5633e-05; |GJ| = 0.000312916; tau = 1.25
+
+descent iter#299; J = 1.5546e-05; |GJ| = 0.000272023; tau = 1.25
+
+descent iter#300; J = 1.54657e-05; |GJ| = 0.000256368; tau = 2.5
+
+descent iter#301; J = 1.53192e-05; |GJ| = 0.000285722; tau = 1.25
+
+descent iter#302; J = 1.52385e-05; |GJ| = 0.000260801; tau = 2.5
+
+descent iter#303; J = 1.51005e-05; |GJ| = 0.000313708; tau = 0.625
+
+descent iter#304; J = 1.50489e-05; |GJ| = 0.000246232; tau = 10
+
+descent iter#305; J = 1.45427e-05; |GJ| = 0.000508134; tau = 0.3125
+
+descent iter#306; J = 1.44748e-05; |GJ| = 0.000357846; tau = 0.3125
+
+descent iter#307; J = 1.44393e-05; |GJ| = 0.000285716; tau = 0.625
+
+descent iter#308; J = 1.43948e-05; |GJ| = 0.000238156; tau = 10
+
+descent iter#309; J = 1.38991e-05; |GJ| = 0.000437974; tau = 0.625
+
+descent iter#310; J = 1.38139e-05; |GJ| = 0.000241533; tau = 2.5
+
+descent iter#311; J = 1.3691e-05; |GJ| = 0.000280715; tau = 1.25
+
+descent iter#312; J = 1.36193e-05; |GJ| = 0.000247079; tau = 1.25
+
+descent iter#313; J = 1.35525e-05; |GJ| = 0.00023391; tau = 2.5
+
+descent iter#314; J = 1.34299e-05; |GJ| = 0.0002598; tau = 1.25
+
+descent iter#315; J = 1.33627e-05; |GJ| = 0.000238088; tau = 2.5
+
+descent iter#316; J = 1.32472e-05; |GJ| = 0.000285798; tau = 0.625
+
+descent iter#317; J = 1.32043e-05; |GJ| = 0.000225081; tau = 10
+
+descent iter#318; J = 1.27784e-05; |GJ| = 0.000458951; tau = 0.3125
+
+descent iter#319; J = 1.27229e-05; |GJ| = 0.000324108; tau = 0.3125
+
+descent iter#320; J = 1.26937e-05; |GJ| = 0.000259864; tau = 0.625
+
+descent iter#321; J = 1.26568e-05; |GJ| = 0.000217952; tau = 10
+
+descent iter#322; J = 1.22378e-05; |GJ| = 0.000392184; tau = 0.625
+
+descent iter#323; J = 1.21691e-05; |GJ| = 0.000220465; tau = 2.5
+
+descent iter#324; J = 1.20651e-05; |GJ| = 0.000253834; tau = 1.25
+
+descent iter#325; J = 1.20054e-05; |GJ| = 0.000225651; tau = 1.25
+
+descent iter#326; J = 1.19493e-05; |GJ| = 0.000214398; tau = 5
+
+descent iter#327; J = 1.17653e-05; |GJ| = 0.000352669; tau = 0.625
+
+descent iter#328; J = 1.17083e-05; |GJ| = 0.000212354; tau = 2.5
+
+descent iter#329; J = 1.16082e-05; |GJ| = 0.00023776; tau = 1.25
+
+descent iter#330; J = 1.15527e-05; |GJ| = 0.000216615; tau = 2.5
+
+descent iter#331; J = 1.14584e-05; |GJ| = 0.000262624; tau = 0.625
+
+descent iter#332; J = 1.14225e-05; |GJ| = 0.000204223; tau = 10
+
+descent iter#333; J = 1.10763e-05; |GJ| = 0.000428749; tau = 0.3125
+
+descent iter#334; J = 1.1028e-05; |GJ| = 0.000300545; tau = 0.3125
+
+descent iter#335; J = 1.1003e-05; |GJ| = 0.00023886; tau = 0.625
+
+descent iter#336; J = 1.0972e-05; |GJ| = 0.000198156; tau = 10
+
+descent iter#337; J = 1.06289e-05; |GJ| = 0.000367261; tau = 0.625
+
+descent iter#338; J = 1.05691e-05; |GJ| = 0.000201552; tau = 2.5
+
+descent iter#339; J = 1.04834e-05; |GJ| = 0.000234453; tau = 1.25
+
+descent iter#340; J = 1.04334e-05; |GJ| = 0.000206788; tau = 1.25
+
+descent iter#341; J = 1.03867e-05; |GJ| = 0.000195811; tau = 2.5
+
+descent iter#342; J = 1.0301e-05; |GJ| = 0.000218302; tau = 1.25
+
+descent iter#343; J = 1.02538e-05; |GJ| = 0.000199813; tau = 2.5
+
+descent iter#344; J = 1.0173e-05; |GJ| = 0.000241296; tau = 0.625
+
+descent iter#345; J = 1.01425e-05; |GJ| = 0.000188786; tau = 10
+
+descent iter#346; J = 9.84388e-06; |GJ| = 0.000389943; tau = 0.3125
+
+descent iter#347; J = 9.80387e-06; |GJ| = 0.000274513; tau = 0.3125
+
+descent iter#348; J = 9.78299e-06; |GJ| = 0.000219434; tau = 0.625
+
+descent iter#349; J = 9.75668e-06; |GJ| = 0.000183504; tau = 10
+
+descent iter#350; J = 9.45936e-06; |GJ| = 0.000331826; tau = 0.625
+
+descent iter#351; J = 9.41026e-06; |GJ| = 0.000186182; tau = 2.5
+
+descent iter#352; J = 9.33594e-06; |GJ| = 0.000214379; tau = 1.25
+
+descent iter#353; J = 9.29323e-06; |GJ| = 0.000191013; tau = 1.25
+
+descent iter#354; J = 9.25306e-06; |GJ| = 0.000181586; tau = 2.5
+
+descent iter#355; J = 9.17893e-06; |GJ| = 0.000201627; tau = 1.25
+
+descent iter#356; J = 9.13829e-06; |GJ| = 0.000185315; tau = 2.5
+
+descent iter#357; J = 9.06827e-06; |GJ| = 0.000222818; tau = 0.625
+
+descent iter#358; J = 9.0422e-06; |GJ| = 0.000175455; tau = 10
+
+descent iter#359; J = 8.78199e-06; |GJ| = 0.000356659; tau = 0.3125
+
+descent iter#360; J = 8.74847e-06; |GJ| = 0.00025221; tau = 0.3125
+
+descent iter#361; J = 8.7308e-06; |GJ| = 0.000202751; tau = 0.625
+
+descent iter#362; J = 8.70823e-06; |GJ| = 0.000170813; tau = 10
+
+descent iter#363; J = 8.44837e-06; |GJ| = 0.000302092; tau = 0.625
+
+descent iter#364; J = 8.4074e-06; |GJ| = 0.000172961; tau = 2.5
+
+descent iter#365; J = 8.34241e-06; |GJ| = 0.000197417; tau = 1.25
+
+descent iter#366; J = 8.30553e-06; |GJ| = 0.000177398; tau = 1.25
+
+descent iter#367; J = 8.27064e-06; |GJ| = 0.000169205; tau = 5
+
+descent iter#368; J = 8.15496e-06; |GJ| = 0.000276023; tau = 0.625
+
+descent iter#369; J = 8.11996e-06; |GJ| = 0.000167863; tau = 2.5
+
+descent iter#370; J = 8.05692e-06; |GJ| = 0.000187239; tau = 1.25
+
+descent iter#371; J = 8.02216e-06; |GJ| = 0.00017153; tau = 2.5
+
+descent iter#372; J = 7.96264e-06; |GJ| = 0.000207359; tau = 0.625
+
+descent iter#373; J = 7.94015e-06; |GJ| = 0.00016218; tau = 10
+
+descent iter#374; J = 7.71932e-06; |GJ| = 0.000335133; tau = 0.3125
+
+descent iter#375; J = 7.68977e-06; |GJ| = 0.000236003; tau = 0.3125
+
+descent iter#376; J = 7.67433e-06; |GJ| = 0.000188794; tau = 0.625
+
+descent iter#377; J = 7.65484e-06; |GJ| = 0.000158109; tau = 10
+
+descent iter#378; J = 7.43328e-06; |GJ| = 0.000284393; tau = 0.625
+
+descent iter#379; J = 7.39715e-06; |GJ| = 0.000160602; tau = 2.5
+
+descent iter#380; J = 7.34152e-06; |GJ| = 0.000184375; tau = 1.25
+
+descent iter#381; J = 7.3097e-06; |GJ| = 0.000164949; tau = 1.25
+
+descent iter#382; J = 7.27968e-06; |GJ| = 0.000157038; tau = 5
+
+descent iter#383; J = 7.18087e-06; |GJ| = 0.000259103; tau = 0.625
+
+descent iter#384; J = 7.15015e-06; |GJ| = 0.000155931; tau = 2.5
+
+descent iter#385; J = 7.096e-06; |GJ| = 0.000174648; tau = 1.25
+
+descent iter#386; J = 7.066e-06; |GJ| = 0.000159513; tau = 2.5
+
+descent iter#387; J = 7.01489e-06; |GJ| = 0.000193769; tau = 0.625
+
+descent iter#388; J = 6.99532e-06; |GJ| = 0.000150619; tau = 10
+
+descent iter#389; J = 6.80607e-06; |GJ| = 0.000315836; tau = 0.3125
+
+descent iter#390; J = 6.77985e-06; |GJ| = 0.000221607; tau = 0.3125
+
+descent iter#391; J = 6.76627e-06; |GJ| = 0.000176498; tau = 0.625
+
+descent iter#392; J = 6.74929e-06; |GJ| = 0.000146996; tau = 10
+
+descent iter#393; J = 6.55869e-06; |GJ| = 0.000268491; tau = 0.625
+
+descent iter#394; J = 6.52663e-06; |GJ| = 0.000149728; tau = 2.5
+
+descent iter#395; J = 6.47861e-06; |GJ| = 0.000172808; tau = 1.25
+
+descent iter#396; J = 6.45094e-06; |GJ| = 0.000153964; tau = 1.25
+
+descent iter#397; J = 6.4249e-06; |GJ| = 0.000146323; tau = 2.5
+
+descent iter#398; J = 6.37685e-06; |GJ| = 0.00016293; tau = 1.25
+
+descent iter#399; J = 6.35042e-06; |GJ| = 0.000149581; tau = 2.5
+
+descent iter#400; J = 6.30497e-06; |GJ| = 0.000180428; tau = 0.625
+
+descent iter#401; J = 6.28791e-06; |GJ| = 0.000141627; tau = 10
+
+descent iter#402; J = 6.11867e-06; |GJ| = 0.00029043; tau = 0.3125
+
+descent iter#403; J = 6.09646e-06; |GJ| = 0.000205038; tau = 0.3125
+
+descent iter#404; J = 6.08479e-06; |GJ| = 0.00016453; tau = 0.625
+
+descent iter#405; J = 6.06995e-06; |GJ| = 0.000138341; tau = 10
+
+descent iter#406; J = 5.89946e-06; |GJ| = 0.000246029; tau = 0.625
+
+descent iter#407; J = 5.87232e-06; |GJ| = 0.000140497; tau = 2.5
+
+descent iter#408; J = 5.82943e-06; |GJ| = 0.000160542; tau = 1.25
+
+descent iter#409; J = 5.80506e-06; |GJ| = 0.000144331; tau = 1.25
+
+descent iter#410; J = 5.78198e-06; |GJ| = 0.000137673; tau = 5
+
+descent iter#411; J = 5.70553e-06; |GJ| = 0.000225394; tau = 0.625
+
+descent iter#412; J = 5.68221e-06; |GJ| = 0.000136769; tau = 2.5
+
+descent iter#413; J = 5.64038e-06; |GJ| = 0.000152761; tau = 1.25
+
+descent iter#414; J = 5.61727e-06; |GJ| = 0.000139924; tau = 2.5
+
+descent iter#415; J = 5.57772e-06; |GJ| = 0.00016939; tau = 0.625
+
+descent iter#416; J = 5.56272e-06; |GJ| = 0.000132348; tau = 10
+
+descent iter#417; J = 5.41565e-06; |GJ| = 0.00027447; tau = 0.3125
+
+descent iter#418; J = 5.39583e-06; |GJ| = 0.000193209; tau = 0.3125
+
+descent iter#419; J = 5.38548e-06; |GJ| = 0.000154506; tau = 0.625
+
+descent iter#420; J = 5.37243e-06; |GJ| = 0.000129363; tau = 10
+
+descent iter#421; J = 5.22389e-06; |GJ| = 0.00023281; tau = 0.625
+
+descent iter#422; J = 5.19968e-06; |GJ| = 0.000131638; tau = 2.5
+
+descent iter#423; J = 5.16222e-06; |GJ| = 0.000151039; tau = 1.25
+
+descent iter#424; J = 5.14082e-06; |GJ| = 0.000135354; tau = 1.25
+
+descent iter#425; J = 5.1206e-06; |GJ| = 0.000128933; tau = 5
+
+descent iter#426; J = 5.05395e-06; |GJ| = 0.000212827; tau = 0.625
+
+descent iter#427; J = 5.03322e-06; |GJ| = 0.000128151; tau = 2.5
+
+descent iter#428; J = 4.99662e-06; |GJ| = 0.000143563; tau = 1.25
+
+descent iter#429; J = 4.97633e-06; |GJ| = 0.000131203; tau = 2.5
+
+descent iter#430; J = 4.94174e-06; |GJ| = 0.000159399; tau = 0.625
+
+descent iter#431; J = 4.92849e-06; |GJ| = 0.000123967; tau = 10
+
+descent iter#432; J = 4.80009e-06; |GJ| = 0.000259897; tau = 0.3125
+
+descent iter#433; J = 4.78234e-06; |GJ| = 0.000182442; tau = 0.3125
+
+descent iter#434; J = 4.77313e-06; |GJ| = 0.000145405; tau = 0.625
+
+descent iter#435; J = 4.7616e-06; |GJ| = 0.000121231; tau = 10
+
+descent iter#436; J = 4.63163e-06; |GJ| = 0.000220693; tau = 0.625
+
+descent iter#437; J = 4.60994e-06; |GJ| = 0.000123583; tau = 2.5
+
+descent iter#438; J = 4.5771e-06; |GJ| = 0.000142364; tau = 1.25
+
+descent iter#439; J = 4.55824e-06; |GJ| = 0.000127182; tau = 1.25
+
+descent iter#440; J = 4.54044e-06; |GJ| = 0.000120982; tau = 2.5
+
+descent iter#441; J = 4.50757e-06; |GJ| = 0.000134676; tau = 1.25
+
+descent iter#442; J = 4.48948e-06; |GJ| = 0.000123732; tau = 2.5
+
+descent iter#443; J = 4.45833e-06; |GJ| = 0.000149131; tau = 0.625
+
+descent iter#444; J = 4.44666e-06; |GJ| = 0.000117244; tau = 10
+
+descent iter#445; J = 4.33046e-06; |GJ| = 0.000239961; tau = 0.3125
+
+descent iter#446; J = 4.31529e-06; |GJ| = 0.000169576; tau = 0.3125
+
+descent iter#447; J = 4.3073e-06; |GJ| = 0.000136229; tau = 0.625
+
+descent iter#448; J = 4.29712e-06; |GJ| = 0.000114712; tau = 10
+
+descent iter#449; J = 4.17964e-06; |GJ| = 0.000203253; tau = 0.625
+
+descent iter#450; J = 4.16109e-06; |GJ| = 0.000116571; tau = 2.5
+
+descent iter#451; J = 4.13147e-06; |GJ| = 0.000132975; tau = 1.25
+
+descent iter#452; J = 4.11468e-06; |GJ| = 0.000119811; tau = 1.25
+
+descent iter#453; J = 4.09875e-06; |GJ| = 0.000114376; tau = 5
+
+descent iter#454; J = 4.04585e-06; |GJ| = 0.000186761; tau = 0.625
+
+descent iter#455; J = 4.02982e-06; |GJ| = 0.000113688; tau = 2.5
+
+descent iter#456; J = 4.00087e-06; |GJ| = 0.000126881; tau = 1.25
+
+descent iter#457; J = 3.9849e-06; |GJ| = 0.000116344; tau = 2.5
+
+descent iter#458; J = 3.95749e-06; |GJ| = 0.000140673; tau = 0.625
+
+descent iter#459; J = 3.94713e-06; |GJ| = 0.000110134; tau = 10
+
+descent iter#460; J = 3.84504e-06; |GJ| = 0.000227614; tau = 0.3125
+
+descent iter#461; J = 3.8314e-06; |GJ| = 0.000160424; tau = 0.3125
+
+descent iter#462; J = 3.82426e-06; |GJ| = 0.000128479; tau = 0.625
+
+descent iter#463; J = 3.81523e-06; |GJ| = 0.000107781; tau = 10
+
+descent iter#464; J = 3.71185e-06; |GJ| = 0.000192921; tau = 0.625
+
+descent iter#465; J = 3.69519e-06; |GJ| = 0.000109678; tau = 2.5
+
+descent iter#466; J = 3.66908e-06; |GJ| = 0.000125549; tau = 1.25
+
+descent iter#467; J = 3.65422e-06; |GJ| = 0.000112814; tau = 1.25
+
+descent iter#468; J = 3.64014e-06; |GJ| = 0.000107564; tau = 5
+
+descent iter#469; J = 3.59362e-06; |GJ| = 0.000176972; tau = 0.625
+
+descent iter#470; J = 3.57926e-06; |GJ| = 0.000106948; tau = 2.5
+
+descent iter#471; J = 3.55373e-06; |GJ| = 0.000119677; tau = 1.25
+
+descent iter#472; J = 3.53959e-06; |GJ| = 0.000109515; tau = 2.5
+
+descent iter#473; J = 3.51543e-06; |GJ| = 0.000132865; tau = 0.625
+
+descent iter#474; J = 3.50622e-06; |GJ| = 0.000103556; tau = 10
+
+descent iter#475; J = 3.41637e-06; |GJ| = 0.000216193; tau = 0.3125
+
+descent iter#476; J = 3.40408e-06; |GJ| = 0.000151956; tau = 0.3125
+
+descent iter#477; J = 3.39769e-06; |GJ| = 0.000121305; tau = 0.625
+
+descent iter#478; J = 3.38966e-06; |GJ| = 0.000101359; tau = 10
+
+descent iter#479; J = 3.29854e-06; |GJ| = 0.000183323; tau = 0.625
+
+descent iter#480; J = 3.28354e-06; |GJ| = 0.000103278; tau = 2.5
+
+descent iter#481; J = 3.2605e-06; |GJ| = 0.000118646; tau = 1.25
+
+descent iter#482; J = 3.24733e-06; |GJ| = 0.000106316; tau = 1.25
+
+descent iter#483; J = 3.23486e-06; |GJ| = 0.00010124; tau = 2.5
+
+descent iter#484; J = 3.21181e-06; |GJ| = 0.000112595; tau = 1.25
+
+descent iter#485; J = 3.19914e-06; |GJ| = 0.000103547; tau = 2.5
+
+descent iter#486; J = 3.17728e-06; |GJ| = 0.00012463; tau = 0.625
+
+descent iter#487; J = 3.16912e-06; |GJ| = 9.81827e-05; tau = 10
+
+descent iter#488; J = 3.08745e-06; |GJ| = 0.000200221; tau = 0.3125
+
+descent iter#489; J = 3.07689e-06; |GJ| = 0.000141661; tau = 0.3125
+
+descent iter#490; J = 3.07131e-06; |GJ| = 0.000113961; tau = 0.625
+
+descent iter#491; J = 3.06418e-06; |GJ| = 9.61257e-05; tau = 10
+
+descent iter#492; J = 2.98151e-06; |GJ| = 0.000169498; tau = 0.625
+
+descent iter#493; J = 2.96859e-06; |GJ| = 9.76573e-05; tau = 2.5
+
+descent iter#494; J = 2.94774e-06; |GJ| = 0.000111183; tau = 1.25
+
+descent iter#495; J = 2.93595e-06; |GJ| = 0.000100391; tau = 1.25
+
+descent iter#496; J = 2.92476e-06; |GJ| = 9.59058e-05; tau = 5
+
+descent iter#497; J = 2.88747e-06; |GJ| = 0.000156166; tau = 0.625
+
+descent iter#498; J = 2.87625e-06; |GJ| = 9.53436e-05; tau = 2.5
+
+descent iter#499; J = 2.85586e-06; |GJ| = 0.000106312; tau = 1.25
+
+descent iter#500; J = 2.84463e-06; |GJ| = 9.75765e-05; tau = 2.5
+
+descent iter#501; J = 2.82531e-06; |GJ| = 0.000117847; tau = 0.625
+
+descent iter#502; J = 2.81803e-06; |GJ| = 9.24181e-05; tau = 10
+
+descent iter#503; J = 2.74601e-06; |GJ| = 0.000190382; tau = 0.3125
+
+descent iter#504; J = 2.73647e-06; |GJ| = 0.00013431; tau = 0.3125
+
+descent iter#505; J = 2.73146e-06; |GJ| = 0.000107693; tau = 0.625
+
+descent iter#506; J = 2.72511e-06; |GJ| = 9.04844e-05; tau = 10
+
+descent iter#507; J = 2.6521e-06; |GJ| = 0.000161183; tau = 0.625
+
+descent iter#508; J = 2.64045e-06; |GJ| = 9.20305e-05; tau = 2.5
+
+descent iter#509; J = 2.62201e-06; |GJ| = 0.000105137; tau = 1.25
+
+descent iter#510; J = 2.61155e-06; |GJ| = 9.46828e-05; tau = 1.25
+
+descent iter#511; J = 2.60162e-06; |GJ| = 9.03414e-05; tau = 5
+
+descent iter#512; J = 2.56873e-06; |GJ| = 0.0001483; tau = 0.625
+
+descent iter#513; J = 2.55865e-06; |GJ| = 8.9828e-05; tau = 2.5
+
+descent iter#514; J = 2.54061e-06; |GJ| = 0.000100438; tau = 1.25
+
+descent iter#515; J = 2.53063e-06; |GJ| = 9.19933e-05; tau = 2.5
+
+descent iter#516; J = 2.51356e-06; |GJ| = 0.000111518; tau = 0.625
+
+descent iter#517; J = 2.50706e-06; |GJ| = 8.70226e-05; tau = 10
+
+descent iter#518; J = 2.44352e-06; |GJ| = 0.000181204; tau = 0.3125
+
+descent iter#519; J = 2.43489e-06; |GJ| = 0.000127448; tau = 0.3125
+
+descent iter#520; J = 2.43039e-06; |GJ| = 0.000101833; tau = 0.625
+
+descent iter#521; J = 2.42472e-06; |GJ| = 8.52007e-05; tau = 10
+
+descent iter#522; J = 2.36022e-06; |GJ| = 0.000153399; tau = 0.625
+
+descent iter#523; J = 2.34971e-06; |GJ| = 8.67565e-05; tau = 2.5
+
+descent iter#524; J = 2.33339e-06; |GJ| = 9.94695e-05; tau = 1.25
+
+descent iter#525; J = 2.32409e-06; |GJ| = 8.93338e-05; tau = 1.25
+
+descent iter#526; J = 2.31529e-06; |GJ| = 8.51262e-05; tau = 5
+
+descent iter#527; J = 2.28628e-06; |GJ| = 0.00014094; tau = 0.625
+
+descent iter#528; J = 2.2772e-06; |GJ| = 8.46562e-05; tau = 2.5
+
+descent iter#529; J = 2.26123e-06; |GJ| = 9.49318e-05; tau = 1.25
+
+descent iter#530; J = 2.25237e-06; |GJ| = 8.67587e-05; tau = 2.5
+
+descent iter#531; J = 2.23728e-06; |GJ| = 0.000105589; tau = 0.625
+
+descent iter#532; J = 2.23147e-06; |GJ| = 8.19618e-05; tau = 10
+
+descent iter#533; J = 2.17541e-06; |GJ| = 0.000172589; tau = 0.3125
+
+descent iter#534; J = 2.16758e-06; |GJ| = 0.000121006; tau = 0.3125
+
+descent iter#535; J = 2.16353e-06; |GJ| = 9.63334e-05; tau = 0.625
+
+descent iter#536; J = 2.15848e-06; |GJ| = 8.02419e-05; tau = 10
+
+descent iter#537; J = 2.10148e-06; |GJ| = 0.000146078; tau = 0.625
+
+descent iter#538; J = 2.09198e-06; |GJ| = 8.18049e-05; tau = 2.5
+
+descent iter#539; J = 2.07755e-06; |GJ| = 9.41466e-05; tau = 1.25
+
+descent iter#540; J = 2.06928e-06; |GJ| = 8.43124e-05; tau = 1.25
+
+descent iter#541; J = 2.06146e-06; |GJ| = 8.02301e-05; tau = 2.5
+
+descent iter#542; J = 2.04702e-06; |GJ| = 8.94408e-05; tau = 1.25
+
+descent iter#543; J = 2.03906e-06; |GJ| = 8.21215e-05; tau = 2.5
+
+descent iter#544; J = 2.02538e-06; |GJ| = 9.91775e-05; tau = 0.625
+
+descent iter#545; J = 2.02022e-06; |GJ| = 7.77864e-05; tau = 10
+
+descent iter#546; J = 1.96918e-06; |GJ| = 0.000160192; tau = 0.3125
+
+descent iter#547; J = 1.96243e-06; |GJ| = 0.000113012; tau = 0.3125
+
+descent iter#548; J = 1.95888e-06; |GJ| = 9.06265e-05; tau = 0.625
+
+descent iter#549; J = 1.95438e-06; |GJ| = 7.61672e-05; tau = 10
+
+descent iter#550; J = 1.90261e-06; |GJ| = 0.000135437; tau = 0.625
+
+descent iter#551; J = 1.89438e-06; |GJ| = 7.74375e-05; tau = 2.5
+
+descent iter#552; J = 1.88131e-06; |GJ| = 8.83837e-05; tau = 1.25
+
+descent iter#553; J = 1.8739e-06; |GJ| = 7.96972e-05; tau = 1.25
+
+descent iter#554; J = 1.86686e-06; |GJ| = 7.60645e-05; tau = 5
+
+descent iter#555; J = 1.84355e-06; |GJ| = 0.000124904; tau = 0.625
+
+descent iter#556; J = 1.83639e-06; |GJ| = 7.56296e-05; tau = 2.5
+
+descent iter#557; J = 1.8236e-06; |GJ| = 8.45654e-05; tau = 1.25
+
+descent iter#558; J = 1.81653e-06; |GJ| = 7.74714e-05; tau = 2.5
+
+descent iter#559; J = 1.80443e-06; |GJ| = 9.39547e-05; tau = 0.625
+
+descent iter#560; J = 1.79982e-06; |GJ| = 7.32793e-05; tau = 10
+
+descent iter#561; J = 1.75477e-06; |GJ| = 0.0001527; tau = 0.3125
+
+descent iter#562; J = 1.74864e-06; |GJ| = 0.000107362; tau = 0.3125
+
+descent iter#563; J = 1.74545e-06; |GJ| = 8.57629e-05; tau = 0.625
+
+descent iter#564; J = 1.74143e-06; |GJ| = 7.1748e-05; tau = 10
+
+descent iter#565; J = 1.69566e-06; |GJ| = 0.000129039; tau = 0.625
+
+descent iter#566; J = 1.68822e-06; |GJ| = 7.30276e-05; tau = 2.5
+
+descent iter#567; J = 1.67665e-06; |GJ| = 8.36666e-05; tau = 1.25
+
+descent iter#568; J = 1.67006e-06; |GJ| = 7.5231e-05; tau = 1.25
+
+descent iter#569; J = 1.66381e-06; |GJ| = 7.17023e-05; tau = 5
+
+descent iter#570; J = 1.64324e-06; |GJ| = 0.000118857; tau = 0.625
+
+descent iter#571; J = 1.63679e-06; |GJ| = 7.13019e-05; tau = 2.5
+
+descent iter#572; J = 1.62546e-06; |GJ| = 7.99792e-05; tau = 1.25
+
+descent iter#573; J = 1.61918e-06; |GJ| = 7.30975e-05; tau = 2.5
+
+descent iter#574; J = 1.60848e-06; |GJ| = 8.90439e-05; tau = 0.625
+
+descent iter#575; J = 1.60435e-06; |GJ| = 6.90391e-05; tau = 10
+
+descent iter#576; J = 1.5646e-06; |GJ| = 0.000145638; tau = 0.3125
+
+descent iter#577; J = 1.55903e-06; |GJ| = 0.000102039; tau = 0.3125
+
+descent iter#578; J = 1.55615e-06; |GJ| = 8.11849e-05; tau = 0.625
+
+descent iter#579; J = 1.55256e-06; |GJ| = 6.75895e-05; tau = 10
+
+descent iter#580; J = 1.51211e-06; |GJ| = 0.000123002; tau = 0.625
+
+descent iter#581; J = 1.50538e-06; |GJ| = 6.88773e-05; tau = 2.5
+
+descent iter#582; J = 1.49513e-06; |GJ| = 7.92256e-05; tau = 1.25
+
+descent iter#583; J = 1.48927e-06; |GJ| = 7.10281e-05; tau = 1.25
+
+descent iter#584; J = 1.48372e-06; |GJ| = 6.75974e-05; tau = 2.5
+
+descent iter#585; J = 1.47347e-06; |GJ| = 7.54113e-05; tau = 1.25
+
+descent iter#586; J = 1.46783e-06; |GJ| = 6.92151e-05; tau = 2.5
+
+descent iter#587; J = 1.45812e-06; |GJ| = 8.36992e-05; tau = 0.625
+
+descent iter#588; J = 1.45446e-06; |GJ| = 6.55353e-05; tau = 10
+
+descent iter#589; J = 1.41828e-06; |GJ| = 0.000135411; tau = 0.3125
+
+descent iter#590; J = 1.41345e-06; |GJ| = 9.54268e-05; tau = 0.3125
+
+descent iter#591; J = 1.41093e-06; |GJ| = 7.64401e-05; tau = 0.625
+
+descent iter#592; J = 1.40773e-06; |GJ| = 6.41694e-05; tau = 10
+
+descent iter#593; J = 1.371e-06; |GJ| = 0.000114314; tau = 0.625
+
+descent iter#594; J = 1.36514e-06; |GJ| = 6.52343e-05; tau = 2.5
+
+descent iter#595; J = 1.35586e-06; |GJ| = 7.44795e-05; tau = 1.25
+
+descent iter#596; J = 1.3506e-06; |GJ| = 6.71759e-05; tau = 1.25
+
+descent iter#597; J = 1.34561e-06; |GJ| = 6.41025e-05; tau = 5
+
+descent iter#598; J = 1.32909e-06; |GJ| = 0.000105597; tau = 0.625
+
+descent iter#599; J = 1.32398e-06; |GJ| = 6.37341e-05; tau = 2.5
+
+descent iter#600; J = 1.31491e-06; |GJ| = 7.13338e-05; tau = 1.25
+
+descent iter#601; J = 1.30989e-06; |GJ| = 6.53152e-05; tau = 2.5
+
+descent iter#602; J = 1.30131e-06; |GJ| = 7.93516e-05; tau = 0.625
+
+descent iter#603; J = 1.29802e-06; |GJ| = 6.17469e-05; tau = 10
+
+descent iter#604; J = 1.2661e-06; |GJ| = 0.000129231; tau = 0.3125
+
+descent iter#605; J = 1.26171e-06; |GJ| = 9.07341e-05; tau = 0.3125
+
+descent iter#606; J = 1.25943e-06; |GJ| = 7.23753e-05; tau = 0.625
+
+descent iter#607; J = 1.25658e-06; |GJ| = 6.0453e-05; tau = 10
+
+descent iter#608; J = 1.22411e-06; |GJ| = 0.00010901; tau = 0.625
+
+descent iter#609; J = 1.21881e-06; |GJ| = 6.15284e-05; tau = 2.5
+
+descent iter#610; J = 1.21059e-06; |GJ| = 7.05312e-05; tau = 1.25
+
+descent iter#611; J = 1.20591e-06; |GJ| = 6.34273e-05; tau = 1.25
+
+descent iter#612; J = 1.20148e-06; |GJ| = 6.0436e-05; tau = 2.5
+
+descent iter#613; J = 1.19327e-06; |GJ| = 6.73033e-05; tau = 1.25
+
+descent iter#614; J = 1.18875e-06; |GJ| = 6.18614e-05; tau = 2.5
+
+descent iter#615; J = 1.18098e-06; |GJ| = 7.46353e-05; tau = 0.625
+
+descent iter#616; J = 1.17805e-06; |GJ| = 5.86179e-05; tau = 10
+
+descent iter#617; J = 1.14902e-06; |GJ| = 0.000120324; tau = 0.3125
+
+descent iter#618; J = 1.14521e-06; |GJ| = 8.49513e-05; tau = 0.3125
+
+descent iter#619; J = 1.14321e-06; |GJ| = 6.81953e-05; tau = 0.625
+
+descent iter#620; J = 1.14065e-06; |GJ| = 5.73986e-05; tau = 10
+
+descent iter#621; J = 1.11119e-06; |GJ| = 0.000101514; tau = 0.625
+
+descent iter#622; J = 1.10657e-06; |GJ| = 5.82983e-05; tau = 2.5
+
+descent iter#623; J = 1.09913e-06; |GJ| = 6.63878e-05; tau = 1.25
+
+descent iter#624; J = 1.09493e-06; |GJ| = 6.00141e-05; tau = 1.25
+
+descent iter#625; J = 1.09093e-06; |GJ| = 5.732e-05; tau = 5
+
+descent iter#626; J = 1.07768e-06; |GJ| = 9.39638e-05; tau = 0.625
+
+descent iter#627; J = 1.07363e-06; |GJ| = 5.69838e-05; tau = 2.5
+
+descent iter#628; J = 1.06636e-06; |GJ| = 6.36712e-05; tau = 1.25
+
+descent iter#629; J = 1.06234e-06; |GJ| = 5.83796e-05; tau = 2.5
+
+descent iter#630; J = 1.05546e-06; |GJ| = 7.07751e-05; tau = 0.625
+
+descent iter#631; J = 1.05285e-06; |GJ| = 5.52307e-05; tau = 10
+
+descent iter#632; J = 1.02723e-06; |GJ| = 0.000114882; tau = 0.3125
+
+descent iter#633; J = 1.02376e-06; |GJ| = 8.0794e-05; tau = 0.3125
+
+descent iter#634; J = 1.02195e-06; |GJ| = 6.45762e-05; tau = 0.625
+
+descent iter#635; J = 1.01967e-06; |GJ| = 5.40751e-05; tau = 10
+
+descent iter#636; J = 9.9363e-07; |GJ| = 9.6833e-05; tau = 0.625
+
+descent iter#637; J = 9.89439e-07; |GJ| = 5.4987e-05; tau = 2.5
+
+descent iter#638; J = 9.82853e-07; |GJ| = 6.28726e-05; tau = 1.25
+
+descent iter#639; J = 9.79117e-07; |GJ| = 5.6668e-05; tau = 1.25
+
+descent iter#640; J = 9.75569e-07; |GJ| = 5.40433e-05; tau = 5
+
+descent iter#641; J = 9.63878e-07; |GJ| = 8.95394e-05; tau = 0.625
+
+descent iter#642; J = 9.60215e-07; |GJ| = 5.37329e-05; tau = 2.5
+
+descent iter#643; J = 9.53778e-07; |GJ| = 6.02504e-05; tau = 1.25
+
+descent iter#644; J = 9.50209e-07; |GJ| = 5.51011e-05; tau = 2.5
+
+descent iter#645; J = 9.44128e-07; |GJ| = 6.71397e-05; tau = 0.625
+
+descent iter#646; J = 9.41783e-07; |GJ| = 5.20408e-05; tau = 10
+
+descent iter#647; J = 9.19189e-07; |GJ| = 0.000109744; tau = 0.3125
+
+descent iter#648; J = 9.16026e-07; |GJ| = 7.68764e-05; tau = 0.3125
+
+descent iter#649; J = 9.14392e-07; |GJ| = 6.11683e-05; tau = 0.625
+
+descent iter#650; J = 9.12354e-07; |GJ| = 5.09452e-05; tau = 10
+
+descent iter#651; J = 8.89339e-07; |GJ| = 9.24107e-05; tau = 0.625
+
+descent iter#652; J = 8.85538e-07; |GJ| = 5.18682e-05; tau = 2.5
+
+descent iter#653; J = 8.79709e-07; |GJ| = 5.95595e-05; tau = 1.25
+
+descent iter#654; J = 8.76385e-07; |GJ| = 5.35162e-05; tau = 1.25
+
+descent iter#655; J = 8.73234e-07; |GJ| = 5.09574e-05; tau = 2.5
+
+descent iter#656; J = 8.67412e-07; |GJ| = 5.68639e-05; tau = 1.25
+
+descent iter#657; J = 8.64202e-07; |GJ| = 5.21924e-05; tau = 2.5
+
+descent iter#658; J = 8.58691e-07; |GJ| = 6.31679e-05; tau = 0.625
+
+descent iter#659; J = 8.56604e-07; |GJ| = 4.94055e-05; tau = 10
+
+descent iter#660; J = 8.36059e-07; |GJ| = 0.000102276; tau = 0.3125
+
+descent iter#661; J = 8.33307e-07; |GJ| = 7.2024e-05; tau = 0.3125
+
+descent iter#662; J = 8.31868e-07; |GJ| = 5.76562e-05; tau = 0.625
+
+descent iter#663; J = 8.30049e-07; |GJ| = 4.83732e-05; tau = 10
+
+descent iter#664; J = 8.09172e-07; |GJ| = 8.61677e-05; tau = 0.625
+
+descent iter#665; J = 8.05848e-07; |GJ| = 4.91561e-05; tau = 2.5
+
+descent iter#666; J = 8.00571e-07; |GJ| = 5.6099e-05; tau = 1.25
+
+descent iter#667; J = 7.97585e-07; |GJ| = 5.06471e-05; tau = 1.25
+
+descent iter#668; J = 7.94747e-07; |GJ| = 4.83332e-05; tau = 5
+
+descent iter#669; J = 7.8537e-07; |GJ| = 7.97961e-05; tau = 0.625
+
+descent iter#670; J = 7.82457e-07; |GJ| = 4.80514e-05; tau = 2.5
+
+descent iter#671; J = 7.77301e-07; |GJ| = 5.38137e-05; tau = 1.25
+
+descent iter#672; J = 7.74447e-07; |GJ| = 4.9264e-05; tau = 2.5
+
+descent iter#673; J = 7.69574e-07; |GJ| = 5.99347e-05; tau = 0.625
+
+descent iter#674; J = 7.67703e-07; |GJ| = 4.65529e-05; tau = 10
+
+descent iter#675; J = 7.49583e-07; |GJ| = 9.77362e-05; tau = 0.3125
+
+descent iter#676; J = 7.47074e-07; |GJ| = 6.85459e-05; tau = 0.3125
+
+descent iter#677; J = 7.45774e-07; |GJ| = 5.46187e-05; tau = 0.625
+
+descent iter#678; J = 7.44147e-07; |GJ| = 4.55739e-05; tau = 10
+
+descent iter#679; J = 7.25697e-07; |GJ| = 8.22544e-05; tau = 0.625
+
+descent iter#680; J = 7.22681e-07; |GJ| = 4.63688e-05; tau = 2.5
+
+descent iter#681; J = 7.1801e-07; |GJ| = 5.31465e-05; tau = 1.25
+
+descent iter#682; J = 7.15354e-07; |GJ| = 4.78325e-05; tau = 1.25
+
+descent iter#683; J = 7.12833e-07; |GJ| = 4.55747e-05; tau = 2.5
+
+descent iter#684; J = 7.0817e-07; |GJ| = 5.08075e-05; tau = 1.25
+
+descent iter#685; J = 7.05602e-07; |GJ| = 4.66698e-05; tau = 2.5
+
+descent iter#686; J = 7.01187e-07; |GJ| = 5.64094e-05; tau = 0.625
+
+descent iter#687; J = 6.99521e-07; |GJ| = 4.41974e-05; tau = 10
+
+descent iter#688; J = 6.83051e-07; |GJ| = 9.11581e-05; tau = 0.3125
+
+descent iter#689; J = 6.80863e-07; |GJ| = 6.42613e-05; tau = 0.3125
+
+descent iter#690; J = 6.79718e-07; |GJ| = 5.15042e-05; tau = 0.625
+
+descent iter#691; J = 6.78265e-07; |GJ| = 4.32751e-05; tau = 10
+
+descent iter#692; J = 6.61535e-07; |GJ| = 7.67851e-05; tau = 0.625
+
+descent iter#693; J = 6.58891e-07; |GJ| = 4.39546e-05; tau = 2.5
+
+descent iter#694; J = 6.54664e-07; |GJ| = 5.00933e-05; tau = 1.25
+
+descent iter#695; J = 6.52277e-07; |GJ| = 4.52796e-05; tau = 1.25
+
+descent iter#696; J = 6.50006e-07; |GJ| = 4.32317e-05; tau = 5
+
+descent iter#697; J = 6.42488e-07; |GJ| = 7.11825e-05; tau = 0.625
+
+descent iter#698; J = 6.40168e-07; |GJ| = 4.29773e-05; tau = 2.5
+
+descent iter#699; J = 6.36039e-07; |GJ| = 4.80875e-05; tau = 1.25
+
+descent iter#700; J = 6.33755e-07; |GJ| = 4.40541e-05; tau = 2.5
+
+descent iter#701; J = 6.29852e-07; |GJ| = 5.35331e-05; tau = 0.625
+
+descent iter#702; J = 6.28358e-07; |GJ| = 4.16466e-05; tau = 10
+
+descent iter#703; J = 6.13832e-07; |GJ| = 8.71478e-05; tau = 0.3125
+
+descent iter#704; J = 6.11837e-07; |GJ| = 6.11751e-05; tau = 0.3125
+
+descent iter#705; J = 6.108e-07; |GJ| = 4.8798e-05; tau = 0.625
+
+descent iter#706; J = 6.09501e-07; |GJ| = 4.07718e-05; tau = 10
+
+descent iter#707; J = 5.94715e-07; |GJ| = 7.33187e-05; tau = 0.625
+
+descent iter#708; J = 5.92316e-07; |GJ| = 4.14635e-05; tau = 2.5
+
+descent iter#709; J = 5.88575e-07; |GJ| = 4.74609e-05; tau = 1.25
+
+descent iter#710; J = 5.86451e-07; |GJ| = 4.27657e-05; tau = 1.25
+
+descent iter#711; J = 5.84433e-07; |GJ| = 4.07661e-05; tau = 2.5
+
+descent iter#712; J = 5.80699e-07; |GJ| = 4.54132e-05; tau = 1.25
+
+descent iter#713; J = 5.78645e-07; |GJ| = 4.17388e-05; tau = 2.5
+
+descent iter#714; J = 5.75108e-07; |GJ| = 5.03976e-05; tau = 0.625
+
+descent iter#715; J = 5.73777e-07; |GJ| = 3.95412e-05; tau = 10
+
+descent iter#716; J = 5.60577e-07; |GJ| = 8.13285e-05; tau = 0.3125
+
+descent iter#717; J = 5.58835e-07; |GJ| = 5.7378e-05; tau = 0.3125
+
+descent iter#718; J = 5.57922e-07; |GJ| = 4.60292e-05; tau = 0.625
+
+descent iter#719; J = 5.5676e-07; |GJ| = 3.87171e-05; tau = 10
+
+descent iter#720; J = 5.43356e-07; |GJ| = 6.84995e-05; tau = 0.625
+
+descent iter#721; J = 5.4125e-07; |GJ| = 3.93118e-05; tau = 2.5
+
+descent iter#722; J = 5.37865e-07; |GJ| = 4.47568e-05; tau = 1.25
+
+descent iter#723; J = 5.35955e-07; |GJ| = 4.04911e-05; tau = 1.25
+
+descent iter#724; J = 5.34137e-07; |GJ| = 3.86733e-05; tau = 5
+
+descent iter#725; J = 5.28112e-07; |GJ| = 6.35461e-05; tau = 0.625
+
+descent iter#726; J = 5.26261e-07; |GJ| = 3.84444e-05; tau = 2.5
+
+descent iter#727; J = 5.22954e-07; |GJ| = 4.29862e-05; tau = 1.25
+
+descent iter#728; J = 5.21127e-07; |GJ| = 3.9402e-05; tau = 2.5
+
+descent iter#729; J = 5.18e-07; |GJ| = 4.78359e-05; tau = 0.625
+
+descent iter#730; J = 5.16806e-07; |GJ| = 3.72606e-05; tau = 10
+
+descent iter#731; J = 5.05165e-07; |GJ| = 7.77725e-05; tau = 0.3125
+
+descent iter#732; J = 5.03575e-07; |GJ| = 5.46324e-05; tau = 0.3125
+
+descent iter#733; J = 5.02748e-07; |GJ| = 4.36152e-05; tau = 0.625
+
+descent iter#734; J = 5.01709e-07; |GJ| = 3.64788e-05; tau = 10
+
+descent iter#735; J = 4.89863e-07; |GJ| = 6.54227e-05; tau = 0.625
+
+descent iter#736; J = 4.87951e-07; |GJ| = 3.70855e-05; tau = 2.5
+
+descent iter#737; J = 4.84954e-07; |GJ| = 4.24089e-05; tau = 1.25
+
+descent iter#738; J = 4.83254e-07; |GJ| = 3.82457e-05; tau = 1.25
+
+descent iter#739; J = 4.8164e-07; |GJ| = 3.64697e-05; tau = 2.5
+
+descent iter#740; J = 4.78649e-07; |GJ| = 4.06043e-05; tau = 1.25
+
+descent iter#741; J = 4.77005e-07; |GJ| = 3.7335e-05; tau = 2.5
+
+descent iter#742; J = 4.74172e-07; |GJ| = 4.50438e-05; tau = 0.625
+
+descent iter#743; J = 4.73108e-07; |GJ| = 3.53787e-05; tau = 10
+
+descent iter#744; J = 4.6253e-07; |GJ| = 7.26112e-05; tau = 0.3125
+
+descent iter#745; J = 4.61142e-07; |GJ| = 5.12601e-05; tau = 0.3125
+
+descent iter#746; J = 4.60412e-07; |GJ| = 4.11505e-05; tau = 0.625
+
+descent iter#747; J = 4.59483e-07; |GJ| = 3.46423e-05; tau = 10
+
+descent iter#748; J = 4.48745e-07; |GJ| = 6.11602e-05; tau = 0.625
+
+descent iter#749; J = 4.47065e-07; |GJ| = 3.51663e-05; tau = 2.5
+
+descent iter#750; J = 4.44353e-07; |GJ| = 4.0008e-05; tau = 1.25
+
+descent iter#751; J = 4.42825e-07; |GJ| = 3.62173e-05; tau = 1.25
+
+descent iter#752; J = 4.41369e-07; |GJ| = 3.46002e-05; tau = 5
+
+descent iter#753; J = 4.36541e-07; |GJ| = 5.67649e-05; tau = 0.625
+
+descent iter#754; J = 4.35063e-07; |GJ| = 3.43948e-05; tau = 2.5
+
+descent iter#755; J = 4.32415e-07; |GJ| = 3.84388e-05; tau = 1.25
+
+descent iter#756; J = 4.30952e-07; |GJ| = 3.52477e-05; tau = 2.5
+
+descent iter#757; J = 4.28447e-07; |GJ| = 4.2762e-05; tau = 0.625
+
+descent iter#758; J = 4.27493e-07; |GJ| = 3.334e-05; tau = 10
+
+descent iter#759; J = 4.18164e-07; |GJ| = 6.94597e-05; tau = 0.3125
+
+descent iter#760; J = 4.16895e-07; |GJ| = 4.8819e-05; tau = 0.3125
+
+descent iter#761; J = 4.16235e-07; |GJ| = 3.8998e-05; tau = 0.625
+
+descent iter#762; J = 4.15404e-07; |GJ| = 3.26415e-05; tau = 10
+
+descent iter#763; J = 4.05912e-07; |GJ| = 5.84273e-05; tau = 0.625
+
+descent iter#764; J = 4.04387e-07; |GJ| = 3.31769e-05; tau = 2.5
+
+descent iter#765; J = 4.01986e-07; |GJ| = 3.79132e-05; tau = 1.25
+
+descent iter#766; J = 4.00626e-07; |GJ| = 3.42117e-05; tau = 1.25
+
+descent iter#767; J = 3.99333e-07; |GJ| = 3.26308e-05; tau = 2.5
+
+descent iter#768; J = 3.96938e-07; |GJ| = 3.63151e-05; tau = 1.25
+
+descent iter#769; J = 3.95621e-07; |GJ| = 3.34016e-05; tau = 2.5
+
+descent iter#770; J = 3.93352e-07; |GJ| = 4.02727e-05; tau = 0.625
+
+descent iter#771; J = 3.92501e-07; |GJ| = 3.1658e-05; tau = 10
+
+descent iter#772; J = 3.84025e-07; |GJ| = 6.48702e-05; tau = 0.3125
+
+descent iter#773; J = 3.82916e-07; |GJ| = 4.58177e-05; tau = 0.3125
+
+descent iter#774; J = 3.82333e-07; |GJ| = 3.68011e-05; tau = 0.625
+
+descent iter#775; J = 3.8159e-07; |GJ| = 3.10001e-05; tau = 10
+
+descent iter#776; J = 3.72986e-07; |GJ| = 5.46447e-05; tau = 0.625
+
+descent iter#777; J = 3.71645e-07; |GJ| = 3.1464e-05; tau = 2.5
+
+descent iter#778; J = 3.69472e-07; |GJ| = 3.57772e-05; tau = 1.25
+
+descent iter#779; J = 3.68249e-07; |GJ| = 3.24016e-05; tau = 1.25
+
+descent iter#780; J = 3.67083e-07; |GJ| = 3.09606e-05; tau = 5
+
+descent iter#781; J = 3.63214e-07; |GJ| = 5.07327e-05; tau = 0.625
+
+descent iter#782; J = 3.62033e-07; |GJ| = 3.07767e-05; tau = 2.5
+
+descent iter#783; J = 3.59911e-07; |GJ| = 3.43822e-05; tau = 1.25
+
+descent iter#784; J = 3.5874e-07; |GJ| = 3.1537e-05; tau = 2.5
+
+descent iter#785; J = 3.56733e-07; |GJ| = 3.82387e-05; tau = 0.625
+
+descent iter#786; J = 3.5597e-07; |GJ| = 2.98358e-05; tau = 10
+
+descent iter#787; J = 3.48494e-07; |GJ| = 6.20693e-05; tau = 0.3125
+
+descent iter#788; J = 3.47481e-07; |GJ| = 4.36433e-05; tau = 0.3125
+
+descent iter#789; J = 3.46953e-07; |GJ| = 3.48802e-05; tau = 0.625
+
+descent iter#790; J = 3.46288e-07; |GJ| = 2.92116e-05; tau = 10
+
+descent iter#791; J = 3.38682e-07; |GJ| = 5.22141e-05; tau = 0.625
+
+descent iter#792; J = 3.37463e-07; |GJ| = 2.96864e-05; tau = 2.5
+
+descent iter#793; J = 3.35539e-07; |GJ| = 3.39078e-05; tau = 1.25
+
+descent iter#794; J = 3.34451e-07; |GJ| = 3.06102e-05; tau = 1.25
+
+descent iter#795; J = 3.33415e-07; |GJ| = 2.92009e-05; tau = 5
+
+descent iter#796; J = 3.30004e-07; |GJ| = 4.8431e-05; tau = 0.625
+
+descent iter#797; J = 3.28933e-07; |GJ| = 2.90309e-05; tau = 2.5
+
+descent iter#798; J = 3.27054e-07; |GJ| = 3.25605e-05; tau = 1.25
+
+descent iter#799; J = 3.26012e-07; |GJ| = 2.9781e-05; tau = 2.5
+
+descent iter#800; J = 3.24238e-07; |GJ| = 3.63195e-05; tau = 0.625
+
+descent iter#801; J = 3.23552e-07; |GJ| = 2.81204e-05; tau = 10
+
+descent iter#802; J = 3.1696e-07; |GJ| = 5.94116e-05; tau = 0.3125
+
+descent iter#803; J = 3.16033e-07; |GJ| = 4.1588e-05; tau = 0.3125
+
+descent iter#804; J = 3.15555e-07; |GJ| = 3.30694e-05; tau = 0.625
+
+descent iter#805; J = 3.1496e-07; |GJ| = 2.75281e-05; tau = 10
+
+descent iter#806; J = 3.08237e-07; |GJ| = 4.99093e-05; tau = 0.625
+
+descent iter#807; J = 3.07129e-07; |GJ| = 2.80126e-05; tau = 2.5
+
+descent iter#808; J = 3.05425e-07; |GJ| = 3.21451e-05; tau = 1.25
+
+descent iter#809; J = 3.04456e-07; |GJ| = 2.8923e-05; tau = 1.25
+
+descent iter#810; J = 3.03536e-07; |GJ| = 2.75441e-05; tau = 2.5
+
+descent iter#811; J = 3.01836e-07; |GJ| = 3.07619e-05; tau = 1.25
+
+descent iter#812; J = 3.00898e-07; |GJ| = 2.82224e-05; tau = 2.5
+
+descent iter#813; J = 2.9929e-07; |GJ| = 3.42042e-05; tau = 0.625
+
+descent iter#814; J = 2.98679e-07; |GJ| = 2.67042e-05; tau = 10
+
+descent iter#815; J = 2.92686e-07; |GJ| = 5.54923e-05; tau = 0.3125
+
+descent iter#816; J = 2.91876e-07; |GJ| = 3.9032e-05; tau = 0.3125
+
+descent iter#817; J = 2.91454e-07; |GJ| = 3.12065e-05; tau = 0.625
+
+descent iter#818; J = 2.90922e-07; |GJ| = 2.61465e-05; tau = 10
+
+descent iter#819; J = 2.84826e-07; |GJ| = 4.66857e-05; tau = 0.625
+
+descent iter#820; J = 2.83851e-07; |GJ| = 2.65689e-05; tau = 2.5
+
+descent iter#821; J = 2.8231e-07; |GJ| = 3.03361e-05; tau = 1.25
+
+descent iter#822; J = 2.81437e-07; |GJ| = 2.73942e-05; tau = 1.25
+
+descent iter#823; J = 2.80608e-07; |GJ| = 2.61363e-05; tau = 5
+
+descent iter#824; J = 2.77873e-07; |GJ| = 4.33115e-05; tau = 0.625
+
+descent iter#825; J = 2.77017e-07; |GJ| = 2.59843e-05; tau = 2.5
+
+descent iter#826; J = 2.75511e-07; |GJ| = 2.91358e-05; tau = 1.25
+
+descent iter#827; J = 2.74676e-07; |GJ| = 2.6654e-05; tau = 2.5
+
+descent iter#828; J = 2.73254e-07; |GJ| = 3.24928e-05; tau = 0.625
+
+descent iter#829; J = 2.72705e-07; |GJ| = 2.51713e-05; tau = 10
+
+descent iter#830; J = 2.6742e-07; |GJ| = 5.31274e-05; tau = 0.3125
+
+descent iter#831; J = 2.66679e-07; |GJ| = 3.72001e-05; tau = 0.3125
+
+descent iter#832; J = 2.66296e-07; |GJ| = 2.95903e-05; tau = 0.625
+
+descent iter#833; J = 2.6582e-07; |GJ| = 2.46421e-05; tau = 10
+
+descent iter#834; J = 2.60431e-07; |GJ| = 4.46338e-05; tau = 0.625
+
+descent iter#835; J = 2.59544e-07; |GJ| = 2.50736e-05; tau = 2.5
+
+descent iter#836; J = 2.58179e-07; |GJ| = 2.87628e-05; tau = 1.25
+
+descent iter#837; J = 2.57402e-07; |GJ| = 2.58873e-05; tau = 1.25
+
+descent iter#838; J = 2.56665e-07; |GJ| = 2.46561e-05; tau = 2.5
+
+descent iter#839; J = 2.55302e-07; |GJ| = 2.75302e-05; tau = 1.25
+
+descent iter#840; J = 2.54551e-07; |GJ| = 2.52618e-05; tau = 2.5
+
+descent iter#841; J = 2.53262e-07; |GJ| = 3.06044e-05; tau = 0.625
+
+descent iter#842; J = 2.52772e-07; |GJ| = 2.39059e-05; tau = 10
+
+descent iter#843; J = 2.47968e-07; |GJ| = 4.96322e-05; tau = 0.3125
+
+descent iter#844; J = 2.4732e-07; |GJ| = 3.492e-05; tau = 0.3125
+
+descent iter#845; J = 2.46982e-07; |GJ| = 2.79276e-05; tau = 0.625
+
+descent iter#846; J = 2.46555e-07; |GJ| = 2.34077e-05; tau = 10
+
+descent iter#847; J = 2.41668e-07; |GJ| = 4.17619e-05; tau = 0.625
+
+descent iter#848; J = 2.40888e-07; |GJ| = 2.37845e-05; tau = 2.5
+
+descent iter#849; J = 2.39652e-07; |GJ| = 2.71498e-05; tau = 1.25
+
+descent iter#850; J = 2.38953e-07; |GJ| = 2.45222e-05; tau = 1.25
+
+descent iter#851; J = 2.38288e-07; |GJ| = 2.33985e-05; tau = 5
+
+descent iter#852; J = 2.36096e-07; |GJ| = 3.87481e-05; tau = 0.625
+
+descent iter#853; J = 2.3541e-07; |GJ| = 2.32627e-05; tau = 2.5
+
+descent iter#854; J = 2.34202e-07; |GJ| = 2.60787e-05; tau = 1.25
+
+descent iter#855; J = 2.33533e-07; |GJ| = 2.3861e-05; tau = 2.5
+
+descent iter#856; J = 2.32393e-07; |GJ| = 2.90782e-05; tau = 0.625
+
+descent iter#857; J = 2.31953e-07; |GJ| = 2.25364e-05; tau = 10
+
+descent iter#858; J = 2.27715e-07; |GJ| = 4.75287e-05; tau = 0.3125
+
+descent iter#859; J = 2.27122e-07; |GJ| = 3.32879e-05; tau = 0.3125
+
+descent iter#860; J = 2.26816e-07; |GJ| = 2.64855e-05; tau = 0.625
+
+descent iter#861; J = 2.26434e-07; |GJ| = 2.20635e-05; tau = 10
+
+descent iter#862; J = 2.22112e-07; |GJ| = 3.99342e-05; tau = 0.625
+
+descent iter#863; J = 2.21402e-07; |GJ| = 2.24488e-05; tau = 2.5
+
+descent iter#864; J = 2.20308e-07; |GJ| = 2.57454e-05; tau = 1.25
+
+descent iter#865; J = 2.19685e-07; |GJ| = 2.31764e-05; tau = 1.25
+
+descent iter#866; J = 2.19094e-07; |GJ| = 2.20762e-05; tau = 2.5
+
+descent iter#867; J = 2.18001e-07; |GJ| = 2.46449e-05; tau = 1.25
+
+descent iter#868; J = 2.17399e-07; |GJ| = 2.26173e-05; tau = 2.5
+
+descent iter#869; J = 2.16365e-07; |GJ| = 2.73917e-05; tau = 0.625
+
+descent iter#870; J = 2.15973e-07; |GJ| = 2.14059e-05; tau = 10
+
+descent iter#871; J = 2.12119e-07; |GJ| = 4.44082e-05; tau = 0.3125
+
+descent iter#872; J = 2.11601e-07; |GJ| = 3.12522e-05; tau = 0.3125
+
+descent iter#873; J = 2.1133e-07; |GJ| = 2.50008e-05; tau = 0.625
+
+descent iter#874; J = 2.10988e-07; |GJ| = 2.09607e-05; tau = 10
+
+descent iter#875; J = 2.07068e-07; |GJ| = 3.73721e-05; tau = 0.625
+
+descent iter#876; J = 2.06443e-07; |GJ| = 2.12976e-05; tau = 2.5
+
+descent iter#877; J = 2.05452e-07; |GJ| = 2.43059e-05; tau = 1.25
+
+descent iter#878; J = 2.04892e-07; |GJ| = 2.19572e-05; tau = 1.25
+
+descent iter#879; J = 2.04359e-07; |GJ| = 2.09527e-05; tau = 5
+
+descent iter#880; J = 2.02599e-07; |GJ| = 3.46771e-05; tau = 0.625
+
+descent iter#881; J = 2.0205e-07; |GJ| = 2.08315e-05; tau = 2.5
+
+descent iter#882; J = 2.01082e-07; |GJ| = 2.33491e-05; tau = 1.25
+
+descent iter#883; J = 2.00545e-07; |GJ| = 2.13663e-05; tau = 2.5
+
+descent iter#884; J = 1.9963e-07; |GJ| = 2.60301e-05; tau = 0.625
+
+descent iter#885; J = 1.99278e-07; |GJ| = 2.01824e-05; tau = 10
+
+descent iter#886; J = 1.95878e-07; |GJ| = 4.25341e-05; tau = 0.3125
+
+descent iter#887; J = 1.95403e-07; |GJ| = 2.97965e-05; tau = 0.3125
+
+descent iter#888; J = 1.95157e-07; |GJ| = 2.37134e-05; tau = 0.625
+
+descent iter#889; J = 1.94851e-07; |GJ| = 1.97599e-05; tau = 10
+
+descent iter#890; J = 1.91384e-07; |GJ| = 3.57432e-05; tau = 0.625
+
+descent iter#891; J = 1.90815e-07; |GJ| = 2.01045e-05; tau = 2.5
+
+descent iter#892; J = 1.89937e-07; |GJ| = 2.30522e-05; tau = 1.25
+
+descent iter#893; J = 1.89438e-07; |GJ| = 2.07554e-05; tau = 1.25
+
+descent iter#894; J = 1.88963e-07; |GJ| = 1.97717e-05; tau = 2.5
+
+descent iter#895; J = 1.88087e-07; |GJ| = 2.20685e-05; tau = 1.25
+
+descent iter#896; J = 1.87604e-07; |GJ| = 2.02554e-05; tau = 2.5
+
+descent iter#897; J = 1.86774e-07; |GJ| = 2.45235e-05; tau = 0.625
+
+descent iter#898; J = 1.86459e-07; |GJ| = 1.91725e-05; tau = 10
+
+descent iter#899; J = 1.83367e-07; |GJ| = 3.97465e-05; tau = 0.3125
+
+descent iter#900; J = 1.82951e-07; |GJ| = 2.79782e-05; tau = 0.3125
+
+descent iter#901; J = 1.82734e-07; |GJ| = 2.23872e-05; tau = 0.625
+
+descent iter#902; J = 1.8246e-07; |GJ| = 1.87748e-05; tau = 10
+
+descent iter#903; J = 1.79315e-07; |GJ| = 3.34555e-05; tau = 0.625
+
+descent iter#904; J = 1.78814e-07; |GJ| = 1.90764e-05; tau = 2.5
+
+descent iter#905; J = 1.78018e-07; |GJ| = 2.1767e-05; tau = 1.25
+
+descent iter#906; J = 1.77569e-07; |GJ| = 1.96665e-05; tau = 1.25
+
+descent iter#907; J = 1.77141e-07; |GJ| = 1.87681e-05; tau = 5
+
+descent iter#908; J = 1.75729e-07; |GJ| = 3.10439e-05; tau = 0.625
+
+descent iter#909; J = 1.75288e-07; |GJ| = 1.866e-05; tau = 2.5
+
+descent iter#910; J = 1.74511e-07; |GJ| = 2.09117e-05; tau = 1.25
+
+descent iter#911; J = 1.74081e-07; |GJ| = 1.91382e-05; tau = 2.5
+
+descent iter#912; J = 1.73347e-07; |GJ| = 2.33088e-05; tau = 0.625
+
+descent iter#913; J = 1.73064e-07; |GJ| = 1.80797e-05; tau = 10
+
+descent iter#914; J = 1.70334e-07; |GJ| = 3.80774e-05; tau = 0.3125
+
+descent iter#915; J = 1.69954e-07; |GJ| = 2.66802e-05; tau = 0.3125
+
+descent iter#916; J = 1.69757e-07; |GJ| = 2.12383e-05; tau = 0.625
+
+descent iter#917; J = 1.69511e-07; |GJ| = 1.77023e-05; tau = 10
+
+descent iter#918; J = 1.66728e-07; |GJ| = 3.20031e-05; tau = 0.625
+
+descent iter#919; J = 1.66272e-07; |GJ| = 1.80108e-05; tau = 2.5
+
+descent iter#920; J = 1.65567e-07; |GJ| = 2.06478e-05; tau = 1.25
+
+descent iter#921; J = 1.65166e-07; |GJ| = 1.85933e-05; tau = 1.25
+
+descent iter#922; J = 1.64785e-07; |GJ| = 1.77133e-05; tau = 2.5
+
+descent iter#923; J = 1.64082e-07; |GJ| = 1.97676e-05; tau = 1.25
+
+descent iter#924; J = 1.63694e-07; |GJ| = 1.81458e-05; tau = 2.5
+
+descent iter#925; J = 1.63028e-07; |GJ| = 2.19625e-05; tau = 0.625
+
+descent iter#926; J = 1.62775e-07; |GJ| = 1.71777e-05; tau = 10
+
+descent iter#927; J = 1.60292e-07; |GJ| = 3.55856e-05; tau = 0.3125
+
+descent iter#928; J = 1.59959e-07; |GJ| = 2.50552e-05; tau = 0.3125
+
+descent iter#929; J = 1.59785e-07; |GJ| = 2.00535e-05; tau = 0.625
+
+descent iter#930; J = 1.59565e-07; |GJ| = 1.68224e-05; tau = 10
+
+descent iter#931; J = 1.57039e-07; |GJ| = 2.9959e-05; tau = 0.625
+
+descent iter#932; J = 1.56637e-07; |GJ| = 1.70926e-05; tau = 2.5
+
+descent iter#933; J = 1.55999e-07; |GJ| = 1.94999e-05; tau = 1.25
+
+descent iter#934; J = 1.55638e-07; |GJ| = 1.76206e-05; tau = 1.25
+
+descent iter#935; J = 1.55294e-07; |GJ| = 1.68169e-05; tau = 5
+
+descent iter#936; J = 1.5416e-07; |GJ| = 2.77996e-05; tau = 0.625
+
+descent iter#937; J = 1.53806e-07; |GJ| = 1.67206e-05; tau = 2.5
+
+descent iter#938; J = 1.53182e-07; |GJ| = 1.87349e-05; tau = 1.25
+
+descent iter#939; J = 1.52837e-07; |GJ| = 1.71482e-05; tau = 2.5
+
+descent iter#940; J = 1.52247e-07; |GJ| = 2.08786e-05; tau = 0.625
+
+descent iter#941; J = 1.5202e-07; |GJ| = 1.62017e-05; tau = 10
+
+descent iter#942; J = 1.49827e-07; |GJ| = 3.4097e-05; tau = 0.3125
+
+descent iter#943; J = 1.49522e-07; |GJ| = 2.3897e-05; tau = 0.3125
+
+descent iter#944; J = 1.49364e-07; |GJ| = 1.90277e-05; tau = 0.625
+
+descent iter#945; J = 1.49167e-07; |GJ| = 1.58645e-05; tau = 10
+
+descent iter#946; J = 1.46931e-07; |GJ| = 2.86635e-05; tau = 0.625
+
+descent iter#947; J = 1.46565e-07; |GJ| = 1.6141e-05; tau = 2.5
+
+descent iter#948; J = 1.45999e-07; |GJ| = 1.85007e-05; tau = 1.25
+
+descent iter#949; J = 1.45677e-07; |GJ| = 1.66623e-05; tau = 1.25
+
+descent iter#950; J = 1.45371e-07; |GJ| = 1.5875e-05; tau = 2.5
+
+descent iter#951; J = 1.44806e-07; |GJ| = 1.77127e-05; tau = 1.25
+
+descent iter#952; J = 1.44494e-07; |GJ| = 1.62617e-05; tau = 2.5
+
+descent iter#953; J = 1.43959e-07; |GJ| = 1.96754e-05; tau = 0.625
+
+descent iter#954; J = 1.43756e-07; |GJ| = 1.53961e-05; tau = 10
+
+descent iter#955; J = 1.41761e-07; |GJ| = 3.18689e-05; tau = 0.3125
+
+descent iter#956; J = 1.41493e-07; |GJ| = 2.24445e-05; tau = 0.3125
+
+descent iter#957; J = 1.41354e-07; |GJ| = 1.79691e-05; tau = 0.625
+
+descent iter#958; J = 1.41177e-07; |GJ| = 1.50788e-05; tau = 10
+
+descent iter#959; J = 1.39147e-07; |GJ| = 2.68361e-05; tau = 0.625
+
+descent iter#960; J = 1.38825e-07; |GJ| = 1.5321e-05; tau = 2.5
+
+descent iter#961; J = 1.38311e-07; |GJ| = 1.74752e-05; tau = 1.25
+
+descent iter#962; J = 1.38021e-07; |GJ| = 1.57934e-05; tau = 1.25
+
+descent iter#963; J = 1.37745e-07; |GJ| = 1.50744e-05; tau = 5
+
+descent iter#964; J = 1.36833e-07; |GJ| = 2.4902e-05; tau = 0.625
+
+descent iter#965; J = 1.3655e-07; |GJ| = 1.49885e-05; tau = 2.5
+
+descent iter#966; J = 1.36048e-07; |GJ| = 1.67908e-05; tau = 1.25
+
+descent iter#967; J = 1.3577e-07; |GJ| = 1.5371e-05; tau = 2.5
+
+descent iter#968; J = 1.35296e-07; |GJ| = 1.87081e-05; tau = 0.625
+
+descent iter#969; J = 1.35114e-07; |GJ| = 1.45246e-05; tau = 10
+
+descent iter#970; J = 1.33351e-07; |GJ| = 3.05418e-05; tau = 0.3125
+
+descent iter#971; J = 1.33106e-07; |GJ| = 2.14112e-05; tau = 0.3125
+
+descent iter#972; J = 1.32979e-07; |GJ| = 1.70535e-05; tau = 0.625
+
+descent iter#973; J = 1.32821e-07; |GJ| = 1.42234e-05; tau = 10
+
+descent iter#974; J = 1.31023e-07; |GJ| = 2.56802e-05; tau = 0.625
+
+descent iter#975; J = 1.30729e-07; |GJ| = 1.44712e-05; tau = 2.5
+
+descent iter#976; J = 1.30274e-07; |GJ| = 1.65831e-05; tau = 1.25
+
+descent iter#977; J = 1.30015e-07; |GJ| = 1.49378e-05; tau = 1.25
+
+descent iter#978; J = 1.29769e-07; |GJ| = 1.42333e-05; tau = 2.5
+
+descent iter#979; J = 1.29315e-07; |GJ| = 1.58774e-05; tau = 1.25
+
+descent iter#980; J = 1.29064e-07; |GJ| = 1.45792e-05; tau = 2.5
+
+descent iter#981; J = 1.28634e-07; |GJ| = 1.76327e-05; tau = 0.625
+
+descent iter#982; J = 1.28471e-07; |GJ| = 1.38052e-05; tau = 10
+
+descent iter#983; J = 1.26866e-07; |GJ| = 2.85485e-05; tau = 0.3125
+
+descent iter#984; J = 1.26651e-07; |GJ| = 2.01124e-05; tau = 0.3125
+
+descent iter#985; J = 1.26539e-07; |GJ| = 1.61074e-05; tau = 0.625
+
+descent iter#986; J = 1.26397e-07; |GJ| = 1.35217e-05; tau = 10
+
+descent iter#987; J = 1.24764e-07; |GJ| = 2.40459e-05; tau = 0.625
+
+descent iter#988; J = 1.24505e-07; |GJ| = 1.37389e-05; tau = 2.5
+
+descent iter#989; J = 1.24093e-07; |GJ| = 1.56668e-05; tau = 1.25
+
+descent iter#990; J = 1.23859e-07; |GJ| = 1.41616e-05; tau = 1.25
+
+descent iter#991; J = 1.23637e-07; |GJ| = 1.35183e-05; tau = 5
+
+descent iter#992; J = 1.22904e-07; |GJ| = 2.2313e-05; tau = 0.625
+
+descent iter#993; J = 1.22676e-07; |GJ| = 1.34417e-05; tau = 2.5
+
+descent iter#994; J = 1.22272e-07; |GJ| = 1.50543e-05; tau = 1.25
+
+descent iter#995; J = 1.22049e-07; |GJ| = 1.37839e-05; tau = 2.5
+
+descent iter#996; J = 1.21667e-07; |GJ| = 1.67692e-05; tau = 0.625
+
+descent iter#997; J = 1.21521e-07; |GJ| = 1.30269e-05; tau = 10
+
+descent iter#998; J = 1.20102e-07; |GJ| = 2.73642e-05; tau = 0.3125
+
+descent iter#999; J = 1.19905e-07; |GJ| = 1.919e-05; tau = 0.3125
+
+descent iter#1000; J = 1.19803e-07; |GJ| = 1.52899e-05; tau = 0.625
+
+descent iter#1001; J = 1.19676e-07; |GJ| = 1.27579e-05; tau = 10
+
+descent iter#1002; J = 1.18229e-07; |GJ| = 2.30141e-05; tau = 0.625
+
+descent iter#1003; J = 1.17993e-07; |GJ| = 1.29802e-05; tau = 2.5
+
+descent iter#1004; J = 1.17626e-07; |GJ| = 1.48703e-05; tau = 1.25
+
+descent iter#1005; J = 1.17418e-07; |GJ| = 1.33976e-05; tau = 1.25
+
+descent iter#1006; J = 1.1722e-07; |GJ| = 1.27673e-05; tau = 2.5
+
+descent iter#1007; J = 1.16855e-07; |GJ| = 1.42382e-05; tau = 1.25
+
+descent iter#1008; J = 1.16653e-07; |GJ| = 1.30766e-05; tau = 2.5
+
+descent iter#1009; J = 1.16307e-07; |GJ| = 1.58079e-05; tau = 0.625
+
+descent iter#1010; J = 1.16176e-07; |GJ| = 1.23845e-05; tau = 10
+
+descent iter#1011; J = 1.14883e-07; |GJ| = 2.55807e-05; tau = 0.3125
+
+descent iter#1012; J = 1.14711e-07; |GJ| = 1.80285e-05; tau = 0.3125
+
+descent iter#1013; J = 1.14621e-07; |GJ| = 1.44445e-05; tau = 0.625
+
+descent iter#1014; J = 1.14506e-07; |GJ| = 1.21314e-05; tau = 10
+
+descent iter#1015; J = 1.13192e-07; |GJ| = 2.15521e-05; tau = 0.625
+
+descent iter#1016; J = 1.12984e-07; |GJ| = 1.23261e-05; tau = 2.5
+
+descent iter#1017; J = 1.12651e-07; |GJ| = 1.40514e-05; tau = 1.25
+
+descent iter#1018; J = 1.12463e-07; |GJ| = 1.27044e-05; tau = 1.25
+
+descent iter#1019; J = 1.12285e-07; |GJ| = 1.21288e-05; tau = 5
+
+descent iter#1020; J = 1.11693e-07; |GJ| = 1.99993e-05; tau = 0.625
+
+descent iter#1021; J = 1.1151e-07; |GJ| = 1.20605e-05; tau = 2.5
+
+descent iter#1022; J = 1.11185e-07; |GJ| = 1.35033e-05; tau = 1.25
+
+descent iter#1023; J = 1.11005e-07; |GJ| = 1.23666e-05; tau = 2.5
+
+descent iter#1024; J = 1.10698e-07; |GJ| = 1.50371e-05; tau = 0.625
+
+descent iter#1025; J = 1.1058e-07; |GJ| = 1.16897e-05; tau = 10
+
+descent iter#1026; J = 1.09437e-07; |GJ| = 2.4524e-05; tau = 0.3125
+
+descent iter#1027; J = 1.09279e-07; |GJ| = 1.72052e-05; tau = 0.3125
+
+descent iter#1028; J = 1.09197e-07; |GJ| = 1.37146e-05; tau = 0.625
+
+descent iter#1029; J = 1.09094e-07; |GJ| = 1.14494e-05; tau = 10
+
+descent iter#1030; J = 1.07929e-07; |GJ| = 2.06309e-05; tau = 0.625
+
+descent iter#1031; J = 1.07739e-07; |GJ| = 1.16486e-05; tau = 2.5
+
+descent iter#1032; J = 1.07444e-07; |GJ| = 1.33401e-05; tau = 1.25
+
+descent iter#1033; J = 1.07276e-07; |GJ| = 1.20222e-05; tau = 1.25
+
+descent iter#1034; J = 1.07117e-07; |GJ| = 1.14583e-05; tau = 2.5
+
+descent iter#1035; J = 1.06822e-07; |GJ| = 1.2774e-05; tau = 1.25
+
+descent iter#1036; J = 1.0666e-07; |GJ| = 1.17348e-05; tau = 2.5
+
+descent iter#1037; J = 1.0638e-07; |GJ| = 1.41778e-05; tau = 0.625
+
+descent iter#1038; J = 1.06275e-07; |GJ| = 1.11161e-05; tau = 10
+
+descent iter#1039; J = 1.05233e-07; |GJ| = 2.29278e-05; tau = 0.3125
+
+descent iter#1040; J = 1.05094e-07; |GJ| = 1.61663e-05; tau = 0.3125
+
+descent iter#1041; J = 1.05022e-07; |GJ| = 1.2959e-05; tau = 0.625
+
+descent iter#1042; J = 1.0493e-07; |GJ| = 1.089e-05; tau = 10
+
+descent iter#1043; J = 1.0387e-07; |GJ| = 1.93227e-05; tau = 0.625
+
+descent iter#1044; J = 1.03703e-07; |GJ| = 1.10645e-05; tau = 2.5
+
+descent iter#1045; J = 1.03435e-07; |GJ| = 1.26083e-05; tau = 1.25
+
+descent iter#1046; J = 1.03283e-07; |GJ| = 1.14029e-05; tau = 1.25
+
+descent iter#1047; J = 1.03139e-07; |GJ| = 1.0888e-05; tau = 5
+
+descent iter#1048; J = 1.02662e-07; |GJ| = 1.79311e-05; tau = 0.625
+
+descent iter#1049; J = 1.02515e-07; |GJ| = 1.08272e-05; tau = 2.5
+
+descent iter#1050; J = 1.02253e-07; |GJ| = 1.21177e-05; tau = 1.25
+
+descent iter#1051; J = 1.02108e-07; |GJ| = 1.11008e-05; tau = 2.5
+
+descent iter#1052; J = 1.0186e-07; |GJ| = 1.34895e-05; tau = 0.625
+
+descent iter#1053; J = 1.01765e-07; |GJ| = 1.04957e-05; tau = 10
+
+descent iter#1054; J = 1.00843e-07; |GJ| = 2.19841e-05; tau = 0.3125
+
+descent iter#1055; J = 1.00716e-07; |GJ| = 1.5431e-05; tau = 0.3125
+
+descent iter#1056; J = 1.0065e-07; |GJ| = 1.23072e-05; tau = 0.625
+
+descent iter#1057; J = 1.00567e-07; |GJ| = 1.02811e-05; tau = 10
+
+descent iter#1058; J = 9.96271e-08; |GJ| = 1.85e-05; tau = 0.625
+
+descent iter#1059; J = 9.94744e-08; |GJ| = 1.04596e-05; tau = 2.5
+
+descent iter#1060; J = 9.92362e-08; |GJ| = 1.1973e-05; tau = 1.25
+
+descent iter#1061; J = 9.9101e-08; |GJ| = 1.07937e-05; tau = 1.25
+
+descent iter#1062; J = 9.89725e-08; |GJ| = 1.02893e-05; tau = 2.5
+
+descent iter#1063; J = 9.87347e-08; |GJ| = 1.1466e-05; tau = 1.25
+
+descent iter#1064; J = 9.86038e-08; |GJ| = 1.05365e-05; tau = 2.5
+
+descent iter#1065; J = 9.83784e-08; |GJ| = 1.27212e-05; tau = 0.625
+
+descent iter#1066; J = 9.82935e-08; |GJ| = 9.98344e-06; tau = 10
+
+descent iter#1067; J = 9.74522e-08; |GJ| = 2.05553e-05; tau = 0.3125
+
+descent iter#1068; J = 9.7341e-08; |GJ| = 1.45017e-05; tau = 0.3125
+
+descent iter#1069; J = 9.72826e-08; |GJ| = 1.16318e-05; tau = 0.625
+
+descent iter#1070; J = 9.72084e-08; |GJ| = 9.78155e-06; tau = 10
+
+descent iter#1071; J = 9.63529e-08; |GJ| = 1.73292e-05; tau = 0.625
+
+descent iter#1072; J = 9.62182e-08; |GJ| = 9.93788e-06; tau = 2.5
+
+descent iter#1073; J = 9.60018e-08; |GJ| = 1.13189e-05; tau = 1.25
+
+descent iter#1074; J = 9.58798e-08; |GJ| = 1.02404e-05; tau = 1.25
+
+descent iter#1075; J = 9.57635e-08; |GJ| = 9.78003e-06; tau = 5
+
+descent iter#1076; J = 9.53783e-08; |GJ| = 1.60821e-05; tau = 0.625
+
+descent iter#1077; J = 9.52598e-08; |GJ| = 9.72578e-06; tau = 2.5
+
+descent iter#1078; J = 9.50482e-08; |GJ| = 1.08799e-05; tau = 1.25
+
+descent iter#1079; J = 9.49313e-08; |GJ| = 9.97037e-06; tau = 2.5
+
+descent iter#1080; J = 9.47311e-08; |GJ| = 1.21066e-05; tau = 0.625
+
+descent iter#1081; J = 9.46546e-08; |GJ| = 9.42947e-06; tau = 10
+
+descent iter#1082; J = 9.39094e-08; |GJ| = 1.97126e-05; tau = 0.3125
+
+descent iter#1083; J = 9.38072e-08; |GJ| = 1.3845e-05; tau = 0.3125
+
+descent iter#1084; J = 9.37541e-08; |GJ| = 1.10497e-05; tau = 0.625
+
+descent iter#1085; J = 9.36875e-08; |GJ| = 9.23785e-06; tau = 10
+
+descent iter#1086; J = 9.29278e-08; |GJ| = 1.65942e-05; tau = 0.625
+
+descent iter#1087; J = 9.28049e-08; |GJ| = 9.39768e-06; tau = 2.5
+
+descent iter#1088; J = 9.26124e-08; |GJ| = 1.07515e-05; tau = 1.25
+
+descent iter#1089; J = 9.25033e-08; |GJ| = 9.69643e-06; tau = 1.25
+
+descent iter#1090; J = 9.23995e-08; |GJ| = 9.24539e-06; tau = 2.5
+
+descent iter#1091; J = 9.22074e-08; |GJ| = 1.02975e-05; tau = 1.25
+
+descent iter#1092; J = 9.21017e-08; |GJ| = 9.4663e-06; tau = 2.5
+
+descent iter#1093; J = 9.19195e-08; |GJ| = 1.14196e-05; tau = 0.625
+
+descent iter#1094; J = 9.18511e-08; |GJ| = 8.97207e-06; tau = 10
+
+descent iter#1095; J = 9.11709e-08; |GJ| = 1.84334e-05; tau = 0.3125
+
+descent iter#1096; J = 9.10814e-08; |GJ| = 1.30136e-05; tau = 0.3125
+
+descent iter#1097; J = 9.10344e-08; |GJ| = 1.04459e-05; tau = 0.625
+
+descent iter#1098; J = 9.09746e-08; |GJ| = 8.79177e-06; tau = 10
+
+descent iter#1099; J = 9.0283e-08; |GJ| = 1.55461e-05; tau = 0.625
+
+descent iter#1100; J = 9.01745e-08; |GJ| = 8.9317e-06; tau = 2.5
+
+descent iter#1101; J = 8.99996e-08; |GJ| = 1.01668e-05; tau = 1.25
+
+descent iter#1102; J = 8.9901e-08; |GJ| = 9.20214e-06; tau = 1.25
+
+descent iter#1103; J = 8.9807e-08; |GJ| = 8.79054e-06; tau = 5
+
+descent iter#1104; J = 8.94954e-08; |GJ| = 1.44285e-05; tau = 0.625
+
+descent iter#1105; J = 8.93999e-08; |GJ| = 8.74215e-06; tau = 2.5
+
+descent iter#1106; J = 8.92289e-08; |GJ| = 9.77397e-06; tau = 1.25
+
+descent iter#1107; J = 8.91344e-08; |GJ| = 8.96068e-06; tau = 2.5
+
+descent iter#1108; J = 8.89725e-08; |GJ| = 1.08706e-05; tau = 0.625
+
+descent iter#1109; J = 8.89108e-08; |GJ| = 8.47738e-06; tau = 10
+
+descent iter#1110; J = 8.83077e-08; |GJ| = 1.76805e-05; tau = 0.3125
+
+descent iter#1111; J = 8.82255e-08; |GJ| = 1.24269e-05; tau = 0.3125
+
+descent iter#1112; J = 8.81827e-08; |GJ| = 9.92592e-06; tau = 0.625
+
+descent iter#1113; J = 8.81289e-08; |GJ| = 8.30625e-06; tau = 10
+
+descent iter#1114; J = 8.75143e-08; |GJ| = 1.48894e-05; tau = 0.625
+
+descent iter#1115; J = 8.74152e-08; |GJ| = 8.44924e-06; tau = 2.5
+
+descent iter#1116; J = 8.72595e-08; |GJ| = 9.65987e-06; tau = 1.25
+
+descent iter#1117; J = 8.71713e-08; |GJ| = 8.71624e-06; tau = 1.25
+
+descent iter#1118; J = 8.70874e-08; |GJ| = 8.31306e-06; tau = 2.5
+
+descent iter#1119; J = 8.69319e-08; |GJ| = 9.25336e-06; tau = 1.25
+
+descent iter#1120; J = 8.68465e-08; |GJ| = 8.51036e-06; tau = 2.5
+
+descent iter#1121; J = 8.6699e-08; |GJ| = 1.02564e-05; tau = 0.625
+
+descent iter#1122; J = 8.66438e-08; |GJ| = 8.06887e-06; tau = 10
+
+descent iter#1123; J = 8.6093e-08; |GJ| = 1.65351e-05; tau = 0.3125
+
+descent iter#1124; J = 8.6021e-08; |GJ| = 1.1683e-05; tau = 0.3125
+
+descent iter#1125; J = 8.5983e-08; |GJ| = 9.38616e-06; tau = 0.625
+
+descent iter#1126; J = 8.59347e-08; |GJ| = 7.90786e-06; tau = 10
+
+descent iter#1127; J = 8.53747e-08; |GJ| = 1.39511e-05; tau = 0.625
+
+descent iter#1128; J = 8.52873e-08; |GJ| = 8.03297e-06; tau = 2.5
+
+descent iter#1129; J = 8.51457e-08; |GJ| = 9.13709e-06; tau = 1.25
+
+descent iter#1130; J = 8.50659e-08; |GJ| = 8.27459e-06; tau = 1.25
+
+descent iter#1131; J = 8.49899e-08; |GJ| = 7.90676e-06; tau = 5
+
+descent iter#1132; J = 8.47374e-08; |GJ| = 1.29496e-05; tau = 0.625
+
+descent iter#1133; J = 8.46604e-08; |GJ| = 7.86358e-06; tau = 2.5
+
+descent iter#1134; J = 8.45219e-08; |GJ| = 8.78568e-06; tau = 1.25
+
+descent iter#1135; J = 8.44454e-08; |GJ| = 8.05873e-06; tau = 2.5
+
+descent iter#1136; J = 8.43143e-08; |GJ| = 9.76582e-06; tau = 0.625
+
+descent iter#1137; J = 8.42644e-08; |GJ| = 7.62705e-06; tau = 10
+
+descent iter#1138; J = 8.37756e-08; |GJ| = 1.58623e-05; tau = 0.3125
+
+descent iter#1139; J = 8.37094e-08; |GJ| = 1.11587e-05; tau = 0.3125
+
+descent iter#1140; J = 8.36749e-08; |GJ| = 8.92157e-06; tau = 0.625
+
+descent iter#1141; J = 8.36314e-08; |GJ| = 7.47422e-06; tau = 10
+
+descent iter#1142; J = 8.31333e-08; |GJ| = 1.3364e-05; tau = 0.625
+
+descent iter#1143; J = 8.30534e-08; |GJ| = 7.60201e-06; tau = 2.5
+
+descent iter#1144; J = 8.29272e-08; |GJ| = 8.68413e-06; tau = 1.25
+
+descent iter#1145; J = 8.28558e-08; |GJ| = 7.84049e-06; tau = 1.25
+
+descent iter#1146; J = 8.27878e-08; |GJ| = 7.48026e-06; tau = 5
+
+descent iter#1147; J = 8.25638e-08; |GJ| = 1.23947e-05; tau = 0.625
+
+descent iter#1148; J = 8.24936e-08; |GJ| = 7.44041e-06; tau = 2.5
+
+descent iter#1149; J = 8.23701e-08; |GJ| = 8.3445e-06; tau = 1.25
+
+descent iter#1150; J = 8.23017e-08; |GJ| = 7.63333e-06; tau = 2.5
+
+descent iter#1151; J = 8.2185e-08; |GJ| = 9.30212e-06; tau = 0.625
+
+descent iter#1152; J = 8.21399e-08; |GJ| = 7.21121e-06; tau = 10
+
+descent iter#1153; J = 8.1706e-08; |GJ| = 1.52207e-05; tau = 0.3125
+
+descent iter#1154; J = 8.16452e-08; |GJ| = 1.06616e-05; tau = 0.3125
+
+descent iter#1155; J = 8.16137e-08; |GJ| = 8.48298e-06; tau = 0.625
+
+descent iter#1156; J = 8.15745e-08; |GJ| = 7.0661e-06; tau = 10
+
+descent iter#1157; J = 8.11313e-08; |GJ| = 1.28055e-05; tau = 0.625
+
+descent iter#1158; J = 8.10583e-08; |GJ| = 7.1962e-06; tau = 2.5
+
+descent iter#1159; J = 8.09458e-08; |GJ| = 8.25656e-06; tau = 1.25
+
+descent iter#1160; J = 8.08818e-08; |GJ| = 7.43149e-06; tau = 1.25
+
+descent iter#1161; J = 8.08211e-08; |GJ| = 7.0787e-06; tau = 2.5
+
+descent iter#1162; J = 8.07087e-08; |GJ| = 7.90233e-06; tau = 1.25
+
+descent iter#1163; J = 8.06467e-08; |GJ| = 7.25285e-06; tau = 2.5
+
+descent iter#1164; J = 8.05403e-08; |GJ| = 8.77803e-06; tau = 0.625
+
+descent iter#1165; J = 8.05e-08; |GJ| = 6.86746e-06; tau = 10
+
+descent iter#1166; J = 8.0103e-08; |GJ| = 1.42349e-05; tau = 0.3125
+
+descent iter#1167; J = 8.00497e-08; |GJ| = 1.00242e-05; tau = 0.3125
+
+descent iter#1168; J = 8.00218e-08; |GJ| = 8.02371e-06; tau = 0.625
+
+descent iter#1169; J = 7.99866e-08; |GJ| = 6.73096e-06; tau = 10
+
+descent iter#1170; J = 7.95822e-08; |GJ| = 1.19989e-05; tau = 0.625
+
+descent iter#1171; J = 7.95178e-08; |GJ| = 6.84502e-06; tau = 2.5
+
+descent iter#1172; J = 7.94153e-08; |GJ| = 7.81179e-06; tau = 1.25
+
+descent iter#1173; J = 7.93574e-08; |GJ| = 7.05789e-06; tau = 1.25
+
+descent iter#1174; J = 7.93023e-08; |GJ| = 6.73619e-06; tau = 5
+
+descent iter#1175; J = 7.91202e-08; |GJ| = 1.11303e-05; tau = 0.625
+
+descent iter#1176; J = 7.90636e-08; |GJ| = 6.7006e-06; tau = 2.5
+
+descent iter#1177; J = 7.89633e-08; |GJ| = 7.50801e-06; tau = 1.25
+
+descent iter#1178; J = 7.89078e-08; |GJ| = 6.87271e-06; tau = 2.5
+
+descent iter#1179; J = 7.8813e-08; |GJ| = 8.36351e-06; tau = 0.625
+
+descent iter#1180; J = 7.87765e-08; |GJ| = 6.49593e-06; tau = 10
+
+descent iter#1181; J = 7.84238e-08; |GJ| = 1.36613e-05; tau = 0.3125
+
+descent iter#1182; J = 7.83747e-08; |GJ| = 9.57974e-06; tau = 0.3125
+
+descent iter#1183; J = 7.83493e-08; |GJ| = 7.63165e-06; tau = 0.625
+
+descent iter#1184; J = 7.83176e-08; |GJ| = 6.36632e-06; tau = 10
+
+descent iter#1185; J = 7.79574e-08; |GJ| = 1.14994e-05; tau = 0.625
+
+descent iter#1186; J = 7.78984e-08; |GJ| = 6.48237e-06; tau = 2.5
+
+descent iter#1187; J = 7.78071e-08; |GJ| = 7.42953e-06; tau = 1.25
+
+descent iter#1188; J = 7.77551e-08; |GJ| = 6.69234e-06; tau = 1.25
+
+descent iter#1189; J = 7.77058e-08; |GJ| = 6.37735e-06; tau = 2.5
+
+descent iter#1190; J = 7.76145e-08; |GJ| = 7.11264e-06; tau = 1.25
+
+descent iter#1191; J = 7.75642e-08; |GJ| = 6.53265e-06; tau = 2.5
+
+descent iter#1192; J = 7.74777e-08; |GJ| = 7.8947e-06; tau = 0.625
+
+descent iter#1193; J = 7.7445e-08; |GJ| = 6.18876e-06; tau = 10
+
+descent iter#1194; J = 7.7122e-08; |GJ| = 1.27782e-05; tau = 0.3125
+
+descent iter#1195; J = 7.7079e-08; |GJ| = 9.00929e-06; tau = 0.3125
+
+descent iter#1196; J = 7.70565e-08; |GJ| = 7.2209e-06; tau = 0.625
+
+descent iter#1197; J = 7.7028e-08; |GJ| = 6.06683e-06; tau = 10
+
+descent iter#1198; J = 7.6699e-08; |GJ| = 1.07771e-05; tau = 0.625
+
+descent iter#1199; J = 7.6647e-08; |GJ| = 6.16848e-06; tau = 2.5
+
+descent iter#1200; J = 7.65637e-08; |GJ| = 7.03173e-06; tau = 1.25
+
+descent iter#1201; J = 7.65166e-08; |GJ| = 6.35836e-06; tau = 1.25
+
+descent iter#1202; J = 7.64718e-08; |GJ| = 6.07123e-06; tau = 5
+
+descent iter#1203; J = 7.63236e-08; |GJ| = 9.99881e-06; tau = 0.625
+
+descent iter#1204; J = 7.62778e-08; |GJ| = 6.03941e-06; tau = 2.5
+
+descent iter#1205; J = 7.61962e-08; |GJ| = 6.76007e-06; tau = 1.25
+
+descent iter#1206; J = 7.61511e-08; |GJ| = 6.19285e-06; tau = 2.5
+
+descent iter#1207; J = 7.60739e-08; |GJ| = 7.52402e-06; tau = 0.625
+
+descent iter#1208; J = 7.60444e-08; |GJ| = 5.85672e-06; tau = 10
+
+descent iter#1209; J = 7.57571e-08; |GJ| = 1.22651e-05; tau = 0.3125
+
+descent iter#1210; J = 7.57175e-08; |GJ| = 8.61169e-06; tau = 0.3125
+
+descent iter#1211; J = 7.5697e-08; |GJ| = 6.87029e-06; tau = 0.625
+
+descent iter#1212; J = 7.56712e-08; |GJ| = 5.74093e-06; tau = 10
+
+descent iter#1213; J = 7.53779e-08; |GJ| = 1.03301e-05; tau = 0.625
+
+descent iter#1214; J = 7.53303e-08; |GJ| = 5.8443e-06; tau = 2.5
+
+descent iter#1215; J = 7.52559e-08; |GJ| = 6.68986e-06; tau = 1.25
+
+descent iter#1216; J = 7.52137e-08; |GJ| = 6.03154e-06; tau = 1.25
+
+descent iter#1217; J = 7.51735e-08; |GJ| = 5.75046e-06; tau = 2.5
+
+descent iter#1218; J = 7.50992e-08; |GJ| = 6.40649e-06; tau = 1.25
+
+descent iter#1219; J = 7.50583e-08; |GJ| = 5.88883e-06; tau = 2.5
+
+descent iter#1220; J = 7.49878e-08; |GJ| = 7.1046e-06; tau = 0.625
+
+descent iter#1221; J = 7.49614e-08; |GJ| = 5.58215e-06; tau = 10
+
+descent iter#1222; J = 7.4698e-08; |GJ| = 1.1474e-05; tau = 0.3125
+
+descent iter#1223; J = 7.46633e-08; |GJ| = 8.10106e-06; tau = 0.3125
+
+descent iter#1224; J = 7.46451e-08; |GJ| = 6.50289e-06; tau = 0.625
+
+descent iter#1225; J = 7.46219e-08; |GJ| = 5.47321e-06; tau = 10
+
+descent iter#1226; J = 7.43538e-08; |GJ| = 9.6832e-06; tau = 0.625
+
+descent iter#1227; J = 7.43118e-08; |GJ| = 5.56366e-06; tau = 2.5
+
+descent iter#1228; J = 7.42439e-08; |GJ| = 6.33402e-06; tau = 1.25
+
+descent iter#1229; J = 7.42056e-08; |GJ| = 5.7329e-06; tau = 1.25
+
+descent iter#1230; J = 7.41692e-08; |GJ| = 5.47677e-06; tau = 5
+
+descent iter#1231; J = 7.40482e-08; |GJ| = 8.986e-06; tau = 0.625
+
+descent iter#1232; J = 7.40111e-08; |GJ| = 5.44831e-06; tau = 2.5
+
+descent iter#1233; J = 7.39447e-08; |GJ| = 6.09113e-06; tau = 1.25
+
+descent iter#1234; J = 7.39079e-08; |GJ| = 5.58498e-06; tau = 2.5
+
+descent iter#1235; J = 7.3845e-08; |GJ| = 6.77298e-06; tau = 0.625
+
+descent iter#1236; J = 7.3821e-08; |GJ| = 5.28528e-06; tau = 10
+
+descent iter#1237; J = 7.35865e-08; |GJ| = 1.10149e-05; tau = 0.3125
+
+descent iter#1238; J = 7.35546e-08; |GJ| = 7.7453e-06; tau = 0.3125
+
+descent iter#1239; J = 7.35379e-08; |GJ| = 6.18924e-06; tau = 0.625
+
+descent iter#1240; J = 7.3517e-08; |GJ| = 5.18183e-06; tau = 10
+
+descent iter#1241; J = 7.32777e-08; |GJ| = 9.28318e-06; tau = 0.625
+
+descent iter#1242; J = 7.32391e-08; |GJ| = 5.27374e-06; tau = 2.5
+
+descent iter#1243; J = 7.31785e-08; |GJ| = 6.02813e-06; tau = 1.25
+
+descent iter#1244; J = 7.31441e-08; |GJ| = 5.44057e-06; tau = 1.25
+
+descent iter#1245; J = 7.31114e-08; |GJ| = 5.18992e-06; tau = 5
+
+descent iter#1246; J = 7.30036e-08; |GJ| = 8.60839e-06; tau = 0.625
+
+descent iter#1247; J = 7.29697e-08; |GJ| = 5.16364e-06; tau = 2.5
+
+descent iter#1248; J = 7.29103e-08; |GJ| = 5.79338e-06; tau = 1.25
+
+descent iter#1249; J = 7.28773e-08; |GJ| = 5.29856e-06; tau = 2.5
+
+descent iter#1250; J = 7.28211e-08; |GJ| = 6.45918e-06; tau = 0.625
+
+descent iter#1251; J = 7.27994e-08; |GJ| = 5.00569e-06; tau = 10
+
+descent iter#1252; J = 7.25904e-08; |GJ| = 1.05767e-05; tau = 0.3125
+
+descent iter#1253; J = 7.2561e-08; |GJ| = 7.40762e-06; tau = 0.3125
+
+descent iter#1254; J = 7.25458e-08; |GJ| = 5.89286e-06; tau = 0.625
+
+descent iter#1255; J = 7.25269e-08; |GJ| = 4.9074e-06; tau = 10
+
+descent iter#1256; J = 7.23131e-08; |GJ| = 8.90221e-06; tau = 0.625
+
+descent iter#1257; J = 7.22779e-08; |GJ| = 5.00054e-06; tau = 2.5
+
+descent iter#1258; J = 7.22236e-08; |GJ| = 5.73911e-06; tau = 1.25
+
+descent iter#1259; J = 7.21926e-08; |GJ| = 5.1649e-06; tau = 1.25
+
+descent iter#1260; J = 7.21633e-08; |GJ| = 4.91964e-06; tau = 2.5
+
+descent iter#1261; J = 7.2109e-08; |GJ| = 5.49263e-06; tau = 1.25
+
+descent iter#1262; J = 7.20791e-08; |GJ| = 5.04126e-06; tau = 2.5
+
+descent iter#1263; J = 7.20277e-08; |GJ| = 6.10088e-06; tau = 0.625
+
+descent iter#1264; J = 7.20082e-08; |GJ| = 4.77422e-06; tau = 10
+
+descent iter#1265; J = 7.18163e-08; |GJ| = 9.89517e-06; tau = 0.3125
+
+descent iter#1266; J = 7.17905e-08; |GJ| = 6.96963e-06; tau = 0.3125
+
+descent iter#1267; J = 7.1777e-08; |GJ| = 5.5798e-06; tau = 0.625
+
+descent iter#1268; J = 7.176e-08; |GJ| = 4.68177e-06; tau = 10
+
+descent iter#1269; J = 7.15643e-08; |GJ| = 8.34552e-06; tau = 0.625
+
+descent iter#1270; J = 7.15331e-08; |GJ| = 4.76335e-06; tau = 2.5
+
+descent iter#1271; J = 7.14835e-08; |GJ| = 5.43592e-06; tau = 1.25
+
+descent iter#1272; J = 7.14554e-08; |GJ| = 4.91185e-06; tau = 1.25
+
+descent iter#1273; J = 7.14287e-08; |GJ| = 4.68849e-06; tau = 5
+
+descent iter#1274; J = 7.13405e-08; |GJ| = 7.74111e-06; tau = 0.625
+
+descent iter#1275; J = 7.1313e-08; |GJ| = 4.66493e-06; tau = 2.5
+
+descent iter#1276; J = 7.12644e-08; |GJ| = 5.22611e-06; tau = 1.25
+
+descent iter#1277; J = 7.12375e-08; |GJ| = 4.78495e-06; tau = 2.5
+
+descent iter#1278; J = 7.11915e-08; |GJ| = 5.81994e-06; tau = 0.625
+
+descent iter#1279; J = 7.11739e-08; |GJ| = 4.52407e-06; tau = 10
+
+descent iter#1280; J = 7.10026e-08; |GJ| = 9.50287e-06; tau = 0.3125
+
+descent iter#1281; J = 7.09789e-08; |GJ| = 6.66728e-06; tau = 0.3125
+
+descent iter#1282; J = 7.09666e-08; |GJ| = 5.31446e-06; tau = 0.625
+
+descent iter#1283; J = 7.09512e-08; |GJ| = 4.43622e-06; tau = 10
+
+descent iter#1284; J = 7.07761e-08; |GJ| = 8.00433e-06; tau = 0.625
+
+descent iter#1285; J = 7.07476e-08; |GJ| = 4.51884e-06; tau = 2.5
+
+descent iter#1286; J = 7.07031e-08; |GJ| = 5.17713e-06; tau = 1.25
+
+descent iter#1287; J = 7.06779e-08; |GJ| = 4.6651e-06; tau = 1.25
+
+descent iter#1288; J = 7.06539e-08; |GJ| = 4.4466e-06; tau = 2.5
+
+descent iter#1289; J = 7.06095e-08; |GJ| = 4.95697e-06; tau = 1.25
+
+descent iter#1290; J = 7.0585e-08; |GJ| = 4.55472e-06; tau = 2.5
+
+descent iter#1291; J = 7.05429e-08; |GJ| = 5.49924e-06; tau = 0.625
+
+descent iter#1292; J = 7.05271e-08; |GJ| = 4.31694e-06; tau = 10
+
+descent iter#1293; J = 7.03697e-08; |GJ| = 8.89217e-06; tau = 0.3125
+
+descent iter#1294; J = 7.03489e-08; |GJ| = 6.27507e-06; tau = 0.3125
+
+descent iter#1295; J = 7.03379e-08; |GJ| = 5.03427e-06; tau = 0.625
+
+descent iter#1296; J = 7.0324e-08; |GJ| = 4.2343e-06; tau = 10
+
+descent iter#1297; J = 7.01636e-08; |GJ| = 7.50559e-06; tau = 0.625
+
+descent iter#1298; J = 7.01384e-08; |GJ| = 4.30656e-06; tau = 2.5
+
+descent iter#1299; J = 7.00977e-08; |GJ| = 4.90576e-06; tau = 1.25
+
+descent iter#1300; J = 7.00748e-08; |GJ| = 4.43862e-06; tau = 1.25
+
+descent iter#1301; J = 7.0053e-08; |GJ| = 4.23972e-06; tau = 5
+
+descent iter#1302; J = 6.99805e-08; |GJ| = 6.96432e-06; tau = 0.625
+
+descent iter#1303; J = 6.99582e-08; |GJ| = 4.21858e-06; tau = 2.5
+
+descent iter#1304; J = 6.99184e-08; |GJ| = 4.71828e-06; tau = 1.25
+
+descent iter#1305; J = 6.98964e-08; |GJ| = 4.32523e-06; tau = 2.5
+
+descent iter#1306; J = 6.98587e-08; |GJ| = 5.24761e-06; tau = 0.625
+
+descent iter#1307; J = 6.98443e-08; |GJ| = 4.09302e-06; tau = 10
+
+descent iter#1308; J = 6.97037e-08; |GJ| = 8.54078e-06; tau = 0.3125
+
+descent iter#1309; J = 6.96845e-08; |GJ| = 6.00419e-06; tau = 0.3125
+
+descent iter#1310; J = 6.96745e-08; |GJ| = 4.79659e-06; tau = 0.625
+
+descent iter#1311; J = 6.96619e-08; |GJ| = 4.01448e-06; tau = 10
+
+descent iter#1312; J = 6.95183e-08; |GJ| = 7.19992e-06; tau = 0.625
+
+descent iter#1313; J = 6.94951e-08; |GJ| = 4.08761e-06; tau = 2.5
+
+descent iter#1314; J = 6.94587e-08; |GJ| = 4.67391e-06; tau = 1.25
+
+descent iter#1315; J = 6.9438e-08; |GJ| = 4.21762e-06; tau = 1.25
+
+descent iter#1316; J = 6.94184e-08; |GJ| = 4.02313e-06; tau = 5
+
+descent iter#1317; J = 6.93536e-08; |GJ| = 6.67606e-06; tau = 0.625
+
+descent iter#1318; J = 6.93333e-08; |GJ| = 4.0036e-06; tau = 2.5
+
+descent iter#1319; J = 6.92975e-08; |GJ| = 4.49271e-06; tau = 1.25
+
+descent iter#1320; J = 6.92777e-08; |GJ| = 4.10873e-06; tau = 2.5
+
+descent iter#1321; J = 6.92439e-08; |GJ| = 5.00927e-06; tau = 0.625
+
+descent iter#1322; J = 6.92309e-08; |GJ| = 3.88196e-06; tau = 10
+
+descent iter#1323; J = 6.91051e-08; |GJ| = 8.20515e-06; tau = 0.3125
+
+descent iter#1324; J = 6.90874e-08; |GJ| = 5.74687e-06; tau = 0.3125
+
+descent iter#1325; J = 6.90783e-08; |GJ| = 4.57179e-06; tau = 0.625
+
+descent iter#1326; J = 6.90669e-08; |GJ| = 3.8073e-06; tau = 10
+
+descent iter#1327; J = 6.89382e-08; |GJ| = 6.90853e-06; tau = 0.625
+
+descent iter#1328; J = 6.8917e-08; |GJ| = 3.88112e-06; tau = 2.5
+
+descent iter#1329; J = 6.88843e-08; |GJ| = 4.45465e-06; tau = 1.25
+
+descent iter#1330; J = 6.88657e-08; |GJ| = 4.00905e-06; tau = 1.25
+
+descent iter#1331; J = 6.8848e-08; |GJ| = 3.81888e-06; tau = 2.5
+
+descent iter#1332; J = 6.88153e-08; |GJ| = 4.26346e-06; tau = 1.25
+
+descent iter#1333; J = 6.87972e-08; |GJ| = 3.91354e-06; tau = 2.5
+
+descent iter#1334; J = 6.87662e-08; |GJ| = 4.73497e-06; tau = 0.625
+
+descent iter#1335; J = 6.87545e-08; |GJ| = 3.70699e-06; tau = 10
+
+descent iter#1336; J = 6.86387e-08; |GJ| = 7.67866e-06; tau = 0.3125
+
+descent iter#1337; J = 6.86232e-08; |GJ| = 5.41015e-06; tau = 0.3125
+
+descent iter#1338; J = 6.86151e-08; |GJ| = 4.33272e-06; tau = 0.625
+
+descent iter#1339; J = 6.86048e-08; |GJ| = 3.63676e-06; tau = 10
+
+descent iter#1340; J = 6.84867e-08; |GJ| = 6.47905e-06; tau = 0.625
+
+descent iter#1341; J = 6.84679e-08; |GJ| = 3.70136e-06; tau = 2.5
+
+descent iter#1342; J = 6.84379e-08; |GJ| = 4.22311e-06; tau = 1.25
+
+descent iter#1343; J = 6.8421e-08; |GJ| = 3.8168e-06; tau = 1.25
+
+descent iter#1344; J = 6.84048e-08; |GJ| = 3.6438e-06; tau = 5
+
+descent iter#1345; J = 6.83515e-08; |GJ| = 6.01003e-06; tau = 0.625
+
+descent iter#1346; J = 6.83349e-08; |GJ| = 3.62624e-06; tau = 2.5
+
+descent iter#1347; J = 6.83055e-08; |GJ| = 4.06126e-06; tau = 1.25
+
+descent iter#1348; J = 6.82893e-08; |GJ| = 3.71951e-06; tau = 2.5
+
+descent iter#1349; J = 6.82614e-08; |GJ| = 4.52131e-06; tau = 0.625
+
+descent iter#1350; J = 6.82508e-08; |GJ| = 3.51787e-06; tau = 10
+
+descent iter#1351; J = 6.81471e-08; |GJ| = 7.37787e-06; tau = 0.3125
+
+descent iter#1352; J = 6.81328e-08; |GJ| = 5.17943e-06; tau = 0.3125
+
+descent iter#1353; J = 6.81254e-08; |GJ| = 4.13117e-06; tau = 0.625
+
+descent iter#1354; J = 6.81161e-08; |GJ| = 3.4511e-06; tau = 10
+
+descent iter#1355; J = 6.80101e-08; |GJ| = 6.21782e-06; tau = 0.625
+
+descent iter#1356; J = 6.79928e-08; |GJ| = 3.51626e-06; tau = 2.5
+
+descent iter#1357; J = 6.79659e-08; |GJ| = 4.0265e-06; tau = 1.25
+
+descent iter#1358; J = 6.79506e-08; |GJ| = 3.62981e-06; tau = 1.25
+
+descent iter#1359; J = 6.79361e-08; |GJ| = 3.46073e-06; tau = 2.5
+
+descent iter#1360; J = 6.79092e-08; |GJ| = 3.85593e-06; tau = 1.25
+
+descent iter#1361; J = 6.78944e-08; |GJ| = 3.54465e-06; tau = 2.5
+
+descent iter#1362; J = 6.78688e-08; |GJ| = 4.27565e-06; tau = 0.625
+
+descent iter#1363; J = 6.78592e-08; |GJ| = 3.36107e-06; tau = 10
+
+descent iter#1364; J = 6.77637e-08; |GJ| = 6.90596e-06; tau = 0.3125
+
+descent iter#1365; J = 6.77511e-08; |GJ| = 4.87779e-06; tau = 0.3125
+
+descent iter#1366; J = 6.77445e-08; |GJ| = 3.91704e-06; tau = 0.625
+
+descent iter#1367; J = 6.77361e-08; |GJ| = 3.29824e-06; tau = 10
+
+descent iter#1368; J = 6.76387e-08; |GJ| = 5.83294e-06; tau = 0.625
+
+descent iter#1369; J = 6.76234e-08; |GJ| = 3.35516e-06; tau = 2.5
+
+descent iter#1370; J = 6.75987e-08; |GJ| = 3.81909e-06; tau = 1.25
+
+descent iter#1371; J = 6.75848e-08; |GJ| = 3.45755e-06; tau = 1.25
+
+descent iter#1372; J = 6.75715e-08; |GJ| = 3.30381e-06; tau = 5
+
+descent iter#1373; J = 6.75274e-08; |GJ| = 5.4131e-06; tau = 0.625
+
+descent iter#1374; J = 6.7514e-08; |GJ| = 3.28798e-06; tau = 2.5
+
+descent iter#1375; J = 6.74898e-08; |GJ| = 3.67457e-06; tau = 1.25
+
+descent iter#1376; J = 6.74764e-08; |GJ| = 3.37064e-06; tau = 2.5
+
+descent iter#1377; J = 6.74534e-08; |GJ| = 4.08398e-06; tau = 0.625
+
+descent iter#1378; J = 6.74447e-08; |GJ| = 3.19149e-06; tau = 10
+
+descent iter#1379; J = 6.7359e-08; |GJ| = 6.63632e-06; tau = 0.3125
+
+descent iter#1380; J = 6.73475e-08; |GJ| = 4.67084e-06; tau = 0.3125
+
+descent iter#1381; J = 6.73414e-08; |GJ| = 3.73623e-06; tau = 0.625
+
+descent iter#1382; J = 6.73338e-08; |GJ| = 3.13175e-06; tau = 10
+
+descent iter#1383; J = 6.72463e-08; |GJ| = 5.59863e-06; tau = 0.625
+
+descent iter#1384; J = 6.72322e-08; |GJ| = 3.18914e-06; tau = 2.5
+
+descent iter#1385; J = 6.721e-08; |GJ| = 3.64267e-06; tau = 1.25
+
+descent iter#1386; J = 6.71974e-08; |GJ| = 3.2898e-06; tau = 1.25
+
+descent iter#1387; J = 6.71855e-08; |GJ| = 3.13959e-06; tau = 5
+
+descent iter#1388; J = 6.71459e-08; |GJ| = 5.19233e-06; tau = 0.625
+
+descent iter#1389; J = 6.71336e-08; |GJ| = 3.12495e-06; tau = 2.5
+
+descent iter#1390; J = 6.71118e-08; |GJ| = 3.503e-06; tau = 1.25
+
+descent iter#1391; J = 6.70997e-08; |GJ| = 3.20632e-06; tau = 2.5
+
+descent iter#1392; J = 6.70791e-08; |GJ| = 3.90226e-06; tau = 0.625
+
+descent iter#1393; J = 6.70711e-08; |GJ| = 3.03151e-06; tau = 10
+
+descent iter#1394; J = 6.69943e-08; |GJ| = 6.37852e-06; tau = 0.3125
+
+descent iter#1395; J = 6.69836e-08; |GJ| = 4.47403e-06; tau = 0.3125
+
+descent iter#1396; J = 6.6978e-08; |GJ| = 3.56504e-06; tau = 0.625
+
+descent iter#1397; J = 6.69711e-08; |GJ| = 2.97467e-06; tau = 10
+
+descent iter#1398; J = 6.68924e-08; |GJ| = 5.37509e-06; tau = 0.625
+
+descent iter#1399; J = 6.68795e-08; |GJ| = 3.03239e-06; tau = 2.5
+
+descent iter#1400; J = 6.68595e-08; |GJ| = 3.47564e-06; tau = 1.25
+
+descent iter#1401; J = 6.68482e-08; |GJ| = 3.13131e-06; tau = 1.25
+
+descent iter#1402; J = 6.68374e-08; |GJ| = 2.98458e-06; tau = 2.5
+
+descent iter#1403; J = 6.68174e-08; |GJ| = 3.32779e-06; tau = 1.25
+
+descent iter#1404; J = 6.68063e-08; |GJ| = 3.05773e-06; tau = 2.5
+
+descent iter#1405; J = 6.67873e-08; |GJ| = 3.69188e-06; tau = 0.625
+
+descent iter#1406; J = 6.67802e-08; |GJ| = 2.89869e-06; tau = 10
+
+descent iter#1407; J = 6.67092e-08; |GJ| = 5.97144e-06; tau = 0.3125
+
+descent iter#1408; J = 6.66998e-08; |GJ| = 4.21481e-06; tau = 0.3125
+
+descent iter#1409; J = 6.66949e-08; |GJ| = 3.38204e-06; tau = 0.625
+
+descent iter#1410; J = 6.66886e-08; |GJ| = 2.84522e-06; tau = 10
+
+descent iter#1411; J = 6.66162e-08; |GJ| = 5.04343e-06; tau = 0.625
+
+descent iter#1412; J = 6.66048e-08; |GJ| = 2.89563e-06; tau = 2.5
+
+descent iter#1413; J = 6.65864e-08; |GJ| = 3.29839e-06; tau = 1.25
+
+descent iter#1414; J = 6.6576e-08; |GJ| = 2.98477e-06; tau = 1.25
+
+descent iter#1415; J = 6.65661e-08; |GJ| = 2.85144e-06; tau = 5
+
+descent iter#1416; J = 6.65333e-08; |GJ| = 4.67983e-06; tau = 0.625
+
+descent iter#1417; J = 6.65233e-08; |GJ| = 2.83821e-06; tau = 2.5
+
+descent iter#1418; J = 6.65052e-08; |GJ| = 3.17373e-06; tau = 1.25
+
+descent iter#1419; J = 6.64953e-08; |GJ| = 2.91019e-06; tau = 2.5
+
+descent iter#1420; J = 6.64782e-08; |GJ| = 3.5287e-06; tau = 0.625
+
+descent iter#1421; J = 6.64717e-08; |GJ| = 2.75506e-06; tau = 10
+
+descent iter#1422; J = 6.64079e-08; |GJ| = 5.74019e-06; tau = 0.3125
+
+descent iter#1423; J = 6.63992e-08; |GJ| = 4.03812e-06; tau = 0.3125
+
+descent iter#1424; J = 6.63947e-08; |GJ| = 3.22829e-06; tau = 0.625
+
+descent iter#1425; J = 6.6389e-08; |GJ| = 2.70419e-06; tau = 10
+
+descent iter#1426; J = 6.63238e-08; |GJ| = 4.84278e-06; tau = 0.625
+
+descent iter#1427; J = 6.63133e-08; |GJ| = 2.75486e-06; tau = 2.5
+
+descent iter#1428; J = 6.62967e-08; |GJ| = 3.14835e-06; tau = 1.25
+
+descent iter#1429; J = 6.62873e-08; |GJ| = 2.84241e-06; tau = 1.25
+
+descent iter#1430; J = 6.62784e-08; |GJ| = 2.71223e-06; tau = 5
+
+descent iter#1431; J = 6.62489e-08; |GJ| = 4.49092e-06; tau = 0.625
+
+descent iter#1432; J = 6.62397e-08; |GJ| = 2.69998e-06; tau = 2.5
+
+descent iter#1433; J = 6.62234e-08; |GJ| = 3.02787e-06; tau = 1.25
+
+descent iter#1434; J = 6.62144e-08; |GJ| = 2.77075e-06; tau = 2.5
+
+descent iter#1435; J = 6.6199e-08; |GJ| = 3.37387e-06; tau = 0.625
+
+descent iter#1436; J = 6.61931e-08; |GJ| = 2.61946e-06; tau = 10
+
+descent iter#1437; J = 6.61357e-08; |GJ| = 5.51899e-06; tau = 0.3125
+
+descent iter#1438; J = 6.61277e-08; |GJ| = 3.86996e-06; tau = 0.3125
+
+descent iter#1439; J = 6.61236e-08; |GJ| = 3.08261e-06; tau = 0.625
+
+descent iter#1440; J = 6.61184e-08; |GJ| = 2.57104e-06; tau = 10
+
+descent iter#1441; J = 6.60596e-08; |GJ| = 4.65122e-06; tau = 0.625
+
+descent iter#1442; J = 6.605e-08; |GJ| = 2.62186e-06; tau = 2.5
+
+descent iter#1443; J = 6.6035e-08; |GJ| = 3.0062e-06; tau = 1.25
+
+descent iter#1444; J = 6.60265e-08; |GJ| = 2.70781e-06; tau = 1.25
+
+descent iter#1445; J = 6.60184e-08; |GJ| = 2.58071e-06; tau = 2.5
+
+descent iter#1446; J = 6.60035e-08; |GJ| = 2.87819e-06; tau = 1.25
+
+descent iter#1447; J = 6.59952e-08; |GJ| = 2.64429e-06; tau = 2.5
+
+descent iter#1448; J = 6.5981e-08; |GJ| = 3.19353e-06; tau = 0.625
+
+descent iter#1449; J = 6.59757e-08; |GJ| = 2.50676e-06; tau = 10
+
+descent iter#1450; J = 6.59226e-08; |GJ| = 5.16768e-06; tau = 0.3125
+
+descent iter#1451; J = 6.59156e-08; |GJ| = 3.64706e-06; tau = 0.3125
+
+descent iter#1452; J = 6.59119e-08; |GJ| = 2.92605e-06; tau = 0.625
+
+descent iter#1453; J = 6.59072e-08; |GJ| = 2.46118e-06; tau = 10
+
+descent iter#1454; J = 6.5853e-08; |GJ| = 4.36528e-06; tau = 0.625
+
+descent iter#1455; J = 6.58444e-08; |GJ| = 2.50555e-06; tau = 2.5
+
+descent iter#1456; J = 6.58307e-08; |GJ| = 2.85455e-06; tau = 1.25
+
+descent iter#1457; J = 6.58229e-08; |GJ| = 2.58294e-06; tau = 1.25
+
+descent iter#1458; J = 6.58155e-08; |GJ| = 2.46755e-06; tau = 5
+
+descent iter#1459; J = 6.5791e-08; |GJ| = 4.0505e-06; tau = 0.625
+
+descent iter#1460; J = 6.57834e-08; |GJ| = 2.45644e-06; tau = 2.5
+
+descent iter#1461; J = 6.57699e-08; |GJ| = 2.74705e-06; tau = 1.25
+
+descent iter#1462; J = 6.57625e-08; |GJ| = 2.51893e-06; tau = 2.5
+
+descent iter#1463; J = 6.57496e-08; |GJ| = 3.05435e-06; tau = 0.625
+
+descent iter#1464; J = 6.57448e-08; |GJ| = 2.38485e-06; tau = 10
+
+descent iter#1465; J = 6.5697e-08; |GJ| = 4.96914e-06; tau = 0.3125
+
+descent iter#1466; J = 6.56905e-08; |GJ| = 3.49595e-06; tau = 0.3125
+
+descent iter#1467; J = 6.56871e-08; |GJ| = 2.79505e-06; tau = 0.625
+
+descent iter#1468; J = 6.56828e-08; |GJ| = 2.34147e-06; tau = 10
+
+descent iter#1469; J = 6.56339e-08; |GJ| = 4.19322e-06; tau = 0.625
+
+descent iter#1470; J = 6.5626e-08; |GJ| = 2.38595e-06; tau = 2.5
+
+descent iter#1471; J = 6.56136e-08; |GJ| = 2.7267e-06; tau = 1.25
+
+descent iter#1472; J = 6.56066e-08; |GJ| = 2.46189e-06; tau = 1.25
+
+descent iter#1473; J = 6.55999e-08; |GJ| = 2.34927e-06; tau = 5
+
+descent iter#1474; J = 6.55777e-08; |GJ| = 3.88863e-06; tau = 0.625
+
+descent iter#1475; J = 6.55708e-08; |GJ| = 2.33898e-06; tau = 2.5
+
+descent iter#1476; J = 6.55586e-08; |GJ| = 2.62281e-06; tau = 1.25
+
+descent iter#1477; J = 6.55518e-08; |GJ| = 2.40037e-06; tau = 2.5
+
+descent iter#1478; J = 6.55403e-08; |GJ| = 2.92218e-06; tau = 0.625
+
+descent iter#1479; J = 6.55358e-08; |GJ| = 2.26967e-06; tau = 10
+
+descent iter#1480; J = 6.54927e-08; |GJ| = 4.77912e-06; tau = 0.3125
+
+descent iter#1481; J = 6.54867e-08; |GJ| = 3.35204e-06; tau = 0.3125
+
+descent iter#1482; J = 6.54836e-08; |GJ| = 2.67083e-06; tau = 0.625
+
+descent iter#1483; J = 6.54797e-08; |GJ| = 2.22835e-06; tau = 10
+
+descent iter#1484; J = 6.54356e-08; |GJ| = 4.02886e-06; tau = 0.625
+
+descent iter#1485; J = 6.54283e-08; |GJ| = 2.27285e-06; tau = 2.5
+
+descent iter#1486; J = 6.54171e-08; |GJ| = 2.60546e-06; tau = 1.25
+
+descent iter#1487; J = 6.54107e-08; |GJ| = 2.34734e-06; tau = 1.25
+
+descent iter#1488; J = 6.54046e-08; |GJ| = 2.23746e-06; tau = 2.5
+
+descent iter#1489; J = 6.53934e-08; |GJ| = 2.49476e-06; tau = 1.25
+
+descent iter#1490; J = 6.53872e-08; |GJ| = 2.29255e-06; tau = 2.5
+
+descent iter#1491; J = 6.53765e-08; |GJ| = 2.76744e-06; tau = 0.625
+
+descent iter#1492; J = 6.53725e-08; |GJ| = 2.17382e-06; tau = 10
+
+descent iter#1493; J = 6.53326e-08; |GJ| = 4.47581e-06; tau = 0.3125
+
+descent iter#1494; J = 6.53273e-08; |GJ| = 3.16024e-06; tau = 0.3125
+
+descent iter#1495; J = 6.53245e-08; |GJ| = 2.53673e-06; tau = 0.625
+
+descent iter#1496; J = 6.5321e-08; |GJ| = 2.13493e-06; tau = 10
+
+descent iter#1497; J = 6.52802e-08; |GJ| = 3.78222e-06; tau = 0.625
+
+descent iter#1498; J = 6.52738e-08; |GJ| = 2.17375e-06; tau = 2.5
+
+descent iter#1499; J = 6.52634e-08; |GJ| = 2.47556e-06; tau = 1.25
+
+descent iter#1500; J = 6.52575e-08; |GJ| = 2.24076e-06; tau = 1.25
+
+descent iter#1501; J = 6.5252e-08; |GJ| = 2.14107e-06; tau = 5
+
+descent iter#1502; J = 6.52335e-08; |GJ| = 3.50981e-06; tau = 0.625
+
+descent iter#1503; J = 6.52278e-08; |GJ| = 2.13171e-06; tau = 2.5
+
+descent iter#1504; J = 6.52176e-08; |GJ| = 2.38291e-06; tau = 1.25
+
+descent iter#1505; J = 6.5212e-08; |GJ| = 2.1858e-06; tau = 2.5
+
+descent iter#1506; J = 6.52023e-08; |GJ| = 2.6485e-06; tau = 0.625
+
+descent iter#1507; J = 6.51987e-08; |GJ| = 2.07012e-06; tau = 10
+
+descent iter#1508; J = 6.51626e-08; |GJ| = 4.30515e-06; tau = 0.3125
+
+descent iter#1509; J = 6.51577e-08; |GJ| = 3.03079e-06; tau = 0.3125
+
+descent iter#1510; J = 6.51552e-08; |GJ| = 2.42489e-06; tau = 0.625
+
+descent iter#1511; J = 6.5152e-08; |GJ| = 2.03308e-06; tau = 10
+
+descent iter#1512; J = 6.51151e-08; |GJ| = 3.63447e-06; tau = 0.625
+
+descent iter#1513; J = 6.51092e-08; |GJ| = 2.07189e-06; tau = 2.5
+
+descent iter#1514; J = 6.50998e-08; |GJ| = 2.36639e-06; tau = 1.25
+
+descent iter#1515; J = 6.50945e-08; |GJ| = 2.13758e-06; tau = 1.25
+
+descent iter#1516; J = 6.50894e-08; |GJ| = 2.04036e-06; tau = 5
+
+descent iter#1517; J = 6.50727e-08; |GJ| = 3.37089e-06; tau = 0.625
+
+descent iter#1518; J = 6.50675e-08; |GJ| = 2.03167e-06; tau = 2.5
+
+descent iter#1519; J = 6.50583e-08; |GJ| = 2.27685e-06; tau = 1.25
+
+descent iter#1520; J = 6.50532e-08; |GJ| = 2.08476e-06; tau = 2.5
+
+descent iter#1521; J = 6.50444e-08; |GJ| = 2.53546e-06; tau = 0.625
+
+descent iter#1522; J = 6.50411e-08; |GJ| = 1.97205e-06; tau = 10
+
+descent iter#1523; J = 6.50085e-08; |GJ| = 4.14172e-06; tau = 0.3125
+
+descent iter#1524; J = 6.5004e-08; |GJ| = 2.90743e-06; tau = 0.3125
+
+descent iter#1525; J = 6.50017e-08; |GJ| = 2.31875e-06; tau = 0.625
+
+descent iter#1526; J = 6.49987e-08; |GJ| = 1.93676e-06; tau = 10
+
+descent iter#1527; J = 6.49653e-08; |GJ| = 3.49325e-06; tau = 0.625
+
+descent iter#1528; J = 6.49599e-08; |GJ| = 1.9755e-06; tau = 2.5
+
+descent iter#1529; J = 6.49514e-08; |GJ| = 2.26278e-06; tau = 1.25
+
+descent iter#1530; J = 6.49466e-08; |GJ| = 2.03986e-06; tau = 1.25
+
+descent iter#1531; J = 6.4942e-08; |GJ| = 1.94506e-06; tau = 2.5
+
+descent iter#1532; J = 6.49335e-08; |GJ| = 2.16716e-06; tau = 1.25
+
+descent iter#1533; J = 6.49288e-08; |GJ| = 1.99266e-06; tau = 2.5
+
+descent iter#1534; J = 6.49207e-08; |GJ| = 2.40257e-06; tau = 0.625
+
+descent iter#1535; J = 6.49177e-08; |GJ| = 1.89035e-06; tau = 10
+
+descent iter#1536; J = 6.48874e-08; |GJ| = 3.87977e-06; tau = 0.3125
+
+descent iter#1537; J = 6.48835e-08; |GJ| = 2.74227e-06; tau = 0.3125
+
+descent iter#1538; J = 6.48814e-08; |GJ| = 2.20374e-06; tau = 0.625
+
+descent iter#1539; J = 6.48787e-08; |GJ| = 1.85712e-06; tau = 10
+
+descent iter#1540; J = 6.48478e-08; |GJ| = 3.28042e-06; tau = 0.625
+
+descent iter#1541; J = 6.48429e-08; |GJ| = 1.89088e-06; tau = 2.5
+
+descent iter#1542; J = 6.48351e-08; |GJ| = 2.15136e-06; tau = 1.25
+
+descent iter#1543; J = 6.48307e-08; |GJ| = 1.94873e-06; tau = 1.25
+
+descent iter#1544; J = 6.48265e-08; |GJ| = 1.86278e-06; tau = 5
+
+descent iter#1545; J = 6.48124e-08; |GJ| = 3.04476e-06; tau = 0.625
+
+descent iter#1546; J = 6.48081e-08; |GJ| = 1.85486e-06; tau = 2.5
+
+descent iter#1547; J = 6.48004e-08; |GJ| = 2.07154e-06; tau = 1.25
+
+descent iter#1548; J = 6.47962e-08; |GJ| = 1.90154e-06; tau = 2.5
+
+descent iter#1549; J = 6.47888e-08; |GJ| = 2.30071e-06; tau = 0.625
+
+descent iter#1550; J = 6.47861e-08; |GJ| = 1.80192e-06; tau = 10
+
+descent iter#1551; J = 6.47587e-08; |GJ| = 3.7329e-06; tau = 0.3125
+
+descent iter#1552; J = 6.4755e-08; |GJ| = 2.63119e-06; tau = 0.3125
+
+descent iter#1553; J = 6.47531e-08; |GJ| = 2.10805e-06; tau = 0.625
+
+descent iter#1554; J = 6.47507e-08; |GJ| = 1.77025e-06; tau = 10
+
+descent iter#1555; J = 6.47227e-08; |GJ| = 3.15337e-06; tau = 0.625
+
+descent iter#1556; J = 6.47182e-08; |GJ| = 1.80392e-06; tau = 2.5
+
+descent iter#1557; J = 6.47111e-08; |GJ| = 2.05793e-06; tau = 1.25
+
+descent iter#1558; J = 6.47071e-08; |GJ| = 1.86058e-06; tau = 1.25
+
+descent iter#1559; J = 6.47032e-08; |GJ| = 1.77681e-06; tau = 5
+
+descent iter#1560; J = 6.46905e-08; |GJ| = 2.92536e-06; tau = 0.625
+
+descent iter#1561; J = 6.46866e-08; |GJ| = 1.76944e-06; tau = 2.5
+
+descent iter#1562; J = 6.46796e-08; |GJ| = 1.98079e-06; tau = 1.25
+
+descent iter#1563; J = 6.46757e-08; |GJ| = 1.81521e-06; tau = 2.5
+
+descent iter#1564; J = 6.46691e-08; |GJ| = 2.20384e-06; tau = 0.625
+
+descent iter#1565; J = 6.46665e-08; |GJ| = 1.71821e-06; tau = 10
+
+descent iter#1566; J = 6.46418e-08; |GJ| = 3.59219e-06; tau = 0.3125
+
+descent iter#1567; J = 6.46384e-08; |GJ| = 2.52525e-06; tau = 0.3125
+
+descent iter#1568; J = 6.46366e-08; |GJ| = 2.01715e-06; tau = 0.625
+
+descent iter#1569; J = 6.46344e-08; |GJ| = 1.68801e-06; tau = 10
+
+descent iter#1570; J = 6.4609e-08; |GJ| = 3.03186e-06; tau = 0.625
+
+descent iter#1571; J = 6.46049e-08; |GJ| = 1.72155e-06; tau = 2.5
+
+descent iter#1572; J = 6.45984e-08; |GJ| = 1.96919e-06; tau = 1.25
+
+descent iter#1573; J = 6.45947e-08; |GJ| = 1.77702e-06; tau = 1.25
+
+descent iter#1574; J = 6.45912e-08; |GJ| = 1.69539e-06; tau = 5
+
+descent iter#1575; J = 6.45797e-08; |GJ| = 2.81125e-06; tau = 0.625
+
+descent iter#1576; J = 6.45761e-08; |GJ| = 1.68854e-06; tau = 2.5
+
+descent iter#1577; J = 6.45698e-08; |GJ| = 1.89463e-06; tau = 1.25
+
+descent iter#1578; J = 6.45662e-08; |GJ| = 1.73339e-06; tau = 2.5
+
+descent iter#1579; J = 6.45602e-08; |GJ| = 2.11166e-06; tau = 0.625
+
+descent iter#1580; J = 6.45579e-08; |GJ| = 1.63895e-06; tau = 10
+
+descent iter#1581; J = 6.45354e-08; |GJ| = 3.45735e-06; tau = 0.3125
+
+descent iter#1582; J = 6.45323e-08; |GJ| = 2.42418e-06; tau = 0.3125
+
+descent iter#1583; J = 6.45307e-08; |GJ| = 1.93078e-06; tau = 0.625
+
+descent iter#1584; J = 6.45286e-08; |GJ| = 1.61015e-06; tau = 10
+
+descent iter#1585; J = 6.45056e-08; |GJ| = 2.9156e-06; tau = 0.625
+
+descent iter#1586; J = 6.45018e-08; |GJ| = 1.6435e-06; tau = 2.5
+
+descent iter#1587; J = 6.44959e-08; |GJ| = 1.88486e-06; tau = 1.25
+
+descent iter#1588; J = 6.44926e-08; |GJ| = 1.69778e-06; tau = 1.25
+
+descent iter#1589; J = 6.44894e-08; |GJ| = 1.61824e-06; tau = 2.5
+
+descent iter#1590; J = 6.44835e-08; |GJ| = 1.80477e-06; tau = 1.25
+
+descent iter#1591; J = 6.44803e-08; |GJ| = 1.65842e-06; tau = 2.5
+
+descent iter#1592; J = 6.44747e-08; |GJ| = 2.00218e-06; tau = 0.625
+
+descent iter#1593; J = 6.44726e-08; |GJ| = 1.57278e-06; tau = 10
+
+descent iter#1594; J = 6.44517e-08; |GJ| = 3.23931e-06; tau = 0.3125
+
+descent iter#1595; J = 6.44489e-08; |GJ| = 2.28745e-06; tau = 0.3125
+
+descent iter#1596; J = 6.44474e-08; |GJ| = 1.83633e-06; tau = 0.625
+
+descent iter#1597; J = 6.44456e-08; |GJ| = 1.54566e-06; tau = 10
+
+descent iter#1598; J = 6.44242e-08; |GJ| = 2.73872e-06; tau = 0.625
+
+descent iter#1599; J = 6.44208e-08; |GJ| = 1.57471e-06; tau = 2.5
+
+descent iter#1600; J = 6.44154e-08; |GJ| = 1.79336e-06; tau = 1.25
+
+descent iter#1601; J = 6.44123e-08; |GJ| = 1.62345e-06; tau = 1.25
+
+descent iter#1602; J = 6.44094e-08; |GJ| = 1.55141e-06; tau = 5
+
+descent iter#1603; J = 6.43997e-08; |GJ| = 2.54156e-06; tau = 0.625
+
+descent iter#1604; J = 6.43967e-08; |GJ| = 1.54512e-06; tau = 2.5
+
+descent iter#1605; J = 6.43914e-08; |GJ| = 1.72694e-06; tau = 1.25
+
+descent iter#1606; J = 6.43884e-08; |GJ| = 1.58447e-06; tau = 2.5
+
+descent iter#1607; J = 6.43833e-08; |GJ| = 1.91898e-06; tau = 0.625
+
+descent iter#1608; J = 6.43814e-08; |GJ| = 1.50113e-06; tau = 10
+
+descent iter#1609; J = 6.43624e-08; |GJ| = 3.11802e-06; tau = 0.3125
+
+descent iter#1610; J = 6.43599e-08; |GJ| = 2.19632e-06; tau = 0.3125
+
+descent iter#1611; J = 6.43585e-08; |GJ| = 1.75832e-06; tau = 0.625
+
+descent iter#1612; J = 6.43568e-08; |GJ| = 1.47526e-06; tau = 10
+
+descent iter#1613; J = 6.43374e-08; |GJ| = 2.63403e-06; tau = 0.625
+
+descent iter#1614; J = 6.43343e-08; |GJ| = 1.50414e-06; tau = 2.5
+
+descent iter#1615; J = 6.43293e-08; |GJ| = 1.71717e-06; tau = 1.25
+
+descent iter#1616; J = 6.43265e-08; |GJ| = 1.55181e-06; tau = 1.25
+
+descent iter#1617; J = 6.43239e-08; |GJ| = 1.48165e-06; tau = 5
+
+descent iter#1618; J = 6.4315e-08; |GJ| = 2.44329e-06; tau = 0.625
+
+descent iter#1619; J = 6.43123e-08; |GJ| = 1.4758e-06; tau = 2.5
+
+descent iter#1620; J = 6.43074e-08; |GJ| = 1.65298e-06; tau = 1.25
+
+descent iter#1621; J = 6.43047e-08; |GJ| = 1.51431e-06; tau = 2.5
+
+descent iter#1622; J = 6.43001e-08; |GJ| = 1.83975e-06; tau = 0.625
+
+descent iter#1623; J = 6.42983e-08; |GJ| = 1.43323e-06; tau = 10
+
+descent iter#1624; J = 6.42811e-08; |GJ| = 3.00174e-06; tau = 0.3125
+
+descent iter#1625; J = 6.42787e-08; |GJ| = 2.10932e-06; tau = 0.3125
+
+descent iter#1626; J = 6.42775e-08; |GJ| = 1.68412e-06; tau = 0.625
+
+descent iter#1627; J = 6.4276e-08; |GJ| = 1.40853e-06; tau = 10
+
+descent iter#1628; J = 6.42583e-08; |GJ| = 2.53381e-06; tau = 0.625
+
+descent iter#1629; J = 6.42554e-08; |GJ| = 1.4372e-06; tau = 2.5
+
+descent iter#1630; J = 6.42509e-08; |GJ| = 1.64471e-06; tau = 1.25
+
+descent iter#1631; J = 6.42483e-08; |GJ| = 1.48381e-06; tau = 1.25
+
+descent iter#1632; J = 6.42459e-08; |GJ| = 1.41549e-06; tau = 5
+
+descent iter#1633; J = 6.42379e-08; |GJ| = 2.34927e-06; tau = 0.625
+
+descent iter#1634; J = 6.42354e-08; |GJ| = 1.41004e-06; tau = 2.5
+
+descent iter#1635; J = 6.42309e-08; |GJ| = 1.58266e-06; tau = 1.25
+
+descent iter#1636; J = 6.42285e-08; |GJ| = 1.44773e-06; tau = 2.5
+
+descent iter#1637; J = 6.42243e-08; |GJ| = 1.76427e-06; tau = 0.625
+
+descent iter#1638; J = 6.42227e-08; |GJ| = 1.36885e-06; tau = 10
+
+descent iter#1639; J = 6.4207e-08; |GJ| = 2.89022e-06; tau = 0.3125
+
+descent iter#1640; J = 6.42048e-08; |GJ| = 2.02623e-06; tau = 0.3125
+
+descent iter#1641; J = 6.42037e-08; |GJ| = 1.61352e-06; tau = 0.625
+
+descent iter#1642; J = 6.42022e-08; |GJ| = 1.34527e-06; tau = 10
+
+descent iter#1643; J = 6.41862e-08; |GJ| = 2.43785e-06; tau = 0.625
+
+descent iter#1644; J = 6.41835e-08; |GJ| = 1.37368e-06; tau = 2.5
+
+descent iter#1645; J = 6.41794e-08; |GJ| = 1.57577e-06; tau = 1.25
+
+descent iter#1646; J = 6.41771e-08; |GJ| = 1.41923e-06; tau = 1.25
+
+descent iter#1647; J = 6.41749e-08; |GJ| = 1.35273e-06; tau = 2.5
+
+descent iter#1648; J = 6.41707e-08; |GJ| = 1.50881e-06; tau = 1.25
+
+descent iter#1649; J = 6.41685e-08; |GJ| = 1.38645e-06; tau = 2.5
+
+descent iter#1650; J = 6.41646e-08; |GJ| = 1.67389e-06; tau = 0.625
+
+descent iter#1651; J = 6.41631e-08; |GJ| = 1.31499e-06; tau = 10
+
+descent iter#1652; J = 6.41485e-08; |GJ| = 2.70859e-06; tau = 0.3125
+
+descent iter#1653; J = 6.41465e-08; |GJ| = 1.91286e-06; tau = 0.3125
+
+descent iter#1654; J = 6.41455e-08; |GJ| = 1.53575e-06; tau = 0.625
+
+descent iter#1655; J = 6.41442e-08; |GJ| = 1.29278e-06; tau = 10
+
+descent iter#1656; J = 6.41293e-08; |GJ| = 2.29068e-06; tau = 0.625
+
+descent iter#1657; J = 6.41269e-08; |GJ| = 1.3175e-06; tau = 2.5
+
+descent iter#1658; J = 6.41231e-08; |GJ| = 1.50041e-06; tau = 1.25
+
+descent iter#1659; J = 6.4121e-08; |GJ| = 1.35837e-06; tau = 1.25
+
+descent iter#1660; J = 6.41189e-08; |GJ| = 1.29819e-06; tau = 5
+
+descent iter#1661; J = 6.41121e-08; |GJ| = 2.12583e-06; tau = 0.625
+
+descent iter#1662; J = 6.411e-08; |GJ| = 1.29315e-06; tau = 2.5
+
+descent iter#1663; J = 6.41063e-08; |GJ| = 1.44516e-06; tau = 1.25
+
+descent iter#1664; J = 6.41042e-08; |GJ| = 1.32614e-06; tau = 2.5
+
+descent iter#1665; J = 6.41006e-08; |GJ| = 1.60564e-06; tau = 0.625
+
+descent iter#1666; J = 6.40993e-08; |GJ| = 1.25664e-06; tau = 10
+
+descent iter#1667; J = 6.4086e-08; |GJ| = 2.6082e-06; tau = 0.3125
+
+descent iter#1668; J = 6.40842e-08; |GJ| = 1.83783e-06; tau = 0.3125
+
+descent iter#1669; J = 6.40833e-08; |GJ| = 1.47186e-06; tau = 0.625
+
+descent iter#1670; J = 6.40821e-08; |GJ| = 1.23543e-06; tau = 10
+
+descent iter#1671; J = 6.40684e-08; |GJ| = 2.20417e-06; tau = 0.625
+
+descent iter#1672; J = 6.40662e-08; |GJ| = 1.25994e-06; tau = 2.5
+
+descent iter#1673; J = 6.40628e-08; |GJ| = 1.438e-06; tau = 1.25
+
+descent iter#1674; J = 6.40608e-08; |GJ| = 1.29985e-06; tau = 1.25
+
+descent iter#1675; J = 6.40589e-08; |GJ| = 1.24129e-06; tau = 5
+
+descent iter#1676; J = 6.40527e-08; |GJ| = 2.04469e-06; tau = 0.625
+
+descent iter#1677; J = 6.40508e-08; |GJ| = 1.23659e-06; tau = 2.5
+
+descent iter#1678; J = 6.40474e-08; |GJ| = 1.3846e-06; tau = 1.25
+
+descent iter#1679; J = 6.40455e-08; |GJ| = 1.26884e-06; tau = 2.5
+
+descent iter#1680; J = 6.40423e-08; |GJ| = 1.54058e-06; tau = 0.625
+
+descent iter#1681; J = 6.4041e-08; |GJ| = 1.20127e-06; tau = 10
+
+descent iter#1682; J = 6.40289e-08; |GJ| = 2.51188e-06; tau = 0.3125
+
+descent iter#1683; J = 6.40272e-08; |GJ| = 1.76613e-06; tau = 0.3125
+
+descent iter#1684; J = 6.40264e-08; |GJ| = 1.41101e-06; tau = 0.625
+
+descent iter#1685; J = 6.40253e-08; |GJ| = 1.18101e-06; tau = 10
+
+descent iter#1686; J = 6.40128e-08; |GJ| = 2.12129e-06; tau = 0.625
+
+descent iter#1687; J = 6.40108e-08; |GJ| = 1.20525e-06; tau = 2.5
+
+descent iter#1688; J = 6.40077e-08; |GJ| = 1.37857e-06; tau = 1.25
+
+descent iter#1689; J = 6.40059e-08; |GJ| = 1.24423e-06; tau = 1.25
+
+descent iter#1690; J = 6.40042e-08; |GJ| = 1.18725e-06; tau = 5
+
+descent iter#1691; J = 6.39985e-08; |GJ| = 1.96701e-06; tau = 0.625
+
+descent iter#1692; J = 6.39967e-08; |GJ| = 1.18287e-06; tau = 2.5
+
+descent iter#1693; J = 6.39936e-08; |GJ| = 1.32695e-06; tau = 1.25
+
+descent iter#1694; J = 6.39919e-08; |GJ| = 1.21438e-06; tau = 2.5
+
+descent iter#1695; J = 6.39889e-08; |GJ| = 1.47852e-06; tau = 0.625
+
+descent iter#1696; J = 6.39878e-08; |GJ| = 1.14869e-06; tau = 10
+
+descent iter#1697; J = 6.39767e-08; |GJ| = 2.41945e-06; tau = 0.3125
+
+descent iter#1698; J = 6.39752e-08; |GJ| = 1.69758e-06; tau = 0.3125
+
+descent iter#1699; J = 6.39744e-08; |GJ| = 1.35305e-06; tau = 0.625
+
+descent iter#1700; J = 6.39734e-08; |GJ| = 1.12933e-06; tau = 10
+
+descent iter#1701; J = 6.39621e-08; |GJ| = 2.04186e-06; tau = 0.625
+
+descent iter#1702; J = 6.39602e-08; |GJ| = 1.1533e-06; tau = 2.5
+
+descent iter#1703; J = 6.39573e-08; |GJ| = 1.32194e-06; tau = 1.25
+
+descent iter#1704; J = 6.39557e-08; |GJ| = 1.19135e-06; tau = 1.25
+
+descent iter#1705; J = 6.39541e-08; |GJ| = 1.13591e-06; tau = 2.5
+
+descent iter#1706; J = 6.39512e-08; |GJ| = 1.26608e-06; tau = 1.25
+
+descent iter#1707; J = 6.39496e-08; |GJ| = 1.16408e-06; tau = 2.5
+
+descent iter#1708; J = 6.39468e-08; |GJ| = 1.40374e-06; tau = 0.625
+
+descent iter#1709; J = 6.39458e-08; |GJ| = 1.10462e-06; tau = 10
+
+descent iter#1710; J = 6.39355e-08; |GJ| = 2.26802e-06; tau = 0.3125
+
+descent iter#1711; J = 6.39341e-08; |GJ| = 1.60344e-06; tau = 0.3125
+
+descent iter#1712; J = 6.39334e-08; |GJ| = 1.28883e-06; tau = 0.625
+
+descent iter#1713; J = 6.39325e-08; |GJ| = 1.08638e-06; tau = 10
+
+descent iter#1714; J = 6.39219e-08; |GJ| = 1.9193e-06; tau = 0.625
+
+descent iter#1715; J = 6.39202e-08; |GJ| = 1.10721e-06; tau = 2.5
+
+descent iter#1716; J = 6.39175e-08; |GJ| = 1.25972e-06; tau = 1.25
+
+descent iter#1717; J = 6.3916e-08; |GJ| = 1.1413e-06; tau = 1.25
+
+descent iter#1718; J = 6.39146e-08; |GJ| = 1.0912e-06; tau = 5
+
+descent iter#1719; J = 6.39098e-08; |GJ| = 1.78153e-06; tau = 0.625
+
+descent iter#1720; J = 6.39083e-08; |GJ| = 1.08712e-06; tau = 2.5
+
+descent iter#1721; J = 6.39056e-08; |GJ| = 1.21378e-06; tau = 1.25
+
+descent iter#1722; J = 6.39042e-08; |GJ| = 1.11463e-06; tau = 2.5
+
+descent iter#1723; J = 6.39017e-08; |GJ| = 1.34752e-06; tau = 0.625
+
+descent iter#1724; J = 6.39007e-08; |GJ| = 1.05685e-06; tau = 10
+
+descent iter#1725; J = 6.38913e-08; |GJ| = 2.18474e-06; tau = 0.3125
+
+descent iter#1726; J = 6.389e-08; |GJ| = 1.54146e-06; tau = 0.3125
+
+descent iter#1727; J = 6.38894e-08; |GJ| = 1.23627e-06; tau = 0.625
+
+descent iter#1728; J = 6.38885e-08; |GJ| = 1.03941e-06; tau = 10
+
+descent iter#1729; J = 6.38789e-08; |GJ| = 1.84763e-06; tau = 0.625
+
+descent iter#1730; J = 6.38773e-08; |GJ| = 1.06e-06; tau = 2.5
+
+descent iter#1731; J = 6.38749e-08; |GJ| = 1.20835e-06; tau = 1.25
+
+descent iter#1732; J = 6.38735e-08; |GJ| = 1.09327e-06; tau = 1.25
+
+descent iter#1733; J = 6.38721e-08; |GJ| = 1.04454e-06; tau = 5
+
+descent iter#1734; J = 6.38677e-08; |GJ| = 1.71435e-06; tau = 0.625
+
+descent iter#1735; J = 6.38664e-08; |GJ| = 1.04073e-06; tau = 2.5
+
+descent iter#1736; J = 6.3864e-08; |GJ| = 1.16396e-06; tau = 1.25
+
+descent iter#1737; J = 6.38626e-08; |GJ| = 1.06759e-06; tau = 2.5
+
+descent iter#1738; J = 6.38603e-08; |GJ| = 1.29387e-06; tau = 0.625
+
+descent iter#1739; J = 6.38594e-08; |GJ| = 1.01144e-06; tau = 10
+
+descent iter#1740; J = 6.38508e-08; |GJ| = 2.10479e-06; tau = 0.3125
+
+descent iter#1741; J = 6.38497e-08; |GJ| = 1.48216e-06; tau = 0.3125
+Converged at iter#1742; J = 6.38491e-08; |GJ| = 1.18615e-06; tau = 0.3125

@@ -1,0 +1,9 @@
+{Error using <a href="matlab:helpUtils.errorDocCallback('textscan')" style="font-weight:bold">textscan</a>
+Invalid file identifier.  Use fopen to generate a valid file identifier.
+Error in <a href="matlab:helpUtils.errorDocCallback('readwfobj', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/readwfobj.m', 12)" style="font-weight:bold">readwfobj</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/readwfobj.m',12,0)">line 12</a>)
+temp = textscan(fid,'%s','Delimiter','');
+Error in <a href="matlab:helpUtils.errorDocCallback('main', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m', 69)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m',69,0)">line 69</a>)
+    [v_T,f_T] = readwfobj(fid);
+Error in <a href="matlab:helpUtils.errorDocCallback('test_script', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/test_script.m', 63)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/test_script.m',63,0)">line 63</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+test_script

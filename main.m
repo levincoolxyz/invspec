@@ -34,9 +34,7 @@ if target_data.num ~= 3
 end
 %% target spectrum (+mesh for testing)
 if isfield(target_data,'D_T')
-  v_T = [];
-  f_T = [];
-  s_T = [];
+  v_T = []; f_T = []; s_T = [];
   D_T = target_data.D_T;
   if numel(D_T) >= numeig
     D_T = D_T(1:numeig);
@@ -83,8 +81,8 @@ else
   D_T = eigvf(L_T,M_T,numeig);
 end
 %% initial conformal factors guess
-% s0 = exp(-zeros(numv,1));
-s0 = s_T + rand(numv,1)*pert;
+s0 = exp(-zeros(numv,1));
+% s0 = s_T + rand(numv,1)*pert;
 % s0 = s_T;
 %% MIEP2 via naive gradient descent
 [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...

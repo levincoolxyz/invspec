@@ -47,7 +47,7 @@ for i = 1:imax
     if tau < eps
       warning('wee:too:low','small stepsize. tau = %g',tau);
     elseif abs((tau - tau_old)/tau) > 1e-5
-      fprintf('try tau = %g\n',tau);
+%       fprintf('try tau = %g\n',tau);
     else
       fprintf('.');
     end

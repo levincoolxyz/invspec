@@ -4,8 +4,8 @@ nums = numel(s);
 [V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
 %% (inversely weighted) mean square difference
 % lambda_diff = lambda-lambda_T;
-lambda_diff = 1./lambda-1./lambda_T;
-% lambda_diff = 1./(lambda-lambda_T);
+% lambda_diff = 1./lambda-1./lambda_T;
+lambda_diff = 1./(lambda-lambda_T);
 J = .5*sum(lambda_diff(1:(end-1)).^2); 
 if (nargout <= 1)
   varargout{1} = J;
@@ -17,8 +17,8 @@ else
       vi = V(:,ix(i));
       wi = zeros(nums,1);
 %       wi(j) = lambda_diff(i)*lambda(i)*vi(j)^2/s(j);
-      wi(j) = -lambda_diff(i)/lambda(i)*vi(j)^2/s(j);
-%       wi(j) = lambda_diff(i)^(-3)*lambda(i)*vi(j)^2/s(j);
+%       wi(j) = -lambda_diff(i)/lambda(i)*vi(j)^2/s(j);
+      wi(j) = -lambda_diff(i)^3*lambda(i)*vi(j)^2/s(j);
       GJ = GJ + wi;
     end
   varargout{2} = GJ;

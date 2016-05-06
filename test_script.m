@@ -7,20 +7,20 @@ Y32 = @(v) (v(:,1).^2-v(:,2).^2).*v(:,3)./(vnorm(v)).^3;
 Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
-imax = 1e3; % gradient descent maximum iterations
-aC = .7; bC = .8; tC = 10; etolC = 1e-2; % Conformal descent control
+imax = 5e3; % gradient descent maximum iterations
+aC = .7; bC = .8; tC = 10; etolC = 1e-5; % Conformal descent control
 aS = .8; bS = .9; tS = 150; etolS = 1e-8; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = .1; % number of eigenvalues used, <=1 => percent, <=0 => all
-pert = 5; % scaling coefficient used to control target perturbation
+numeig = 20; % number of eigenvalues used, <=1 means percent, <=0 means all
+pert = .3; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '300';
+init_data.dat = '200';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';
@@ -47,15 +47,6 @@ target_data.Nmcf = imax;
 % for numeig = .1:.1:1
 % for silly = 1:3
 %   target_data.Nmcf = silly;
-  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
-    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
-    imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-    numeig,pert);
-  %% visualing results
-  close all;
-  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
-    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
-  %% store for record
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
@@ -67,8 +58,20 @@ target_data.Nmcf = imax;
   if target_data.num == 3
     endname = [endname num2str(target_data.Nmcf,'_Nmcf%d')];
   end
+  diary([endname '.out']);
+  %% main computation
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+    imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+    numeig,pert);
+  %% visualing results
+  close all;
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
+    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
+  %% store for record
   hgexport(figh,[endname '.png'],...
     hgexport('factorystyle'), 'Format', 'png'); 
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
+  diary off;
 % end
