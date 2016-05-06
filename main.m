@@ -83,7 +83,7 @@ end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 % s0 = s_T + rand(numv,1)*pert;
-% s0 = s_T;
+s0(:) = mean(s_T);
 %% MIEP2 via naive gradient descent
 [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
   s0,M,L,D_T,numeig);

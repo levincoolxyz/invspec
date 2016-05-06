@@ -8,8 +8,8 @@ Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
 imax = 5e3; % gradient descent maximum iterations
-aC = .7; bC = .8; tC = 10; etolC = 1e-5; % Conformal descent control
-aS = .8; bS = .9; tS = 150; etolS = 1e-8; % invSpec descent control
+aC = .5; bC = .8; tC = 10; etolC = 5e-4; % Conformal descent control
+aS = .5; bS = .8; tS = 150; etolS = 1e-8; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = 20; % number of eigenvalues used, <=1 means percent, <=0 means all
@@ -20,7 +20,7 @@ rng(1432543); % rand seed
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2; 
-init_data.dat = '200';
+init_data.dat = '100';
 %% input case == 3; import face-vtx from *.mat file
 % init_data.num = 3; 
 % init_data.dat = '300';
