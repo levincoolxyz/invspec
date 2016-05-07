@@ -65,9 +65,14 @@ else
 
   % import wavefront object file
   elseif target_data.num == 3
-    fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
-    [v_T,f_T] = readwfobj(fid);
-    [s_T,v] = meancurvflow(v_T,f_T,.1,'c',target_data.Nmcf);
+    if exist([target_data.dat '.mat'],'file')
+      load([target_data.dat '.mat']);
+    else
+      fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
+      [v_T,f_T] = readwfobj(fid);
+      [s_T,v] = meancurvflow(v_T,f_T,.1,'c',target_data.Nmcf);
+      save([target_data.dat '.mat'],'v_T','f_T','s_T','v');
+    end
     f = f_T;
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
   end
@@ -83,10 +88,14 @@ end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 % s0 = s_T + rand(numv,1)*pert;
-s0(:) = mean(s_T);
+s0(:) = mean(s_T)+(s_T-mean(s_T))/std(s_T)*pert;
 %% MIEP2 via naive gradient descent
-[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-  s0,M,L,D_T,numeig);
+test = @(s) eigencost(s,M,L,D_T,numeig);
+options = optimset('GradObj','on','display','iter-detailed',...
+  'maxiter',imax,'tolx',etolS,'largescale','off');
+[s,J_hist] = fminunc(test,s0,options);
+% [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+%   s0,M,L,D_T,numeig);
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% debug error checking
@@ -98,8 +107,12 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
-[Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-  reshape(v',[],1),isedge,elsq_end);
+test = @(v) conformalcost(v,isedge,elsq_end);
+options = optimset('GradObj','on','display','iter-detailed',...
+  'maxiter',imax,'largescale','off','tolfun',eps,'tolx',eps);
+[vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
+% [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+%   reshape(v',[],1),isedge,elsq_end);
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);

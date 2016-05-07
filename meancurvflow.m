@@ -46,9 +46,13 @@ while iter<=imax
   end
   for dim = 1:3
 %     A = (I - h*(M\L));
-%     v(:,dim) = A\vold(:,dim);
+%     b = vold(:,dim);
     A = (M - h*L);
-    v(:,dim) = A\(M*vold(:,dim));
+    b = (M*vold(:,dim));
+%     v(:,dim) = A\b;
+    l = chol(A,'lower');
+    w = l\b;
+    v(:,dim) = l'\w;
   end
   v = v - repmat(volCenter(v,f0),numv,1);
 %   scl = calcVol(v,f0)^(1/3);
