@@ -53,21 +53,48 @@ title('resultant mesh');
 
 %% compare spectra
 
+[M_T,L_T] = lapbel(v_T,f_T);
+[M_end,L_end] = lapbel(v_end,f);
+D_T = eigvf(L_T,M_T,size(v,1));
+D_end = eigvf(L_end,M_end,size(v,1));
+if ~isempty(s_end)
+  [M,L] = lapbel(v,f);
+  D_endp = eigvf(L,diag(1./s_end)*M,size(v,1));
+else
+  D_endp = [nan(size(v,1)-numel(D_endp),1); D_endp];
+end
+
 subplot(2,3,4:6); hold all; grid on;
 v1 = (D_endp - D_T)./D_T;
 v2 = (D_end - D_T)./D_T;
-plot(v1(1:end-1),'k-','linewidth',2);
-plot(v2(1:end-1),'ro');
-legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
-  '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
-  'location','northwest');
+
+% linear absolute error plot
 % plot((D_endp - D_T),'k+-','linewidth',2);
 % plot((D_end - D_T),'ro:');
 % legend('\lambda_{MIEP2} - \lambda_{target}',...
 %   '\lambda_{final embed} - \lambda_{target}',...
 %   'location','southeast');
-xlabel('# of eigenvalues (#1 is of the highest frequency)');
 % ylabel('\propto eigenvalue magnitude');
+
+% linear relative error plot
+% plot(v1(1:end-1),'k-','linewidth',2);
+% plot(v2(1:end-1),'ro');
+% c1 = .18;
+% c2 = 0;
+% legendpos = 'northwest';
+
+% log relative error plot
+plot(abs(v1(1:end-1)),'k-','linewidth',2);
+plot(abs(v2(1:end-1)),'ro');
+set(gca,'yscale','log');
+c1 = 0;
+c2 = 0.18;
+legendpos = 'southwest';
+
+legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
+  '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
+  'location',legendpos);
+xlabel('# of eigenvalues (#1 is of the highest frequency)');
 title('Deviation from target Laplacian eigenvalues');
 
 fig = gcf;
@@ -77,10 +104,10 @@ else
   ax = gca;
 end
 pause(.1);
-set(ax,'xlim',[1 numel(D_0)])
+set(ax,'xlim',[1 numel(D_T)])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
-text(floor(max(xm)/4),max(ym(2) + .18*diff(ym)),...
+text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end)],...
   ['iter#%d: J_{MIEP2} = %g     ',...
   'iter#%d: J_{embedding} = %g']));

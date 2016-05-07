@@ -4638,3 +4638,72 @@ less than <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg
 Optimization Metric                                    Options
 relative norm(step) =   9.81e-07                TolX =   1e-06 (default)
 
+{Operation terminated by user during <a href="matlab:helpUtils.errorDocCallback('eigs', '/usr/local/MATLAB/toolbox/matlab/sparfun/eigs.m', 237)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/usr/local/MATLAB/toolbox/matlab/sparfun/eigs.m',237,0)">line 237</a>)
+
+In <a href="matlab:helpUtils.errorDocCallback('eigvf', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/eigvf.m', 16)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/eigvf.m',16,0)">line 16</a>)
+    [V,D] = eigs(L,M,numeig,-1e-6);
+In <a href="matlab:helpUtils.errorDocCallback('eigencost', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/eigencost.m', 5)" style="font-weight:bold">eigencost</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/eigencost.m',5,0)">line 5</a>)
+[V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
+In <a href="matlab:helpUtils.errorDocCallback('main>@(s)eigencost(s,M,L,D_T,numeig)', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m', 93)" style="font-weight:bold">main>@(s)eigencost(s,M,L,D_T,numeig)</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m',93,0)">line 93</a>)
+test = @(s) eigencost(s,M,L,D_T,numeig);
+In <a href="matlab:helpUtils.errorDocCallback('fminunc', '/usr/local/MATLAB/toolbox/optim/optim/fminunc.m', 259)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/toolbox/optim/optim/fminunc.m',259,0)">line 259</a>)
+        [f,GRAD(:)] = feval(funfcn{3},x,varargin{:});
+In <a href="matlab:helpUtils.errorDocCallback('main', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m', 96)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/main.m',96,0)">line 96</a>)
+[s,J_hist] = fminunc(test,s0,options);
+In <a href="matlab:helpUtils.errorDocCallback('test_script', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/test_script.m', 63)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/test_script.m',63,0)">line 63</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+try open('graphics_redo'); catch edit('graphics_redo'); end
+graphics_redo
+{Undefined function or variable 's_end'.
+Error in <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 9)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',9,0)">line 9</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+graphics_redo
+{Undefined function or variable 's_T'.
+Error in <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 10)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',10,0)">line 10</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+graphics_redo
+{Error using <a href="matlab:helpUtils.errorDocCallback('minus')" style="font-weight:bold"> - </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:helpUtils.errorDocCallback('visualize', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m', 66)" style="font-weight:bold">visualize</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',66,0)">line 66</a>)
+v1 = (D_endp - D_T)./D_T;
+Error in <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 11)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',11,0)">line 11</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+size(v,1)-numel(D_endp)
+ans =
+    70
+graphics_redo
+{Error using <a href="matlab:helpUtils.errorDocCallback('minus')" style="font-weight:bold"> - </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:helpUtils.errorDocCallback('visualize', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m', 68)" style="font-weight:bold">visualize</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',68,0)">line 68</a>)
+v1 = (D_endp - D_T)./D_T;
+Error in <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 11)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',11,0)">line 11</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+graphics_redo
+{Operation terminated by user during <a href="matlab:helpUtils.errorDocCallback('visualize', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m', 98)" style="font-weight:bold">visualize</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',98,0)">line 98</a>)
+
+In <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 11)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',11,0)">line 11</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+graphics_redo
+<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',107,1)">107 </a>colormap('jet');
+graphics_redo
+{Error using <a href="matlab:helpUtils.errorDocCallback('minus')" style="font-weight:bold"> - </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:helpUtils.errorDocCallback('visualize', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m', 68)" style="font-weight:bold">visualize</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',68,0)">line 68</a>)
+v1 = (D_endp - D_T)./D_T;
+Error in <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 11)" style="font-weight:bold">graphics_redo</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m',11,0)">line 11</a>)
+  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...} 
+token
+token =
+i2_100_t4_D-T_e0.3p0.512
+graphics_redo
+{Operation terminated by user during <a href="matlab:helpUtils.errorDocCallback('cross', '/usr/local/MATLAB/toolbox/matlab/specfun/cross.m', 0)" style="font-weight:bold">cross</a>
+
+In <a href="matlab:helpUtils.errorDocCallback('lapbel>@(x,y,z)(y-x)''*(z-x)./norm(cross(y-x,z-x),2)', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m', 17)" style="font-weight:bold">lapbel>@(x,y,z)(y-x)'*(z-x)./norm(cross(y-x,z-x),2)</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m',17,0)">line 17</a>)
+cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
+In <a href="matlab:helpUtils.errorDocCallback('lapbel>@(x,y,z)((y-x)''*(y-x))*cotan(z,x,y)+((z-x)''*(z-x))*cotan(y,z,x)', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m', 18)" style="font-weight:bold">lapbel>@(x,y,z)((y-x)'*(y-x))*cotan(z,x,y)+((z-x)'*(z-x))*cotan(y,z,x)</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m',18,0)">line 18</a>)
+dualA = @(x,y,z) ((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x);
+In <a href="matlab:helpUtils.errorDocCallback('lapbel', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m', 37)" style="font-weight:bold">lapbel</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/lapbel.m',37,0)">line 37</a>)
+    M(i,i) = M(i,i) + .125*dualA(v(i,:)',v(j,:)',v(k,:)');
+In <a href="matlab:helpUtils.errorDocCallback('visualize', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m', 57)" style="font-weight:bold">visualize</a> (<a href="matlab: opentoline('/storage/Subjects/PHY/Vouga/inverseSpec/matlab/visualize.m',57,0)">line 57</a>)
+[M_end,L_end] = lapbel(v_end,f);
+In <a href="matlab:helpUtils.errorDocCallback('graphics_redo', '/storage/Subjects/PHY/Vouga/inverseSpec/matlab/graphics_redo.m', 11)" style=
