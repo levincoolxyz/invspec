@@ -2,7 +2,8 @@ function varargout = eigencost(s,M,L,lambda_T,numeig)
 % function [J,GJ] = eigencost(s,M,L,lambda_T,numeig)
 nums = numel(s);
 %% get eigenvalues and eigenvectors
-[V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
+% [V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
+[V,lambda,ix] = eigvf(diag(s)*L,M,numeig);
 %% (weighted) difference squared as costs
 % lambda_diff = lambda-lambda_T;
 lambda_diff = 1./lambda-1./lambda_T;

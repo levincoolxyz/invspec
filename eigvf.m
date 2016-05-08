@@ -10,13 +10,12 @@ if (nargout <= 1)
   end
   varargout{1} = sort(D);
 else
-%   Mnorm = @(v) sqrt(dot(v,M*v)); %does not work?
-  Mnorm = @(v) sqrt(dot(v,v));
+%   norm = @(v) sqrt(dot(v,v));
   if numeig < size(M,1)
     [V,D] = eigs(L,M,numeig,-1e-6);
     % normalize eigenvectors
     for i = 1:size(V,2)
-      V(:,i) = V(:,i)./Mnorm(V(:,i));
+      V(:,i) = V(:,i)./norm(V(:,i));
     end
   else
 %     [V,D] = eig(inv(M)*L);
@@ -24,7 +23,7 @@ else
     [V,D] = eig(L,M);
     % normalize eigenvectors
     for i = 1:size(V,2)
-      V(:,i) = V(:,i)./Mnorm(V(:,i));
+      V(:,i) = V(:,i)./norm(V(:,i));
     end
   end
   varargout{1} = V;

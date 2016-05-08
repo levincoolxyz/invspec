@@ -13,7 +13,7 @@ aS = .1; bS = .5; tS = 150; etolS = eps; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = 20; % number of eigenvalues used, <=1 means percent, <=0 means all
-pert = 0; % scaling coefficient used to control target perturbation
+pert = .674; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
