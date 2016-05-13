@@ -43,8 +43,8 @@ for i = 1:imax
   end
 %   c3 = .5;
 %   c4 = 2;
-  while abs((tau-tau_old)/tau)>eps
-    if tau < eps
+  while abs((tau-tau_old)/tau)>eps && abs(tau) > eps
+    if abs(tau) < 1e-10
       warning('wee:too:low','small stepsize. tau = %g',tau);
     elseif abs((tau - tau_old)/tau) > 1e-5
 %       fprintf('try tau = %g\n',tau);

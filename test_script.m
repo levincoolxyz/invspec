@@ -9,11 +9,11 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; tC = 10; etolC = 5e-4; % Conformal descent control
-aS = .1; bS = .5; tS = 150; etolS = eps; % invSpec descent control
+aS = .6; bS = .7; tS = 150; etolS = 1e-10; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = 20; % number of eigenvalues used, <=1 means percent, <=0 means all
-pert = .674; % scaling coefficient used to control target perturbation
+pert = .314; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
@@ -31,7 +31,7 @@ target_data.num = 2;
 target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
-% target_data.dat = 'bunny2k';
+target_data.dat = 'bunny2k';
 target_data.dat = 'bunny326';
 target_data.Nmcf = imax;
 %% target case == 4; prescribed eigenvalue target

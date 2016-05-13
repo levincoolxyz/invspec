@@ -77,31 +77,32 @@ else
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
   end
 
-  [M_T,L_T] = lapbel(v_T,f_T);
-  % sparsify if large enough
-  if numv>500
-      L_T = sparse(L_T);
-      M_T = sparse(M_T);
-  end
-  D_T = eigvf(L_T,M_T,numeig);
+%   [M_T,L_T] = lapbel(v_T,f_T);
+%   % sparsify if large enough
+%   if numv>500
+%       L_T = sparse(L_T);
+%       M_T = sparse(M_T);
+%   end
+%   D_T = eigvf(L_T,M_T,numeig);
+  D_T = eigvf(L,diag(1./s_T)*M,numeig);
 end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
-% s0 = s_T + rand(numv,1)*pert;
-s0(:) = mean(s_T)+(s_T-mean(s_T))/std(s_T)*pert;
+% s0 = s_T;
+% s0(:) = mean(s_T)+(s_T-mean(s_T))/std(s_T)*pert;
 %% MIEP2 via naive gradient descent
-test = @(s) eigencost(s,M,L,D_T,numeig);
+% test = @(s) eigencost(s,M,L,D_T,numeig);
 % options = optimset('display','iter-detailed',...
 %   'maxiter',imax,'tolx',etolS,'largescale','off');
 % options = optimset('GradObj','on','display','iter-detailed',...
 %   'maxiter',imax,'tolx',etolS,'largescale','off');
 % [s,J_hist] = fminunc(test,s0,options);
-options = optimset('GradObj','on','display','iter-detailed',...
-  'maxiter',imax,'tolx',etolS,'largescale','off');
-[s,J_hist] = fmincon(test,s0,-eye(numv),zeros(numv,1),...
-  [],[],[],[],[],options);
-% [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-%   s0,M,L,D_T,numeig);
+% options = optimset('GradObj','on','display','iter-detailed',...
+%   'maxiter',imax,'tolx',etolS);
+% [s,J_hist] = fmincon(test,s0,-eye(numv),zeros(numv,1),...
+%   [],[],[],[],[],options);
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+  s0,M,L,D_T,numeig);
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% debug error checking

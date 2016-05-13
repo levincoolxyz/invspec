@@ -10,7 +10,7 @@ if (nargout <= 1)
   end
   varargout{1} = sort(D);
 else
-%   norm = @(v) sqrt(dot(v,v));
+  norm = @(v) sqrt(dot(v,M*v));
   if numeig < size(M,1)
     [V,D] = eigs(L,M,numeig,-1e-6);
     % normalize eigenvectors
