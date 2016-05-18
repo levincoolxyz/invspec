@@ -1,6 +1,6 @@
 clear;
-% load i2_400_t3_bunny326_e20p0_Nmcf5000.mat
-load i2_200_t2_abs(Y33(v))_e0.1p5.mat
+load i2_400_t3_bunny326_e20p0_Nmcf5000.mat
+% load i2_200_t2_abs(Y33(v))_e0.1p5.mat
 rng(1432543); % rand seed
 numv = size(v,1);
 [M,L] = lapbel(v,f);
@@ -23,10 +23,10 @@ std(reldiff)
 close all;
 figure();
 subplot(2,2,1); hold all;
-plot(reldiff)
+plot(reldiff,'kx--')
 title('(\Delta J-\nabla J)/\Delta J');
 subplot(2,2,2); hold all;
-plot(GJ./dJ)
+plot(GJ./dJ,'kx--')
 title('\nabla J./\Delta J');
 subplot(2,2,3:4); hold all;
 plot(dJ,'rx:')

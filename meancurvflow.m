@@ -1,4 +1,4 @@
-function [s,v] = meancurvflow(v0,f0,h,type,imax,L0,M0)
+function [s,v,M] = meancurvflow(v0,f0,h,type,imax,L0,M0)
 % function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
 % Mean Curvature Flow of discrete surfaces
 % 

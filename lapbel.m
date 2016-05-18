@@ -15,7 +15,8 @@ numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
 %% cot of angle at x and dual area associated to x in each face 
 cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
-dualA = @(x,y,z) ((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x);
+% dualA = @(x,y,z) (((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x))/8;
+dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6;
 %% construction (naive, way too many calls to @cotan)
 if (nargout > 1)
   L = zeros(numv);
@@ -34,7 +35,7 @@ for fi=1:numf
       L(i,j) = L(i,j) + .5*cotan(v(k,:)',v(i,:)',v(j,:)');
       L(i,i) = L(i,i) - .5*cotan(v(k,:)',v(i,:)',v(j,:)');
     end
-    M(i,i) = M(i,i) + .125*dualA(v(i,:)',v(j,:)',v(k,:)');
+    M(i,i) = M(i,i) + dualA(v(i,:)',v(j,:)',v(k,:)');
   end
 end
 if (nargout <= 1)
