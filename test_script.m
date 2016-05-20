@@ -7,9 +7,9 @@ Y32 = @(v) (v(:,1).^2-v(:,2).^2).*v(:,3)./(vnorm(v)).^3;
 Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
-imax = 5e4; % gradient descent maximum iterations
+imax = 1e4; % gradient descent maximum iterations
 aC = .5; bC = .8; tC = 10; etolC = 5e-4; % Conformal descent control
-aS = .6; bS = .7; tS = 150; etolS = 1e-10; % invSpec descent control
+aS = .7; bS = .7; tS = 10; etolS = 1e-10; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
 numeig = 30; % number of eigenvalues used, <=1 means percent, <=0 means all
@@ -65,12 +65,12 @@ target_data.Nmcf = imax;
     imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
     numeig,pert);
   %% visualing results
-  close all;
-  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
-    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
+%  close all;
+%  figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
+%    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
   %% store for record
-  hgexport(figh,[endname '.png'],...
-    hgexport('factorystyle'), 'Format', 'png'); 
+%  hgexport(figh,[endname '.png'],...
+%    hgexport('factorystyle'), 'Format', 'png'); 
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
   diary off;

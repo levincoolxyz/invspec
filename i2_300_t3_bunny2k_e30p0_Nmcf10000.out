@@ -1,0 +1,84 @@
+
+About to descent, first step might be slow...
+{Operation terminated by user during eigencost (line 16)
+
+
+In gradescent (line 34)
+  [J(i),GJ] = feval(costf,v(:,i),varargin{:});
+
+In main (line 104)
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+
+In test_script (line 64)
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+
+In run (line 96)
+evalin('caller', [script ';']);
+} 
+run('test_script.m');
+
+About to descent, first step might be slow...
+{Operation terminated by user during eigs/Bmtimes (line 1171)
+
+
+In eigs>@(v)Bmtimes(v) (line 154)
+    applyM = @(v) Bmtimes(v);
+
+In eigs (line 269)
+            workd(:,cols(2)) = applyM(workd(:,cols(1)));
+
+In eigvf (line 15)
+    [V,D] = eigs(L,M,numeig,-1e-6);
+
+In eigencost (line 5)
+[V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
+
+In gradescent (line 34)
+  [J(i),GJ] = feval(costf,v(:,i),varargin{:});
+
+In main (line 104)
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+
+In test_script (line 64)
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+
+In run (line 96)
+evalin('caller', [script ';']);
+} 
+pwd
+
+ans =
+
+/v/filer4b/v37q001/fl3537/isp/invspec
+
+run('test_script');
+
+About to descent, first step might be slow...
+{Operation terminated by user during eigs/AminusSigmaBsolve (line 1213)
+
+
+In eigs>@(v)AminusSigmaBsolve(Bmtimes(v)) (line 149)
+        applyOP = @(v)AminusSigmaBsolve(Bmtimes(v));
+
+In eigs (line 267)
+            workd(:,cols(2)) = applyOP(workd(:,cols(1)));
+
+In eigvf (line 15)
+    [V,D] = eigs(L,M,numeig,-1e-6);
+
+In eigencost (line 5)
+[V,lambda,ix] = eigvf(L,diag(1./s)*M,numeig);
+
+In gradescent (line 34)
+  [J(i),GJ] = feval(costf,v(:,i),varargin{:});
+
+In main (line 104)
+[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+
+In test_script (line 64)
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+
+In run (line 96)
+evalin('caller', [script ';']);
+} 
+exit

@@ -220,6 +220,7 @@ _site/
 
 #matlab stuff
 *.asv
+matlab.tmux.sh
 
 #ut cs job queue
 *.condor
