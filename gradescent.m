@@ -20,6 +20,8 @@ function [J,v] = gradescent(costf,imax,c1,c2,t0,...
 % v           - (n x imax) matrix of the optimizing parameter history
 %
 
+% c3 = .5;
+% c4 = 2;
 tau = t0;
 J = zeros(imax,1);
 v = zeros(numel(v0),imax);
@@ -32,7 +34,7 @@ for i = 1:imax
   [J(i),GJ] = feval(costf,v(:,i),varargin{:});
   u = -GJ;
   if i>1
-  	if abs((J(i-1) - J(i))/J(i-1)) <= etol || abs(J(i-1) - J(i)) <=10*eps
+  	if abs((J(i-1) - J(i))/J(i-1)) <= etol || norm(GJ) <=eps
       fprintf('Converged at iter#%d; J = %g; |GJ| = %g; tau = %g\n',...
         i,J(i),norm(GJ),tau);
       i = i + (i < imax);
@@ -41,15 +43,13 @@ for i = 1:imax
       break;
     end
   end
-%   c3 = .5;
-%   c4 = 2;
   while abs((tau-tau_old)/tau)>eps && abs(tau) > eps
     if abs(tau) < 1e-10
       warning('wee:too:low','small stepsize. tau = %g',tau);
-    elseif abs((tau - tau_old)/tau) > 1e-5
+%    elseif abs((tau - tau_old)/tau) > 1e-5
 %       fprintf('try tau = %g\n',tau);
-    else
-      fprintf('.');
+%    else
+%      fprintf('.');
     end
     tau_old = tau;
     vp1 = v(:,i) + tau*u;
