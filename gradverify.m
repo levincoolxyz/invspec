@@ -6,15 +6,16 @@ numv = size(v,1);
 [M,L] = lapbel(v,f);
 [M_T,L_T] = lapbel(v_T,f_T);
 %%
-for h = [1e-4 1e-6 1e-8 1e-10]
-s = rand(numv,1);
-[J,GJ] = eigencost(s,M,L,D_T,20);
+for h = [eps^.25 1e-6 sqrt(eps)]
+s = .5*rand(numv,1)+.75;
+[~,GJ] = eigencost(s,M,L,D_T,20);
 dJ = zeros(size(GJ));
 for i = 1:numel(s)
   ds = zeros(size(s));
   ds(i) = h;
-  Ji = eigencost(s+ds,M,L,D_T,20);
-  dJ(i) = (Ji-J)/ds(i);
+  Jph = eigencost(s+ds,M,L,D_T,20);
+  Jmh = eigencost(s-ds,M,L,D_T,20);
+  dJ(i) = (Jph-Jmh)/2/ds(i);
 end
 %%
 reldiff = (dJ-GJ)./dJ;
