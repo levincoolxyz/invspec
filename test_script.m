@@ -32,7 +32,7 @@ target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
 target_data.dat = 'bunny2k';
-target_data.dat = 'bunny326';
+% target_data.dat = 'bunny326';
 target_data.Nmcf = imax;
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
