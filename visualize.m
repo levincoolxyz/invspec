@@ -105,6 +105,7 @@ else
 end
 pause(.1);
 set(ax,'xlim',[1 numel(D_T)])
+set(ax,'ylim',[1e-2 1])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
 text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
