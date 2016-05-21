@@ -7,7 +7,7 @@ Y32 = @(v) (v(:,1).^2-v(:,2).^2).*v(:,3)./(vnorm(v)).^3;
 Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
-imax = 1e4; % gradient descent maximum iterations
+imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; tC = 10; etolC = 5e-4; % Conformal descent control
 aS = .7; bS = .7; tS = 10; etolS = 1e-10; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
@@ -43,7 +43,7 @@ target_data.dat = @(v) abs(Y32(v));
 % end
 % target_data.D_T = D_s';
 %% testing time
-for pert = .5:.1:2
+for pert = [.7 .8 1 1.5 2]
 % for numeig = .1:.1:1
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
