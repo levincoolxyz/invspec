@@ -61,7 +61,7 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
-    s_T = meancurvflow(v_T,f_T,1,'c');
+    s_T = meancurvflow(v_T,f_T,1e5,'c');
 
   % import wavefront object file
   elseif target_data.num == 3
@@ -70,7 +70,7 @@ else
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
-      [s_T,v] = meancurvflow(v_T,f_T,.1,'c',target_data.Nmcf);
+      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       save([target_data.dat '.mat'],'v_T','f_T','s_T','v');
     end
     f = f_T;
@@ -88,8 +88,6 @@ else
 end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
-% s0 = s_T;
-% s0(:) = mean(s_T)+(s_T-mean(s_T))/std(s_T)*pert;
 %% MIEP2 via naive gradient descent
 % test = @(s) eigencost(s,M,L,D_T,numeig);
 % options = optimset('display','iter-detailed',...

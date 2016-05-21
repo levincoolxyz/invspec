@@ -1,4 +1,4 @@
-function [s,v,M] = meancurvflow(v0,f0,h,type,imax,L0,M0)
+function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0)
 % function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
 % Mean Curvature Flow of discrete surfaces
 % 
@@ -15,10 +15,10 @@ function [s,v,M] = meancurvflow(v0,f0,h,type,imax,L0,M0)
 
 if (nargin<3) || isempty(h), h = 1; end
 if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
-if (nargin<5) || isempty(imax), imax = 100; end
 if (nargin<6) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
 
 % close all;
+imax = 100; % it should be done within 20-40 steps
 numv = size(v0,1);
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 vdiff = @(v,vold) norm(vnorm(v - vold));

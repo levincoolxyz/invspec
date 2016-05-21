@@ -12,8 +12,8 @@ aC = .5; bC = .8; tC = 10; etolC = 5e-4; % Conformal descent control
 aS = .7; bS = .7; tS = 10; etolS = 1e-10; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = 30; % number of eigenvalues used, <=1 means percent, <=0 means all
-pert = 0; % scaling coefficient used to control target perturbation
+numeig = .1; % number of eigenvalues used, <=1 means percent, <=0 means all
+pert = 0.5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
@@ -28,12 +28,12 @@ init_data.dat = '300';
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
 target_data.num = 2;
-target_data.dat = @(v) abs(Y33(v));
+target_data.dat = @(v) abs(Y32(v));
+% target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-target_data.num = 3;
-target_data.dat = 'bunny2k';
+% target_data.num = 3;
+% target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny326';
-target_data.Nmcf = imax;
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
 % target_data.dat = 'D-T';
@@ -43,10 +43,8 @@ target_data.Nmcf = imax;
 % end
 % target_data.D_T = D_s';
 %% testing time
-% for pert = .3:.1:2
+for pert = .5:.1:2
 % for numeig = .1:.1:1
-% for silly = 1:3
-%   target_data.Nmcf = silly;
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
@@ -74,4 +72,4 @@ target_data.Nmcf = imax;
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
   diary off;
-% end
+end
