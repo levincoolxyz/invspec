@@ -14,7 +14,7 @@ Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Pro
 Some codes here (on (sphere) meshes optimization and a demo of spherical harmonics) are not mine.
 
 ### Results
-![ani#1](/i3_300_t2_abs(Y33(v))_e0.1-1p0.5.gif?raw=true "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
+![ani#1](/i2_300_t2_abs(Y33(v))_e0.1-1p0.5.gif?raw=true "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
 ![ani#1](/i2_300_t2_abs(Y32(v))_e0.6p0.4-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 [//]: #![Result #1](/rand_0.512.png?raw=true "target constructed with small random discrete conformal factors")
