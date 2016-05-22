@@ -28,8 +28,8 @@ init_data.dat = '300';
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
 target_data.num = 2;
-target_data.dat = @(v) abs(Y32(v));
-% target_data.dat = @(v) abs(Y33(v));
+% target_data.dat = @(v) abs(Y32(v));
+target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 % target_data.num = 3;
 % target_data.dat = 'bunny2k';
@@ -43,8 +43,8 @@ target_data.dat = @(v) abs(Y32(v));
 % end
 % target_data.D_T = D_s';
 %% testing time
-for pert = [.7 .8 1 1.5 2]
-% for numeig = .1:.1:1
+% for pert = [.7 .8 1 1.5 2]
+for numeig = [.1 .4 .6 1]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
