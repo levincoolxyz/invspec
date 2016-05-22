@@ -25,12 +25,12 @@ to do: rescale volume? spectral convergence?
 ### Results
 Aiming for cMCF spectrum
 
-![ani#1](/i2_300_t2_abs(Y33(v))_e0.1-1p0.5.gif?raw=true "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
-![ani#2](/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y33(v))_e0.1-1p0.5.gif "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
+![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 Aiming for target spectrum
 
-![ani#2](/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 Testing with bunny
 
