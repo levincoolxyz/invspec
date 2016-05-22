@@ -30,7 +30,7 @@ Aiming for cMCF spectrum
 
 Aiming for target spectrum
 
-![ani#2](/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#2](/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 Testing with bunny
 
