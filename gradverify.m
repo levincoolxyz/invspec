@@ -1,12 +1,14 @@
 clear;
-load i2_400_t3_bunny326_e20p0_Nmcf5000.mat
+load i3_300_t3_bunny326_e0.1p0.5.mat
 % load i2_200_t2_abs(Y33(v))_e0.1p5.mat
 rng(1432543); % rand seed
 numv = size(v,1);
 [M,L] = lapbel(v,f);
 [M_T,L_T] = lapbel(v_T,f_T);
+D_Tf = eigvf(L_T,M_T,numv);
 
 s = .5*rand(numv,1)+.75;
+D_Sf = eigvf(L,diag(1./s)*M,numv);
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
 for h = eps^.25
