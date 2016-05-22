@@ -1,5 +1,5 @@
 close all;
-[~,datalist] = unix('basename -s .mat -a i*.mat');
+[~,datalist] = unix('basename -s .mat -a i*bunny*.mat');
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');
 for i = 1:size(datalist{1},1)
@@ -13,7 +13,7 @@ for i = 1:size(datalist{1},1)
   hgexport(figh,[token '.png'],...
       hgexport('factorystyle'), 'Format', 'png');
 %   [token,remain] = strtok(remain);
-  close all;
+%   close all;
 end
 
 %% two gifs

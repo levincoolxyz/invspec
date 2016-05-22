@@ -111,9 +111,9 @@ else
 end
 pause(.1);
 set(ax,'xlim',[1 numel(D_T)])
-% set(ax,'ylim',[1e-2 1])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
+ym = [ym(1) 1]; set(ax,'ylim',ym)
 text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end)],...
   ['iter#%d: J_{MIEP2} = %g     ',...
