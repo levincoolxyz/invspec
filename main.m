@@ -77,14 +77,14 @@ else
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
   end
 
-%   [M_T,L_T] = lapbel(v_T,f_T);
-%   % sparsify if large enough
-%   if numv>500
-%       L_T = sparse(L_T);
-%       M_T = sparse(M_T);
-%   end
-%   D_T = eigvf(L_T,M_T,numeig);
-  D_T = eigvf(L,diag(1./s_T)*M,numeig);
+  [M_T,L_T] = lapbel(v_T,f_T);
+  % sparsify if large enough
+  if numv>500
+      L_T = sparse(L_T);
+      M_T = sparse(M_T);
+  end
+  D_T = eigvf(L_T,M_T,numeig);
+%   D_T = eigvf(L,diag(1./s_T)*M,numeig);
 end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));

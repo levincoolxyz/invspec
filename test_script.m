@@ -43,8 +43,8 @@ target_data.dat = @(v) abs(Y33(v));
 % end
 % target_data.D_T = D_s';
 %% testing time
-% for pert = [.7 .8 1 1.5 2]
-for numeig = [.1 .4 .6 1]
+for pert = [.5:.1:.8 1 1.5 2]
+% for numeig = [.1 .4 .6 1]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
