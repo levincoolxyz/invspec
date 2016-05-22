@@ -15,7 +15,7 @@ Some codes here (on (sphere) meshes optimization and a demo of spherical harmoni
 
 ### Results
 ![ani#1](/i2_300_t2_abs(Y33(v))_e0.1-1p0.5.gif?raw=true "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
-![ani#2](/i2_300_t2_abs(Y32(v))_e0.1p0.4-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#2](/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif?raw=true "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 ### Procedures (tentative)
 1. (conformalized) mean curvature flow of target mesh onto "spherical" mesh with a target set of conformal factors
