@@ -53,18 +53,21 @@ title('resultant mesh');
 
 %% compare spectra
 
+[M,L] = lapbel(v,f);
+D_MCF = eigvf(L,diag(1./s_T)*M,size(v,1));
 [M_T,L_T] = lapbel(v_T,f_T);
-[M_end,L_end] = lapbel(v_end,f);
 D_T = eigvf(L_T,M_T,size(v,1));
+[M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,size(v,1));
-if ~isempty(s_end)
-  [M,L] = lapbel(v,f);
-  D_endp = eigvf(L,diag(1./s_end)*M,size(v,1));
-else
+% if ~isempty(s_end)
+%   [M,L] = lapbel(v,f);
+%   D_endp = eigvf(L,diag(1./s_end)*M,size(v,1));
+% else
   D_endp = [nan(size(v,1)-numel(D_endp),1); D_endp];
-end
+% end
 
 subplot(2,3,4:6); hold all; grid on;
+v0 = (D_MCF - D_T)./D_T;
 v1 = (D_endp - D_T)./D_T;
 v2 = (D_end - D_T)./D_T;
 
@@ -77,6 +80,7 @@ v2 = (D_end - D_T)./D_T;
 % ylabel('\propto eigenvalue magnitude');
 
 % linear relative error plot
+% plot(v0(1:end-1),'b--','linewidth',2);
 % plot(v1(1:end-1),'k-','linewidth',2);
 % plot(v2(1:end-1),'ro');
 % c1 = .18;
@@ -84,6 +88,7 @@ v2 = (D_end - D_T)./D_T;
 % legendpos = 'northwest';
 
 % log relative error plot
+plot(abs(v0(1:end-1)),'b--','linewidth',2);
 plot(abs(v1(1:end-1)),'k-','linewidth',2);
 plot(abs(v2(1:end-1)),'ro');
 set(gca,'yscale','log');
@@ -91,10 +96,11 @@ c1 = 0;
 c2 = 0.18;
 legendpos = 'southwest';
 
-legend('(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
+legend('(\lambda_{cMCF} - \lambda_{target})/\lambda_{target}',...
+  '(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
   '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
   'location',legendpos);
-xlabel('# of eigenvalues (#1 is of the highest frequency)');
+xlabel('# of eigenvalues (#1 is of largest magnitude)');
 title('Deviation from target Laplacian eigenvalues');
 
 fig = gcf;
@@ -105,7 +111,7 @@ else
 end
 pause(.1);
 set(ax,'xlim',[1 numel(D_T)])
-set(ax,'ylim',[1e-2 1])
+% set(ax,'ylim',[1e-2 1])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
 text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
