@@ -57584,4 +57584,113 @@ Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException
 	at org.netbeans.editor.BaseDocumentEvent.redo(BaseDocumentEvent.java:336)
 	at javax.swing.undo.UndoManager.redoTo(Unknown Source)
 	at javax.swing.undo.UndoManager.redo(Unknown Source)
-	at com.mathworks.mwswing.undo.MUndoManager.redo(MUndoManager.ja
+	at com.mathworks.mwswing.undo.MUndoManager.redo(MUndoManager.java:255)
+	at org.netbeans.editor.ActionFactory$RedoAction.actionPerformed(ActionFactory.java:767)
+	at org.netbeans.editor.BaseAction.actionPerformed(BaseAction.java:259)
+	at javax.swing.SwingUtilities.notifyAction(Unknown Source)
+	at javax.swing.JComponent.processKeyBinding(Unknown Source)
+	at javax.swing.JComponent.processKeyBindings(Unknown Source)
+	at javax.swing.JComponent.processKeyEvent(Unknown Source)
+	at com.mathworks.widgets.SyntaxTextPaneBase.processKeyEvent(SyntaxTextPaneBase.java:1187)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.KeyboardFocusManager.redispatchEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.preDispatchKeyEvent(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.typeAheadAssertions(Unknown Source)
+	at java.awt.DefaultKeyboardFocusManager.dispatchEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+
+      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+flow iter#1; |dv| = 1.16444
+flow iter#2; |dv| = 0.42175
+flow iter#3; |dv| = 0.0867645
+flow iter#4; |dv| = 0.0101247
+flow iter#5; |dv| = 0.0048018
+flow iter#6; |dv| = 0.00358161
+flow iter#7; |dv| = 0.00226832
+try open('s_T'); catch edit('s_T'); end
+temp = s_T;
+temp2 = v;
+norm(temp-v)
+{Error using <a href="matlab:helpUtils.errorDocCallback('minus')" style="font-weight:bold"> - </a>
+Matrix dimensions must agree.} 
+norm(temp2-v)
+ans =
+          1.51356288159544
+norm(temp-s_T)
+ans =
+      9.19482814760413e-13
+
+    Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+    H = vnorm(Hn);
+    vn = Hn./repmat(H,1,3);
+    v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+{Subscript indices must either be real positive integers or logicals.} 
+
+vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+    H = vnorm(Hn);
+    vn = Hn./repmat(H,1,3);
+    v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+{Subscript indices must either be real positive integers or logicals.} 
+size(M)
+ans =
+   300   300
+size(v)
+ans =
+   300     3
+Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+H = vnorm(Hn);
+vn = Hn./repmat(H,1,3);
+v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+{Subscript indices must either be real positive integers or logicals.} 
+
+target_data.dat = @(v) abs(Y32(v));
+Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+H = vnorm(Hn);
+vn = Hn./repmat(H,1,3);
+v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+f_T = f;
+[s_T,v2] = meancurvflow(v_T,f_T,1e5,'c');
+flow iter#1; |dv| = 0.016752
+flow iter#2; |dv| = 0.00431041
+flow iter#3; |dv| = 0.00238268
+flow iter#4; |dv| = 0.000813572
+pert
+pert =
+     0
+pert = 0.7
+pert =
+                       0.7
+Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+H = vnorm(Hn);
+vn = Hn./repmat(H,1,3);
+v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
+f_T = f;
+[s_T,v2] = meancurvflow(v_T,f_T,1e5,'c');
+flow iter#1; |dv| = 1.16444
+flow iter#2; |dv| = 0.42175
+flow iter#3; |dv| = 0.0867645
+flow iter#4; |dv| = 0.0101247
+flow iter#5; |dv| = 0.0048018
+flow iter#6; |dv| = 0.00358161
+flow iter#7; |dv| = 0.00226832
+norm(v2-v)
+ans =
+          1.51356288159551
+[s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+flow iter#1; |dv|
