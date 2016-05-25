@@ -1,7 +1,7 @@
 clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% control parameters
-imax = 5e3; % gradient descent maximum iterations
+imax = 5e4; % gradient descent maximum iterations
 aC = .7; bC = .8; tC = 10; etolC = 1e-5; % Conformal descent control
 aS = .8; bS = .9; tS = 150; etolS = 1e-8; % invSpec descent control
 % numeig = .6; % number of eigenvalues used, <=1 => percent, <=0 => all
@@ -125,9 +125,7 @@ rng(1432543); % rand seed
 %% cMCF debug
 %   load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
 %   numeig = ceil(.5*numv);
-%   load i2_1000_t3_bunny2k_e0.3p0.512.mat
-%   load i2_300_t3_bunny282_e0.3p0.512_Nmcf1000.mat
-  load i2_300_t3_bunny326_e0.2p0.512_Nmcf1000.mat
+  load i3_300_t3_bunny2k_e20p0.mat
   numv = size(v,1); % number of vertices
   numf = size(f,1); % number of faces
   numeig = ceil(.2*numv);
@@ -162,8 +160,12 @@ rng(1432543); % rand seed
   %% re-embedding
   conf_T = sqrt(kron(1./s_T',1./s_T));
   elsq_T = elsq0.*conf_T(isedge); % linear indices
-  [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-    reshape(v0',[],1),isedge,elsq_T);
+  test = @(v) conformalcost(v,isedge,elsq_T);
+  options = optimset('GradObj','on','display','iter-detailed',...
+    'maxiter',imax,'largescale','off','tolfun',eps,'tolx',eps);
+  [v_Thist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
+% [Jc_Thist,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+%   reshape(v0',[],1),isedge,elsq_T);
   v_c = reshape(v_Thist(:,end),3,[])';
 
   %% how well does it do?
