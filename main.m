@@ -90,18 +90,16 @@ end
 %% initial conformal factors guess
 s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
-% test = @(s) eigencost(s,M,L,D_T,numeig);
-% options = optimset('display','iter-detailed',...
-%   'maxiter',imax,'tolx',etolS,'largescale','off');
-% options = optimset('GradObj','on','display','iter-detailed',...
-%   'maxiter',imax,'tolx',etolS,'largescale','off');
-% [s,J_hist] = fminunc(test,s0,options);
+test = @(s) eigencost(s,M,L,D_T,numeig);
+options = optimset('GradObj','on','display','iter-detailed',...
+  'maxiter',imax,'tolx',etolS,'largescale','off');
+[s,J_hist] = fminunc(test,s0,options);
 % options = optimset('GradObj','on','display','iter-detailed',...
 %   'maxiter',imax,'tolx',etolS);
 % [s,J_hist] = fmincon(test,s0,-eye(numv),zeros(numv,1),...
 %   [],[],[],[],[],options);
-[J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-  s0,M,L,D_T,numeig);
+% [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+%   s0,M,L,D_T,numeig);
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% debug error checking
@@ -130,8 +128,8 @@ function [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig)
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
 numeig = numv*(numeig <= 0) + ...
-  ceil(numv*numeig)*(numeig <= 1 && numeig > 0) + ...
-  min(numv,numeig)*(numeig > 1);
+  ceil(numv*numeig)*(numeig < 1 && numeig > 0) + ...
+  min(numv,numeig)*(numeig >= 1);
 %% when is there an edge (mild redundancy)
 isedge = zeros(numv);
 for fi = 1:numf
