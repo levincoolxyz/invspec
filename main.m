@@ -92,7 +92,7 @@ s0 = exp(-zeros(numv,1));
 %% MIEP2 via naive gradient descent
 test = @(s) eigencost(s,M,L,D_T,numeig);
 options = optimset('GradObj','on','display','iter-detailed',...
-  'maxiter',imax,'tolx',etolS,'largescale','off');
+  'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
 [s,J_hist] = fminunc(test,s0,options);
 % options = optimset('GradObj','on','display','iter-detailed',...
 %   'maxiter',imax,'tolx',etolS);
