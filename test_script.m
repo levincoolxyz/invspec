@@ -28,12 +28,12 @@ init_data.dat = '300';
 %% target case == 1; random conformal factor (on vtx) deformation
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
-target_data.num = 2;
-target_data.dat = @(v) abs(Y32(v));
+% target_data.num = 2;
+% target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
-% target_data.dat = 'bunny2k';
+target_data.num = 3;
+target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny326';
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
