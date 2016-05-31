@@ -15,10 +15,9 @@ else
   for j = 1:nums
     for i = 1:(numeig-1)
       vi = V(:,ix(i));
-      wi = zeros(nums,1);
-%       wi(j) = lambda_diff(i)*lambda(i)*vi(j)^2/s(j)^2*M(j,j);
-      wi(j) = -lambda_diff(i)/lambda(i)*vi(j)^2/s(j)^2*M(j,j);
-      GJ = GJ + wi;
+%       wij = lambda_diff(i)*lambda(i)*vi(j)^2/s(j)^2*M(j,j);
+      wij = -lambda_diff(i)/lambda(i)*vi(j)^2/s(j)^2*M(j,j);
+      GJ(j) = GJ(j) + wij;
     end
   end
   varargout{2} = GJ;
