@@ -24,10 +24,12 @@ v_end = dcmrot(v_end,dcm_end);
 
 figh = figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
 %% compare mesh
-Mesh0 = TriRep(f,v); %triangulation(f,v);
 subplot(2,3,1); hold all; view(3); grid on; axis equal
-trimesh(Mesh0);
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+  'facecolor','interp','edgecolor','none')
+vlim = max(max(abs(v)));
+vlim = [-vlim vlim];
+set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('original mesh');
 
@@ -36,18 +38,22 @@ if isempty(v_T)
   text(0,0.5,'target given as spectrum');
   set(gca, 'visible', 'off')
 else
-  Mesh_T = TriRep(f_T,v_T); %triangulation(f_T,v_T);
   subplot(2,3,2); hold all; view(3); grid on; axis equal
-  trimesh(Mesh_T);
-  set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+  trisurf(f_T,v_T(:,1),v_T(:,2),v_T(:,3),s_T,...
+    'facecolor','interp','edgecolor','none')
+  vlim = max(max(abs(v_T)));
+  vlim = [-vlim vlim];
+  set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('target mesh');
 end
 
-Mesh_end = TriRep(f,v_end); %triangulation(f,v_end);
 subplot(2,3,3); hold all; view(3); grid on; axis equal
-trimesh(Mesh_end);
-set(gca,'xlim',[-2 2],'ylim',[-2 2],'zlim',[-2 2]);
+trisurf(f,v_end(:,1),v_end(:,2),v_end(:,3),s_end,...
+  'facecolor','interp','edgecolor','none')
+vlim = max(max(abs(v_end)));
+vlim = [-vlim vlim];
+set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
 
