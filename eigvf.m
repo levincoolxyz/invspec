@@ -1,12 +1,16 @@
 function varargout = eigvf(L,M,numeig)
+% [D] = eigvf(L,M,numeig)
+% [V,D] = eigvf(L,M,numeig)
+% custom generalized eigenvalue problem wrapper function
+% results sorted by ascending eigenvalue magnitude
 
 if (nargout <= 1)
   if numeig < size(M,1)
     D = eigs(L,M,numeig,-1e-6);
-  else
-%     D = eig(inv(M)*L);
-%     D = eig(M\L);
+  elseif ~issparse(M)
     D = eig(L,M);
+  else
+    error('matlab is a bitch');
   end
   varargout{1} = sort(D);
 else
@@ -14,18 +18,18 @@ else
   if numeig < size(M,1)
     [V,D] = eigs(L,M,numeig,-1e-6);
     % normalize eigenvectors
-    for i = 1:size(V,2)
+    for i = 1:numeig
+      V(:,i) = V(:,i)./norm(V(:,i));
+    end
+  elseif ~issparse(M)
+    [V,D] = eig(L,M);
+    % normalize eigenvectors
+    for i = 1:size(M,1)
       V(:,i) = V(:,i)./norm(V(:,i));
     end
   else
-%     [V,D] = eig(inv(M)*L);
-%     [V,D] = eig(M\L);
-    [V,D] = eig(L,M);
-    % normalize eigenvectors
-    for i = 1:size(V,2)
-      V(:,i) = V(:,i)./norm(V(:,i));
-    end
+    error('matlab is a bitch');
   end
-  varargout{1} = V;
-  [varargout{2},varargout{3}] = sort(diag(D));
+  [varargout{2},I] = sort(diag(D));
+  varargout{1} = V(:,I);
 end

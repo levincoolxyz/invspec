@@ -9,7 +9,7 @@ end
 elsq = zeros(numv);
 temp = mod(isedge-1,numv)+1;
 temp2 = fix((isedge-1)/numv);
-for j = 1:numv
+parfor j = 1:numv
   for i = temp(temp2 == (j-1))'
     if (nargout > 1)
       for dim = 1:3
@@ -30,7 +30,7 @@ if (nargout <= 1)
 else
   varargout{1} = J;
   GJ = zeros(numv,3);
-  for vi = 1:numv
+  parfor vi = 1:numv
     for dim = 1:3
       ddvi = zeros(numv);
       ddvi(vi,:) = el(vi,:,dim);
