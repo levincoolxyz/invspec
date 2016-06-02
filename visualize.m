@@ -22,7 +22,7 @@ if ~isempty(v_T)
 end
 v_end = dcmrot(v_end,dcm_end);
 
-figh = figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
+figh = figure(); set(gcf,'outerposition',[0, 0, 1920, 1080]);
 %% compare mesh
 if isempty(v_T)
   subplot(2,4,1);
