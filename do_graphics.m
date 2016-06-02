@@ -1,5 +1,5 @@
 close all;
-[~,datalist] = unix('basename -s .mat -a i*.mat');
+[~,datalist] = unix('basename -s .mat -a i*abs*.mat');
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');
 for i = 1:size(datalist{1},1)
@@ -9,7 +9,7 @@ for i = 1:size(datalist{1},1)
   load([token '.mat']);
   figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
     J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
-  pause(.1);
+%   pause(.1);
   hgexport(figh,[token '.png'],...
       hgexport('factorystyle'), 'Format', 'png');
 %   [token,remain] = strtok(remain);

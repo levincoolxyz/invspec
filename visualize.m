@@ -24,23 +24,13 @@ v_end = dcmrot(v_end,dcm_end);
 
 figh = figure(); set(gcf,'outerposition',[0, 0, 1024, 768]);
 %% compare mesh
-subplot(2,3,1); hold all; view(3); grid on; axis equal
-trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
-  'facecolor','interp','edgecolor','none')
-vlim = max(max(abs(v)));
-vlim = [-vlim vlim];
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('original mesh');
-
 if isempty(v_T)
-  subplot(2,3,2);
-  text(0,0.5,'target given as spectrum');
+  subplot(2,4,1);
+  title('target spectrum');
   set(gca, 'visible', 'off')
 else
-  subplot(2,3,2); hold all; view(3); grid on; axis equal
-  trisurf(f_T,v_T(:,1),v_T(:,2),v_T(:,3),s_T,...
-    'facecolor','interp','edgecolor','none')
+  subplot(2,4,1); hold all; view(3); grid on; axis equal
+  trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
   vlim = max(max(abs(v_T)));
   vlim = [-vlim vlim];
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
@@ -48,9 +38,26 @@ else
   title('target mesh');
 end
 
-subplot(2,3,3); hold all; view(3); grid on; axis equal
-trisurf(f,v_end(:,1),v_end(:,2),v_end(:,3),s_end,...
-  'facecolor','interp','edgecolor','none')
+subplot(2,4,2); hold all; view(3); grid on; axis equal
+trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+  'facecolor','interp','edgecolor','none');
+vlim = max(max(abs(v)));
+vlim = [-vlim vlim];
+set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+xlabel('x'); ylabel('y'); zlabel('z');
+title('spherical/cMCF mesh');
+
+subplot(2,4,3); hold all; view(3); grid on; axis equal
+trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
+  'facecolor','interp','edgecolor','none');
+vlim = max(max(abs(v_end)));
+vlim = [-vlim vlim];
+set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+xlabel('x'); ylabel('y'); zlabel('z');
+title('spectrally opt. mesh');
+
+subplot(2,4,4); hold all; view(3); grid on; axis equal
+trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
 vlim = max(max(abs(v_end)));
 vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
@@ -59,6 +66,7 @@ title('resultant mesh');
 
 %% compare spectra
 
+numeig = numel(D_T);
 [M,L] = lapbel(v,f);
 D_MCF = eigvf(L,diag(1./s_T)*M,size(v,1));
 [M_T,L_T] = lapbel(v_T,f_T);
@@ -72,7 +80,7 @@ else
   D_endp = [nan(size(v,1)-numel(D_endp),1); D_endp];
 end
 
-subplot(2,3,4:6); hold all; grid on;
+subplot(2,4,5:8); hold all; grid on;
 v0 = (D_MCF - D_T)./D_T;
 v1 = (D_endp - D_T)./D_T;
 v2 = (D_end - D_T)./D_T;
@@ -119,11 +127,12 @@ pause(.1);
 set(ax,'xlim',[1 numel(D_T)])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
-ym = [ym(1) 1]; set(ax,'ylim',ym)
+ym = [ym(1) 2]; set(ax,'ylim',ym)
 text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
-  num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end)],...
+  num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end), ...
+  numeig],...
   ['iter#%d: J_{MIEP2} = %g     ',...
-  'iter#%d: J_{embedding} = %g']));
+  'iter#%d: J_{embedding} = %g   numeig=%d']));
 
 colormap('jet');
 
