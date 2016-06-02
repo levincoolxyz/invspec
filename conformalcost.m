@@ -9,7 +9,7 @@ end
 elsq = zeros(numv);
 temp = mod(isedge-1,numv)+1;
 temp2 = fix((isedge-1)/numv);
-parfor j = 1:numv
+for j = 1:numv
   for i = temp(temp2 == (j-1))'
     if (nargout > 1)
       for dim = 1:3
