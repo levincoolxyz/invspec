@@ -23,15 +23,13 @@ to do: rescale volume? spectral convergence?
 3. fit conformal factors on sphere back to a resulting mesh that optimize edge lengths targets from the factors
 
 ### Results
-Aiming for cMCF spectrum
 
-![ani#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y33(v))_e0.1-1p0.5.gif "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
-![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
-
-Aiming for target spectrum
-
+![ani#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i3_300_t2_abs(Y33(v))_e0.1-1p0.5.gif "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
 ![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
-Testing with bunny
+Aiming for cMCF spectrum instead
+![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
+
+Tests with bunny
 
 *coming soon*

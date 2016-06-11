@@ -1,6 +1,5 @@
 clear;
-load i3_300_t3_bunny326_e0.1p0.5.mat
-% load i2_200_t2_abs(Y33(v))_e0.1p5.mat
+load i2_300_t2_abs(Y33(v))_e0.1p0.5.mat
 rng(1432543); % rand seed
 numv = size(v,1);
 [M,L] = lapbel(v,f);
@@ -12,14 +11,14 @@ D_Sf = eigvf(L,diag(1./s)*M,numv);
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
 for h = eps^.25
-[~,GJ] = eigencost(s,M,L,D_T,20);
+[~,GJ] = eigencost(s,M,L,D_T,30);
 dJ = zeros(size(GJ));
 % dJim = zeros(size(GJ));
 for i = 1:numel(s)
   ds = zeros(size(s));
   ds(i) = h;
-  Jph = eigencost(s+ds,M,L,D_T,20);
-  Jmh = eigencost(s-ds,M,L,D_T,20);
+  Jph = eigencost(s+ds,M,L,D_T,30);
+  Jmh = eigencost(s-ds,M,L,D_T,30);
   dJ(i) = (Jph-Jmh)/2/ds(i);
 %   dJim(i) = imag(eigencost(s+complex(0,ds),M,L,D_T,20))/h;
 end

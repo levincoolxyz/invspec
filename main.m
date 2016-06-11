@@ -80,11 +80,12 @@ else
 
   [M_T,L_T] = lapbel(v_T,f_T);
   % sparsify if large enough
-  if numv>500
+  if numv>=500
       L_T = sparse(L_T);
       M_T = sparse(M_T);
   end
   D_T = eigvf(L_T,M_T,numeig);
+
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig);
 end
 %% initial conformal factors guess
@@ -94,12 +95,12 @@ test = @(s) eigencost(s,M,L,D_T,numeig);
 options = optimset('GradObj','on','display','iter-detailed',...
   'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
 [s,J_hist] = fminunc(test,s0,options);
-% options = optimset('GradObj','on','display','iter-detailed',...
-%   'maxiter',imax,'tolx',etolS);
-% [s,J_hist] = fmincon(test,s0,-eye(numv),zeros(numv,1),...
-%   [],[],[],[],[],options);
+
 % [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
 %   s0,M,L,D_T,numeig);
+
+% s = s_T; J_hist = [];
+
 s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% debug error checking
@@ -113,7 +114,7 @@ conf = sqrt(kron(1./s_end',1./s_end));
 elsq_end = elsq0.*conf(isedge); % linear indices
 test = @(v) conformalcost(v,isedge,elsq_end);
 options = optimset('GradObj','on','display','iter-detailed',...
-  'maxiter',imax,'largescale','off','tolfun',eps,'tolx',eps);
+  'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');
 [vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
 % [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
 %   reshape(v',[],1),isedge,elsq_end);
@@ -154,7 +155,7 @@ elsq0 = nonzeros(elsq0);
 %% compute laplacian
 [M,L] = lapbel(v,f);
 % sparsify if large enough
-if numv>500
+if numv>=500
     L = sparse(L);
     M = sparse(M);
 end

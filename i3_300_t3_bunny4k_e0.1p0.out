@@ -1,0 +1,139 @@
+flow iter#1; |dv| = 59.0261
+flow iter#2; |dv| = 36.7504
+flow iter#3; |dv| = 20.3517
+flow iter#4; |dv| = 22.0634
+flow iter#5; |dv| = 28.0675
+flow iter#6; |dv| = 25.5854
+flow iter#7; |dv| = 16.6676
+flow iter#8; |dv| = 7.54922
+flow iter#9; |dv| = 2.09552
+flow iter#10; |dv| = 2.15564
+flow iter#11; |dv| = 2.99501
+flow iter#12; |dv| = 2.53939
+flow iter#13; |dv| = 1.46705
+flow iter#14; |dv| = 0.476118
+flow iter#15; |dv| = 0.332439
+flow iter#16; |dv| = 0.522568
+flow iter#17; |dv| = 0.465415
+flow iter#18; |dv| = 0.28975
+flow iter#19; |dv| = 0.115255
+flow iter#20; |dv| = 0.0454075
+flow iter#21; |dv| = 0.0802474
+flow iter#22; |dv| = 0.0795914
+flow iter#23; |dv| = 0.0547586
+flow iter#24; |dv| = 0.0274399
+flow iter#25; |dv| = 0.0164648
+flow iter#26; |dv| = 0.0204815
+flow iter#27; |dv| = 0.0217778
+flow iter#28; |dv| = 0.0197536
+Starting parallel pool (parpool) using the 'local' profile ... connected to 4 workers.
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1          0.16935                      0.000344
+     1          21        0.0395187        2886.97          0.106  
+     2          30        0.0395178    1.63267e-05         0.0596  
+     3          32        0.0346424            0.5           4.85  
+     4          33        0.0246186              1           1.77  
+     5          35        0.0213973       0.482887           9.17  
+     6          36        0.0121799              1           6.16  
+     7          37        0.0100671              1          0.209  
+     8          38        0.0098118              1           1.56  
+     9          39       0.00960317              1          0.547  
+    10          42       0.00871427        6.05016           1.97  
+    11          43       0.00864206              1          0.323  
+    12          45       0.00863762       0.341888          0.122  
+    13          46       0.00863575              1         0.0716  
+    14          47       0.00863302              1            0.2  
+    15          48       0.00861837              1          0.648  
+    16          49       0.00858743              1           1.23  
+    17          50       0.00849934              1           2.32  
+    18          51       0.00829467              1              4  
+    19          52       0.00797918              1           5.77  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    20          53       0.00765849              1            3.9  
+    21          54       0.00744586              1          0.587  
+    22          55       0.00741963              1          0.142  
+    23          56       0.00741253              1         0.0229  
+    24          57       0.00741149              1        0.00595  
+    25          58       0.00740375              1         0.0673  
+    26          59       0.00739472              1           0.11  
+    27          60       0.00736215              1          0.202  
+    28          61       0.00729917              1          0.317  
+    29          62       0.00718418              1          0.445  
+    30          63         0.006913              1          0.606  
+    31          64       0.00658465              1          0.634  
+    32          66       0.00653642       0.283062          0.418  
+    33          67       0.00649045              1          0.103  
+    34          68       0.00648254              1         0.0369  
+    35          69       0.00647973              1        0.00362  
+    36          70       0.00647494              1         0.0413  
+    37          71        0.0064634              1         0.0843  
+    38          72        0.0064358              1           0.16  
+    39          75       0.00642439      0.0621195          0.211  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    40          77       0.00640772            0.5          0.206  
+    41          78       0.00634859              1         0.0314  
+    42          79       0.00631664              1          0.488  
+    43          81       0.00601089       0.665991          0.917  
+    44          85       0.00597858      0.0287576          0.968  
+    45          86       0.00572224              1          0.994  
+    46          91       0.00458325          1.675           1.01  
+    47          92       0.00437931              1          0.429  
+    48          98        0.0038228      0.0179754          0.671  
+    49          99       0.00337634              1           0.14  
+    50         101       0.00314978            0.5          0.327  
+    51         102       0.00265182              1          0.816  
+    52         103       0.00240169              1          0.788  
+    53         104       0.00229455              1          0.326  
+    54         106       0.00213259       0.665713          0.252  
+    55         107       0.00210611              1          0.227  
+    56         108       0.00209846              1         0.0794  
+    57         109       0.00209091              1         0.0843  
+    58         110       0.00208944              1         0.0312  
+    59         111       0.00208874              1         0.0131  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    60         112       0.00208778              1        0.00824  
+    61         113       0.00208569              1        0.00171  
+    62         114       0.00208174              1         0.0027  
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs/Bmtimes', '/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m', 1171)" style="font-weight:bold">eigs/Bmtimes</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m',1171,0)">line 1171</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>@(v)Bmtimes(v)', '/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m', 154)" style="font-weight:bold">eigs>@(v)Bmtimes(v)</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m',154,0)">line 154</a>)
+    applyM = @(v) Bmtimes(v);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs', '/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m', 269)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m',269,0)">line 269</a>)
+            workd(:,cols(2)) = applyM(workd(:,cols(1)));
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvf', '/home/ultimate/invspec/mcode/eigvf.m', 19)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvf.m',19,0)">line 19</a>)
+    [V,D] = eigs(L,M,numeig,-1e-6);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencost', '/home/ultimate/invspec/mcode/eigencost.m', 5)" style="font-weight:bold">eigencost</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencost.m',5,0)">line 5</a>)
+[V,lambda] = eigvf(L,diag(1./s)*M,numeig);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main>@(s)eigencost(s,M,L,D_T,numeig)', '/home/ultimate/invspec/mcode/main.m', 93)" style="font-weight:bold">main>@(s)eigencost(s,M,L,D_T,numeig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',93,0)">line 93</a>)
+test = @(s) eigencost(s,M,L,D_T,numeig);
+
+In lineSearch>bracketingPhase (line 153)
+
+
+
+In lineSearch (line 64)
+
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminusub', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m', 202)" style="font-weight:bold">fminusub</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m',202,0)">line 202</a>)
+    [alpha,f,grad,exitflagLnSrch,funcCountLnSrch,faultTolStruct] = ...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 445)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',445,0)">line 445</a>)
+   [x,FVAL,GRAD,HESSIAN,EXITFLAG,OUTPUT] = fminusub(funfcn,x, ...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 96)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',96,0)">line 96</a>)
+[s,J_hist] = fminunc(test,s0,options);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 62)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',62,0)">line 62</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+} 
+Parallel pool using the 'local' profile is shutting down.

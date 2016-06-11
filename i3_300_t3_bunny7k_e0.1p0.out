@@ -1,0 +1,849 @@
+flow iter#1; |dv| = 76.3668
+flow iter#2; |dv| = 47.4179
+flow iter#3; |dv| = 26.2086
+flow iter#4; |dv| = 28.5989
+flow iter#5; |dv| = 36.3075
+flow iter#6; |dv| = 33.0289
+flow iter#7; |dv| = 21.4616
+flow iter#8; |dv| = 9.67676
+flow iter#9; |dv| = 2.66137
+flow iter#10; |dv| = 2.81227
+flow iter#11; |dv| = 3.88501
+flow iter#12; |dv| = 3.27874
+flow iter#13; |dv| = 1.88203
+flow iter#14; |dv| = 0.601718
+flow iter#15; |dv| = 0.439072
+flow iter#16; |dv| = 0.680389
+flow iter#17; |dv| = 0.600832
+flow iter#18; |dv| = 0.370213
+flow iter#19; |dv| = 0.143228
+flow iter#20; |dv| = 0.0574457
+flow iter#21; |dv| = 0.104774
+flow iter#22; |dv| = 0.102926
+flow iter#23; |dv| = 0.0695435
+flow iter#24; |dv| = 0.032133
+flow iter#25; |dv| = 0.0145942
+flow iter#26; |dv| = 0.0208912
+flow iter#27; |dv| = 0.0224947
+flow iter#28; |dv| = 0.018998
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1         0.171517                      0.000187
+     1          15        0.0585297           4777        0.00274  
+     2          21        0.0558815        0.00625          0.019  
+     3          25        0.0554167      0.0152024        0.00796  
+     4          38        0.0525395        0.11479         0.0404  
+     5          47        0.0525348    1.79102e-05         0.0472  
+     6          52        0.0519884      0.0121933          0.306  
+     7          55        0.0494481           0.05          0.163  
+     8          58        0.0442764           0.25           0.78  
+     9          63        0.0423824         0.0475          0.669  
+    10          68        0.0403239         0.0475          0.496  
+    11          73        0.0387695         0.0475          0.631  
+    12          81        0.0377674      0.0059375          0.635  
+    13          86        0.0332026      0.0882946          0.802  
+    14          90        0.0305426          0.025          0.776  
+    15          94        0.0237704        0.12451          0.506  
+    16          96          0.02152            0.1          0.304  
+    17          99        0.0186482       0.218142          0.435  
+    18         104        0.0174815         0.0125          0.346  
+    19         107        0.0158896           0.05          0.238  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    20         112        0.0154192         0.0095          0.173  
+    21         115        0.0142984           0.05          0.195  
+    22         119        0.0134406      0.0597089          0.148  
+    23         123        0.0121111          0.095          0.198  
+    24         125        0.0109625            0.1          0.137  
+    25         127       0.00993527            0.1          0.173  
+    26         130       0.00746057           0.25          0.212  
+    27         134       0.00588467          0.125          0.146  
+    28         137       0.00549353      0.0392292          0.012  
+    29         140       0.00436245       0.339901          0.142  
+    30         144       0.00407791      0.0240834          0.113  
+    31         147       0.00353683           0.05           0.11  
+    32         150       0.00334326           0.05         0.0552  
+    33         154       0.00318903      0.0228304         0.0293  
+    34         157       0.00268999           0.25          0.567  
+    35         159       0.00247646            0.1          0.629  
+    36         162       0.00226242       0.124306          0.635  
+    37         165       0.00217809      0.0305439          0.532  
+    38         167        0.0020559            0.1           0.32  
+    39         170       0.00190592           0.25          0.323  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    40         174       0.00180255          0.125          0.468  
+    41         176        0.0017487            0.1          0.416  
+    42         179       0.00168033       0.311443          0.207  
+    43         181       0.00161844            0.5          0.201  
+    44         184       0.00159897       0.206432         0.0876  
+    45         187       0.00155557       0.244265          0.339  
+    46         189       0.00153702            0.1          0.441  
+    47         192       0.00150072       0.242419          0.456  
+    48         194       0.00145755            0.5          0.335  
+    49         196       0.00140509            0.5          0.146  
+    50         197       0.00134332              1         0.0719  
+    51         200       0.00132784       0.191461          0.174  
+    52         202       0.00129609       0.419899          0.426  
+    53         203       0.00124745              1          0.179  
+    54         204       0.00121195              1         0.0998  
+    55         205       0.00116557              1         0.0669  
+    56         206       0.00112897              1         0.0486  
+    57         207       0.00109381              1          0.136  
+    58         208        0.0010635              1           0.13  
+    59         210       0.00105954            0.1         0.0513  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    60         212       0.00104539       0.447633          0.296  
+    61         213        0.0010294              1          0.421  
+    62         214       0.00101703              1         0.0639  
+    63         216       0.00100573       0.457894          0.165  
+    64         218      0.000992681        0.43864          0.282  
+    65         219       0.00097444              1          0.262  
+    66         220      0.000939817              1         0.0586  
+    67         222      0.000925799       0.485447          0.306  
+    68         225       0.00089893       0.230701          0.515  
+    69         227      0.000881192       0.430158          0.537  
+    70         228       0.00083658              1          0.522  
+    71         230      0.000801879       0.337074         0.0581  
+    72         233      0.000771799           0.25          0.132  
+    73         237      0.000761941       0.108122          0.293  
+    74         238      0.000740725              1          0.404  
+    75         239      0.000699895              1          0.217  
+    76         240      0.000659887              1          0.546  
+    77         241      0.000593844              1          0.299  
+    78         242      0.000556626              1         0.0332  
+    79         244      0.000534595            0.1          0.152  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    80         247      0.000512857       0.125427          0.354  
+    81         248      0.000492491              1          0.336  
+    82         249      0.000469082              1         0.0703  
+    83         250      0.000448985              1          0.449  
+    84         251      0.000421741              1          0.211  
+    85         252       0.00040644              1         0.0935  
+    86         253      0.000381387              1         0.0947  
+    87         256       0.00037372       0.199606         0.0755  
+    88         257      0.000364531              1          0.278  
+    89         258      0.000352242              1          0.226  
+    90         259      0.000339922              1          0.263  
+    91         262      0.000336461      0.0595308          0.118  
+    92         263       0.00030956              1          0.136  
+    93         264      0.000305001              1          0.277  
+    94         266       0.00030053        0.42899          0.263  
+    95         267      0.000286324              1         0.0273  
+    96         269       0.00028031            0.5          0.129  
+    97         272      0.000273936       0.329573          0.192  
+    98         273      0.000259679              1          0.116  
+    99         274      0.000242151              1         0.0714  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   100         276      0.000233656            0.5          0.137  
+   101         278      0.000213022       0.686825          0.109  
+   102         279       0.00020962              1          0.151  
+   103         281      0.000194853            0.5         0.0763  
+   104         282      0.000188873              1         0.0289  
+   105         285       0.00018456           0.25          0.138  
+   106         286      0.000175095              1          0.194  
+   107         287      0.000161391              1          0.138  
+   108         288      0.000156863              1          0.127  
+   109         291      0.000151139       0.247077         0.0648  
+   110         293      0.000147155            0.5          0.111  
+   111         295        0.0001419            0.5         0.0922  
+   112         296      0.000137433              1          0.067  
+   113         299      0.000134655           0.25          0.153  
+   114         300      0.000130459              1           0.18  
+   115         301      0.000118417              1        0.00114  
+   116         304       0.00011693       0.200534         0.0859  
+   117         305      0.000109524              1          0.142  
+   118         308      0.000106593       0.272905          0.164  
+   119         309      0.000100376              1         0.0638  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   120         313      9.80444e-05       0.104771          0.148  
+   121         315       9.4374e-05       0.414183          0.153  
+   122         316      9.19402e-05              1         0.0722  
+   123         318      8.83082e-05       0.629238         0.0226  
+   124         319      8.65965e-05              1         0.0852  
+   125         320      8.29996e-05              1         0.0838  
+   126         321      7.93244e-05              1         0.0743  
+   127         322      7.42719e-05              1          0.135  
+   128         323      7.03526e-05              1          0.142  
+   129         324      6.56278e-05              1        0.00968  
+   130         326       6.3675e-05       0.469788          0.097  
+   131         327      6.13991e-05              1         0.0704  
+   132         328      5.85788e-05              1          0.168  
+   133         329      5.49344e-05              1         0.0238  
+   134         330      5.23622e-05              1         0.0673  
+   135         332      5.07255e-05       0.433297           0.11  
+   136         333      4.81559e-05              1         0.0451  
+   137         335      4.55835e-05       0.663917          0.108  
+   138         336        4.136e-05              1          0.107  
+   139         337      4.12259e-05              1         0.0747  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   140         339      3.88928e-05            0.5        0.00665  
+   141         341      3.71939e-05       0.614341         0.0284  
+   142         342       3.6304e-05              1         0.0196  
+   143         343      3.48866e-05              1          0.102  
+   144         344      3.34521e-05              1         0.0794  
+   145         345      3.32065e-05              1          0.066  
+   146         346      3.15378e-05              1        0.00438  
+   147         348      3.08031e-05       0.651161         0.0599  
+   148         349      2.99053e-05              1          0.049  
+   149         351      2.83847e-05       0.673448         0.0644  
+   150         352      2.63711e-05              1          0.013  
+   151         354      2.52641e-05       0.699499           0.03  
+   152         355      2.47429e-05              1         0.0215  
+   153         357      2.34906e-05       0.485694         0.0535  
+   154         358       2.3015e-05              1          0.022  
+   155         359      2.27275e-05              1         0.0503  
+   156         360      2.20246e-05              1        0.00982  
+   157         361      2.15641e-05              1         0.0278  
+   158         362      2.06867e-05              1         0.0787  
+   159         363      1.92311e-05              1         0.0718  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   160         364      1.85072e-05              1         0.0103  
+   161         366      1.75581e-05       0.648764         0.0434  
+   162         368      1.70861e-05       0.427647          0.044  
+   163         369      1.66069e-05              1        0.00865  
+   164         370      1.61074e-05              1         0.0493  
+   165         371      1.55172e-05              1         0.0165  
+   166         372      1.51485e-05              1        0.00637  
+   167         373      1.48029e-05              1         0.0455  
+   168         374       1.4501e-05              1         0.0187  
+   169         375      1.41437e-05              1         0.0145  
+   170         376      1.37121e-05              1         0.0114  
+   171         377      1.33513e-05              1         0.0142  
+   172         379      1.32303e-05       0.313092         0.0136  
+   173         380      1.29168e-05              1        0.00936  
+   174         381      1.25335e-05              1        0.00899  
+   175         383      1.24203e-05       0.377216         0.0307  
+   176         384      1.21648e-05              1         0.0149  
+   177         385      1.19336e-05              1        0.00267  
+   178         386       1.1705e-05              1        0.00403  
+   179         387      1.13666e-05              1        0.00511  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   180         388      1.10975e-05              1        0.00149  
+   181         390       1.1047e-05       0.230292         0.0217  
+   182         391       1.0841e-05              1        0.00878  
+   183         392      1.05548e-05              1         0.0133  
+   184         393      1.02461e-05              1         0.0111  
+   185         394      1.00007e-05              1         0.0265  
+   186         395      9.70392e-06              1         0.0207  
+   187         396       9.5044e-06              1        0.00253  
+   188         398      9.40988e-06       0.340862         0.0137  
+   189         399      9.21271e-06              1         0.0142  
+   190         400      8.94327e-06              1        0.00959  
+   191         402      8.78527e-06            0.5         0.0245  
+   192         403      8.51659e-06              1         0.0143  
+   193         404      8.39297e-06              1         0.0255  
+   194         405      8.36109e-06              1        0.00382  
+   195         406      8.03772e-06              1         0.0112  
+   196         407      8.00011e-06              1         0.0149  
+   197         408      7.83282e-06              1         0.0165  
+   198         409      7.72586e-06              1         0.0244  
+   199         410      7.52214e-06              1        0.00918  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   200         411      7.34939e-06              1         0.0271  
+   201         412      7.17825e-06              1        0.00204  
+   202         413      7.07582e-06              1         0.0159  
+   203         414      6.98101e-06              1        0.00447  
+   204         415      6.87341e-06              1        0.00494  
+   205         416      6.72165e-06              1         0.0148  
+   206         417      6.71663e-06              1          0.016  
+   207         419      6.59461e-06            0.5         0.0126  
+   208         420      6.53016e-06              1        0.00712  
+   209         421      6.48608e-06              1        0.00813  
+   210         422      6.43991e-06              1        0.00153  
+   211         423      6.39573e-06              1         0.0131  
+   212         424      6.31723e-06              1        0.00315  
+   213         425      6.24539e-06              1         0.0118  
+   214         426      6.16693e-06              1        0.00565  
+   215         427      6.13174e-06              1         0.0212  
+   216         428      6.02079e-06              1       0.000446  
+   217         429      5.98496e-06              1         0.0143  
+   218         430       5.9241e-06              1         0.0017  
+   219         431      5.86828e-06              1         0.0143  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   220         432      5.82458e-06              1         0.0052  
+   221         433      5.78018e-06              1        0.00524  
+   222         435      5.74204e-06       0.462444         0.0057  
+   223         436      5.69346e-06              1        0.00455  
+   224         437       5.6363e-06              1        0.00537  
+   225         439       5.5941e-06       0.415082        0.00739  
+   226         440      5.54536e-06              1        0.00585  
+   227         442      5.45871e-06       0.661907         0.0172  
+   228         443      5.38353e-06              1         0.0172  
+   229         445      5.34769e-06       0.469879       0.000785  
+   230         446      5.30663e-06              1        0.00557  
+   231         447      5.26733e-06              1         0.0123  
+   232         448      5.22602e-06              1        0.00789  
+   233         449      5.16734e-06              1        0.00938  
+   234         450      5.12033e-06              1         0.0011  
+   235         452      5.09093e-06            0.5        0.00805  
+   236         453      5.04299e-06              1         0.0142  
+   237         454      4.95401e-06              1        0.00926  
+   238         455      4.88888e-06              1         0.0159  
+   239         456        4.791e-06              1          0.002  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   240         457      4.75345e-06              1        0.00906  
+   241         458      4.70387e-06              1        0.00519  
+   242         459      4.67743e-06              1        0.00686  
+   243         460      4.65617e-06              1        0.00801  
+   244         461      4.63077e-06              1        0.00708  
+   245         462      4.59878e-06              1         0.0207  
+   246         463      4.53108e-06              1        0.00575  
+   247         464      4.47077e-06              1        0.00739  
+   248         465      4.41166e-06              1         0.0114  
+   249         466      4.36709e-06              1        0.00214  
+   250         467      4.31434e-06              1         0.0162  
+   251         468      4.26861e-06              1         0.0032  
+   252         469      4.23255e-06              1        0.00452  
+   253         470      4.19782e-06              1         0.0142  
+   254         471      4.16056e-06              1       0.000992  
+   255         472      4.13044e-06              1        0.00106  
+   256         473      4.09778e-06              1        0.00466  
+   257         474       4.0613e-06              1          0.002  
+   258         475      4.01888e-06              1        0.00806  
+   259         476      3.95146e-06              1        0.00378  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   260         478      3.90578e-06       0.673349         0.0156  
+   261         479      3.85667e-06              1        0.00809  
+   262         480      3.82009e-06              1         0.0164  
+   263         481      3.78386e-06              1        0.00703  
+   264         482      3.74454e-06              1         0.0102  
+   265         483      3.67283e-06              1        0.00794  
+   266         484      3.62729e-06              1       0.000526  
+   267         486      3.58252e-06       0.455361         0.0101  
+   268         487       3.5159e-06              1        0.00478  
+   269         488       3.4658e-06              1        0.00668  
+   270         490      3.42604e-06            0.5        0.00351  
+   271         491      3.40269e-06              1        0.00898  
+   272         492      3.37427e-06              1       0.000441  
+   273         493      3.35068e-06              1        0.00336  
+   274         494      3.32824e-06              1        0.00325  
+   275         495       3.2958e-06              1        0.00374  
+   276         496      3.27972e-06              1       0.000637  
+   277         497      3.26745e-06              1         0.0127  
+   278         498      3.22447e-06              1        0.00319  
+   279         499      3.18539e-06              1        0.00412  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   280         500      3.14806e-06              1        0.00801  
+   281         502      3.12756e-06       0.375523        0.00293  
+   282         503      3.08705e-06              1        0.00579  
+   283         504      3.06612e-06              1        0.00505  
+   284         505       3.0313e-06              1        0.00268  
+   285         506      3.00853e-06              1       0.000304  
+   286         508      2.99463e-06            0.5        0.00547  
+   287         509       2.9689e-06              1        0.00579  
+   288         510      2.94688e-06              1        0.00287  
+   289         511      2.92969e-06              1         0.0117  
+   290         512      2.90246e-06              1         0.0101  
+   291         513      2.88406e-06              1        0.00114  
+   292         514      2.87573e-06              1        0.00653  
+   293         515      2.86109e-06              1        0.00203  
+   294         516      2.83191e-06              1       0.000365  
+   295         518      2.78985e-06       0.728195        0.00831  
+   296         519      2.76153e-06              1        0.00542  
+   297         520      2.73683e-06              1        0.00216  
+   298         522      2.72665e-06       0.374952        0.00402  
+   299         523      2.71107e-06              1        0.00249  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+   300         524      2.68041e-06              1        0.00338  
+   301         525      2.64962e-06              1        0.00818  
+   302         526      2.60267e-06              1        0.00251  
+   303         529      2.58217e-06       0.139554        0.00633  
+   304         530      2.54164e-06              1          0.011  
+   305         531      2.51776e-06              1        0.00319  
+   306         532      2.50704e-06              1        0.00307  
+   307         533      2.49425e-06              1        0.00593  
+   308         534      2.48282e-06              1        0.00328  
+   309         535      2.45898e-06              1        0.00454  
+   310         536      2.42726e-06              1       0.000268  
+   311         538      2.40867e-06       0.441675        0.00622  
+   312         539      2.37457e-06              1        0.00126  
+   313         540      2.35478e-06              1         0.0043  
+   314         542      2.34181e-06       0.569265        0.00173  
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs', '/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m', 294)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/sparfun/eigs.m',294,0)">line 294</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvf', '/home/ultimate/invspec/mcode/eigvf.m', 19)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvf.m',19,0)">line 19</a>)
+    [V,D] = eigs(L,M,numeig,-1e-6);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencost', '/home/ultimate/invspec/mcode/eigencost.m', 5)" style="font-weight:bold">eigencost</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencost.m',5,0)">line 5</a>)
+[V,lambda] = eigvf(L,diag(1./s)*M,numeig);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main>@(s)eigencost(s,M,L,D_T,numeig)', '/home/ultimate/invspec/mcode/main.m', 93)" style="font-weight:bold">main>@(s)eigencost(s,M,L,D_T,numeig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',93,0)">line 93</a>)
+test = @(s) eigencost(s,M,L,D_T,numeig);
+
+In lineSearch>bracketingPhase (line 153)
+
+
+
+In lineSearch (line 64)
+
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminusub', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m', 202)" style="font-weight:bold">fminusub</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m',202,0)">line 202</a>)
+    [alpha,f,grad,exitflagLnSrch,funcCountLnSrch,faultTolStruct] = ...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 445)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',445,0)">line 445</a>)
+   [x,FVAL,GRAD,HESSIAN,EXITFLAG,OUTPUT] = fminusub(funfcn,x, ...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 96)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',96,0)">line 96</a>)
+[s,J_hist] = fminunc(test,s0,options);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 62)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',62,0)">line 62</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+} 
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+parpool close
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parpool', '/usr/local/MATLAB/R2015a/toolbox/distcomp/cluster/parpool.m', 103)" style="font-weight:bold">parpool</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/distcomp/cluster/parpool.m',103,0)">line 103</a>)
+Found an interactive session. You cannot have multiple interactive sessions open simultaneously. To terminate the existing session, use 'delete(gcp)'.
+} 
+Parallel pool using the 'local' profile is shutting down.
+test_script
