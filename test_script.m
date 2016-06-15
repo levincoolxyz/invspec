@@ -13,27 +13,28 @@ aC = .5; bC = .8; tC = 10; etolC = 1e-7; % Conformal descent control
 aS = .7; bS = .7; tS = 10; etolS = 1e-10; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = .3; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
+numeig = 7; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
-% init_data.num = 2; 
-% init_data.dat = '500';
-%% input case == 3; import face-vtx from *.mat file
-init_data.num = 3; 
+init_data.num = 2; 
 init_data.dat = '300';
+%% input case == 3; import face-vtx from *.mat file
+% init_data.num = 3; 
+% init_data.dat = '300';
 %% target case == 1; random conformal factor (on vtx) deformation
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
-target_data.num = 2;
+% target_data.num = 2;
 % target_data.dat = @(v) abs(Y32(v));
-target_data.dat = @(v) abs(Y33(v));
+% target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
+target_data.num = 3;
 % target_data.dat = 'bunny';
+target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
@@ -45,9 +46,7 @@ target_data.dat = @(v) abs(Y33(v));
 % target_data.D_T = D_s';
 %% testing time
 % for pert = [.5:.1:.8 1 1.5 2]
-% for numeig = [.1:.1:1]
-% for numeig = [.016:.016:.083]
-for numeig = [.019:.003:.045]
+% for numeig = [.016 .019 .022 .025 .028 .032 .034 .037 .04 .044 .048 .064 .08 .1:.1:1]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
@@ -75,4 +74,4 @@ for numeig = [.019:.003:.045]
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
   diary off;
-end
+% end

@@ -1155,3 +1155,89 @@ than <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.
 Optimization Metric                                            Options
 relative norm(gradient) =   9.78e-08                  TolFun =   1e-07 (selected)
 
+flow iter#1; |dv| = 4.92506
+flow iter#2; |dv| = 1.23732
+flow iter#3; |dv| = 1.49235
+flow iter#4; |dv| = 1.96522
+flow iter#5; |dv| = 1.60902
+flow iter#6; |dv| = 0.88346
+flow iter#7; |dv| = 0.254792
+flow iter#8; |dv| = 0.26152
+flow iter#9; |dv| = 0.369201
+flow iter#10; |dv| = 0.312229
+flow iter#11; |dv| = 0.186444
+flow iter#12; |dv| = 0.0692117
+flow iter#13; |dv| = 0.0292212
+flow iter#14; |dv| = 0.053682
+flow iter#15; |dv| = 0.0524809
+flow iter#16; |dv| = 0.0356872
+flow iter#17; |dv| = 0.0166984
+flow iter#18; |dv| = 0.00614212
+flow iter#19; |dv| = 0.00883343
+flow iter#20; |dv| = 0.00980038
+flow iter#21; |dv| = 0.0080425
+flow iter#22; |dv| = 0.00586178
+flow iter#23; |dv| = 0.00487326
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1        0.0474049                       0.00224
+     1           4        0.0257114             91        0.00118  
+     2           6        0.0107039            0.5       0.000911  
+     3           7       0.00136665              1       0.000287  
+     4           8      0.000805465              1        0.00132  
+     5           9      7.42014e-05              1       4.25e-05  
+     6          10      1.86329e-05              1        5.5e-05  
+     7          11      8.90509e-06              1       4.23e-05  
+     8          12      4.66152e-06              1       2.58e-05  
+     9          13      2.30719e-06              1       1.48e-05  
+    10          14      5.91115e-07              1        1.8e-05  
+    11          15      1.16214e-07              1       1.06e-05  
+    12          16      1.75911e-09              1       8.08e-07  
+    13          17      2.72389e-11              1       1.78e-07  
+    14          18      6.91799e-13              1       2.13e-08  
+    15          19      3.95602e-16              1       2.03e-10  
+    16          20      4.61392e-19              1        1.7e-11  
+
+Optimization completed: The <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'first_order_opt_unc','CSHelpWindow');">first-order optimality measure</a>, 1.691366e-11, is less 
+than <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'tolfun','CSHelpWindow');">options.TolFun</a> = 1.000000e-10.
+
+Optimization Metric                                            Options
+relative norm(gradient) =   1.69e-11                  TolFun =   1e-10 (selected)
+
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1         0.204788                        0.0384
+     1           2         0.160616              1         0.0201  
+     2           3         0.115032              1         0.0418  
+     3           4        0.0812669              1         0.0359  
+     4           5        0.0539409              1         0.0308  
+     5           6        0.0429337              1         0.0257  
+     6           7        0.0357489              1         0.0251  
+     7           8        0.0321973              1         0.0159  
+     8           9        0.0289481              1         0.0117  
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp.remoteparfor/addFinalInterval', '/usr/local/MATLAB/R2015a/toolbox/distcomp/distcomp/+distcomp/remoteparfor.m', 99)" style="font-weight:bold">distcomp.remoteparfor/addFinalInterval</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/distcomp/distcomp/+distcomp/remoteparfor.m',99,0)">line
+99</a>)
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', '/usr/local/MATLAB/R2015a/toolbox/matlab/lang/parallel_function.p', 806)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/lang/parallel_function.p',806,0)">line 806</a>)
+        noLoopErrorDetected = P.addFinalInterval(j+i, {});
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', '/usr/local/MATLAB/R2015a/toolbox/matlab/lang/parallel_function.p', 587)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/matlab/lang/parallel_function.p',587,0)">line 587</a>)
+        R = distributed_execution(...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('conformalcost', '/home/ultimate/invspec/mcode/conformalcost.m', 33)" style="font-weight:bold">conformalcost</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/conformalcost.m',33,0)">line 33</a>)
+  parfor vi = 1:numv
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main>@(v)conformalcost(v,isedge,elsq_end)', '/home/ultimate/invspec/mcode/main.m', 115)" style="font-weight:bold">main>@(v)conformalcost(v,isedge,elsq_end)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',115,0)">line 115</a>)
+test = @(v) conformalcost(v,isedge,elsq_end);
+In lineSearch>bracketingPhase (line 153)
+
+
+In lineSearch (line 64)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminusub', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m', 202)" style="font-weight:bold">fminusub</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/private/fminusub.m',202,0)">line 202</a>)
+    [alpha,f,grad,exitflagLnSrch,funcCountLnSrch,faultTolStruct] = ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 445)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',445,0)">line 445</a>)
+   [x,FVAL,GRAD,HESSIAN,EXITFLAG,OUTPUT] = fminusub(funfcn,x, ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 118)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',118,0)">line 118</a>)
+[vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 62)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',62,0)">line 62</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+diary off

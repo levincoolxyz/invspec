@@ -1,0 +1,9 @@
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('horzcat')" style="font-weight:bold">horzcat</a>
+The following error occurred converting from char to function_handle:
+Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('function_handle')" style="font-weight:bold">function_handle</a>
+Too many output arguments.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 69)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',69,0)">line 69</a>)
+    if exist([target_data.dat '.mat'],'file')
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 63)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',63,0)">line 63</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+test_script

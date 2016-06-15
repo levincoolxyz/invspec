@@ -89,7 +89,8 @@ else
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig);
 end
 %% initial conformal factors guess
-s0 = exp(-zeros(numv,1));
+% s0 = exp(-zeros(numv,1));
+s0 = zeros(numv,1); % if using log-conformal factors
 %% MIEP2 via naive gradient descent
 test = @(s) eigencost(s,M,L,D_T,numeig);
 options = optimset('GradObj','on','display','iter-detailed',...
@@ -101,8 +102,27 @@ options = optimset('GradObj','on','display','iter-detailed',...
 
 % s = s_T; J_hist = [];
 
-s_end = s(:,end);
+s_end = exp(s(:,end)); % if using log-conformal factors
+% s_end = s(:,end);
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
+%% record descent conformal changes
+% figure(); view(3); grid on; axis equal
+% h = trisurf(f,v(:,1),v(:,2),v(:,3),s(:,1),...
+%   'facecolor','interp','edgecolor','none');
+% vlim = max(max(abs(v)));
+% vlim = [-vlim vlim];
+% hh = gca;
+% set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+% xlabel('x'); ylabel('y'); zlabel('z');
+% colormap jet;
+% for i=[1:9 10:10:100 200:100:numel(s,2)];
+% h.CData = s(:,i);
+% hh.View = hh.View + [-5 5];
+% hgexport(gcf,num2str(i,'descendence%5d.png'),...
+%   hgexport('factorystyle'), 'Format', 'png');
+% end
+% unix('convert -delay 50 -loop 0 descendence*.png descendence.gif');
+% unix('rm -f descendence*.png');
 %% debug error checking
 % figure();plot(s_T);hold all;plot(s0);plot(s_end,'x')
 % figure();plot(D_T);hold all;plot(D_0);plot(D_endp,'x')

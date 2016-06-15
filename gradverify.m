@@ -7,6 +7,7 @@ numv = size(v,1);
 D_Tf = eigvf(L_T,M_T,numv);
 
 s = .5*rand(numv,1)+.75;
+s = log(s);
 D_Sf = eigvf(L,diag(1./s)*M,numv);
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]

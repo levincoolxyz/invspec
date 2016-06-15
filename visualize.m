@@ -68,6 +68,7 @@ title('resultant mesh');
 
 numeig = numel(D_T);
 [M,L] = lapbel(v,f);
+D0 = eigvf(L,M,size(v,1));
 D_MCF = eigvf(L,diag(1./s_T)*M,size(v,1));
 [M_T,L_T] = lapbel(v_T,f_T);
 D_T = eigvf(L_T,M_T,size(v,1));
@@ -84,6 +85,7 @@ subplot(2,4,5:8); hold all; grid on;
 v0 = (D_MCF - D_T)./D_T;
 v1 = (D_endp - D_T)./D_T;
 v2 = (D_end - D_T)./D_T;
+v3 = (D0 - D_T)./D_T;
 
 % linear absolute error plot
 % plot((D_endp - D_T),'k+-','linewidth',2);
@@ -105,6 +107,7 @@ v2 = (D_end - D_T)./D_T;
 plot(abs(v0(1:end-1)),'b--','linewidth',2);
 plot(abs(v1(1:end-1)),'k-','linewidth',2);
 plot(abs(v2(1:end-1)),'ro');
+plot(abs(v3(1:end-1)),'g--','linewidth',2);
 set(gca,'yscale','log');
 c1 = 0;
 c2 = 0.18;
