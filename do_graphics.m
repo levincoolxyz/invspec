@@ -16,13 +16,13 @@ for i = 1:size(datalist{1},1)
 end
 
 %% two gifs
-% unix('mv i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
-% unix('mv i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
-% unix('convert -delay 100 -loop 0 i2_300_t2_abs\(Y32\(v\)\)_e*.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
-% unix('mv i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
-% unix('mv i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
-% unix('convert -delay 100 -loop 0 i3_300_t2_abs\(Y32\(v\)\)_e*.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
-unix('mv i3_300_t2_abs\(Y33\(v\)\)_e1p0.5.png i3_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
-unix('convert -delay 100 -loop 0 i3_300_t2_abs\(Y33\(v\)\)_e*.png i3_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
-unix('mv i2_300_t2_abs\(Y33\(v\)\)_e1p0.5.png i2_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
-unix('convert -delay 100 -loop 0 i2_300_t2_abs\(Y33\(v\)\)_e*.png i2_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
+unix('mv Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.png Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
+unix('mv Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.png Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
+unix('convert -delay 100 -loop 0 Y32/i2_300_t2_abs\(Y32\(v\)\)_e*.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
+unix('mv Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.png Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
+unix('mv Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.png Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
+unix('convert -delay 100 -loop 0 Y32/i3_300_t2_abs\(Y32\(v\)\)_e*.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
+unix('mv Y33/i3_300_t2_abs\(Y33\(v\)\)_e1p0.5.png Y33/i3_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
+unix('convert -delay 100 -loop 0 Y33/i3_300_t2_abs\(Y33\(v\)\)_e*.png i3_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
+unix('mv Y33/i2_300_t2_abs\(Y33\(v\)\)_e1p0.5.png Y33/i2_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
+unix('convert -delay 100 -loop 0 Y33/i2_300_t2_abs\(Y33\(v\)\)_e*.png i2_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
