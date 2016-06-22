@@ -81,6 +81,8 @@ else
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
     [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+    f = f_T;
+    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
   end
   
   [M_T,L_T] = lapbel(v_T,f_T);

@@ -10,10 +10,10 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 % imax = 1e4; % gradient descent maximum iterations
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; tC = 10; etolC = 1e-7; % Conformal descent control
-aS = .7; bS = .7; tS = 10; etolS = 1e-10; % invSpec descent control
+aS = .7; bS = .7; tS = 10; etolS = 1e-11; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = 7; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
+numeig = 40; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 %% input case == 1; import face-vtx from *.obj file
@@ -32,13 +32,13 @@ init_data.dat = '300';
 % target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
+target_data.num = 3;
 % target_data.dat = 'bunny';
 % target_data.dat = 'bunny326';
-% target_data.dat = 'spot487';
+target_data.dat = 'spot487';
 %% target case == 3; import face-vtx from *.mat file
-target_data.num = 4;
-target_data.dat = 'cow20';
+% target_data.num = 4;
+% target_data.dat = 'cow20';
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
 % target_data.dat = 'D-T';

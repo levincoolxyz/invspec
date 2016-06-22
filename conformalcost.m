@@ -1,4 +1,15 @@
 function varargout = conformalcost(v,isedge,elsq_T)
+% function [J,GJ] = conformalcost(v,isedge,elsq_T)
+% 
+% INPUT
+% v      - (numv x 3) vertex position coordiantes
+% isedge - (nume x 1) linear indices of connected edges in mesh
+% elsq_T - (nume x 1) target edge lengths
+% OUTPUT
+% J      - cost
+% GJ     - gradient
+% 
+
 %% initialization
 v = reshape(v,3,[])';
 numv = size(v,1); % number of vertices
