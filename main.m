@@ -1,11 +1,11 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeig,pert)
+  numeig,pert,reg)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
 %   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-%   numeig,pert)
+%   numeig,pert,reg)
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% initial mesh
@@ -94,13 +94,13 @@ end
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log-conformal factors
 %% MIEP2 via naive gradient descent
-test = @(s) eigencost(s,M,L,D_T,numeig);
+test = @(s) eigencost(s,M,L,D_T,numeig,reg);
 options = optimset('GradObj','on','display','iter-detailed',...
   'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
 [s,J_hist] = fminunc(test,s0,options);
 
 % [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-%   s0,M,L,D_T,numeig);
+%   s0,M,L,D_T,numeig,reg);
 
 % s = s_T; J_hist = [];
 

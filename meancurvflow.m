@@ -18,7 +18,7 @@ if (nargin<3) || isempty(h), h = 1; end
 if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
 if (nargin<5) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
 if (nargin<6) || isempty(M0), M0 = lapbel(v0,f0); end
-if (nargin<7) || isempty(imax), imax = 100; end
+if (nargin<7) || isempty(imax), imax = 1e3; end
 
 % close all;
 numv = size(v0,1);
@@ -78,7 +78,7 @@ while iter<=imax
   dv = vdiff(v,vold);
   fprintf('flow iter#%d; |dv| = %g\n',iter,dv);
   iter = iter + 1;
-  if abs(sphericity_old - sphericity) <= 1e-5
+  if abs(sphericity_old - sphericity) <= 1e-4
     break;
   end
   if sphericity > 2

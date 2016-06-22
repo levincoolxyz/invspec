@@ -1,15 +1,16 @@
 close all;
-[~,datalist] = unix('basename -s .mat -a Y33/*.mat');
+folder = 'cow';
+[~,datalist] = unix(['basename -s .mat -a ' folder '/*.mat']);
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');
 for i = 1:size(datalist{1},1)
 % while size(token,1)>=1
   s_end = []; s_T = []; % backward compatiability
   token = char(datalist{1}(i));
-  load([token '.mat']);
+  load([folder '/' token '.mat']);
   figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
     J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
-  hgexport(figh,[token '.png'],...
+  hgexport(figh,[folder '/' token '.png'],...
       hgexport('factorystyle'), 'Format', 'png');
 %   [token,remain] = strtok(remain);
  close all;

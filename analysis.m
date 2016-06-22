@@ -136,11 +136,16 @@ rng(1432543); % rand seed
   view([-20 80])
   
   subplot(2,3,4:6); hold all; grid on;
+  % reverse log index
+  % rli = 1:1:size(v,1)-1;
+  rli = size(v,1):-1:2;
+  
   v = (D_c - D_T)./D_T;
-  plot(v(1:end-1),'ro:','linewidth',2);
+  plot(rli, v(1:end-1),'ro:','linewidth',2);
   legend('(\lambda_{cMCF embed} - \lambda_{0})/\lambda_{0}',...
-    'location','northwest');
-  xlabel('# of eigenvalues (#1 is of the highest frequency)');
+    'location','southeast');
+  % xlabel('# of eigenvalues (in descending magnitudes)');
+  xlabel('# of eigenvalues (in ascending magnitudes)');
   title('Deviation from target Laplacian eigenvalues');
 
   fig = gcf;

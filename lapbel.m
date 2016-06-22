@@ -17,7 +17,7 @@ sparselim = 1600;
 %% cot of angle at x and dual area associated to x in each face 
 cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
 % dualA = @(x,y,z) (((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x))/8;
-dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6;
+dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6; %barycentric
 %% construction (naive, way too many calls to @cotan)
 if (nargout > 1)
   if numv > sparselim

@@ -38,6 +38,7 @@ else
   title('target mesh');
 end
 
+crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; view(3); grid on; axis equal
 trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
   'facecolor','interp','edgecolor','none');
@@ -46,6 +47,8 @@ vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spherical/cMCF mesh');
+caxis(crange);
+colorbar('southoutside')
 
 subplot(2,4,3); hold all; view(3); grid on; axis equal
 trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
@@ -55,6 +58,8 @@ vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spectrally opt. mesh');
+caxis(crange);
+colorbar('southoutside')
 
 subplot(2,4,4); hold all; view(3); grid on; axis equal
 trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
@@ -103,21 +108,28 @@ v3 = (D0 - D_T)./D_T;
 % c2 = 0;
 % legendpos = 'northwest';
 
+% reverse log index
+% rli = 1:1:size(v,1)-1;
+rli = size(v,1):-1:2;
+
 % log relative error plot
-plot(abs(v0(1:end-1)),'b--','linewidth',2);
-plot(abs(v1(1:end-1)),'k-','linewidth',2);
-plot(abs(v2(1:end-1)),'ro');
-plot(abs(v3(1:end-1)),'g--','linewidth',2);
+plot(rli, abs(v0(1:end-1)),'b--','linewidth',2);
+plot(rli, abs(v1(1:end-1)),'k-','linewidth',2);
+plot(rli, abs(v2(1:end-1)),'ro');
+plot(rli, abs(v3(1:end-1)),'g--','linewidth',2);
 set(gca,'yscale','log');
+set(gca,'xscale','log');
 c1 = 0;
 c2 = 0.18;
-legendpos = 'southwest';
+% legendpos = 'southwest';
+legendpos = 'southeast';
 
 legend('(\lambda_{cMCF} - \lambda_{target})/\lambda_{target}',...
   '(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
   '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
   'location',legendpos);
-xlabel('# of eigenvalues (#1 is of largest magnitude)');
+% xlabel('# of eigenvalues (in descending magnitudes)');
+xlabel('# of eigenvalues (in ascending magnitudes)');
 title('Deviation from target Laplacian eigenvalues');
 
 fig = gcf;
@@ -127,11 +139,12 @@ else
   ax = gca;
 end
 pause(.1);
-set(ax,'xlim',[1 numel(D_T)])
+set(ax,'xlim',[2 numel(D_T)])
 xm = get(ax,'xlim');
 ym = get(ax,'ylim');
 ym = [ym(1) 2]; set(ax,'ylim',ym);
-text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
+% text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
+text(floor(max(xm)^.4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end), ...
   numeig],...
   ['iter#%d: J_{MIEP2} = %g     ',...
