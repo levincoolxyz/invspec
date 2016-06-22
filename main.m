@@ -17,18 +17,18 @@ if target_data.num ~= 3
 
   % sphere of chosen size
   elseif init_data.num == 2
-    if exist([init_data.dat '.mat'],'file')
-      load([init_data.dat '.mat']);
+    if exist(['../meshes/' init_data.dat '.mat'],'file')
+      load(['../meshes/' init_data.dat '.mat']);
     else
       ssize = str2num(init_data.dat);
       v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
       f = fliplr(convhulln(v));
-      save([init_data.dat '.mat'],'f','v');
+      save(['mcf/' init_data.dat '.mat'],'f','v');
     end
 
   % load face-vertex from *.mat
   elseif init_data.num == 3
-    load(init_data.dat);
+    load(['../meshes/' init_data.dat]);
   end
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
@@ -66,8 +66,8 @@ else
 
   % import wavefront object file
   elseif target_data.num == 3
-    if exist([target_data.dat '.mat'],'file')
-      load([target_data.dat '.mat']);
+    if exist(['mcf/' target_data.dat '.mat'],'file')
+      load(['mcf/' target_data.dat '.mat']);
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
@@ -76,14 +76,14 @@ else
     end
     f = f_T;
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-  end
 
-  [M_T,L_T] = lapbel(v_T,f_T);
-  % sparsify if large enough
-  if numv>=500
-      L_T = sparse(L_T);
-      M_T = sparse(M_T);
+  % load face-vertex from *.mat
+  elseif target_data.num == 4
+    load(['../meshes/' target_data.dat]);
+    [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
   end
+  
+  [M_T,L_T] = lapbel(v_T,f_T);
   D_T = eigvf(L_T,M_T,numeig);
 
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig);
@@ -174,10 +174,5 @@ end
 elsq0 = nonzeros(elsq0);
 %% compute laplacian
 [M,L] = lapbel(v,f);
-% sparsify if large enough
-if numv>=500
-    L = sparse(L);
-    M = sparse(M);
-end
 D_0 = eigvf(L,M,numeig);
 end

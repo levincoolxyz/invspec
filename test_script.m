@@ -32,10 +32,13 @@ init_data.dat = '300';
 % target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-target_data.num = 3;
+% target_data.num = 3;
 % target_data.dat = 'bunny';
-target_data.dat = 'bunny326';
+% target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
+%% target case == 3; import face-vtx from *.mat file
+target_data.num = 4;
+target_data.dat = 'cow20';
 %% target case == 4; prescribed eigenvalue target
 % target_data.num = 4;
 % target_data.dat = 'D-T';

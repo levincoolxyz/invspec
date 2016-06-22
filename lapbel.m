@@ -13,17 +13,24 @@ function varargout = lapbel(v,f)
 
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
+sparselim = 1600;
 %% cot of angle at x and dual area associated to x in each face 
 cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
 % dualA = @(x,y,z) (((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x))/8;
 dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6;
 %% construction (naive, way too many calls to @cotan)
 if (nargout > 1)
-  L = zeros(numv);
-%   L = spalloc(numv,numv,6*numv);
+  if numv > sparselim
+    L = spalloc(numv,numv,7*numv);
+  else
+    L = zeros(numv);
+  end
 end
-M = zeros(numv);
-% M = spalloc(numv,numv,numv);
+if numv > sparselim
+  M = spalloc(numv,numv,numv);
+else
+  M = zeros(numv);
+end
 for fi=1:numf
   for idx = 0:2
     i = f(fi,idx+1);

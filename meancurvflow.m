@@ -1,5 +1,5 @@
-function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0)
-% function [s,v] = meancurvflow(v0,f0,h,type,L0,M0)
+function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax)
+% function [s,v] = meancurvflow(v0,f0,h,type,L0,M0,imax)
 % Mean Curvature Flow of discrete surfaces
 % 
 % INPUTS
@@ -7,6 +7,7 @@ function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0)
 % h        - step size of the flow
 % type     - type of flow wanted ('t','c','a')
 % L0,M0    - precomupted initial Laplace-Beltrami operator (optional)
+% imax     - iteration limit
 % 
 % OUTPUTS
 % s        - resultant conformal factors
@@ -15,10 +16,11 @@ function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0)
 
 if (nargin<3) || isempty(h), h = 1; end
 if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
-if (nargin<6) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
+if (nargin<5) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
+if (nargin<6) || isempty(M0), M0 = lapbel(v0,f0); end
+if (nargin<7) || isempty(imax), imax = 100; end
 
 % close all;
-imax = 100; % it should be done within 20-40 steps
 numv = size(v0,1);
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 vdiff = @(v,vold) norm(vnorm(v - vold));
@@ -86,10 +88,11 @@ while iter<=imax
   sphericity_old = sphericity;
 end
 
-% s = diag(inv(M)*M0);
-s = 1./diag(M\M0);
+% s = 1./diag(M\M0);
+% s = diag(M0\M);
+s = diag(M)./diag(M0);
 
-% unix(['convert -delay 10 -loop 0 mcf*.png mcf' num2str(h,'%g') '.gif']);
+% unix(['convert -delay 10 -loop 0 mcf*.png mcf/mcf' num2str(h,'%g') '.gif']);
 % unix('rm mcf*.png');
 
 end

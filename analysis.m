@@ -59,69 +59,6 @@ rng(1432543); % rand seed
 % %   'with different mesh refinement']);
 % % saveas(gcf,'Y32_spectrum.png');
 % 
-%% compare mesh refinement on sphere spectrum
-% close all;
-% D_s = [];
-% for l = 0:9
-%     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
-% end
-% figure(); hold all; grid on;
-% for i = 1:size(D,2)
-%   plot(D(:,i))
-% end
-% plot(D_s)
-% legend('100','200','300','400','500','600','700','800','900','1E3',...
-%   'theoretical','location','best');
-% xlabel('# of eigenvalues'); ylabel('Eigenvalue of M^{-1}L');
-% title('First 100 eigenvalues of sphere');
-% saveas(gcf,'sphere_spectrum.png');
-% 
-%% compare sphere spectrum on fine mesh
-% close all;
-% numeig = 1024;
-% D_s = [];
-% for l = 0:31
-%     D_s = [repmat(-l*(l+1),1,2*l+1), D_s];
-% end
-% 
-% % filename = 'sphere_large';
-% % fid = fopen(['../meshes/' filename '.obj'],'rt');
-% % [v,f] = readwfobj(fid);
-% % [M,L] = lapbel(v,f);
-% % L = sparse(L);
-% % M = sparse(M);
-% % D = sort(eigs(L,M,numeig,-1e-6));
-% 
-% load fine_sphere_spec
-% 
-% load 300
-% [M,L] = lapbel(v,f);
-% D300 = eigvf(L,M,numeig);
-% D300 = [nan(numeig-numel(D300),1);D300];
-% 
-% load 500
-% [M,L] = lapbel(v,f);
-% D500 = eigvf(L,M,numeig);
-% D500 = [nan(numeig-numel(D500),1);D500];
-% 
-% % v = ParticleSampleSphere('Vo',RandSampleSphere(numeig));
-% % f = fliplr(convhulln(v));
-% % [M,L] = lapbel(v,f);
-% % D1024 = eigvf(L,M,numeig);
-% 
-% figure(); hold all; grid on;
-% plot(abs((D300-D_s')./D_s')*100);
-% plot(abs((D500-D_s')./D_s')*100);
-% % plot(abs((D1024-D_s')./D_s')*100);
-% plot(abs((D-D_s')./D_s')*100);
-% ym = get(gca,'ylim');
-% set(gca,'xlim',[0 1024],'ylim',[0 ym(2)],'yscale','log'); 
-% % legend('300','500','1024','40962','location','southwest');
-% legend('300','500','40962','location','southwest');
-% title('Relative eigenvalue differences');
-% xlabel('# of eigenvalues'); ylabel('[%]');
-% saveas(gcf,'sphere_spectrum_2.png');
-
 %% cMCF debug
 %   load i2_500_t2_abs(Y33(v))_e0.5p0.512.mat
 %   numeig = ceil(.5*numv);

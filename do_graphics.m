@@ -1,5 +1,5 @@
 close all;
-[~,datalist] = unix('basename -s .mat -a i3*Y33*.mat');
+[~,datalist] = unix('basename -s .mat -a Y33/*.mat');
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');
 for i = 1:size(datalist{1},1)
