@@ -57,14 +57,10 @@
 <a id="testing-procedures" class="anchor" href="#testing-procedures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing Procedures</h3>
 
 <ol>
-<li>(conformalized) mean curvature flow of target mesh onto a spherical mesh with a target set of conformal factors</li>
-</ol>
-
-<p>to do: rescale volume? spectral convergence?</p>
-
-<ol>
-<li><p>descent search for some conformal factors that optimize spectral similarity</p></li>
-<li><p>fit conformal factors on sphere back to a resulting mesh that optimize edge lengths targets from the factors</p></li>
+<li><p>use conformalized mean curvature flow (cMCF) to get a spherical mesh with a target set of conformal factors from a target mesh</p></li>
+<li><p>use BFGS descent search for some conformal factors that achieve a spectrum similar to the one desired</p></li>
+<li><p>embed the metric to a resulting mesh from the sphere by optimizing edge lengths obtained from the factors</p></li>
+<li><p>compare with the target mesh, target spectrum, and cMCF conformal factors</p></li>
 </ol>
 
 <h3>
