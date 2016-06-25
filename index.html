@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <meta name="description" content="Invspec : 2d discrete inverse spectral problem">
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Invspec by levincoolxyz</title>
+    <title>Invspec</title>
   </head>
 
   <body>
-    <header>
-      <div class="inner">
-        <h1>Invspec</h1>
-        <h2>2d discrete inverse spectral problem</h2>
-        <a href="https://github.com/levincoolxyz/invspec" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/levincoolxyz/invspec">View on GitHub</a>
+
+          <h1 id="project_title">Invspec</h1>
+          <h2 id="project_tagline">2d discrete inverse spectral problem</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/levincoolxyz/invspec/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/levincoolxyz/invspec/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
 <a id="2d-discrete-inverse-spectral-problem" class="anchor" href="#2d-discrete-inverse-spectral-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2D Discrete Inverse Spectral Problem</h1>
 
 <h3>
 <a id="goal" class="anchor" href="#goal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Goal</h3>
 
-<p>To calculate an approximate solution to the classic (Laplace-Beltrami) inverse spectral problem for discrete surfaces (genus 0 for now).</p>
+<p>To calculate an approximate solution to the classic (Laplace-Beltrami) inverse spectral problem for discrete (genus 0) surfaces.</p>
 
 <h3>
 <a id="content" class="anchor" href="#content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Content</h3>
@@ -48,13 +51,13 @@
 
 <p>Project envisioned, advised, and supervised by <strong>Prof. Etienne Vouga</strong> and <strong>Prof. Keenan Crane</strong></p>
 
-<p>Some codes here (on (sphere) meshes optimization and a demo of spherical harmonics) are not mine.</p>
+<p>Some codes here (on meshes optimization and a demo of spherical harmonics) are not mine.</p>
 
 <h3>
-<a id="procedures-tentative" class="anchor" href="#procedures-tentative" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procedures (tentative)</h3>
+<a id="testing-procedures" class="anchor" href="#testing-procedures" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing Procedures</h3>
 
 <ol>
-<li>(conformalized) mean curvature flow of target mesh onto "spherical" mesh with a target set of conformal factors</li>
+<li>(conformalized) mean curvature flow of target mesh onto a spherical mesh with a target set of conformal factors</li>
 </ol>
 
 <p>to do: rescale volume? spectral convergence?</p>
@@ -79,26 +82,30 @@
 
 <p>Tests with bunny</p>
 
-<p><em>coming soon</em></p>
-        </section>
+<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png" alt="bun#1" title="classic bunny as target with some regularization"></p>
 
-        <aside id="sidebar">
-          <a href="https://github.com/levincoolxyz/invspec/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/levincoolxyz/invspec/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+<p><em>more coming soon</em></p>
 
-          <p class="repo-owner"><a href="https://github.com/levincoolxyz/invspec"></a> is maintained by <a href="https://github.com/levincoolxyz">levincoolxyz</a>.</p>
+<h3>
+<a id="ways-to-go" class="anchor" href="#ways-to-go" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ways to go</h3>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+<ol>
+<li><p>in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)</p></li>
+<li><p>in practice high frequencies might be prohibitively noiser</p></li>
+<li><p>how to tell topology beforehand?</p></li>
+</ol>
+      </section>
     </div>
 
-  
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Invspec maintained by <a href="https://github.com/levincoolxyz">levincoolxyz</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
