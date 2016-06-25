@@ -30,6 +30,10 @@ to do: rescale volume? spectral convergence?
 Aiming for cMCF spectrum instead
 ![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
+Tests with Spot the cow
+
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t3_spot1k_e1p0.5r0.1.png "Spot the cow as target with some regularization")
+
 Tests with bunny
 
 *coming soon*
