@@ -14,13 +14,13 @@ Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Pro
 Some codes here (on meshes optimization and a demo of spherical harmonics) are not mine.
 
 ### Testing Procedures
-1. (conformalized) mean curvature flow of target mesh onto a spherical mesh with a target set of conformal factors
+1. use conformalized mean curvature flow (cMCF) to get a spherical mesh with a target set of conformal factors from a target mesh
 
-to do: rescale volume? spectral convergence?
+2. use BFGS descent search for some conformal factors that achieve a spectrum similar to the one desired
 
-2. descent search for some conformal factors that optimize spectral similarity
+3. embed the metric to a resulting mesh from the sphere by optimizing edge lengths obtained from the factors
 
-3. fit conformal factors on sphere back to a resulting mesh that optimize edge lengths targets from the factors
+4. compare with the target mesh, target spectrum, and cMCF conformal factors
 
 ### Results
 
