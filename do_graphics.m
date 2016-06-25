@@ -1,5 +1,5 @@
 close all;
-folder = 'cow';
+folder = 'Y32';
 [~,datalist] = unix(['basename -s .mat -a ' folder '/*.mat']);
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');

@@ -69,7 +69,7 @@ else
     if exist(['mcf/' target_data.dat '.mat'],'file')
       load(['mcf/' target_data.dat '.mat']);
     else
-      fid = fopen(['mcf/' target_data.dat '.obj'],'rt');
+      fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
