@@ -13,7 +13,7 @@ aC = .5; bC = .8; tC = 10; etolC = 1e-7; % Conformal descent control
 aS = .7; bS = .7; tS = 10; etolS = 1e-8; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = 1; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
+numeig = .95; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 reg = 0; % regularization coefficient
@@ -52,7 +52,7 @@ target_data.dat = 'bunny2k';
 %% testing time
 % for pert = [.5:.1:.8 1 1.5 2]
 % for numeig = [.016 .019 .022 .025 .028 .032 .034 .037 .04 .044 .048 .064 .08 .1:.1:1]
-for reg = .1 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
+for reg = .05 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);

@@ -1,7 +1,7 @@
 # 2D Discrete Inverse Spectral Problem
 
 ### Goal 
-To calculate an approximate solution to the classic (Laplace-Beltrami) inverse spectral problem for discrete surfaces (genus 0 for now).
+To calculate an approximate solution to the classic (Laplace-Beltrami) inverse spectral problem for discrete (genus 0) surfaces.
 
 ### Content
 Included is a suite of MATLAB codes implementing the naive direct gradient descent approach.
@@ -11,10 +11,10 @@ test_script.m is the top-level script that generates results.
 ### People
 Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Prof. Keenan Crane**
 
-Some codes here (on (sphere) meshes optimization and a demo of spherical harmonics) are not mine.
+Some codes here (on meshes optimization and a demo of spherical harmonics) are not mine.
 
-### Procedures (tentative)
-1. (conformalized) mean curvature flow of target mesh onto "spherical" mesh with a target set of conformal factors
+### Testing Procedures
+1. (conformalized) mean curvature flow of target mesh onto a spherical mesh with a target set of conformal factors
 
 to do: rescale volume? spectral convergence?
 
@@ -36,4 +36,14 @@ Tests with Spot the cow
 
 Tests with bunny
 
-*coming soon*
+![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png "classic bunny as target with some regularization")
+
+*more coming soon*
+
+### Ways to go
+
+1. in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
+
+2. in practice high frequencies might be prohibitively noiser
+
+3. how to tell topology beforehand?
