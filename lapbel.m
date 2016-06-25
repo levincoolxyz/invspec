@@ -19,35 +19,39 @@ cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
 % dualA = @(x,y,z) (((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x))/8;
 dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6; %barycentric
 %% construction (naive, way too many calls to @cotan)
+if numv > sparselim
+  M = spalloc(numv,numv,numv);
+else
+  M = zeros(numv);
+end
 if (nargout > 1)
   if numv > sparselim
     L = spalloc(numv,numv,7*numv);
   else
     L = zeros(numv);
   end
-end
-if numv > sparselim
-  M = spalloc(numv,numv,numv);
-else
-  M = zeros(numv);
-end
-for fi=1:numf
-  for idx = 0:2
-    i = f(fi,idx+1);
-    j = f(fi,mod(idx+1,3)+1);
-    k = f(fi,mod(idx+2,3)+1);
-    if (nargout > 1)
+  for fi=1:numf
+    for idx = 0:2
+      i = f(fi,idx+1);
+      j = f(fi,mod(idx+1,3)+1);
+      k = f(fi,mod(idx+2,3)+1);
       L(i,k) = L(i,k) + .5*cotan(v(j,:)',v(k,:)',v(i,:)');
       L(i,i) = L(i,i) - .5*cotan(v(j,:)',v(k,:)',v(i,:)');
       L(i,j) = L(i,j) + .5*cotan(v(k,:)',v(i,:)',v(j,:)');
       L(i,i) = L(i,i) - .5*cotan(v(k,:)',v(i,:)',v(j,:)');
+      M(i,i) = M(i,i) + dualA(v(i,:)',v(j,:)',v(k,:)');
     end
-    M(i,i) = M(i,i) + dualA(v(i,:)',v(j,:)',v(k,:)');
   end
-end
-if (nargout <= 1)
-  varargout{1} = M;
-else
   varargout{1} = M;
   varargout{2} = L;
+else
+  for fi=1:numf
+    for idx = 0:2
+      i = f(fi,idx+1);
+      j = f(fi,mod(idx+1,3)+1);
+      k = f(fi,mod(idx+2,3)+1);
+      M(i,i) = M(i,i) + dualA(v(i,:)',v(j,:)',v(k,:)');
+    end
+  end
+  varargout{1} = M;
 end

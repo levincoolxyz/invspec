@@ -24,6 +24,7 @@ v_end = dcmrot(v_end,dcm_end);
 
 figh = figure(); set(gcf,'outerposition',[0, 0, 1920, 1080]);
 %% compare mesh
+vlim = [];
 if isempty(v_T)
   subplot(2,4,1);
   title('target spectrum');
@@ -37,6 +38,14 @@ else
   xlabel('x'); ylabel('y'); zlabel('z');
   title('target mesh');
 end
+
+subplot(2,4,4); hold all; view(3); grid on; axis equal
+trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
+vlim = max([vlim max(max(abs(v_end)))]);
+vlim = [-vlim vlim];
+set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+xlabel('x'); ylabel('y'); zlabel('z');
+title('resultant mesh');
 
 crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; view(3); grid on; axis equal
@@ -60,15 +69,6 @@ xlabel('x'); ylabel('y'); zlabel('z');
 title('spectrally opt. mesh');
 caxis(crange);
 colorbar('southoutside')
-
-subplot(2,4,4); hold all; view(3); grid on; axis equal
-trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
-vlim = max(max(abs(v_end)));
-vlim = [-vlim vlim];
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('resultant mesh');
-
 %% compare spectra
 
 numeig = numel(D_T);

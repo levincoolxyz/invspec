@@ -9,7 +9,7 @@ function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 %% initial mesh
-if target_data.num ~= 3
+if target_data.num ~= 3 && target_data.num ~= 4
   % import wavefront object file
   if init_data.num == 1
     fid = fopen(['../meshes/' init_data.dat '.obj'],'rt');
@@ -23,7 +23,7 @@ if target_data.num ~= 3
       ssize = str2num(init_data.dat);
       v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
       f = fliplr(convhulln(v));
-      save(['mcf/' init_data.dat '.mat'],'f','v');
+      save(['../meshes/' init_data.dat '.mat'],'f','v');
     end
 
   % load face-vertex from *.mat
@@ -69,10 +69,10 @@ else
     if exist(['mcf/' target_data.dat '.mat'],'file')
       load(['mcf/' target_data.dat '.mat']);
     else
-      fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
+      fid = fopen(['mcf/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
-      save([target_data.dat '.mat'],'v_T','f_T','s_T','v');
+      save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
     end
     f = f_T;
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
@@ -90,22 +90,53 @@ else
 
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig);
 end
-%% initial conformal factors guess
+%% MIEP2 via naive gradient descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log-conformal factors
-%% MIEP2 via naive gradient descent
-test = @(s) eigencost(s,M,L,D_T,numeig,reg);
-options = optimset('GradObj','on','display','iter-detailed',...
-  'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-[s,J_hist] = fminunc(test,s0,options);
+for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
+  if neig < 20, reg = 0; end
+  test = @(s) eigencost(s,M,L,D_T,neig,reg);
+  options = optimset('GradObj','on','display','iter-detailed',...
+    'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+  [s,J_hist] = fminunc(test,s0,options);
 
-% [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-%   s0,M,L,D_T,numeig,reg);
+  % [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+  %   s0,M,L,D_T,neig,reg);
 
-% s = s_T; J_hist = [];
-
-s_end = exp(s(:,end)); % if using log-conformal factors
+  % s = s_T; J_hist = [];
+  s0 = s(:,end);
+  
+%   figure(1);
+%   crange = [min([s_T;s0]) max([s_T;s0])];
+%   subplot(1,2,1); hold all; view(3); grid on; axis equal
+%   trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+%     'facecolor','interp','edgecolor','none');
+%   vlim = max(max(abs(v)));
+%   vlim = [-vlim vlim];
+%   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+%   xlabel('x'); ylabel('y'); zlabel('z');
+%   title('spherical/cMCF mesh');
+%   caxis(crange);
+%   colorbar('southoutside')
+% 
+%   subplot(1,2,2); hold all; view(3); grid on; axis equal
+%   trisurf(f,v(:,1),v(:,2),v(:,3),s0,...
+%     'facecolor','interp','edgecolor','none');
+%   vlim = max(max(abs(v)));
+%   vlim = [-vlim vlim];
+%   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+%   xlabel('x'); ylabel('y'); zlabel('z');
+%   title('spectrally opt. mesh');
+%   caxis(crange);
+%   colorbar('southoutside')
+%   
+%   colormap jet
+%   pause(.5);
+%   input('Press Enter(Return) to continue...')
+%   close(1);
+end
 % s_end = s(:,end);
+s_end = exp(s(:,end)); % if using log-conformal factors
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% record descent conformal changes
 % figure(); view(3); grid on; axis equal
@@ -134,6 +165,7 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
+% elsq_end = elsq0; % when testing / don't know if above converges in a nice fashion
 test = @(v) conformalcost(v,isedge,elsq_end);
 options = optimset('GradObj','on','display','iter-detailed',...
   'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');

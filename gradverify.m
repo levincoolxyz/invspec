@@ -1,5 +1,5 @@
 clear;
-load i2_300_t2_abs(Y33(v))_e0.1p0.5.mat
+load cow/i2_300_t4_cow03_e20p0.5r1e-05.mat
 rng(1432543); % rand seed
 numv = size(v,1);
 [M,L] = lapbel(v,f);
@@ -9,19 +9,21 @@ D_Tf = eigvf(L_T,M_T,numv);
 s = .5*rand(numv,1)+.75;
 s = log(s);
 D_Sf = eigvf(L,diag(1./s)*M,numv);
+numeig = numel(D_end);
+reg = 1e-3;
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
 for h = eps^.25
-[~,GJ] = eigencost(s,M,L,D_T,30);
+[~,GJ] = eigencost(s,M,L,D_T,numeig,reg);
 dJ = zeros(size(GJ));
 % dJim = zeros(size(GJ));
 for i = 1:numel(s)
   ds = zeros(size(s));
   ds(i) = h;
-  Jph = eigencost(s+ds,M,L,D_T,30);
-  Jmh = eigencost(s-ds,M,L,D_T,30);
+  Jph = eigencost(s+ds,M,L,D_T,numeig,reg);
+  Jmh = eigencost(s-ds,M,L,D_T,numeig,reg);
   dJ(i) = (Jph-Jmh)/2/ds(i);
-%   dJim(i) = imag(eigencost(s+complex(0,ds),M,L,D_T,20))/h;
+%   dJim(i) = imag(eigencost(s+complex(0,ds),M,L,D_T,numeig))/h;
 end
 %%
 reldiff = (dJ-GJ)./dJ;
