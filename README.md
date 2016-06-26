@@ -30,7 +30,7 @@ Some codes here (on mesh optimization and a demo of spherical harmonics) are not
 (cheating) optimize for cMCF spectrum instead
 ![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
-#Tests with Spot the cow
+####Tests with Spot the cow
 
 smoothed cow without bi-laplacian regularization
 ![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
@@ -39,7 +39,7 @@ original spot with regularization
 
 ![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t3_spot1k_e1p0.5r0.1.png "Spot as target with regularization")
 
-#Tests with bunny
+####Tests with bunny
 
 ![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png "classic bunny as target with regularization")
 
