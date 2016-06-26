@@ -104,36 +104,37 @@ for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   %   s0,M,L,D_T,neig,reg);
 
   % s = s_T; J_hist = [];
-  s0 = s(:,end);
+  s0 = s(:,end);  
+
+  figure(1); % manual inspection of conformal factors
+
+  crange = [min([s_T;s0]) max([s_T;s0])];
+  subplot(1,2,1); hold all; view(3); grid on; axis equal
+  trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+    'facecolor','interp','edgecolor','none');
+  vlim = max(max(abs(v)));
+  vlim = [-vlim vlim];
+  set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+  xlabel('x'); ylabel('y'); zlabel('z');
+  title('spherical/cMCF mesh');
+  caxis(crange);
+  colorbar('southoutside')
+
+  subplot(1,2,2); hold all; view(3); grid on; axis equal
+  trisurf(f,v(:,1),v(:,2),v(:,3),s0,...
+    'facecolor','interp','edgecolor','none');
+  vlim = max(max(abs(v)));
+  vlim = [-vlim vlim];
+  set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+  xlabel('x'); ylabel('y'); zlabel('z');
+  title('spectrally opt. mesh');
+  caxis(crange);
+  colorbar('southoutside')
   
-%   figure(1);
-%   crange = [min([s_T;s0]) max([s_T;s0])];
-%   subplot(1,2,1); hold all; view(3); grid on; axis equal
-%   trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
-%     'facecolor','interp','edgecolor','none');
-%   vlim = max(max(abs(v)));
-%   vlim = [-vlim vlim];
-%   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-%   xlabel('x'); ylabel('y'); zlabel('z');
-%   title('spherical/cMCF mesh');
-%   caxis(crange);
-%   colorbar('southoutside')
-% 
-%   subplot(1,2,2); hold all; view(3); grid on; axis equal
-%   trisurf(f,v(:,1),v(:,2),v(:,3),s0,...
-%     'facecolor','interp','edgecolor','none');
-%   vlim = max(max(abs(v)));
-%   vlim = [-vlim vlim];
-%   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-%   xlabel('x'); ylabel('y'); zlabel('z');
-%   title('spectrally opt. mesh');
-%   caxis(crange);
-%   colorbar('southoutside')
-%   
-%   colormap jet
-%   pause(.5);
-%   input('Press Enter(Return) to continue...')
-%   close(1);
+  colormap jet
+  pause(.5);
+  input('Press Enter(Return) to continue...')
+  close(1);
 end
 % s_end = s(:,end);
 s_end = exp(s(:,end)); % if using log-conformal factors

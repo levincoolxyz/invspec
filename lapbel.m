@@ -13,19 +13,19 @@ function varargout = lapbel(v,f)
 
 numv = size(v,1); % number of vertices
 numf = size(f,1); % number of faces
-sparselim = 5e2;
+sparselimit = 5e2; % above which switch to sparse matrices
 %% cot of angle at x and dual area associated to x in each face 
 cotan = @(x,y,z) (y-x)'*(z-x)./norm(cross(y-x,z-x),2);
 % dualA = @(x,y,z) (((y-x)'*(y-x))*cotan(z,x,y) + ((z-x)'*(z-x))*cotan(y,z,x))/8;
-dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6; %barycentric
+dualA = @(x,y,z) norm(cross(y-x,z-x),2)/6; % barycentric
 %% construction (naive, way too many calls to @cotan)
-if numv > sparselim
+if numv > sparselimit
   M = spalloc(numv,numv,numv);
 else
   M = zeros(numv);
 end
 if (nargout > 1)
-  if numv > sparselim
+  if numv > sparselimit
     L = spalloc(numv,numv,7*numv);
   else
     L = zeros(numv);

@@ -10,7 +10,7 @@ s = .5*rand(numv,1)+.75;
 s = log(s);
 D_Sf = eigvf(L,diag(1./s)*M,numv);
 numeig = numel(D_end);
-reg = 1e-3;
+reg = 1;
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
 for h = eps^.25

@@ -11,7 +11,7 @@ test_script.m is the top-level script that generates results.
 ### People
 Project envisioned, advised, and supervised by **Prof. Etienne Vouga** and **Prof. Keenan Crane**
 
-Some codes here (on meshes optimization and a demo of spherical harmonics) are not mine.
+Some codes here (on mesh optimization and a demo of spherical harmonics) are not mine.
 
 ### Testing Procedures
 1. use conformalized mean curvature flow (cMCF) to get a spherical mesh with a target set of conformal factors from a target mesh

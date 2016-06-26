@@ -1,13 +1,14 @@
-function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax)
-% function [s,v] = meancurvflow(v0,f0,h,type,L0,M0,imax)
+function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
+% function [s,v] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % Mean Curvature Flow of discrete surfaces
 % 
 % INPUTS
 % v0,f0    - face-vertex data of the initial surface
 % h        - step size of the flow
 % type     - type of flow wanted ('t','c','a')
-% L0,M0    - precomupted initial Laplace-Beltrami operator (optional)
-% imax     - iteration limit
+% L0,M0    - (optional) precomupted initial Laplace-Beltrami operator
+% imax     - (optional) iteration limit
+% gif      - flag 1 to produce animated results, default to 0 otherwise
 % 
 % OUTPUTS
 % s        - resultant conformal factors
@@ -19,6 +20,7 @@ if (nargin<4) || isempty(type), type = 'c'; end % default to cMCF
 if (nargin<5) || isempty(L0), [M0,L0] = lapbel(v0,f0); end
 if (nargin<6) || isempty(M0), M0 = lapbel(v0,f0); end
 if (nargin<7) || isempty(imax), imax = 1e3; end
+if (nargin<8) || isempty(gif), gif = 0; end
 
 % close all;
 numv = size(v0,1);
@@ -36,8 +38,10 @@ vold = v0;
 v = ones(size(v0));
 % I = eye(size(v0,1));
 
-% figure();trimesh(TriRep(f0,v0)); axis equal;
-% saveas(gcf,'mcf000.png'); close(gcf);
+if gif
+  figure();trimesh(f0,v0(:,1),v0(:,2),v0(:,3)); axis equal;
+  saveas(gcf,'mcf000.png'); close(gcf);
+end
 
 iter = 1;
 sphericity_old = std(vnorm(v0));
@@ -61,22 +65,25 @@ while iter<=imax
   scl = makeUnitArea(v,f0);
   v = v*scl/scl0;
   
-%   figure(); trimesh(TriRep(f0,v)); axis equal;
-%   saveas(gcf,num2str(iter,'mcf%03d.png')); close(gcf);
+
+if gif
+  figure();trimesh(f0,v(:,1),v(:,2),v(:,3)); axis equal;
+  saveas(gcf,num2str(iter,'mcf%03d.png')); close(gcf);
+end
 
   if type == 't'
-    [M,L] = lapbel(v,f0); % traditional
+    [M,L] = lapbel(v,f0); % traditional MCF
   elseif type == 'c'
-    M = lapbel(v,f0); % conformal
+    M = lapbel(v,f0); % conformal MCF
   elseif type == 'a'
-    [~,L] = lapbel(v,f0); % authalic
+    [~,L] = lapbel(v,f0); % authalic MCF
   else
     error('wat?');
   end
   
   sphericity = std(vnorm(v));
   dv = vdiff(v,vold);
-  fprintf('flow iter#%d; |dv| = %g\n',iter,dv);
+  fprintf('MCF iter#%d: |dv| = %g; sphericity = %g\n',iter,dv, sphericity);
   iter = iter + 1;
   if abs(sphericity_old - sphericity) <= 1e-4
     break;
@@ -92,8 +99,10 @@ end
 % s = diag(M0\M);
 s = diag(M)./diag(M0);
 
-% unix(['convert -delay 10 -loop 0 mcf*.png mcf/mcf' num2str(h,'%g') '.gif']);
-% unix('rm mcf*.png');
+if gif
+  unix(['convert -delay 10 -loop 0 mcf*.png mcf/mcf' num2str(h,'%g') '.gif']);
+  unix('rm mcf*.png');
+end
 
 end
 
