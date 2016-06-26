@@ -94,7 +94,7 @@ v2 = (D_end - D_T)./D_T;
 v3 = (D0 - D_T)./D_T;
 
 % reverse eigenvalue indexing (change neg-def L convention to pos-def L)
-rei = size(v,1):-1:2;
+rei = size(v0,1):-1:2;
 
 % linear relative error plot
 % plot(rei, v0(1:end-1),'b--','linewidth',2);

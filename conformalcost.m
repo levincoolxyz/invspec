@@ -10,34 +10,36 @@ function varargout = conformalcost(v,isedge,elsq_T)
 % GJ     - gradient
 % 
 
-%% initialization
+%% initialize and compute edge lengths with squares
 v = reshape(v,3,[])';
 numv = size(v,1); % number of vertices
-%% compute edge lengths and their squares
-elsq = zeros(numv);
-temp = mod(isedge-1,numv)+1;
-temp2 = fix((isedge-1)/numv);
-for j = 1:numv
-  for i = temp(temp2 == (j-1))'
-    elsq(i,j) = sum((v(i,:)-v(j,:)).^2);
+elsq = zeros(numv); % edge length squares
+temp = mod(isedge-1,numv)+1; % isedge column indices
+temp2 = fix((isedge-1)/numv); % isedge row indices
+if (nargout <= 1)
+  for j = 1:numv
+    for i = temp(temp2 == (j-1))'
+      elsq(i,j) = sum((v(i,:)-v(j,:)).^2);
+    end
   end
-end
-elsq = nonzeros(elsq);
-if (nargout > 1)
+  elsq = nonzeros(elsq);
+else
   el = zeros(numv,numv,3);
   for j = 1:numv
     for i = temp(temp2 == (j-1))'
       for dim = 1:3
         el(i,j,dim) = v(i,dim)-v(j,dim);
       end
+      elsq(i,j) = sum((v(i,:)-v(j,:)).^2);
     end
   end
+  elsq = nonzeros(elsq);
 end
-%% edge lengths squared difference, cost, and gradient
-elsq_diff = elsq - elsq_T;
-% elsq_rat = elsq_T./elsq; % technically correct version
-J = .25*sum(elsq_diff.^2);
-% J = .25*sum((1 - elsq_rat).^2);
+%% edge lengths cost and gradient
+elsq_diff = elsq - elsq_T; % normal difference
+% elsq_diff = elsq_diff./elsq; % relative difference (technically more correct)
+J = .25*sum(elsq_diff.^2); % compute norm squared cost
+
 if (nargout <= 1)
   varargout{1} = J;
 else
@@ -50,7 +52,7 @@ else
       ddvi(vi,:) = el(vi,:,dim);
       ddvi(:,vi) = -elcpy(:,vi,dim);
       GJ(vi,dim) = sum(elsq_diff.*ddvi(isedge));
-%       GJ(vi,dim) = sum((1 - elsq_rat).*elsq_T./elsq./elsq.*ddvi(isedge));
+%       GJ(vi,dim) = sum(elsq_diff.*elsq_T./elsq./elsq.*ddvi(isedge));
     end
   end
   varargout{2} = reshape(GJ',[],1);

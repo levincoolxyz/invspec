@@ -7,10 +7,11 @@ function varargout = eigvf(L,M,numeig)
 if (nargout <= 1)
   if numeig < size(M,1)
     D = eigs(L,M,numeig,-1e-6);
-  elseif ~issparse(M)
+  elseif ~issparse(L)
     D = eig(L,M);
   else
-    error('matlab is a bitch');
+    warning('ignoring top 1% spectra; matlab is a bitch');
+    D = eigs(L,sparse(M),floor(numeig*.99),-1e-6);
   end
   varargout{1} = sort(D);
 else
@@ -21,14 +22,15 @@ else
     for i = 1:numeig
       V(:,i) = V(:,i)./norm(V(:,i));
     end
-  elseif ~issparse(M)
+  elseif ~issparse(L)
     [V,D] = eig(L,M);
     % normalize eigenvectors
     for i = 1:size(M,1)
       V(:,i) = V(:,i)./norm(V(:,i));
     end
   else
-    error('matlab is a bitch');
+    warning('ignoring top 1% spectra; matlab is a bitch');
+    D = eigs(L,sparse(M),floor(numeig*.99),-1e-6);
   end
   [varargout{2},I] = sort(diag(D));
   varargout{1} = V(:,I);
