@@ -13,10 +13,10 @@ aC = .5; bC = .8; tC = 10; etolC = 1e-7; % Conformal descent control
 aS = .7; bS = .7; tS = 10; etolS = 1e-9; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = .5; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+numeig = .95; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 1e-2; % regularization coefficient
+reg = 0.1; % regularization coefficient
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
@@ -37,8 +37,8 @@ target_data.num = 3;
 % target_data.dat = 'bunny';
 % target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny2k';
-% target_data.dat = 'bunny602';
-target_data.dat = 'bunny326';
+target_data.dat = 'bunny602';
+% target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
 % target_data.dat = 'spot';

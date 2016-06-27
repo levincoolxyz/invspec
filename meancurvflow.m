@@ -55,10 +55,10 @@ while iter<=imax
 %     b = vold(:,dim);
     A = (M - h*L);
     b = (M*vold(:,dim));
-%     v(:,dim) = A\b;
-    l = chol(A,'lower');
-    w = l\b;
-    v(:,dim) = l'\w;
+    v(:,dim) = A\b;
+%     l = chol(A,'lower');
+%     w = l\b;
+%     v(:,dim) = l'\w;
   end
   v = v - repmat(volCenter(v,f0),numv,1);
 %   scl = calcVol(v,f0)^(1/3);

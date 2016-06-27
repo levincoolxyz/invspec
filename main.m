@@ -75,6 +75,7 @@ else
       save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
     end
     f = f_T;
+    load bun2
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 
   % load face-vertex from *.mat
@@ -108,7 +109,7 @@ for neig = [numeig 2:2]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   % s = s_T; J_hist = [];
   s0 = s(:,end);  
 
-  figure(1); % manual inspection of conformal factors
+  h = figure(); % manual inspection of conformal factors
 
   crange = [min([s_T;s0]) max([s_T;s0])];
   subplot(1,2,1); hold all; view(3); grid on; axis equal
@@ -132,7 +133,7 @@ for neig = [numeig 2:2]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   colormap jet
   pause(.1);
   skipstr = input('Continue spectral optimization? Y/N [Y]: \n','s');
-  close(1);
+  close(h);
   if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end
 % s_end = s(:,end);
