@@ -30,7 +30,7 @@ Some codes here (on mesh optimization and a demo of spherical harmonics) are not
 (cheating) optimize for cMCF spectrum instead
 ![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
-####Tests with Spot the cow
+**Tests with Spot the cow**
 
 smoothed cow without bi-laplacian regularization
 ![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i2_300_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
@@ -39,17 +39,17 @@ original spot with regularization
 
 ![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t3_spot1k_e1p0.5r0.1.png "Spot as target with regularization")
 
-####Tests with bunny
+**Tests with bunny**
 
 ![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png "classic bunny as target with regularization")
 
-recursive run
+*recursive run*
 
-![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/recursive/i3_t3_bunny326_e0.5p0.5r0.01.png "classic bunny as target with regularization fitted recursively")
+![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i2_t3_bunny602_e0.95p0.5r0.1.png "classic bunny as target with regularization fitted recursively")
 
-finer mesh
+*Before and After* (with minor smoothing)
 
-![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny2k_e0.95p0.5r0.05.png "classic bunny as target with regularization")
+(https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)(https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
 
 *more coming soon*
 
