@@ -16,7 +16,7 @@ aS = .7; bS = .7; tS = 10; etolS = 1e-8; % invSpec descent control
 numeig = .95; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0; % regularization coefficient
+reg = 0.5; % regularization coefficient
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
@@ -38,6 +38,7 @@ target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
+% target_data.dat = 'spot';
 %% target case == 3; import face-vtx from *.mat file
 % target_data.num = 4;
 % target_data.dat = 'cow03';
@@ -52,7 +53,7 @@ target_data.dat = 'bunny2k';
 %% testing time
 % for pert = [.5:.1:.8 1 1.5 2]
 % for numeig = [.016 .019 .022 .025 .028 .032 .034 .037 .04 .044 .048 .064 .08 .1:.1:1]
-for reg = .05 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
+% for reg = .05 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
@@ -80,4 +81,4 @@ for reg = .05 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
     hgexport('factorystyle'), 'Format', 'png'); 
   save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
-end
+% end

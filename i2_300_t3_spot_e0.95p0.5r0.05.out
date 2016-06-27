@@ -1,0 +1,38 @@
+MCF iter#1: |dv| = 58.9198; sphericity = 0.794796
+MCF iter#2: |dv| = 49.6614; sphericity = 1.20229
+MCF iter#3: |dv| = 20.4059; sphericity = 1.02877
+MCF iter#4: |dv| = 26.3696; sphericity = 0.699947
+MCF iter#5: |dv| = 32.8605; sphericity = 0.429259
+MCF iter#6: |dv| = 31.2352; sphericity = 0.222201
+MCF iter#7: |dv| = 22.9282; sphericity = 0.0652848
+MCF iter#8: |dv| = 12.5506; sphericity = 0.0352736
+MCF iter#9: |dv| = 4.71981; sphericity = 0.0743578
+MCF iter#10: |dv| = 1.14578; sphericity = 0.0717565
+MCF iter#11: |dv| = 2.29644; sphericity = 0.0464964
+MCF iter#12: |dv| = 2.72633; sphericity = 0.0171562
+MCF iter#13: |dv| = 2.06912; sphericity = 0.00379217
+MCF iter#14: |dv| = 1.03031; sphericity = 0.0126527
+MCF iter#15: |dv| = 0.237601; sphericity = 0.0127147
+Starting parallel pool (parpool) using the 'local' profile ... connected to 4 workers.
+{Operation terminated by user during distcomp.remoteparfor/getCompleteIntervals
+(line 127)
+
+
+In parallel_function>distributed_execution (line 820)
+        [tags, out] = P.getCompleteIntervals(chunkSize);
+
+In parallel_function (line 587)
+        R = distributed_execution(...
+
+In eigencost (line 41)
+    parfor i = 1:(numeig-eig0+1) % iterate relevant eigenvalue
+
+In main>@(s)eigencost(s,M,L,D_T,neig,reg) (line 98)
+  test = @(s) eigencost(s,M,L,D_T,neig,reg);
+
+In fminunc (line 270)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+
+In main (line 101)
+  [s,J_hist] = fminunc(test,s0,options);
+} 
