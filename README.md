@@ -33,7 +33,7 @@ Some codes here (on mesh optimization and a demo of spherical harmonics) are not
 **Tests with Spot the cow**
 
 smoothed cow without bi-laplacian regularization
-![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i4_mcf_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/cow/i4_mcf_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
 
 original spot with regularization
 
