@@ -1,37 +1,34 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Invspec : 2d discrete inverse spectral problem">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-    <title>Invspec</title>
+    <title>Invspec by levincoolxyz</title>
   </head>
 
   <body>
+    <header>
+      <div class="inner">
+        <h1>Invspec</h1>
+        <h2>2d discrete inverse spectral problem</h2>
+        <a href="https://github.com/levincoolxyz/invspec" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/levincoolxyz/invspec">View on GitHub</a>
-
-          <h1 id="project_title">Invspec</h1>
-          <h2 id="project_tagline">2d discrete inverse spectral problem</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/levincoolxyz/invspec/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/levincoolxyz/invspec/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
 <a id="2d-discrete-inverse-spectral-problem" class="anchor" href="#2d-discrete-inverse-spectral-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2D Discrete Inverse Spectral Problem</h1>
 
 <h3>
@@ -75,19 +72,21 @@
 <p><strong>Tests with Spot the cow</strong></p>
 
 <p>smoothed cow without bi-laplacian regularization
-<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i2_300_t4_cow03_e1p0.5r0.png" alt="spot#1" title="smoothed Spot as target without regularization"></p>
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i4_mcf_t4_cow03_e1p0.5r0.png" alt="spot#1" title="smoothed Spot as target without regularization"></p>
 
 <p>original spot with regularization</p>
 
-<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t3_spot1k_e1p0.5r0.1.png" alt="spot#1" title="Spot as target with regularization"></p>
+<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i4_mcf_t3_spot1k_e1p0.5r0.1.png" alt="spot#1" title="Spot as target with regularization"></p>
 
 <p><strong>Tests with bunny</strong></p>
 
-<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png" alt="bun#1" title="classic bunny as target with regularization"></p>
+<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i4_mcf_t3_bunny326_e0.95p0.5r0.05.png" alt="bun#1" title="classic bunny as target with regularization"></p>
 
-<p><em>recursive run</em></p>
+<p><em>recursive run</em>
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive326/i3_bun3_t3_bunny326_e0.5p0.5r0.01.png" alt="bun#2" title="classic bunny as target with regularization fitted recursively"></p>
 
-<p><img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i2_t3_bunny602_e0.95p0.5r0.1.png" alt="bun#2" title="classic bunny as target with regularization fitted recursively"></p>
+<p><em>finer mesh recursive run</em>
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i3_bun2_t3_bunny602_e0.95p0.5r0.1.png" alt="bun#3" title="classic bunny as target with regularization fitted recursively"></p>
 
 <p><em>Before and After</em> (with minor smoothing)</p>
 
@@ -99,23 +98,30 @@
 <a id="ways-to-go" class="anchor" href="#ways-to-go" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ways to go</h3>
 
 <ol>
-<li><p>without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh</p></li>
+<li><p>without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh (which will have to be finer and more costly)</p></li>
 <li><p>in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)</p></li>
 <li><p>in practice high frequencies might be prohibitively noiser</p></li>
-<li><p>how to tell topology beforehand?</p></li>
+<li><p>how to guess topology beforehand? would higher genus work out-of-the-box?</p></li>
 </ol>
-      </section>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/levincoolxyz/invspec/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/levincoolxyz/invspec/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/levincoolxyz/invspec"></a> is maintained by <a href="https://github.com/levincoolxyz">levincoolxyz</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Invspec maintained by <a href="https://github.com/levincoolxyz">levincoolxyz</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+  
   </body>
 </html>
