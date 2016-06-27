@@ -49,7 +49,7 @@ original spot with regularization
 
 *Before and After* (with minor smoothing)
 
-(https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)(https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
+![bbfe](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)![baft](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
 
 *more coming soon*
 
