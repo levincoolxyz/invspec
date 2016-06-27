@@ -1,15 +1,17 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
-  imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+  method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
   numeig,pert,reg)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
-%   imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+%   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
 %   numeig,pert,reg)
+%
+% for help see comments in test_script.m
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-%% initial mesh
-if target_data.num ~= 3 && target_data.num ~= 4
+%% starting input mesh
+if init_data.num ~= 4
   % import wavefront object file
   if init_data.num == 1
     fid = fopen(['../meshes/' init_data.dat '.obj'],'rt');
@@ -26,14 +28,14 @@ if target_data.num ~= 3 && target_data.num ~= 4
       save(['../meshes/' init_data.dat '.mat'],'f','v');
     end
 
-  % load face-vertex from *.mat
+  % load face-vertex from *.mat [need v and f]
   elseif init_data.num == 3
     load(['../meshes/' init_data.dat]);
   end
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 end
-%% target spectrum (+mesh for testing)
-if isfield(target_data,'D_T')
+%% target spectrum (and shapes)
+if target_data.num == 5
   v_T = []; f_T = []; s_T = [];
   D_T = target_data.D_T;
   if numel(D_T) >= numeig
@@ -66,47 +68,55 @@ else
 
   % import wavefront object file
   elseif target_data.num == 3
-    if exist(['mcf/' target_data.dat '.mat'],'file')
-      load(['mcf/' target_data.dat '.mat']);
+    if init_data.num == 4
+      if exist(['mcf/' target_data.dat '.mat'],'file')
+        load(['mcf/' target_data.dat '.mat']);
+      else
+        fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
+        [v_T,f_T] = readwfobj(fid);
+        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+        save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+      end
+      f = f_T;
+      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
-      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
-      save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
     end
-    f = f_T;
-    load bun2
-    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
 
-  % load face-vertex from *.mat
+  % load face-vertex from *.mat [need v_T and f_T]
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
-    [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
-    f = f_T;
-    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+    if init_data.num == 4
+      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+      f = f_T;
+      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+    end
   end
   
   [M_T,L_T] = lapbel(v_T,f_T);
   D_T = eigvf(L_T,M_T,numeig);
-
-%   D_T = eigvf(L,diag(1./s_T)*M,numeig);
+%   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
-%% MIEP2 via naive gradient descent
+%% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log-conformal factors
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
-for neig = [numeig 2:2]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
-  if neig < 20, reg = 0; end
-  test = @(s) eigencost(s,M,L,D_T,neig,reg);
-  options = optimset('GradObj','on','display','iter-detailed',...
-    'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-  [s,J_hist] = fminunc(test,s0,options);
+for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
+  if neig < .2*numv, reg = 0; end
+  if strcmp(method, 'BFGS')
+    test = @(s) eigencost(s,M,L,D_T,neig,reg);
+    options = optimset('GradObj','on','display','iter-detailed',...
+      'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+    [s,J_hist] = fminunc(test,s0,options);
+  elseif strcmp(method, 'GD')
+    [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
+      s0,M,L,D_T,neig,reg);
+  else
+    error('unknown descent method');
+  end
 
-  % [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-  %   s0,M,L,D_T,neig,reg);
-
-  % s = s_T; J_hist = [];
   s0 = s(:,end);  
 
   h = figure(); % manual inspection of conformal factors
@@ -132,14 +142,16 @@ for neig = [numeig 2:2]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   
   colormap jet
   pause(.1);
-  skipstr = input('Continue spectral optimization? Y/N [Y]: \n','s');
+%   s_err = norm(s_T - s0)./norm(s_T)*100;
+%   fprintf('total conformal factor error = %g\n',s_err);
+  skipstr = input('Continue optimization? Y/N [Y]: \n','s');
   close(h);
   if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end
 % s_end = s(:,end);
 s_end = exp(s(:,end)); % if using log-conformal factors
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
-%% record descent conformal changes
+%% record conformal factor changes during descent (if using in-house algorithm)
 % figure(); view(3); grid on; axis equal
 % h = trisurf(f,v(:,1),v(:,2),v(:,3),s(:,1),...
 %   'facecolor','interp','edgecolor','none');
@@ -149,7 +161,7 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 % set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 % xlabel('x'); ylabel('y'); zlabel('z');
 % colormap jet;
-% for i=[1:9 10:10:100 200:100:numel(s,2)];
+% for i=[1:9 unique(round(logspace(log10(10),log10(numel(s,2)),60)))];
 % h.CData = s(:,i);
 % hh.View = hh.View + [-5 5];
 % hgexport(gcf,num2str(i,'descendence%5d.png'),...
@@ -157,22 +169,19 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 % end
 % unix('convert -delay 50 -loop 0 descendence*.png descendence.gif');
 % unix('rm -f descendence*.png');
-%% debug error checking
-% figure();plot(s_T);hold all;plot(s0);plot(s_end,'x')
-% figure();plot(D_T);hold all;plot(D_0);plot(D_endp,'x')
-% s_err = norm(s_T - s_end)./norm(s_T)*100;
-% fprintf('conformal factors error = %g%%\n',s_err);
 %% conformal embedding/fit
 conf = sqrt(kron(1./s_end',1./s_end));
 % elsq_end = elsq0.*conf;
 elsq_end = elsq0.*conf(isedge); % linear indices
-% elsq_end = elsq0; % when testing / don't know if above converges in a nice fashion
-test = @(v) conformalcost(v,isedge,elsq_end);
-options = optimset('GradObj','on','display','iter-detailed',...
-  'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');
-[vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
-% [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-%   reshape(v',[],1),isedge,elsq_end);
+if strcmp(method, 'BFGS')
+  test = @(v) conformalcost(v,isedge,elsq_end);
+  options = optimset('GradObj','on','display','iter-detailed',...
+    'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');
+  [vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
+elseif strcmp(method, 'GD')
+  [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+    reshape(v',[],1),isedge,elsq_end);
+end
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,numeig);
