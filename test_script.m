@@ -16,7 +16,7 @@ aS = .7; bS = .7; tS = 10; etolS = 1e-8; % invSpec descent control
 numeig = .95; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0.5; % regularization coefficient
+reg = 0.1; % regularization coefficient
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
