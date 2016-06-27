@@ -33,19 +33,21 @@ Some codes here (on mesh optimization and a demo of spherical harmonics) are not
 **Tests with Spot the cow**
 
 smoothed cow without bi-laplacian regularization
-![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i2_300_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/cow/i4_mcf_t4_cow03_e1p0.5r0.png "smoothed Spot as target without regularization")
 
 original spot with regularization
 
-![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i2_300_t3_spot1k_e1p0.5r0.1.png "Spot as target with regularization")
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i4_mcf_t3_spot1k_e1p0.5r0.1.png "Spot as target with regularization")
 
 **Tests with bunny**
 
-![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i2_300_t3_bunny326_e0.95p0.5r0.05.png "classic bunny as target with regularization")
+![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i4_mcf_t3_bunny326_e0.95p0.5r0.05.png "classic bunny as target with regularization")
 
 *recursive run*
+![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive326/i3_bun3_t3_bunny326_e0.5p0.5r0.01.png "classic bunny as target with regularization fitted recursively")
 
-![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i2_t3_bunny602_e0.95p0.5r0.1.png "classic bunny as target with regularization fitted recursively")
+*finer mesh recursive run*
+![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i3_bun2_t3_bunny602_e0.95p0.5r0.1.png "classic bunny as target with regularization fitted recursively")
 
 *Before and After* (with minor smoothing)
 
@@ -55,10 +57,10 @@ original spot with regularization
 
 ### Ways to go
 
-1. without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh
+1. without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh (which will have to be finer and more costly)
 
 2. in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
 
 2. in practice high frequencies might be prohibitively noiser
 
-3. how to tell topology beforehand?
+3. how to guess topology beforehand? would higher genus work out-of-the-box?
