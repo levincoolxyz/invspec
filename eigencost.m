@@ -34,20 +34,20 @@ if (nargout <= 1)
 else
   varargout{1} = J;
   GJ = zeros(nums,1);
-  for j = 1:nums % iterate relevant conformal factor
-    wj = 0;
+  m = diag(M);
+  parfor j = 1:nums % iterate relevant conformal factor
     sj = s(j);
-    Mjj = M(j,j);
-    parfor i = 1:(numeig-eig0+1) % iterate relevant eigenvalue
+    Mjj = m(j);
+    for i = 1:(numeig-eig0+1) % iterate relevant eigenvalue
       vij = V(j,i);
 %       wij = lambda_diff(i)*lambda(i)*vij^2/sj^2*Mjj;   % normal difference
       wij = lambda_diff(i)*lambda(i)*vij^2*exp(-sj)*Mjj; % normal difference (log)
       wij = wij/lambda_T(i);                             % relative difference
 %       wij = -lambda_diff(i)/lambda(i)*vij^2/sj^2*Mjj;  % inverse difference
 %       wij = -lambda_diff(i)/lambda(i)*vij^2*exp(-sj)*Mjj; % inv difference (log)
-      wj = wj + wij;
+      GJ(j) = GJ(j) + wij;
     end
-    GJ(j) = GJ(j) + wj + LLs(j)*reg;
+    GJ(j) = GJ(j) + LLs(j)*reg;
   end
   varargout{2} = GJ;
 end
