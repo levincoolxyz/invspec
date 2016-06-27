@@ -10,8 +10,8 @@ if (nargout <= 1)
   elseif ~issparse(L)
     D = eig(L,M);
   else
-    warning('ignoring top 1% spectra; matlab is a bitch');
-    D = eigs(L,sparse(M),floor(numeig*.99),-1e-6);
+    warning('ignoring highest frequency; matlab is a bitch');
+    D = eigs(L,sparse(M),numeig-1,-1e-6);
   end
   varargout{1} = sort(D);
 else
@@ -29,8 +29,8 @@ else
       V(:,i) = V(:,i)./norm(V(:,i));
     end
   else
-    warning('ignoring top 1% spectra; matlab is a bitch');
-    D = eigs(L,sparse(M),floor(numeig*.99),-1e-6);
+    warning('ignoring highest frequency; matlab is a bitch');
+    D = eigs(L,sparse(M),numeig-1,-1e-6);
   end
   [varargout{2},I] = sort(diag(D));
   varargout{1} = V(:,I);

@@ -1,5 +1,5 @@
 function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
-% function [s,v] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
+% function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % Mean Curvature Flow of discrete surfaces
 % 
 % INPUTS
@@ -98,6 +98,8 @@ end
 % s = 1./diag(M\M0);
 % s = diag(M0\M);
 s = diag(M)./diag(M0);
+
+s = full(s);
 
 if gif
   unix(['convert -delay 10 -loop 0 mcf*.png mcf/mcf' num2str(h,'%g') '.gif']);

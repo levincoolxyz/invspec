@@ -93,7 +93,9 @@ end
 %% MIEP2 via naive gradient descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log-conformal factors
-for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
+vlim = max(max(abs(v)));
+vlim = [-vlim vlim];
+for neig = [numeig 2:2]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
   if neig < 20, reg = 0; end
   test = @(s) eigencost(s,M,L,D_T,neig,reg);
   options = optimset('GradObj','on','display','iter-detailed',...
@@ -112,8 +114,6 @@ for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   subplot(1,2,1); hold all; view(3); grid on; axis equal
   trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
     'facecolor','interp','edgecolor','none');
-  vlim = max(max(abs(v)));
-  vlim = [-vlim vlim];
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('spherical/cMCF mesh');
@@ -123,8 +123,6 @@ for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   subplot(1,2,2); hold all; view(3); grid on; axis equal
   trisurf(f,v(:,1),v(:,2),v(:,3),s0,...
     'facecolor','interp','edgecolor','none');
-  vlim = max(max(abs(v)));
-  vlim = [-vlim vlim];
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
   title('spectrally opt. mesh');
@@ -132,9 +130,10 @@ for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   colorbar('southoutside')
   
   colormap jet
-  pause(.5);
-  input('Press Enter(Return) to continue...')
+  pause(.1);
+  skipstr = input('Continue spectral optimization? Y/N [Y]: \n','s');
   close(1);
+  if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end
 % s_end = s(:,end);
 s_end = exp(s(:,end)); % if using log-conformal factors

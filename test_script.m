@@ -10,13 +10,13 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 % imax = 1e4; % gradient descent maximum iterations
 imax = 5e3; % gradient descent maximum iterations
 aC = .5; bC = .8; tC = 10; etolC = 1e-7; % Conformal descent control
-aS = .7; bS = .7; tS = 10; etolS = 1e-8; % invSpec descent control
+aS = .7; bS = .7; tS = 10; etolS = 1e-9; % invSpec descent control
 % aC = .4; bC = .7; tC = 10; etolC = 1e-4; % Conformal descent control
 % aS = .5; bS = .7; tS = 150; etolS = 1e-4; % invSpec descent control
-numeig = .95; % number of eigenvalues used, 0<x<=1 percent, x<=0 full
+numeig = .5; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0.1; % regularization coefficient
+reg = 1e-2; % regularization coefficient
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1; 
 % init_data.dat = 'sphere_small';
@@ -34,10 +34,11 @@ init_data.dat = '300';
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
-target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny';
+% target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny2k';
-% target_data.dat = 'bunny326';
+% target_data.dat = 'bunny602';
+target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
 % target_data.dat = 'spot';
@@ -55,7 +56,7 @@ target_data.dat = 'bunny1k';
 %% testing time
 % for pert = [.5:.1:.8 1 1.5 2]
 % for numeig = [.016 .019 .022 .025 .028 .032 .034 .037 .04 .044 .048 .064 .08 .1:.1:1]
-% for reg = [1e-2 5e-2 .1 .5 1]
+% for reg = [1e-4 1e-3 1e-2 5e-2 .1 .5 1]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);

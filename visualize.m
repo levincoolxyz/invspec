@@ -49,12 +49,13 @@ xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
 
 %% compare conformal factors
+vlim = max(max(abs(v)));
+vlim = [-vlim vlim];
+
 crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; view(3); grid on; axis equal
 trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
   'facecolor','interp','edgecolor','none');
-vlim = max(max(abs(v)));
-vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spherical/cMCF mesh');
@@ -64,8 +65,6 @@ colorbar('southoutside')
 subplot(2,4,3); hold all; view(3); grid on; axis equal
 trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
   'facecolor','interp','edgecolor','none');
-vlim = max(max(abs(v)));
-vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spectrally opt. mesh');

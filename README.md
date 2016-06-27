@@ -51,7 +51,9 @@ finer mesh
 
 ### Ways to go
 
-1. in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
+1. without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh
+
+2. in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
 
 2. in practice high frequencies might be prohibitively noiser
 
