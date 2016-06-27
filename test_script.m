@@ -34,7 +34,9 @@ init_data.dat = '300';
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
-target_data.dat = 'bunny2k';
+target_data.dat = 'bunny1k';
+% target_data.dat = 'bunny';
+% target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny326';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
@@ -53,7 +55,7 @@ target_data.dat = 'bunny2k';
 %% testing time
 % for pert = [.5:.1:.8 1 1.5 2]
 % for numeig = [.016 .019 .022 .025 .028 .032 .034 .037 .04 .044 .048 .064 .08 .1:.1:1]
-% for reg = .05 %[1e-3 1e-4 1e-5 1e-6 5e-7 1e-7 1e-8]
+% for reg = [1e-2 5e-2 .1 .5 1]
   if isa(target_data.dat,'function_handle')
     dumb = func2str(target_data.dat);
     dumb = dumb(5:end);
