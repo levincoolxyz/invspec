@@ -82,11 +82,13 @@ else
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
+      s_T = meancurvflow(v_T,f_T,1e5,'c');
     end
 
   % load face-vertex from *.mat [need v_T and f_T]
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
+    s_T = meancurvflow(v_T,f_T,1e5,'c');
     if init_data.num == 4
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
