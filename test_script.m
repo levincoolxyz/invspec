@@ -7,27 +7,28 @@ Y32 = @(v) (v(:,1).^2-v(:,2).^2).*v(:,3)./(vnorm(v)).^3;
 Y33 = @(v) (v(:,1).^2-3*v(:,2).^2).*v(:,1)./(vnorm(v)).^3;
 Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
-imax = 5e3; % descent maximum iteration
-aS = .7; bS = .7; tS = 10; etolS = 1e-9; % MIEP2 descent control
-aC = .5; bC = .8; tC = 10; etolC = 1e-7; % embedding descent control
-numeig = 320; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+imax = 4e3; % descent maximum iteration
+aS = .7; bS = .7; tS = 10; etolS = 1e-7; % MIEP2 descent control
+aC = .5; bC = .8; tC = 10; etolC = 1e-6; % embedding descent control
+numeig = .5; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0.01; % regularization coefficient
+reg = 0.05; % regularization coefficient
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
-% init_data.num = 1; 
+% init_data.num = 1;
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
-% init_data.num = 2; 
-% init_data.dat = '327';
+% init_data.num = 2;
+% init_data.dat = '200';
 %% input case == 3; import face-vtx from *.mat file [need v and f]
-init_data.num = 3; 
+init_data.num = 3;
 % init_data.dat = '300';
-init_data.dat = 'bun1';
+init_data.dat = 'bun2';
+% init_data.dat = 'bun2sph';
 % init_data.dat = 'spot1';
 %% input case == 4; use steady state cMCF of the target mesh
-% init_data.num = 4; 
+% init_data.num = 4;
 % init_data.dat = 'mcf';
 %% target case == 1; random vertex conformal factor deformations
 % target_data.num = 1;
@@ -38,10 +39,10 @@ init_data.dat = 'bun1';
 %% target case == 3; import face-vtx from *.obj file
 target_data.num = 3;
 % target_data.dat = 'bunny';
-% target_data.dat = 'bunny1k';
+target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny602';
-target_data.dat = 'bunny327';
+% target_data.dat = 'bunny327';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
 % target_data.dat = 'spot';

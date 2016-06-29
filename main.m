@@ -22,7 +22,7 @@ if init_data.num ~= 4
     if exist(['../meshes/' init_data.dat '.mat'],'file')
       load(['../meshes/' init_data.dat '.mat']);
     else
-      ssize = str2num(init_data.dat);
+      ssize = str2double(init_data.dat);
       v = ParticleSampleSphere('Vo',RandSampleSphere(ssize));
       f = fliplr(convhulln(v));
       save(['../meshes/' init_data.dat '.mat'],'f','v');
@@ -58,7 +58,8 @@ else
   % perturb with given scalar field
   elseif target_data.num == 2
     % compute mean curvature vertex normal
-    Hn = .5*[inv(M)*L*v(:,1) inv(M)*L*v(:,2) inv(M)*L*v(:,3)];
+    invM = diag(1./diag(M));
+    Hn = .5*[invM*L*v(:,1) invM*L*v(:,2) invM*L*v(:,3)];
     H = vnorm(Hn);
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
@@ -68,21 +69,25 @@ else
 
   % import wavefront object file
   elseif target_data.num == 3
-    if init_data.num == 4
-      if exist(['mcf/' target_data.dat '.mat'],'file')
-        load(['mcf/' target_data.dat '.mat']);
+    if exist(['mcf/' target_data.dat '.mat'],'file')
+      if init_data.num == 4
+        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        f = f_T;
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
       else
-        fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
-        [v_T,f_T] = readwfobj(fid);
-        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
-        save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
       end
-      f = f_T;
-      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
-      s_T = meancurvflow(v_T,f_T,1e5,'c');
+      if init_data.num == 4
+        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+        save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        f = f_T;
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+      else
+        s_T = meancurvflow(v_T,f_T,1e5,'c');
+      end
     end
 
   % load face-vertex from *.mat [need v_T and f_T]
@@ -100,21 +105,54 @@ else
   D_T = eigvf(L_T,M_T,numeig);
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
+%% refinement criterion
+sthreshold = 1; % if using log conformal factors
+refinestop = @(x,optimValues,state) max(abs(x))>sthreshold;
+refineIter = 0;
+maxRefine = 2;
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
-s0 = zeros(numv,1); % if using log-conformal factors
+s0 = zeros(numv,1); % if using log conformal factors
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
-for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
+for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
   if neig < .2*numv, reg = 0; end
   if strcmp(method, 'BFGS')
     test = @(s) eigencost(s,M,L,D_T,neig,reg);
     options = optimset('GradObj','on','display','iter-detailed',...
-      'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-    [s,J_hist] = fminunc(test,s0,options);
+      'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off',...
+      'outputfcn',refinestop);
+    [s,J_hist,exitflag] = fminunc(test,s0,options);
+    while exitflag == -1 && refineIter < maxRefine
+      [v,f,s] = refine(v,f,s,sthreshold);
+      if numv == size(v,1)
+        options = optimset('GradObj','on','display','iter-detailed',...
+          'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+        [s,J_hist] = fminunc(test,s,options);
+        break;
+      end
+      trisurf(f,v(:,1),v(:,2),v(:,3),s,...
+        'facecolor','interp');
+      skipstr = input('refined mesh by to high conformal factor, continue? Y/N [Y]: \n','s');
+      if ~isempty(skipstr)
+        if skipstr == 'N' || skipstr == 'n'
+          options = optimset('GradObj','on','display','iter-detailed',...
+            'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+          [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+          test = @(s) eigencost(s,M,L,D_T,neig,reg);
+          [s,J_hist] = fminunc(test,s,options);
+          break;
+        end
+      end
+      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+      s0 = zeros(numv,1); % if using log conformal factors
+      test = @(s) eigencost(s,M,L,D_T,neig,reg);
+      [s,~,exitflag] = fminunc(test,s0,options);
+      refineIter = refineIter + 1;
+    end
   elseif strcmp(method, 'GD')
     [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
-      s0,M,L,D_T,neig,reg);
+      s0,[],M,L,D_T,neig,reg);
   else
     error('unknown descent method');
   end
@@ -151,7 +189,7 @@ for neig = [numeig 2:5]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:2
   if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end
 % s_end = s(:,end);
-s_end = exp(s(:,end)); % if using log-conformal factors
+s_end = exp(s(:,end)); % if using log conformal factors
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% record conformal factor changes during descent (if using in-house algorithm)
 % figure(); view(3); grid on; axis equal
@@ -182,7 +220,7 @@ if strcmp(method, 'BFGS')
   [vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
 elseif strcmp(method, 'GD')
   [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-    reshape(v',[],1),isedge,elsq_end);
+    reshape(v',[],1),[],isedge,elsq_end);
 end
 v_end = reshape(vhist(:,end),3,[])';
 [M_end,L_end] = lapbel(v_end,f);
@@ -220,5 +258,34 @@ end
 elsq0 = nonzeros(elsq0);
 %% compute laplacian
 [M,L] = lapbel(v,f);
-D_0 = eigvf(L,M,numeig);
+try
+  D_0 = eigvf(L,M,numeig);
+catch
+  disp shit eigs
+end
+end
+
+function [v,f,s] = refine(v,f,s,sthreshold)
+oldfaces = [];
+vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+for fi = 1:size(f,1)
+  i = f(fi,:);
+  if max(abs(s(i))) > sthreshold % face contains vertex of high conformal factor 
+    bpos = sum(v(i,:),1)/3; % barycenter position of said face
+    bpos = bpos/norm(bpos)*mean(vnorm(v(i,:))); % project it back to sphere
+    bs = sum(s(i))/3; % average/interp conformal factor at barycenter
+    v = [v; bpos];
+    s = [s; bs];
+    oldfaces = [oldfaces; fi];
+    vnewi = size(v,1);
+    f = [f; i(1) i(2) vnewi;
+      vnewi i(2) i(3);
+      i(1) vnewi i(3)];
+  end
+end
+f(oldfaces,:) = [];
+end
+
+function [stop,s,M,L,D_T,neig,reg] = refineGD(x,M,L,D_T,neig,reg)
+
 end

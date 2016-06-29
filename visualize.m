@@ -74,6 +74,9 @@ colorbar('southoutside')
 numeig = numel(D_T);
 [M,L] = lapbel(v,f);
 D0 = eigvf(L,M,size(v,1));
+if size(s_T,1) ~= size(M,1)
+  s_T = ones(size(M,1),1);
+end
 D_MCF = eigvf(L,diag(1./s_T)*M,size(v,1));
 [M_T,L_T] = lapbel(v_T,f_T);
 D_T = eigvf(L_T,M_T,size(v,1));
@@ -87,6 +90,11 @@ else
 end
 
 subplot(2,4,5:8); hold all; grid on;
+if size(M,1) >= numel(D_T)
+  D_T = [nan(size(M,1)-numel(D_T),1);D_T];
+elseif size(M,1) <= numel(D_T)
+  D_T = D_T(end-size(M,1)+1:end);
+end
 v0 = (D_MCF - D_T)./D_T;
 v1 = (D_endp - D_T)./D_T;
 v2 = (D_end - D_T)./D_T;

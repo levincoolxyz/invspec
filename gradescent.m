@@ -1,5 +1,5 @@
 function [J,v] = gradescent(costf,imax,c1,c2,t0,...
-  etol,figfg,v0,varargin)
+  etol,figfg,v0,outputFcn,varargin)
 % [J,v] = gradescent(costf,imax,c1,c2,t0,...
 %   etol,figfg,v0,varargin)
 % gradient descent with backtracking
@@ -13,6 +13,7 @@ function [J,v] = gradescent(costf,imax,c1,c2,t0,...
 % etol        - relative error tolerance
 % figfg       - 1 => gives log-log plot of energy, 0 not
 % v0          - initial condition (nx1) vector
+% outputFcn   - output function called at the end of each step
 % varargin    - additional parameters passed on to costf
 % 
 % OUTPUTS
@@ -73,6 +74,17 @@ for i = 1:imax
   v(:,i+1) = v(:,i) + tau*u;
   fprintf('descent iter#%d; J = %g; |GJ| = %g; tau = %g\n',...
     i,J(i),norm(GJ),tau);
+  if ~isempty(outputFcn)
+    [stop,vnew,varargin] = feval(outputFcn,v(:,i+1),varargin);
+    if numel(vnew) > size(v,1)
+      v = [v;zeros(numel(vnew)-size(v,1),imax)];
+      v(:,i+1) = vnew;
+    elseif numel(vnew) < size(v,1)
+      v = v(numel(vnew),:);
+      v(:,i+1) = vnew;
+    end
+    if stop, break; end
+  end
 end
 
 if(figfg)
