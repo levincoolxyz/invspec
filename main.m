@@ -48,9 +48,8 @@ else
   if target_data.num == 1
     s_T = exp(-rand(numv,1)*pert);
     f_T = f;
-    conf_T = sqrt(kron(1./s_T',1./s_T));
-  %   elsq_T = elsq0.*conf_T;
-    elsq_T = elsq0.*conf_T(isedge); % linear indices
+    conf_T = sqrt(kron(1./s_T',1./s_T)); % averaing conformal factors at vertices to edges
+    elsq_T = elsq0.*conf_T(isedge); % apply to linearly indexed edge lengths
     [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
       reshape(v',[],1),isedge,elsq_T);
     v_T = reshape(v_Thist(:,end),3,[])';
@@ -106,10 +105,15 @@ else
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
 %% refinement criterion
-sthreshold = 1; % if using log conformal factors
+if init_data.num == 4
+  sthreshold = Inf; % disable refinement routines for cMCF'ed mesh
+else
+  sthreshold = abs(log(1/(10))); % abs(log(1/(conformal factors)))
+  sgthreshold = abs(log(1/(2)));
+end
 refinestop = @(x,optimValues,state) max(abs(x))>sthreshold;
 refineIter = 0;
-maxRefine = 2;
+maxRefine = 5;
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log conformal factors
@@ -123,32 +127,42 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
       'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off',...
       'outputfcn',refinestop);
     [s,J_hist,exitflag] = fminunc(test,s0,options);
+    skipnow = 0;
     while exitflag == -1 && refineIter < maxRefine
-      [v,f,s] = refine(v,f,s,sthreshold);
+      oldv = v;
+      [v,f,s] = refine(v,f,s,sthreshold,sgthreshold);
       if numv == size(v,1)
-        options = optimset('GradObj','on','display','iter-detailed',...
-          'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-        [s,J_hist] = fminunc(test,s,options);
-        break;
-      end
-      trisurf(f,v(:,1),v(:,2),v(:,3),s,...
-        'facecolor','interp');
-      skipstr = input('refined mesh by to high conformal factor, continue? Y/N [Y]: \n','s');
-      if ~isempty(skipstr)
-        if skipstr == 'N' || skipstr == 'n'
-          options = optimset('GradObj','on','display','iter-detailed',...
-            'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-          [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-          test = @(s) eigencost(s,M,L,D_T,neig,reg);
-          [s,J_hist] = fminunc(test,s,options);
-          break;
+        if norm(oldv-v) < 10*eps
+          skipnow = 1;
         end
       end
-      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-      s0 = zeros(numv,1); % if using log conformal factors
-      test = @(s) eigencost(s,M,L,D_T,neig,reg);
+      if skipnow
+          s0 = s;
+      else
+        trisurf(f,v(:,1),v(:,2),v(:,3),s,...
+          'facecolor','interp');
+        skipstr = input('refined mesh by to high conformal factor, continue? Y/N [Y]: \n','s');
+        if ~isempty(skipstr)
+          if skipstr == 'N' || skipstr == 'n'
+            options = optimset('GradObj','on','display','iter-detailed',...
+              'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+            [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+            test = @(s) eigencost(s,M,L,D_T,neig,reg);
+            [s,J_hist] = fminunc(test,s,options);
+            break;
+          end
+        end
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+        s0 = zeros(numv,1); % if using log conformal factors
+        test = @(s) eigencost(s,M,L,D_T,neig,reg);
+      end
       [s,~,exitflag] = fminunc(test,s0,options);
       refineIter = refineIter + 1;
+    end
+    if exitflag ~= 1
+      options = optimset('GradObj','on','display','iter-detailed',...
+        'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+      [s,J_hist] = fminunc(test,s,options);
     end
   elseif strcmp(method, 'GD')
     [J_hist,s] = gradescent(@eigencost,imax,aS,bS,tS,etolS,0,...
@@ -210,9 +224,18 @@ D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 % unix('convert -delay 50 -loop 0 descendence*.png descendence.gif');
 % unix('rm -f descendence*.png');
 %% conformal embedding/fit
-conf = sqrt(kron(1./s_end',1./s_end));
-% elsq_end = elsq0.*conf;
-elsq_end = elsq0.*conf(isedge); % linear indices
+conf = sqrt(kron(1./s_end',1./s_end)); % averaing conformal factors at vertices to edges
+elsq_end = elsq0.*conf(isedge); % apply to linearly indexed edge lengths
+[Mc,Lc,tc] = el2ew(f,elsq_end); % test if averaging conformal factors is good enough
+figure(); view(3); axis equal;
+trisurf(f,v(:,1),v(:,2),v(:,3),tc);
+D_endpp = eigvf(Lc,Mc,numeig);
+figure();
+hold all;
+plot(imag(D_endpp))
+plot(-real(D_endpp))
+plot(-flipud(real(D_endp)))
+legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum');
 if strcmp(method, 'BFGS')
   test = @(v) conformalcost(v,isedge,elsq_end);
   options = optimset('GradObj','on','display','iter-detailed',...
@@ -228,6 +251,7 @@ D_end = eigvf(L_end,M_end,numeig);
 
 end
 
+% initialize crucial data about a given mesh (really should be made object-oriented)
 function [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig)
 %% learn to count
 numv = size(v,1); % number of vertices
@@ -265,27 +289,85 @@ catch
 end
 end
 
-function [v,f,s] = refine(v,f,s,sthreshold)
-oldfaces = [];
+% refinement subroutine (currently works only for spherical meshes due to use of convhull)
+function [v,f,s] = refine(v,f,s,scrit,sgcrit)
+% oldfaces = [];
+highval = 1;
+highgrad = [0 0 0];
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 for fi = 1:size(f,1)
-  i = f(fi,:);
-  if max(abs(s(i))) > sthreshold % face contains vertex of high conformal factor 
-    bpos = sum(v(i,:),1)/3; % barycenter position of said face
-    bpos = bpos/norm(bpos)*mean(vnorm(v(i,:))); % project it back to sphere
-    bs = sum(s(i))/3; % average/interp conformal factor at barycenter
+  i = f(fi,1);
+  j = f(fi,2);
+  k = f(fi,3);
+  if max(abs(alldiff(s(i)))) > scrit % face contains vertices with high conformal factors
+    bpos = sum(v([i j k],:),1)/3; % barycenter position of said face
+    bpos = bpos/norm(bpos)*mean(vnorm(v([i j k],:))); % project it back to sphere
+    bs = sum(s([i j k]))/3; % average/interp conformal factor at barycenter
     v = [v; bpos];
     s = [s; bs];
-    oldfaces = [oldfaces; fi];
-    vnewi = size(v,1);
-    f = [f; i(1) i(2) vnewi;
-      vnewi i(2) i(3);
-      i(1) vnewi i(3)];
+    highval = 1;
   end
+  if abs(s(i)-s(j)) > sgcrit % edge ij has high conformal factor gradient
+    bpos = sum(v([i j],:),1)/2; % midpoint of said edge
+    bpos = bpos/norm(bpos)*mean(vnorm(v([i j],:))); % project it back to sphere
+    bs = sum(s([i j]))/2; % average/interp conformal factor
+    v = [v; bpos];
+    s = [s; bs];
+    highgrad(1) = 1;
+  end
+  if abs(s(j)-s(k)) > sgcrit % edge jk has high conformal factor gradient
+    bpos = sum(v([j k],:),1)/2; % midpoint of said edge
+    bpos = bpos/norm(bpos)*mean(vnorm(v([j k],:))); % project it back to sphere
+    bs = sum(s([j k]))/2; % average/interp conformal factor
+    v = [v; bpos];
+    s = [s; bs];
+    highgrad(2) = 1;
+  end
+  if abs(s(k)-s(i)) > sgcrit % edge ki has high conformal factor gradient
+    bpos = sum(v([k i],:),1)/2; % midpoint of said edge
+    bpos = bpos/norm(bpos)*mean(vnorm(v([k i],:))); % project it back to sphere
+    bs = sum(s([k i]))/2; % average/interp conformal factor
+    v = [v; bpos];
+    s = [s; bs];
+    highgrad(3) = 1;
+  end
+  
+%   if highval && sum(highgrad) == 3
+%     oldfaces = [oldfaces; fi];
+%     nv = size(v,1);
+%     f = [f; i nv-2 nv-3;
+%       nv-2 j nv-3;
+%       j nv-1 nv-3;
+%       nv-1 k nv-3;
+%       k nv nv-3;
+%       nv i nv-3];
+%   elseif ~highval && sum(highgrad) == 3
+%     oldfaces = [oldfaces; fi];
+%     nv = size(v,1);
+%     f = [f; i nv-2 nv;
+%       nv-2 j nv-1;
+%       nv-1 k nv;
+%       nv nv-2 nv-1];
+%   end
 end
-f(oldfaces,:) = [];
+% f(oldfaces,:) = [];
+
+% in case mesh is 'spherical'
+f = fliplr(convhulln(v));
+v = v(sort(unique(f(:))),:);
+s = s(sort(unique(f(:))),:);
+f = fliplr(convhulln(v));
 end
 
-function [stop,s,M,L,D_T,neig,reg] = refineGD(x,M,L,D_T,neig,reg)
+% refinement wrapper for in-house gradient descent !INCOMPLETE!
+function [stop,s,M,L,D_T,neig,reg] = refineGD(s,M,L,D_T,neig,reg)
+  stop = 0;
+end
 
+% calculates all possible differences of elements in a vector
+function [xdiff] = alldiff(x)
+x = x';
+xdiff = arrayfun(@(k) x(k:end)-x(k), 1:numel(x),'un',0);
+xdiff = [xdiff{:}];
+xdiff = xdiff';
 end

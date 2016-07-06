@@ -13,7 +13,7 @@ if (nargout <= 1)
     D = eig(L,M);
   else
     warning('ignoring highest frequency; matlab is a bitch');
-    D = eigs(L,sparse(M),numeig-1,sigma);
+    D = [NaN; eigs(L,sparse(M),numeig-1,sigma)];
   end
   varargout{1} = sort(D);
 else
@@ -24,16 +24,23 @@ else
     for i = 1:numeig
       V(:,i) = V(:,i)./norm(V(:,i));
     end
+    D = diag(D);
   elseif ~issparse(L)
     [V,D] = eig(L,M);
     % normalize eigenvectors
     for i = 1:size(M,1)
       V(:,i) = V(:,i)./norm(V(:,i));
     end
+    D = diag(D);
   else
     warning('ignoring highest frequency; matlab is a bitch');
-    D = eigs(L,sparse(M),numeig-1,sigma);
+    [V,D] = eigs(L,sparse(M),numeig-1,sigma);
+    % normalize eigenvectors
+    for i = 1:size(M,1)
+      V(:,i) = V(:,i)./norm(V(:,i));
+    end
+    D = [NaN; diag(D)];
   end
-  [varargout{2},I] = sort(diag(D));
+  [varargout{2},I] = sort(D);
   varargout{1} = V(:,I);
 end

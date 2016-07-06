@@ -83,7 +83,6 @@ D_T = eigvf(L_T,M_T,size(v,1));
 [M_end,L_end] = lapbel(v_end,f);
 D_end = eigvf(L_end,M_end,size(v,1));
 if ~isempty(s_end)
-  [M,L] = lapbel(v,f);
   D_endp = eigvf(L,diag(1./s_end)*M,size(v,1));
 else
   D_endp = [nan(size(v,1)-numel(D_endp),1); D_endp];

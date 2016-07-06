@@ -14,11 +14,11 @@ function varargout = conformalcost(v,isedge,elsq_T)
 v = reshape(v,3,[])';
 numv = size(v,1); % number of vertices
 elsq = zeros(numv); % edge length squares
-temp = mod(isedge-1,numv)+1; % isedge column indices
-temp2 = fix((isedge-1)/numv); % isedge row indices
+col = mod(isedge-1,numv)+1; % isedge column indices
+row = fix((isedge-1)/numv); % isedge row indices
 if (nargout <= 1)
   for j = 1:numv
-    for i = temp(temp2 == (j-1))'
+    for i = col(row == (j-1))'
       elsq(i,j) = sum((v(i,:)-v(j,:)).^2);
     end
   end
@@ -26,7 +26,7 @@ if (nargout <= 1)
 else
   el = zeros(numv,numv,3);
   for j = 1:numv
-    for i = temp(temp2 == (j-1))'
+    for i = col(row == (j-1))'
       for dim = 1:3
         el(i,j,dim) = v(i,dim)-v(j,dim);
       end
