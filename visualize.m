@@ -60,7 +60,8 @@ set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spherical/cMCF mesh');
 caxis(crange);
-colorbar('southoutside')
+ch = colorbar('southoutside');
+ylabel(ch,'1/s');
 
 subplot(2,4,3); hold all; view(3); grid on; axis equal
 trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
@@ -69,7 +70,8 @@ set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
 xlabel('x'); ylabel('y'); zlabel('z');
 title('spectrally opt. mesh');
 caxis(crange);
-colorbar('southoutside')
+ch = colorbar('southoutside');
+ylabel(ch,'1/s');
 %% compare spectra
 numeig = numel(D_T);
 [M,L] = lapbel(v,f);

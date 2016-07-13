@@ -1,7 +1,7 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeig,pert,reg)
+  numeigI,pert,reg)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
@@ -32,16 +32,16 @@ if init_data.num ~= 4
   elseif init_data.num == 3
     load(['../meshes/' init_data.dat]);
   end
-  [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+  [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 end
 %% target spectrum (and shapes)
 if target_data.num == 5
   v_T = []; f_T = []; s_T = [];
   D_T = target_data.D_T;
-  if numel(D_T) >= numeig
-    D_T = D_T(1:numeig);
+  if numel(D_T) >= numeigI
+    D_T = D_T(1:numeigI);
   else
-    D_T = [D_0(1:(numeig-numel(D_T))); D_T];
+    D_T = [D_0(1:(numeigI-numel(D_T))); D_T];
   end
 else
   % perturb with random conformal factors at vertices
@@ -64,7 +64,7 @@ else
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
     [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
-    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
   % import wavefront object file
   elseif target_data.num == 3
@@ -72,7 +72,7 @@ else
       if init_data.num == 4
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
-        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
       else
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
       end
@@ -83,7 +83,7 @@ else
         [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
-        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
       else
         s_T = meancurvflow(v_T,f_T,1e5,'c');
       end
@@ -96,7 +96,7 @@ else
     if init_data.num == 4
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
-      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
+      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
     end
   end
   
@@ -106,14 +106,16 @@ else
 end
 %% refinement criterion
 if init_data.num == 4
-  sthreshold = Inf; % disable refinement routines for cMCF'ed mesh
+  scheck = Inf; % disable refinement routines for cMCF'ed mesh
+  sthreshold = 0; % abs(log(1/(conformal factors)))
 else
+  scheck = 0; % abs(log(1/(conformal factors)))
   sthreshold = abs(log(1/(10))); % abs(log(1/(conformal factors)))
-  sgthreshold = abs(log(1/(2)));
+  sgthreshold = abs(log(1/(1.008)));
 end
-refinestop = @(x,optimValues,state) max(abs(x))>sthreshold;
+refinestop = @(x,optimValues,state) max(abs(x))>scheck;
 refineIter = 0;
-maxRefine = 5;
+maxRefine = 6;
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log conformal factors
@@ -141,20 +143,24 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
       else
         trisurf(f,v(:,1),v(:,2),v(:,3),s,...
           'facecolor','interp');
-        skipstr = input('refined mesh by to high conformal factor, continue? Y/N [Y]: \n','s');
+        legend(num2str(size(v,1),'#vtx %d'),'location','best');
+        skipstr = input('mesh refined due to bad conformal factors, continue? Y/N [Y]: \n','s');
         if ~isempty(skipstr)
           if skipstr == 'N' || skipstr == 'n'
             options = optimset('GradObj','on','display','iter-detailed',...
               'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-            [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-            test = @(s) eigencost(s,M,L,D_T,neig,reg);
+            [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+            D_T = eigvf(L_T,M_T,numeig);
+            test = @(s) eigencost(s,M,L,D_T,numeig,reg);
             [s,J_hist] = fminunc(test,s,options);
             break;
           end
         end
-        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeig);
-        s0 = zeros(numv,1); % if using log conformal factors
-        test = @(s) eigencost(s,M,L,D_T,neig,reg);
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+%         s0 = zeros(numv,1); % if using log conformal factors and restarting
+        s0 = s; % if not restarting
+        D_T = eigvf(L_T,M_T,numeig);
+        test = @(s) eigencost(s,M,L,D_T,numeig,reg);
       end
       [s,~,exitflag] = fminunc(test,s0,options);
       refineIter = refineIter + 1;
@@ -301,7 +307,8 @@ for fi = 1:size(f,1)
   k = f(fi,3);
   if max(abs(alldiff(s(i)))) > scrit % face contains vertices with high conformal factors
     bpos = sum(v([i j k],:),1)/3; % barycenter position of said face
-    bpos = bpos/norm(bpos)*mean(vnorm(v([i j k],:))); % project it back to sphere
+%     bpos = bpos/norm(bpos)*mean(vnorm(v([i j k],:))); % project it back to sphere
+    bpos = bpos/norm(bpos)*mean(vnorm(v)); % project it back to sphere
     bs = sum(s([i j k]))/3; % average/interp conformal factor at barycenter
     v = [v; bpos];
     s = [s; bs];
@@ -309,7 +316,8 @@ for fi = 1:size(f,1)
   end
   if abs(s(i)-s(j)) > sgcrit % edge ij has high conformal factor gradient
     bpos = sum(v([i j],:),1)/2; % midpoint of said edge
-    bpos = bpos/norm(bpos)*mean(vnorm(v([i j],:))); % project it back to sphere
+%     bpos = bpos/norm(bpos)*mean(vnorm(v([i j],:))); % project it back to sphere
+    bpos = bpos/norm(bpos)*mean(vnorm(v)); % project it back to sphere
     bs = sum(s([i j]))/2; % average/interp conformal factor
     v = [v; bpos];
     s = [s; bs];
@@ -317,7 +325,8 @@ for fi = 1:size(f,1)
   end
   if abs(s(j)-s(k)) > sgcrit % edge jk has high conformal factor gradient
     bpos = sum(v([j k],:),1)/2; % midpoint of said edge
-    bpos = bpos/norm(bpos)*mean(vnorm(v([j k],:))); % project it back to sphere
+%     bpos = bpos/norm(bpos)*mean(vnorm(v([j k],:))); % project it back to sphere
+    bpos = bpos/norm(bpos)*mean(vnorm(v)); % project it back to sphere
     bs = sum(s([j k]))/2; % average/interp conformal factor
     v = [v; bpos];
     s = [s; bs];
@@ -325,7 +334,8 @@ for fi = 1:size(f,1)
   end
   if abs(s(k)-s(i)) > sgcrit % edge ki has high conformal factor gradient
     bpos = sum(v([k i],:),1)/2; % midpoint of said edge
-    bpos = bpos/norm(bpos)*mean(vnorm(v([k i],:))); % project it back to sphere
+%     bpos = bpos/norm(bpos)*mean(vnorm(v([k i],:))); % project it back to sphere
+    bpos = bpos/norm(bpos)*mean(vnorm(v)); % project it back to sphere
     bs = sum(s([k i]))/2; % average/interp conformal factor
     v = [v; bpos];
     s = [s; bs];
