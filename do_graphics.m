@@ -1,6 +1,8 @@
 close all;
-folder = 'harmonics/Y32';
+% folder = 'harmonics/Y32';
 % folder = 'harmonics/Y33';
+folder = 'spot';
+% folder = 'spot/cow';
 % folder = 'spot/recursive487';
 % folder = 'bunny/recursive327';
 % folder = 'bunny/recursive602';
