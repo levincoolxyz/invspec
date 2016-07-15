@@ -1,5 +1,10 @@
 close all;
-folder = 'bunny/recursive602';
+folder = 'harmonics/Y32';
+% folder = 'harmonics/Y33';
+% folder = 'spot/recursive487';
+% folder = 'bunny/recursive327';
+% folder = 'bunny/recursive602';
+% folder = 'bunny/recursive1k';
 [~,datalist] = unix(['basename -s .mat -a ' folder '/i*.mat']);
 % [token,remain] = strtok(datalist);
 datalist = textscan(datalist,'%s');
@@ -16,17 +21,28 @@ for i = 1:size(datalist{1},1)
  close all;
 end
 
-%% two gifs
-if strcmp(folder,'Y32')
-unix('mv Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.png Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
-unix('mv Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.png Y32/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
-unix('convert -delay 100 -loop 0 Y32/i2_300_t2_abs\(Y32\(v\)\)_e*.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
-unix('mv Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.png Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png');
-unix('mv Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.png Y32/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png');
-unix('convert -delay 100 -loop 0 Y32/i3_300_t2_abs\(Y32\(v\)\)_e*.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif');
-elseif strcmp(folder,'Y33')
-unix('mv Y33/i3_300_t2_abs\(Y33\(v\)\)_e1p0.5.png Y33/i3_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
-unix('convert -delay 100 -loop 0 Y33/i3_300_t2_abs\(Y33\(v\)\)_e*.png i3_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
-unix('mv Y33/i2_300_t2_abs\(Y33\(v\)\)_e1p0.5.png Y33/i2_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png');
-unix('convert -delay 100 -loop 0 Y33/i2_300_t2_abs\(Y33\(v\)\)_e*.png i2_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif');
+%% 2 x 2 gifs
+if strcmp(folder,'harmonics/Y32')
+unix(['mv ' folder '/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.png ' ...
+  folder '/i2_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png']);
+unix(['mv ' folder '/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.png ' ...
+  folder '/i2_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png']);
+unix(['convert -delay 100 -loop 0 ' ...
+  folder '/i2_300_t2_abs\(Y32\(v\)\)_e*.png i2_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif']);
+unix(['mv ' folder '/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.png ' ...
+  folder '/i3_300_t2_abs\(Y32\(v\)\)_e0.1p1.0.png']);
+unix(['mv ' folder '/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.png ' ...
+  folder '/i3_300_t2_abs\(Y32\(v\)\)_e0.1p2.0.png']);
+unix(['convert -delay 100 -loop 0 ' ...
+  folder '/i3_300_t2_abs\(Y32\(v\)\)_e*.png i3_300_t2_abs\(Y32\(v\)\)_e0.1p0.5-2.gif']);
+
+elseif strcmp(folder,'harmonics/Y33')
+unix(['mv ' folder '/i3_300_t2_abs\(Y33\(v\)\)_e1p0.5.png ' ...
+  folder '/i3_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png']);
+unix(['convert -delay 100 -loop 0 ' ...
+  folder '/i3_300_t2_abs\(Y33\(v\)\)_e*.png i3_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif']);
+unix(['mv ' folder '/i2_300_t2_abs\(Y33\(v\)\)_e1p0.5.png ' ...
+  folder '/i2_300_t2_abs\(Y33\(v\)\)_e1.0p0.5.png']);
+unix(['convert -delay 100 -loop 0 ' ...
+  folder '/i2_300_t2_abs\(Y33\(v\)\)_e*.png i2_300_t2_abs\(Y33\(v\)\)_e0.1-1p0.5.gif']);
 end
