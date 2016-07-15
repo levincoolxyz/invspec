@@ -53,14 +53,21 @@ original spot with regularization
 
 ![bbfe](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)![baft](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
 
+*even finer mesh recursive run*
+![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1k/i3_bun2_t3_bunny1k_e0.9p0r0.1.png "classic bunny as target with regularization fitted recursively")
+
 *more coming soon*
 
 ### Ways to go
 
-1. without prior knowledge of target mesh, we will have to start with uniformly distributed spherical mesh (which will have to be finer and more costly)
+1. (ongoing) without prior knowledge of the target mesh, we will have to start from a uniform (coarse) spherical mesh and develop a suitable adaptive refinement scheme
 
-2. in practice it would not be exactly the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
+2. (banging my head) why does high frequency data matter in the FEM/hat function basis? the current way involves optimizing for them and then penalize for its noisyness via regularization, which seems very silly...
 
-2. in practice high frequencies might be prohibitively noiser
+2. (ongoing) one way to [maybe] resolve the above problem is to use the mesh independent "Fourier" spherical harmonic basis, but will it blend?
 
-3. how to guess topology beforehand? would higher genus work out-of-the-box?
+2. in practice the inverse problem would not be about the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
+
+2. in practice higher frequencies will most definitly be prohibitively noisy
+
+3. can we guess the topology beforehand? would higher genus surfaces work in similar fashion despite planarity/hyperbolicity? (e.g. there are known non-trivial isospectral hyperbolic (g>5) surfaces...)
