@@ -1,11 +1,11 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeigI,pert,reg)
+  numeigI,pert,reg,refctl)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-%   numeig,pert,reg)
+%   numeig,pert,reg,refctl)
 %
 % for help see comments in test_script.m
 
@@ -73,8 +73,12 @@ else
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+        vmcf = v;
       else
+        vtmp = v;
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
+        vmcv = v;
+        v = vtmp;
       end
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
@@ -84,19 +88,22 @@ else
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+        vmcf = v;
       else
-        s_T = meancurvflow(v_T,f_T,1e5,'c');
+        [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
       end
     end
 
   % load face-vertex from *.mat [need v_T and f_T]
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
-    s_T = meancurvflow(v_T,f_T,1e5,'c');
     if init_data.num == 4
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
       [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+      vmcf = v;
+    else
+      [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
     end
   end
   
@@ -110,12 +117,12 @@ if init_data.num == 4
   sthreshold = 0; % abs(log(1/(conformal factors)))
 else
   scheck = 0; % abs(log(1/(conformal factors)))
-  sthreshold = abs(log(1/(10))); % abs(log(1/(conformal factors)))
-  sgthreshold = abs(log(1/(1.008)));
+  sthreshold = refctl(1); % abs(log(1/(conformal factors)))
+  sgthreshold = refctl(2);
 end
 refinestop = @(x,optimValues,state) max(abs(x))>scheck;
 refineIter = 0;
-maxRefine = 6;
+maxRefine = refctl(3);
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log conformal factors
@@ -145,6 +152,16 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
           'facecolor','interp');
         legend(num2str(size(v,1),'#vtx %d'),'location','best');
         skipstr = input('mesh refined due to bad conformal factors, continue? Y/N [Y]: \n','s');
+        
+        if ~isempty(target_data.adapt) && target_data.num == 3
+          [~,sizefit] = min(abs(target_data.adapt - size(v,1)));
+          adaptedTarget = [regexprep(target_data.dat,'\d*','') ...
+            num2str(target_data.adapt(sizefit),'%d')];
+          fid = fopen(['../meshes/' adaptedTarget '.obj'],'rt');
+          [v_T,f_T] = readwfobj(fid);
+          [M_T,L_T] = lapbel(v_T,f_T);
+        end
+        
         if ~isempty(skipstr)
           if skipstr == 'N' || skipstr == 'n'
             options = optimset('GradObj','on','display','iter-detailed',...
@@ -183,7 +200,7 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
 
   crange = [min([s_T;s0]) max([s_T;s0])];
   subplot(1,2,1); hold all; view(3); grid on; axis equal
-  trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+  trisurf(f,vmcf(:,1),vmcf(:,2),vmcf(:,3),s_T,...
     'facecolor','interp','edgecolor','none');
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');

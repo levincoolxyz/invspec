@@ -1,0 +1,44 @@
+MCF iter#1: |dv| = 12.8902; sphericity = 0.80614
+MCF iter#2: |dv| = 7.75317; sphericity = 0.898319
+MCF iter#3: |dv| = 4.18041; sphericity = 0.744367
+MCF iter#4: |dv| = 4.58242; sphericity = 0.521845
+MCF iter#5: |dv| = 5.58031; sphericity = 0.312743
+MCF iter#6: |dv| = 5.0773; sphericity = 0.140774
+MCF iter#7: |dv| = 3.52699; sphericity = 0.0320033
+MCF iter#8: |dv| = 1.86968; sphericity = 0.0530966
+MCF iter#9: |dv| = 0.707266; sphericity = 0.0674361
+MCF iter#10: |dv| = 0.278569; sphericity = 0.05613
+MCF iter#11: |dv| = 0.453262; sphericity = 0.0350267
+MCF iter#12: |dv| = 0.467179; sphericity = 0.0191361
+MCF iter#13: |dv| = 0.337654; sphericity = 0.0177036
+MCF iter#14: |dv| = 0.173024; sphericity = 0.0205191
+MCF iter#15: |dv| = 0.0635252; sphericity = 0.0208562
+MCF iter#16: |dv| = 0.0771565; sphericity = 0.0196434
+MCF iter#17: |dv| = 0.0956767; sphericity = 0.0184243
+MCF iter#18: |dv| = 0.0893334; sphericity = 0.0177305
+MCF iter#19: |dv| = 0.0740782; sphericity = 0.0173918
+MCF iter#20: |dv| = 0.0626691; sphericity = 0.0171846
+MCF iter#21: |dv| = 0.0581605; sphericity = 0.0170364
+MCF iter#22: |dv| = 0.0572156; sphericity = 0.0169403
+Starting parallel pool (parpool) using the 'local' profile ... connected to 4 workers.
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1          7.68836                         0.191
+     1           2          3.38809              1          0.204  
+
+fminunc stopped by the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'output_function','CSHelpWindow');">output or plot function</a>.
+
+mesh refined due to bad conformal factors, continue? Y/N [Y]: 
+
+fminunc stopped by the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'output_function','CSHelpWindow');">output or plot function</a>.
+
+mesh refined due to bad conformal factors, continue? Y/N [Y]: 
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('textscan')" style="font-weight:bold">textscan</a>
+Invalid file identifier. Use fopen to generate a valid file identifier.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('readwfobj', '/home/ultimate/invspec/mcode/readwfobj.m', 12)" style="font-weight:bold">readwfobj</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/readwfobj.m',12,0)">line 12</a>)
+temp = textscan(fid,'%s','Delimiter','');
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 161)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',161,0)">line 161</a>)
+          [v_T,f_T] = readwfobj(fid);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 81)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',81,0)">line 81</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+test_script
