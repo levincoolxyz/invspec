@@ -1,25 +1,29 @@
 function [figh] = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
-  J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
+  J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
 % function [figh] = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
-%   J_hist,Jc_hist,D_0,D_T,D_endp,D_end)
+%   J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
+% 
+% pcable - true (1) if want to use principal component analysis to align meshes
 
+if nargin<14 || isempty(pcable), pcable = 1; end
 %% principal component analysis for alignment
-dcm = pa(v,f); % princomp(v); %pca(v);
-if ~isempty(v_T)
-  dcm_T = pa(v_T,f_T); % princomp(v_T); %pca(v_T);
+if pcable
+  dcm = pa(v,f); % princomp(v); %pca(v);
+  if ~isempty(v_T)
+    dcm_T = pa(v_T,f_T); % princomp(v_T); %pca(v_T);
+  end
+  dcm_end = pa(v_end,f); % princomp(v_end); %pca(v_end);
+
+  % ensure orientation preserving
+  dcm = dcm*det(dcm);
+  if ~isempty(v_T), dcm_T = dcm_T*det(dcm_T); end
+  dcm_end = dcm_end*det(dcm_end);
+
+  % rotate vertices
+  v = dcmrot(v,dcm);
+  if ~isempty(v_T), v_T = dcmrot(v_T,dcm_T); end
+  v_end = dcmrot(v_end,dcm_end);
 end
-dcm_end = pa(v_end,f); % princomp(v_end); %pca(v_end);
-
-% ensure orientation preserving
-dcm = dcm*det(dcm);
-if ~isempty(v_T), dcm_T = dcm_T*det(dcm_T); end
-dcm_end = dcm_end*det(dcm_end);
-
-% rotate vertices
-v = dcmrot(v,dcm);
-if ~isempty(v_T), v_T = dcmrot(v_T,dcm_T); end
-v_end = dcmrot(v_end,dcm_end);
-
 %% initialize
 figh = figure();
 set(gcf,'outerposition',[0, 0, 1920, 1080]);
@@ -52,23 +56,45 @@ title('resultant mesh');
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
 
+[~,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
+
 crange = [min([s_T;s_end]) max([s_T;s_end])];
-subplot(2,4,2); hold all; view(3); grid on; axis equal
-trisurf(f,v(:,1),v(:,2),v(:,3),s_T,...
+subplot(2,4,2); hold all; grid on; axis equal
+title('cMCF conformal factors (s)');
+
+% 3d spherical plot
+% trisurf(f_T,v_T_mcf(:,1),v_T_mcf(:,2),v_T_mcf(:,3),s_T,...
+%   'facecolor','interp','edgecolor','none');
+% set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+% xlabel('x'); ylabel('y'); zlabel('z'); view(3); grid on; 
+
+% hammer projection plot
+[hx1,hy1] = xyz2hammer(v_T_mcf);
+f_T_ham = delaunayTriangulation([hx1 hy1]);
+trisurf(f_T_ham.ConnectivityList,hx1,hy1,zeros(size(hx1)),s_T,...
   'facecolor','interp','edgecolor','none');
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('spherical/cMCF mesh');
+set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
+
 caxis(crange);
 ch = colorbar('southoutside');
 ylabel(ch,'1/s');
 
-subplot(2,4,3); hold all; view(3); grid on; axis equal
-trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
+subplot(2,4,3); hold all; grid on; axis equal
+title('spectrally optimized conf. fact. (s)');
+
+% 3d spherical plot
+% trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
+%   'facecolor','interp','edgecolor','none');
+% set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+% xlabel('x'); ylabel('y'); zlabel('z'); view(3);
+
+% hammer projection plot
+[hx2,hy2] = xyz2hammer(v);
+f_ham = delaunayTriangulation([hx2 hy2]);
+trisurf(f_ham.ConnectivityList,hx2,hy2,zeros(size(hx2)),s_end,...
   'facecolor','interp','edgecolor','none');
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z');
-title('spectrally opt. mesh');
+set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
+
 caxis(crange);
 ch = colorbar('southoutside');
 ylabel(ch,'1/s');
@@ -141,4 +167,14 @@ text(floor(max(xm)^.4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   numeig],...
   ['iter#%d: J_{MIEP2} = %g     ',...
   'iter#%d: J_{embedding} = %g   numeig=%d']));
+end
+
+function [hamx,hamy] = xyz2hammer(v)
+% turn cartesian coord on sphere to its hammer projection \in [-1,1]^2
+rv = sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+latv = acos(v(:,3)./rv) - pi/2;
+lonv = atan2(v(:,2),v(:,1));
+hamz = sqrt(1 + cos(latv).*cos(lonv/2));
+hamx = cos(latv).*sin(lonv/2)./hamz;
+hamy = sin(latv)./hamz;
 end
