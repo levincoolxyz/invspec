@@ -54,7 +54,7 @@ original spot with regularization
 ![bbfe](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)![baft](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
 
 *even finer mesh recursive run*
-![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1k/i3_bun2_t3_bunny1k_e0.9p0r0.1.png "classic bunny as target with regularization fitted recursively")
+![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1k/i3_bun2_t3_bunny1k_e0.5p0r0.1.png "classic bunny as target with regularization fitted recursively")
 
 *more coming soon*
 
