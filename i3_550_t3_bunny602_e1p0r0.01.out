@@ -1,7 +1,0 @@
-{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('load')" style="font-weight:bold">load</a>
-Unable to read file '../meshes/550'. No such file or directory.
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 33)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',33,0)">line 33</a>)
-    load(['../meshes/' init_data.dat]);
-Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 76)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',76,0)">line 76</a>)
-  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
-test_script

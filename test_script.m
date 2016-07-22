@@ -13,15 +13,16 @@ aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
 numeig = .9; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0.1; % regularization coefficient
-refctl = [abs(log(1/(10))) abs(log(1/(1.008))) 8]; % abs and grad refine threshold & max steps
+reg = 0.05; % regularization coefficient
+refctl = [abs(log(1/(1.9))) 3 ...     % check threshold and maximum refine steps
+  abs(log(1/(1.3))) abs(log(1/(1.2)))]; % abs and grad refine threshold
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1;
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2;
-init_data.dat = '200';
+init_data.dat = '400';
 %% input case == 3; import face-vtx from *.mat file [need v and f]
 % init_data.num = 3;
 % init_data.dat = 'mcfbun327';
@@ -45,12 +46,14 @@ target_data.num = 3;
 % target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny789';
 % target_data.dat = 'bunny602';
+% target_data.dat = 'bunny540';
+target_data.dat = 'bunny449';
 % target_data.dat = 'bunny327';
-target_data.dat = 'bunny210';
+% target_data.dat = 'bunny210';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
 % target_data.dat = 'spot';
-target_data.adapt = [210 327 449 540 602 789 1048 1366]; % available bunny sizes
+target_data.adapt = [210 327 449 540 602 789 1043 1366]; % available bunny sizes
 %% target case == 4; import face-vtx from *.mat file [need v_T and f_T]
 % target_data.num = 4;
 % target_data.dat = 'cow03';
@@ -86,7 +89,7 @@ target_data.adapt = [210 327 449 540 602 789 1048 1366]; % available bunny sizes
   %% visualing results
   close all;
   figh = visualize(v,v_T,v_end,f,f_T,s_end,s_T,...
-    J_hist,Jc_hist,D_0,D_T,D_endp,D_end);
+    J_hist,Jc_hist,D_0,D_T,D_endp,D_end,0);
   %% record said results
   hgexport(figh,[endname '.png'],...
     hgexport('factorystyle'), 'Format', 'png'); 

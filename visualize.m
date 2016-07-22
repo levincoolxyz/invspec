@@ -53,10 +53,10 @@ xlabel('x'); ylabel('y'); zlabel('z');
 title('resultant mesh');
 
 %% compare conformal factors
-vlim = max(max(abs(v)));
-vlim = [-vlim vlim];
+% vlim = max(max(abs(v)));
+% vlim = [-vlim vlim];
 
-[~,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
+[s_T,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
 
 crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; grid on; axis equal
@@ -69,9 +69,8 @@ title('cMCF conformal factors (s)');
 % xlabel('x'); ylabel('y'); zlabel('z'); view(3); grid on; 
 
 % hammer projection plot
-[hx1,hy1] = xyz2hammer(v_T_mcf);
-f_T_ham = delaunayTriangulation([hx1 hy1]);
-trisurf(f_T_ham.ConnectivityList,hx1,hy1,zeros(size(hx1)),s_T,...
+[vham1,f_T_ham] = xyz2hammer(v_T_mcf);
+trisurf(f_T_ham,vham1(:,1),vham1(:,2),vham1(:,3),s_T,...
   'facecolor','interp','edgecolor','none');
 set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
 
@@ -89,9 +88,8 @@ title('spectrally optimized conf. fact. (s)');
 % xlabel('x'); ylabel('y'); zlabel('z'); view(3);
 
 % hammer projection plot
-[hx2,hy2] = xyz2hammer(v);
-f_ham = delaunayTriangulation([hx2 hy2]);
-trisurf(f_ham.ConnectivityList,hx2,hy2,zeros(size(hx2)),s_end,...
+[vham2,f_ham] = xyz2hammer(v);
+trisurf(f_ham,vham2(:,1),vham2(:,2),vham2(:,3),s_end,...
   'facecolor','interp','edgecolor','none');
 set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
 
@@ -167,14 +165,4 @@ text(floor(max(xm)^.4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   numeig],...
   ['iter#%d: J_{MIEP2} = %g     ',...
   'iter#%d: J_{embedding} = %g   numeig=%d']));
-end
-
-function [hamx,hamy] = xyz2hammer(v)
-% turn cartesian coord on sphere to its hammer projection \in [-1,1]^2
-rv = sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-latv = acos(v(:,3)./rv) - pi/2;
-lonv = atan2(v(:,2),v(:,1));
-hamz = sqrt(1 + cos(latv).*cos(lonv/2));
-hamx = cos(latv).*sin(lonv/2)./hamz;
-hamy = sin(latv)./hamz;
 end

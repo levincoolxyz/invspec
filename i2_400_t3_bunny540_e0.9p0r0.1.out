@@ -1,0 +1,33 @@
+MCF iter#1: |dv| = 20.855; sphericity = 0.811786
+MCF iter#2: |dv| = 12.7232; sphericity = 0.899231
+MCF iter#3: |dv| = 6.9514; sphericity = 0.750085
+MCF iter#4: |dv| = 7.52713; sphericity = 0.525159
+MCF iter#5: |dv| = 9.49372; sphericity = 0.306034
+MCF iter#6: |dv| = 8.68096; sphericity = 0.121102
+MCF iter#7: |dv| = 5.81333; sphericity = 0.0143221
+MCF iter#8: |dv| = 2.80054; sphericity = 0.065743
+MCF iter#9: |dv| = 0.869106; sphericity = 0.0740477
+MCF iter#10: |dv| = 0.622381; sphericity = 0.054682
+MCF iter#11: |dv| = 0.943773; sphericity = 0.0270414
+MCF iter#12: |dv| = 0.855857; sphericity = 0.00825914
+MCF iter#13: |dv| = 0.539344; sphericity = 0.0131227
+MCF iter#14: |dv| = 0.2127; sphericity = 0.0160521
+MCF iter#15: |dv| = 0.0834223; sphericity = 0.0140287
+MCF iter#16: |dv| = 0.156845; sphericity = 0.0105652
+MCF iter#17: |dv| = 0.160713; sphericity = 0.00829754
+MCF iter#18: |dv| = 0.119094; sphericity = 0.00768572
+MCF iter#19: |dv| = 0.0718065; sphericity = 0.00766904
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1          20.3441                         0.214
+     1           2          8.49934              1          0.236  
+     2           4           4.4956       0.314965          0.382  
+
+fminunc stopped by the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'output_function','CSHelpWindow');">output or plot function</a>.
+
+mesh refined due to bad conformal factors, continue? Y/N [Y]: 
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 154)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',154,0)">line 154</a>)
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 84)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',84,0)">line 84</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+test_script

@@ -116,13 +116,13 @@ if init_data.num == 4
   scheck = Inf; % disable refinement routines for cMCF'ed mesh
   sthreshold = 0; % abs(log(1/(conformal factors)))
 else
-  scheck = 0; % abs(log(1/(conformal factors)))
-  sthreshold = refctl(1); % abs(log(1/(conformal factors)))
-  sgthreshold = refctl(2);
+  scheck = refctl(1); % abs(log(1/(conformal factors)))
+  sthreshold = refctl(3);
+  sgthreshold = refctl(4);
 end
 refinestop = @(x,optimValues,state) max(abs(x))>scheck;
 refineIter = 0;
-maxRefine = refctl(3);
+maxRefine = refctl(2);
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log conformal factors
@@ -173,6 +173,7 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
             break;
           end
         end
+        
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 %         s0 = zeros(numv,1); % if using log conformal factors and restarting
         s0 = s; % if not restarting
@@ -200,7 +201,7 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
 
   crange = [min([s_T;s0]) max([s_T;s0])];
   subplot(1,2,1); hold all; view(3); grid on; axis equal
-  trisurf(f,vmcf(:,1),vmcf(:,2),vmcf(:,3),s_T,...
+  trisurf(f_T,vmcf(:,1),vmcf(:,2),vmcf(:,3),s_T,...
     'facecolor','interp','edgecolor','none');
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
@@ -323,6 +324,7 @@ for fi = 1:size(f,1)
   j = f(fi,2);
   k = f(fi,3);
   if max(abs(alldiff(s(i)))) > scrit % face contains vertices with high conformal factors
+%   if max(abs((s(i)))) > scrit % face contains vertices with high conformal factors
     bpos = sum(v([i j k],:),1)/3; % barycenter position of said face
 %     bpos = bpos/norm(bpos)*mean(vnorm(v([i j k],:))); % project it back to sphere
     bpos = bpos/norm(bpos)*mean(vnorm(v)); % project it back to sphere
@@ -384,6 +386,9 @@ f = fliplr(convhulln(v));
 v = v(sort(unique(f(:))),:);
 s = s(sort(unique(f(:))),:);
 f = fliplr(convhulln(v));
+
+% DT = delaunayTriangulation(v);
+% f = DT.ConnectivityList;
 end
 
 % refinement wrapper for in-house gradient descent !INCOMPLETE!

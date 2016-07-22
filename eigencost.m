@@ -16,6 +16,7 @@ function varargout = eigencost(s,M,L,lambda_T,numeig,reg,eig0)
 if nargin<6 || isempty(reg), reg = 0; end
 if nargin<7 || isempty(eig0) || eig0<2, eig0 = 2; end
 nums = numel(s);
+if numeig > numel(lambda_T), numeig = numel(lambda_T); end
 %% get eigenvalues and eigenvectors
 % [V,lambda] = eigvf(L,diag(1./s)*M,numeig);
 [V,lambda] = eigvf(L,diag(1./exp(s))*M,numeig); % log-conformal factors
