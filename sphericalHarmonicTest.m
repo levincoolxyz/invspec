@@ -19,7 +19,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-for L = [1:3 5 8 10 15 20 25]
+for L = 25%[1:3 5 8 10 15 20 25]
 
 Y_v = sphericalHarmonicBase(v,L);
 
