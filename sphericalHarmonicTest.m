@@ -1,7 +1,7 @@
 clear;
 
-% target = 'spot';
-target = 'bunny';
+target = 'spot';
+% target = 'bunny';
 
 % discriptor = 'inv';
 discriptor = 'log';
@@ -19,7 +19,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-for L = 25%[1:3 5 8 10 15 20 25]
+for L = [1:3 5 8 10 15 20 25]
 
 Y_v = sphericalHarmonicBase(v,L);
 
@@ -70,7 +70,7 @@ hgexport(gcf,num2str(L,[target 'SphericalHarmonicsL=%02d' discriptor '.png']),..
 apjlist = padcat(apjlist,a_pj);
 alslist = padcat(alslist,a_ls);
 end
-save([target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist','Y_v');
+save([target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist');
 
 %% test if spherical harmonics look like spherical harmonics
 % a = zeros(size(a_pj));
