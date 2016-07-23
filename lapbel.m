@@ -6,9 +6,9 @@ function varargout = lapbel(v,f)
 % v,f  - face-vertex data of the input surface
 % 
 % OUTPUTS
-% M    - diagonal part (mass matrix)
-% L    - symmetric negative definite part
-%        thus M^(-1)*L is the Laplace-Beltrami operator
+% M    - diagonalized (barycentric) mass matrix
+% L    - symmetric negative definite contan (edge) weights
+%        thus M^(-1)*L is the full Laplace-Beltrami operator
 % 
 
 numv = size(v,1); % number of vertices

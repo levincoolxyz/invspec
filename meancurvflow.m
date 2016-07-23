@@ -85,7 +85,7 @@ end
   dv = vdiff(v,vold);
   fprintf('MCF iter#%d: |dv| = %g; sphericity = %g\n',iter,dv, sphericity);
   iter = iter + 1;
-  if abs(sphericity_old - sphericity) <= 1e-4
+  if abs(sphericity_old - sphericity) <= 5e-5
     break;
   end
   if sphericity > 2
