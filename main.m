@@ -120,7 +120,7 @@ else
   sthreshold = refctl(3);
   sgthreshold = refctl(4);
 end
-refinestop = @(x,optimValues,state) max(abs(x))>scheck;
+refinestop = @(x,optimValues,state) max(exp(x))>scheck;
 refineIter = 0;
 maxRefine = refctl(2);
 %% MIEP2 via gradient / BFGS descent

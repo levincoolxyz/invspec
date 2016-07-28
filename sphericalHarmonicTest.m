@@ -1,11 +1,12 @@
 clear;
 %% load target and mcf data
 % target = 'spot';
-% target = 'bunny';
-target = 'spotS10';
+% target = 'spot10k';
+target = 'bunny';
+% target = 'spotS10';
 
-discriptor = '';
-% discriptor = 'inv';
+% discriptor = '';
+discriptor = 'inv';
 % discriptor = 'log';
 
 if exist(['mcf/' target '.mat'],'file')
@@ -32,9 +33,9 @@ end
 %%
 apjlist = [];
 alslist = [];
-for L = [1:3 5 8 10 15 20 25]
+for maxL = 20%[1:3 5 8 10 15 20 25 40]
 %% get spherical harmonics on vertices
-[Y_v,LM] = sphericalHarmonicBase(v,L);
+[Y_v,LM] = sphericalHarmonicBase(v,maxL);
 numSH = size(LM,1);
 
 %% calculate conf. factors in SH basis
@@ -52,7 +53,7 @@ s_pj = Y_v*a_pj;
 if strcmp('log',discriptor)
   modifier = @(x) exp(x);
 elseif strcmp('inv',discriptor)
-  modifier = @(x) 1./x;
+  modifier = @(x) log(abs(1./x));
 else
   modifier = @(x) x;
 end
@@ -93,7 +94,7 @@ set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on');
 caxis(crange); ch = colorbar('westoutside');
 ylabel(ch,'s');
 %%
-hgexport(gcf,num2str(L,[target 'SphericalHarmonicsL=%02d' discriptor '.png']),...
+hgexport(gcf,num2str(maxL,[target 'SphericalHarmonicsL=%02d' discriptor '.png']),...
   hgexport('factorystyle'), 'Format', 'png');
 apjlist = padcat(apjlist,a_pj);
 alslist = padcat(alslist,a_ls);
@@ -112,64 +113,70 @@ unix(['rm ' target '*phericalH*' discriptor '.png']);
 %% test if spherical harmonics look like spherical harmonics
 % a = zeros(size(a_pj));
 % a(18) = 2*sqrt(pi);
-
+% 
 % sh = Y_v*a;
 % figure();
 % trisurf(f_T,v(:,1),v(:,2),v(:,3),sh,'facecolor','interp','edgecolor','none'); axis equal;
 
 %% get original spectrum
-% numeig = max(L+1)^2;
-% [M_T,L_T] = lapbel(v_T,f_T);
-% D_T = eigvf(L_T,M_T,numeig);
-% 
-% % [M,L] = lapbel(v,f_T);
-% % D_w = eigvf(L,diag(sparse(s_T)).*M,numeig);
-% 
-% %% get SH basis spectrum
-% % a = zeros(size(a_pj));
-% % a(1) = 2*sqrt(pi);
-% % aa = a;
-% % aa = [2*sqrt(pi), -1.0066359, 0.57527065, 0.31905909, -0.17029902, ...
-% % -0.00090668897, 0.0058173331, 0.0031209552, 0.0048153206, ...
-% % 0.0038694581, 0.00016732501, 0.00030969496, -0.0002770344, ...
-% % 0.000070761836, -0.00020614028, -0.000039104542];
-% aa = a_pj;
-% % aa = a_ls;
-% 
-% D_s = [];
-% for l = 0:L
-%     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
-% end
-% 
-% L_sh = zeros(numeig);
-% for i = 1:numeig
-%   for j = 1:numeig
-%     akcijk = 0;
-%     for k = 1:numeig
+numeig = max(maxL+1)^2;
+[M_T,L_T] = lapbel(v_T,f_T);
+D_T = eigvf(L_T,M_T,numeig);
+
+% [M,L] = lapbel(v,f_T);
+% D_w = eigvf(L,diag(sparse(s_T)).*M,numeig);
+
+%% get SH basis spectrum
+% a = zeros(size(a_pj));
+% a(1) = 2*sqrt(pi);
+% aa = a;
+% aa = [2*sqrt(pi), -1.0066359, 0.57527065, 0.31905909, -0.17029902, ...
+% -0.00090668897, 0.0058173331, 0.0031209552, 0.0048153206, ...
+% 0.0038694581, 0.00016732501, 0.00030969496, -0.0002770344, ...
+% 0.000070761836, -0.00020614028, -0.000039104542];
+aa = a_pj;
+% aa = a_ls;
+
+D_s = [];
+for l = 0:maxL
+    D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
+end
+
+L_sh = zeros(numeig);
+for i = 1:numeig
+  if exist(num2str(i,'../RSHI/RSHI%02d.mat'),'file')
+    load(num2str(i,'../RSHI/RSHI%02d.mat'));
+  else
+    error('ain''t nobody got time for dat');
+  end
+  for j = 1:numeig
+    akcijk = 0;
+    for k = 1:numeig
 %       cijk = integrate3realSH(LM([i j k],:));
 %       akcijk = akcijk + aa(k)*cijk;
-%     end
-%     L_sh(i,j) = D_s(i)*akcijk;
-%   end
-% end
-% 
-% D_sh = eig(L_sh);
-% if norm(imag(D_sh)) > 1e-10
-%   error('no no no no no no ...');
-% end
-% D_sh = sort(real(D_sh));
-% 
-% %% compare spectrum
-% rei = numeig:-1:1;
-% figure();hold all;
-% plot(rei,-D_T)
-% % plot(rei,-D_w,'kx')
-% plot(rei,-D_sh,'--')
-% 
-% %% more comparisons
-% % % load cowspec.mat
-% % load bunspec.mat
-% % rei = [nan(size(size(D,1):-1:numeig+1)) rei];
-% % for i = 1:size(D,2)
-% %   plot(rei,-D(:,i));
-% % end
+      akcijk = akcijk + aa(k)*cijk(j,k);
+    end
+    L_sh(i,j) = D_s(i)*akcijk;
+  end
+end
+clear cijk
+
+D_sh = eig(L_sh);
+if norm(imag(D_sh)) > 1e-10
+  error('no no no no no no ...');
+end
+D_sh = sort(real(D_sh));
+
+%% compare spectrum
+rei = numeig:-1:1;
+figure();hold all;
+plot(rei,-D_T)
+% plot(rei,-D_w,'kx')
+plot(rei,-D_sh,'--')
+
+%% more comparisons
+load([target 'spec.mat']);
+rei = [nan(size(size(D,1):-1:numeig+1)) rei];
+for i = 1:size(D,2)
+  plot(rei,-D(:,i));
+end

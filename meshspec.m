@@ -40,8 +40,8 @@ legend(filename,'location','northwest')
 set(gcf,'outerposition',[0, 0, 1920, 1080]);
 
 %% save results
-% hgexport(gcf,'bunspec.png',hgexport('factorystyle'), 'Format', 'png'); 
-% save('bunspec.mat','D','Dmcf');
+% hgexport(gcf,'bunnyspec.png',hgexport('factorystyle'), 'Format', 'png'); 
+% save('bunnyspec.mat','D','Dmcf');
 
-hgexport(gcf,'cowspec.png',hgexport('factorystyle'), 'Format', 'png'); 
-save('cowspec.mat','D','Dmcf');
+hgexport(gcf,'spotspec.png',hgexport('factorystyle'), 'Format', 'png'); 
+save('spotspec.mat','D','Dmcf');
