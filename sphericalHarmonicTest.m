@@ -4,6 +4,7 @@ clear;
 % target = 'spot10k';
 target = 'bunny';
 % target = 'spotS10';
+target = 'sphere_large';
 
 % discriptor = '';
 discriptor = 'inv';
@@ -134,7 +135,7 @@ D_T = eigvf(L_T,M_T,numeig);
 % aa = [2*sqrt(pi), -1.0066359, 0.57527065, 0.31905909, -0.17029902, ...
 % -0.00090668897, 0.0058173331, 0.0031209552, 0.0048153206, ...
 % 0.0038694581, 0.00016732501, 0.00030969496, -0.0002770344, ...
-% 0.000070761836, -0.00020614028, -0.000039104542];
+% 0.000070761836, -0.00020614028, -0.000039104542]';
 aa = a_pj;
 % aa = a_ls;
 
@@ -152,39 +153,41 @@ for i = 1:numeig
     warning('ain''t nobody got time for this');
     computeNow = 1;
   end
-  for j = 1:numeig
-    akcijk = 0;
-    for k = 1:numeig
-      if computeNow
+  if computeNow
+    for j = 1:numeig
+      akcijk = 0;
+      for k = 1:numeig
         cijk = integrate3realSH(LM([i j k],:));
         akcijk = akcijk + aa(k)*cijk;
-      else
-        akcijk = akcijk + aa(k)*cijk(j,k);
       end
+      L_sh(i,j) = D_s(i)*akcijk;
     end
-    L_sh(i,j) = D_s(i)*akcijk;
+  else
+    L_sh(i,:) = D_s(i)*aa'*real(cijk(1:numeig,1:numeig));
   end
 end
 
 D_sh = eig(L_sh);
-if mean(abs(imag(D_sh))) > 1e-10
-  error('no no no no no no ...');
-end
-D_sh = sort(real(D_sh));
+% if mean(abs(imag(D_sh))) > 1e-10
+%   error('no no no no no no ...');
+% end
+% D_sh = sort(real(D_sh));
+D_sh = sort(D_sh);
 
 %% compare spectrum
 rei = numeig:-1:1;
 figure();hold all;
 plot(rei,-D_T)
 % plot(rei,-D_w,'kx')
-plot(rei-62,-D_sh,'--')
+plot(rei,-D_sh,'--')
 
 if strfind(target,'spot')
   load spotspec.mat
 elseif strfind(target,'bunny')
   load bunnyspec.mat
 else
-  error('no discrete spectrum data available');
+  warning('no discrete spectrum data available');
+  D = [];
 end
 if size(D,1) > numel(rei)
   rei = [nan(size(size(D,1):-1:numeig+1)) rei];

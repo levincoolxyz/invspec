@@ -12,6 +12,7 @@ for i = 688:700
       cijk(j,k) = integrate3realSH(LM([i j k],:));
     end
   end
+  cijk = real(cijk);
   save(num2str(i,'../RSHI/RSHI%04d.mat'),'cijk'); % need to buy more RAM
 end
 

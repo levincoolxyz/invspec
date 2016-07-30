@@ -71,3 +71,4 @@ original spot with regularization
 2. in practice higher frequencies will most definitly be prohibitively noisy
 
 3. can we guess the topology beforehand? would higher genus surfaces work in similar fashion despite planarity/hyperbolicity? (e.g. there are known non-trivial isospectral hyperbolic (g>5) surfaces...)
+(Yes. Reuter, Wolter, Peinecke 2006 ~ first 500 eigenvalues)
