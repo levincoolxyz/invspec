@@ -33,7 +33,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-for maxL = 20%[1:3 5 8 10 15 20 25 40]
+for maxL = 30%[1:3 5 8 10 15 20 25 40]
 %% get spherical harmonics on vertices
 [Y_v,LM] = sphericalHarmonicBase(v,maxL);
 numSH = size(LM,1);
@@ -45,21 +45,21 @@ a_ls = (Y_v'*Y_v)\(Y_v'*x);
 s_ls = Y_v*a_ls;
 
 M = lapbel(v,f_T);
-idtest = Y_v'*M*Y_v;
-a_pj = Y_v'*M*x;
+delta = Y_v'*M*Y_v;
+a_pj = delta\(Y_v'*M*x);
 s_pj = Y_v*a_pj;
 
 %%
 if strcmp('log',discriptor)
   modifier = @(x) exp(x);
 elseif strcmp('inv',discriptor)
-  modifier = @(x) log(abs(1./x));
+  modifier = @(x) log(abs(1./x))*(numel(find(x<0,1)) == 1)+ log((1./x))*isempty(find(x<0,1));
 else
   modifier = @(x) x;
 end
 
 crange = [min(modifier(s_pj)) max(modifier(s_pj))];
-close all; figure(); colormap jet
+figure(); colormap jet
 set(gcf,'outerposition',[0, 0, 1920, 1080]);
 
 subplot(2,2,1); hold all; axis equal; view([0 90]);
@@ -94,21 +94,22 @@ set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on');
 caxis(crange); ch = colorbar('westoutside');
 ylabel(ch,'s');
 %%
-hgexport(gcf,num2str(maxL,[target 'SphericalHarmonicsL=%02d' discriptor '.png']),...
-  hgexport('factorystyle'), 'Format', 'png');
+% hgexport(gcf,num2str(maxL,[target 'SphericalHarmonicsL=%02d' discriptor '.png']),...
+%   hgexport('factorystyle'), 'Format', 'png');
+pause(.1);
 apjlist = padcat(apjlist,a_pj);
 alslist = padcat(alslist,a_ls);
 end
-save(['SH/' target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist');
+% save(['SH/' target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist');
 
 %% add caption and make gif
-unix(['mogrify -font Liberation-Sans -fill white -undercolor ''#000000F0'' -pointsize 26 ' ...
-  '-gravity NorthEast -annotate +10+10 %t ' target '*phericalH*' discriptor '.png']);
-
-unix(['convert -delay 100 -loop 0 ' ...
-  target '*phericalH*' discriptor '.png SH/' target 'SphericalHarmonics.' discriptor '.gif']);
-
-unix(['rm ' target '*phericalH*' discriptor '.png']);
+% unix(['mogrify -font Liberation-Sans -fill white -undercolor ''#000000F0'' -pointsize 26 ' ...
+%   '-gravity NorthEast -annotate +10+10 %t ' target '*phericalH*' discriptor '.png']);
+% 
+% unix(['convert -delay 100 -loop 0 ' ...
+%   target '*phericalH*' discriptor '.png SH/' target 'SphericalHarmonics.' discriptor '.gif']);
+% 
+% unix(['rm ' target '*phericalH*' discriptor '.png']);
 
 %% test if spherical harmonics look like spherical harmonics
 % a = zeros(size(a_pj));
@@ -144,25 +145,29 @@ end
 
 L_sh = zeros(numeig);
 for i = 1:numeig
-  if exist(num2str(i,'../RSHI/RSHI%02d.mat'),'file')
-    load(num2str(i,'../RSHI/RSHI%02d.mat'));
+  if exist(num2str(i,'../RSHI/RSHI%04d.mat'),'file')
+    load(num2str(i,'../RSHI/RSHI%04d.mat'));
+    computeNow = 0;
   else
-    error('ain''t nobody got time for dat');
+    warning('ain''t nobody got time for this');
+    computeNow = 1;
   end
   for j = 1:numeig
     akcijk = 0;
     for k = 1:numeig
-%       cijk = integrate3realSH(LM([i j k],:));
-%       akcijk = akcijk + aa(k)*cijk;
-      akcijk = akcijk + aa(k)*cijk(j,k);
+      if computeNow
+        cijk = integrate3realSH(LM([i j k],:));
+        akcijk = akcijk + aa(k)*cijk;
+      else
+        akcijk = akcijk + aa(k)*cijk(j,k);
+      end
     end
     L_sh(i,j) = D_s(i)*akcijk;
   end
 end
-clear cijk
 
 D_sh = eig(L_sh);
-if norm(imag(D_sh)) > 1e-10
+if mean(abs(imag(D_sh))) > 1e-10
   error('no no no no no no ...');
 end
 D_sh = sort(real(D_sh));
@@ -172,11 +177,20 @@ rei = numeig:-1:1;
 figure();hold all;
 plot(rei,-D_T)
 % plot(rei,-D_w,'kx')
-plot(rei,-D_sh,'--')
+plot(rei-62,-D_sh,'--')
 
-%% more comparisons
-load([target 'spec.mat']);
-rei = [nan(size(size(D,1):-1:numeig+1)) rei];
+if strfind(target,'spot')
+  load spotspec.mat
+elseif strfind(target,'bunny')
+  load bunnyspec.mat
+else
+  error('no discrete spectrum data available');
+end
+if size(D,1) > numel(rei)
+  rei = [nan(size(size(D,1):-1:numeig+1)) rei];
+else
+  rei = rei(end-size(D,1)+1:end);
+end
 for i = 1:size(D,2)
   plot(rei,-D(:,i));
 end
