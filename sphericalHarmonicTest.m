@@ -4,7 +4,7 @@ clear;
 % target = 'spot10k';
 target = 'bunny';
 % target = 'spotS10';
-target = 'sphere_large';
+% target = 'sphere_large';
 
 % discriptor = '';
 discriptor = 'inv';
@@ -23,6 +23,16 @@ else
   save(['mcf/' target '.mat'],'v_T','f_T','s_T','v');
 end
 
+% pert = @(x) .5*(2*v(:,3).^2-v(:,1).^2-v(:,2).^2)./(vnorm(v)).^2;
+% 
+% [M,L] = lapbel(v_T,f_T);
+% invM = diag(1./diag(M));
+% Hn = .5*[invM*L*v(:,1) invM*L*v(:,2) invM*L*v(:,3)];
+% H = vnorm(Hn);
+% vn = Hn./repmat(H,1,3);
+% v_T = v_T - repmat(pert(v),1,3).*vn;
+% [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+
 if strcmp('inv',discriptor)
 elseif strcmp('log',discriptor)
   s_T = log(1./s_T);
@@ -34,7 +44,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-for maxL = 30%[1:3 5 8 10 15 20 25 40]
+for maxL = 10%[1:3 5 8 10 15 20 25 40]
 %% get spherical harmonics on vertices
 [Y_v,LM] = sphericalHarmonicBase(v,maxL);
 numSH = size(LM,1);
@@ -179,7 +189,7 @@ rei = numeig:-1:1;
 figure();hold all;
 plot(rei,-D_T)
 % plot(rei,-D_w,'kx')
-plot(rei,-D_sh,'--')
+plot(rei-62,-D_sh,'--')
 
 if strfind(target,'spot')
   load spotspec.mat
