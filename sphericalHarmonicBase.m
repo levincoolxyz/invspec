@@ -32,7 +32,7 @@ for l = 0:L % degree
 %     m = abs(m);
 % 
 %     Pml = legendre(l,cos(EL + pi/2)); % Associated Legendre Polynomials of degree l
-%     if l~=0, Pml = Pml(m + 1,:); end % pick terms of order m
+%     if l~=0, Pml = Pml(m + 1,:); end % pick the order m term
 % 
 %     C = sqrt((2*l + 1)/(4*pi) * gamma(l - m + 1)/gamma(l + m + 1)); % normalization constant
 %     Yml = C*Pml'.*exp(1i*m*AZ); % complex spherical harmonics
@@ -50,7 +50,7 @@ for l = 0:L % degree
     mneg = l*(l+1)+1+(-l:-1);
     m0   = l*(l+1)+1;
     mpos = l*(l+1)+1+(1:l);
-    realY(:,mneg) = repmat(sqrt(2)*(-1).^(-l:-1),numv,1).*imag(Yml(:,2:l+1));
+    realY(:,mneg) = repmat(sqrt(2)*(-1).^(-l:-1),numv,1).*imag(Yml(:,(l+1):-1:2));
     realY(:,m0) = Yml(:,1);
     realY(:,mpos) = repmat(sqrt(2)*(-1).^(1:l),numv,1).*real(Yml(:,2:l+1));
     

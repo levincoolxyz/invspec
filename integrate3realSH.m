@@ -1,24 +1,33 @@
 function realout = integrate3realSH(LM)
-coeff = realSH2cpxSH(LM);
 l = LM(:,1);
 m = LM(:,2);
 absm = abs(m);
-ppp = absm.*[ 1; 1; 1];
-ppn = absm.*[ 1; 1;-1];
-pnp = absm.*[ 1;-1; 1];
-pnn = absm.*[ 1;-1;-1];
-npp = absm.*[-1; 1; 1];
-npn = absm.*[-1; 1;-1];
-nnp = absm.*[-1;-1; 1];
-nnn = absm.*[-1;-1;-1];
-realout = prod(coeff([1 2 3]))*int3cpxSH(l, ppp) + ...
-          prod(coeff([1 2 6]))*int3cpxSH(l, ppn) + ...
-          prod(coeff([1 5 3]))*int3cpxSH(l, pnp) + ...
-          prod(coeff([1 5 6]))*int3cpxSH(l, pnn) + ...
-          prod(coeff([4 2 3]))*int3cpxSH(l, npp) + ...
-          prod(coeff([4 2 6]))*int3cpxSH(l, npn) + ...
-          prod(coeff([4 5 3]))*int3cpxSH(l, nnp) + ...
-          prod(coeff([4 5 6]))*int3cpxSH(l, nnn);
+mm = zeros(3,8);
+mm(:,1) = absm.*[ 1; 1; 1]; %ppp
+mm(:,2) = absm.*[ 1; 1;-1]; %ppn
+mm(:,3) = absm.*[ 1;-1; 1]; %pnp
+mm(:,4) = absm.*[ 1;-1;-1]; %pnn
+mm(:,5) = absm.*[-1; 1; 1]; %npp
+mm(:,6) = absm.*[-1; 1;-1]; %npn
+mm(:,7) = absm.*[-1;-1; 1]; %nnp
+mm(:,8) = absm.*[-1;-1;-1]; %nnn
+mchk = sum(mm,1) == 0;
+realSH = zeros(8,1);
+for i = 1:8
+  if mchk(i)
+    realSH(i) = int3cpxSH(l, mm(:,i));
+  end
+end
+coeff = realSH2cpxSH(LM);
+realcoeff = [prod(coeff([1 2 3])) ...
+             prod(coeff([1 2 6])) ...
+             prod(coeff([1 5 3])) ...
+             prod(coeff([1 5 6])) ...
+             prod(coeff([4 2 3])) ...
+             prod(coeff([4 2 6])) ...
+             prod(coeff([4 5 3])) ...
+             prod(coeff([4 5 6]))];
+realout = realcoeff*realSH;
 end
 function coeff = realSH2cpxSH(LM)
 m = LM(:,2);

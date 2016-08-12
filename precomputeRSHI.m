@@ -1,15 +1,20 @@
 clear all
 
-maxL = 10;
+maxL = 30;
 [~,LM] = sphericalHarmonicBase([1 1 1],maxL);
 numeig = size(LM,1);
 
-cijk = zeros(numeig);
-for i = 1:numeig
+for i = 117:numeig
+  cijk = zeros(numeig);
   for j = 1:numeig
     akcijk = 0;
     parfor k = 1:numeig
-      cijk(j,k) = integrate3realSH(LM([i j k],:));
+      lm = LM([i j k],:);
+      if ( lm(3) > (lm(1) + lm(2)) ) || ( lm(3) < abs(lm(1) - lm(2)) )
+        cijk(j,k) = 0;
+      else
+        cijk(j,k) = integrate3realSH(lm);
+      end
     end
   end
   cijk = real(cijk);

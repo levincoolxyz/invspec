@@ -123,12 +123,33 @@ end
 % unix(['rm ' target '*phericalH*' discriptor '.png']);
 
 %% test if spherical harmonics look like spherical harmonics
-% a = zeros(size(a_pj));
-% a(18) = 2*sqrt(pi);
-% 
+% a = zeros((maxL+1)^2,1);
+% a(5) = 2*sqrt(pi);
 % sh = Y_v*a;
+% min(sh)
+% % min(s_pj)
+% 
+% % az = 0:0.1:2*pi;
+% % el = 0:0.1:pi;
+% % [AZ,EL] = meshgrid(az,el);
+% % R = ones(size(AZ));
+% % [vx,vy,vz] = sph2cart(AZ(:),EL(:)-pi/2,R(:));
+% % vv = [vx, vy, vz];
+% % Y = sphericalHarmonicBase(vv,10);
+% % % shsh = Y*a;
+% % shsh = Y*a_pj;
+% % % shsh = zeros(size(vx));
+% % % for j = 1:numel(vx)
+% % %   for i = 1:121
+% % %     shsh(j) = shsh(j) + Y(j,i)*a_pj(i);
+% % %   end
+% % % end
+% % 
+% % min(shsh)
+% 
 % figure();
 % trisurf(f_T,v(:,1),v(:,2),v(:,3),sh,'facecolor','interp','edgecolor','none'); axis equal;
+% colorbar; colormap jet
 
 %% get original spectrum
 numeig = max(maxL+1)^2;
@@ -142,10 +163,10 @@ D_T = eigvf(L_T,M_T,numeig);
 % a = zeros(size(a_pj));
 % a(1) = 2*sqrt(pi);
 % aa = a;
-% aa = [2*sqrt(pi), -1.0066359, 0.57527065, 0.31905909, -0.17029902, ...
-% -0.00090668897, 0.0058173331, 0.0031209552, 0.0048153206, ...
-% 0.0038694581, 0.00016732501, 0.00030969496, -0.0002770344, ...
-% 0.000070761836, -0.00020614028, -0.000039104542]';
+% aa = [2*sqrt(pi), -1.3182409, 0.66036477, -0.34151179, 0.20749373, -0.083409802 ...
+% 0.0082154643, -0.025159468, -0.0062353568, -0.0029661895 ...
+% 0.0011572657, 0.0011554944, 0.00066818418, 0.00021389462 ... 
+% -0.00014639729, 0.000072971848]';
 aa = a_pj;
 % aa = a_ls;
 
@@ -187,10 +208,9 @@ D_sh = sort(D_sh);
 %% compare spectrum
 rei = numeig:-1:1;
 figure();hold all;
+plot(rei,-D_sh,'--')
+%%
 plot(rei,-D_T)
-% plot(rei,-D_w,'kx')
-plot(rei-62,-D_sh,'--')
-
 if strfind(target,'spot')
   load spotspec.mat
 elseif strfind(target,'bunny')
