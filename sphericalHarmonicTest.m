@@ -44,7 +44,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-for maxL = 10%[1:3 5 8 10 15 20 25 40]
+for maxL = 30%[1:3 5 8 10 15 20 25 40]
 %% get spherical harmonics on vertices
 [Y_v,LM] = sphericalHarmonicBase(v,maxL);
 numSH = size(LM,1);
@@ -59,6 +59,20 @@ M = lapbel(v,f_T);
 delta = Y_v'*M*Y_v;
 a_pj = delta\(Y_v'*M*x);
 s_pj = Y_v*a_pj;
+if min(s_pj)<=0
+  warning('has negative or infinite conformal factors')
+  
+  az = 0:0.1:2*pi;
+  el = 0:0.1:pi;
+  [AZ,EL] = meshgrid(az,el);
+  R = ones(size(AZ));
+  [vx,vy,vz] = sph2cart(AZ(:),EL(:)-pi/2,R(:));
+  vv = [vx, vy, vz];
+  Y = sphericalHarmonicBase(vv,10);
+  shsh = Y*a_pj;
+
+  min(shsh)
+end
 
 %%
 if strcmp('log',discriptor)
@@ -122,30 +136,11 @@ end
 % 
 % unix(['rm ' target '*phericalH*' discriptor '.png']);
 
-%% test if spherical harmonics look like spherical harmonics
+%% test if spherical harmonics look like spherical harmonics 
+%  (this debugging procedure failed me because of all the symmetries of SH)
 % a = zeros((maxL+1)^2,1);
 % a(5) = 2*sqrt(pi);
 % sh = Y_v*a;
-% min(sh)
-% % min(s_pj)
-% 
-% % az = 0:0.1:2*pi;
-% % el = 0:0.1:pi;
-% % [AZ,EL] = meshgrid(az,el);
-% % R = ones(size(AZ));
-% % [vx,vy,vz] = sph2cart(AZ(:),EL(:)-pi/2,R(:));
-% % vv = [vx, vy, vz];
-% % Y = sphericalHarmonicBase(vv,10);
-% % % shsh = Y*a;
-% % shsh = Y*a_pj;
-% % % shsh = zeros(size(vx));
-% % % for j = 1:numel(vx)
-% % %   for i = 1:121
-% % %     shsh(j) = shsh(j) + Y(j,i)*a_pj(i);
-% % %   end
-% % % end
-% % 
-% % min(shsh)
 % 
 % figure();
 % trisurf(f_T,v(:,1),v(:,2),v(:,3),sh,'facecolor','interp','edgecolor','none'); axis equal;
@@ -160,22 +155,14 @@ D_T = eigvf(L_T,M_T,numeig);
 % D_w = eigvf(L,diag(sparse(s_T)).*M,numeig);
 
 %% get SH basis spectrum
-% a = zeros(size(a_pj));
-% a(1) = 2*sqrt(pi);
-% aa = a;
-% aa = [2*sqrt(pi), -1.3182409, 0.66036477, -0.34151179, 0.20749373, -0.083409802 ...
-% 0.0082154643, -0.025159468, -0.0062353568, -0.0029661895 ...
-% 0.0011572657, 0.0011554944, 0.00066818418, 0.00021389462 ... 
-% -0.00014639729, 0.000072971848]';
-aa = a_pj;
-% aa = a_ls;
 
 D_s = [];
 for l = 0:maxL
     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
 
-L_sh = zeros(numeig);
+L_pj = zeros(numeig);
+L_ls = zeros(numeig);
 for i = 1:numeig
   if exist(num2str(i,'../RSHI/RSHI%04d.mat'),'file')
     load(num2str(i,'../RSHI/RSHI%04d.mat'));
@@ -186,30 +173,31 @@ for i = 1:numeig
   end
   if computeNow
     for j = 1:numeig
-      akcijk = 0;
+      apjkcijk = 0;
+      alskcijk = 0;
       for k = 1:numeig
         cijk = integrate3realSH(LM([i j k],:));
-        akcijk = akcijk + aa(k)*cijk;
+        apjkcijk = apjkcijk + a_pj(k)*cijk;
+        alskcijk = alskcijk + a_ls(k)*cijk;
       end
-      L_sh(i,j) = D_s(i)*akcijk;
+      L_pj(i,j) = D_s(i)*apjkcijk;
+      L_ls(i,j) = D_s(i)*alskcijk;
     end
   else
-    L_sh(i,:) = D_s(i)*aa'*real(cijk(1:numeig,1:numeig));
+    L_pj(i,:) = D_s(i)*a_pj'*real(cijk(1:numeig,1:numeig));
+    L_ls(i,:) = D_s(i)*a_ls'*real(cijk(1:numeig,1:numeig));
   end
 end
 
-D_sh = eig(L_sh);
-% if mean(abs(imag(D_sh))) > 1e-10
-%   error('no no no no no no ...');
-% end
-% D_sh = sort(real(D_sh));
-D_sh = sort(D_sh);
+D_pj = sort(eig(L_pj));
+D_ls = sort(eig(L_ls));
 
 %% compare spectrum
 rei = numeig:-1:1;
-figure();hold all;
-plot(rei,-D_sh,'--')
-%%
+close all;figure();hold all;
+plot(rei,-D_pj,'--','linewidth',2)
+plot(rei,-D_ls,':','linewidth',2)
+
 plot(rei,-D_T)
 if strfind(target,'spot')
   load spotspec.mat
@@ -227,3 +215,9 @@ end
 for i = 1:size(D,2)
   plot(rei,-D(:,i));
 end
+xlabel('# of Eigenvalues');
+ylabel('Laplacian Eigenvalues');
+title(num2str(maxL,'Conformal Factor Forward Problem in Spherical Harmonics L=%02d'));
+legend('projected SH spectrum','least squares SH spectrum','discrete cotan spectrum',...
+  'location','best');
+saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
