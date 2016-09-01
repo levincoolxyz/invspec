@@ -44,7 +44,8 @@ end
 %%
 apjlist = [];
 alslist = [];
-for maxL = 30%[1:3 5 8 10 15 20 25 40]
+Lrange = 30;%[1:3 5 8 10 15 20 25 30];
+for maxL = Lrange
 %% get spherical harmonics on vertices
 [Y_v,LM] = sphericalHarmonicBase(v,maxL);
 numSH = size(LM,1);
@@ -68,7 +69,7 @@ if min(s_pj)<=0
   R = ones(size(AZ));
   [vx,vy,vz] = sph2cart(AZ(:),EL(:)-pi/2,R(:));
   vv = [vx, vy, vz];
-  Y = sphericalHarmonicBase(vv,10);
+  Y = sphericalHarmonicBase(vv,maxL);
   shsh = Y*a_pj;
 
   min(shsh)
@@ -155,7 +156,12 @@ D_T = eigvf(L_T,M_T,numeig);
 % D_w = eigvf(L,diag(sparse(s_T)).*M,numeig);
 
 %% get SH basis spectrum
-
+ai = 1;
+for maxL = Lrange
+numeig = max(maxL+1)^2;
+a_pj = apjlist(1:numeig,ai);
+a_ls = alslist(1:numeig,ai);
+ai = ai + 1;
 D_s = [];
 for l = 0:maxL
     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
@@ -198,7 +204,7 @@ close all;figure();hold all;
 plot(rei,-D_pj,'--','linewidth',2)
 plot(rei,-D_ls,':','linewidth',2)
 
-plot(rei,-D_T)
+plot(rei,-D_T(end-numeig+1:end))
 if strfind(target,'spot')
   load spotspec.mat
 elseif strfind(target,'bunny')
@@ -220,4 +226,5 @@ ylabel('Laplacian Eigenvalues');
 title(num2str(maxL,'Conformal Factor Forward Problem in Spherical Harmonics L=%02d'));
 legend('projected SH spectrum','least squares SH spectrum','discrete cotan spectrum',...
   'location','best');
-saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
+% saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
+end
