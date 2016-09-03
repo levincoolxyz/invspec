@@ -16,18 +16,18 @@ end
 
 L = zeros(numeig);
 for i = 1:numeig
-  if exist(num2str(i,'../RSHI/RSHI%04d.mat'),'file')
-    load(num2str(i,'../RSHI/RSHI%04d.mat'));
+  if exist(num2str(i,'../RSHIs/RSHI%04d.mat'),'file')
+    load(num2str(i,'../RSHIs/RSHI%04d.mat'));
   else
     error('need to precompute the integrals first');
   end
-  L(i,:) = D_s(i)*a'*cijk(1:numeig,1:numeig);
+  L(i,:) = D_s(i)*a(1:numeig)'*cijk(1:numeig,1:numeig);
 end
 
 if (nargout <= 1)
   varargout{1} = sort(eig(L));
 else
   [V,D] = eig(L);
-  [varargout{2},I] = sort(D);
+  [varargout{2},I] = sort(diag(D));
   varargout{1} = V(:,I);
 end

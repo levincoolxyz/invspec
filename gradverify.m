@@ -1,5 +1,5 @@
 clear;
-load cow/i2_300_t4_cow03_e20p0.5r1e-05.mat
+load spot/cow/i4_mcf_t4_cow03_e1p0r1.mat
 rng(1432543); % rand seed
 numv = size(v,1);
 [M,L] = lapbel(v,f);

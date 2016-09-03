@@ -10,7 +10,7 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
-numeig = .9; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+numeig = 16^2;%.9; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 reg = 0.05; % regularization coefficient
@@ -22,7 +22,8 @@ method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2;
-init_data.dat = '400';
+% init_data.dat = '400';
+init_data.dat = '256';
 %% input case == 3; import face-vtx from *.mat file [need v and f]
 % init_data.num = 3;
 % init_data.dat = 'mcfbun327';
@@ -40,25 +41,29 @@ init_data.dat = '400';
 % target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-target_data.num = 3;
+% target_data.num = 3;
 % target_data.dat = 'bunny';
 % target_data.dat = 'bunny2k';
 % target_data.dat = 'bunny1k';
 % target_data.dat = 'bunny789';
 % target_data.dat = 'bunny602';
 % target_data.dat = 'bunny540';
-target_data.dat = 'bunny449';
+% target_data.dat = 'bunny449';
 % target_data.dat = 'bunny327';
 % target_data.dat = 'bunny210';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';
 % target_data.dat = 'spot';
-target_data.adapt = [210 327 449 540 602 789 1043 1366]; % available bunny sizes
+% target_data.adapt = [210 327 449 540 602 789 1043 1366]; % available bunny sizes
 %% target case == 4; import face-vtx from *.mat file [need v_T and f_T]
 % target_data.num = 4;
 % target_data.dat = 'cow03';
 %% target case == 5; prescribed spectra
-% target_data.num = 5;
+target_data.num = 5;
+target_data.name = 'bunnySH';
+load '/home/ultimate/invspec/mcode/SH/bunnySHspecL=30.mat'
+target_data.a = a_pj;
+target_data.dat = eigvfSH(a_pj,numeig);
 % target_data.name = 'sphere';
 % D_s = [];
 % for l = 0:20
@@ -81,10 +86,14 @@ target_data.adapt = [210 327 449 540 602 789 1043 1366]; % available bunny sizes
     ['i%d_' init_data.dat '_t%d_' dumb '_e%gp%gr%g']);
   %% main computation
   diary([endname '.out']);
+%   [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+%     D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+%     method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
+%     numeig,pert,reg,refctl);
   [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
-    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+    D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
     method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-    numeig,pert,reg,refctl);
+    numeig,pert);
   diary off;
   %% visualing results
   close all;

@@ -227,4 +227,15 @@ title(num2str(maxL,'Conformal Factor Forward Problem in Spherical Harmonics L=%0
 legend('projected SH spectrum','least squares SH spectrum','discrete cotan spectrum',...
   'location','best');
 % saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
+%%
+close all;
+figure(); hold all; grid on;
+plot(numeig:-1:1,abs((-D_pj+D_T)./D_T));
+% plot(numeig:-1:1,abs((-D_ls+D_T)./D_T));
+set(gca,'yscale','log');
+xlabel('# of Eigenvalues');
+ylabel('log Laplacian Eigenvalues');
+saveas(gcf,num2str(maxL,['SH/' target 'SHspecLogDiffL=%d.png']));
+
+save(num2str(maxL,['SH/' target 'SHspecL=%d.mat']),'a_pj','D_pj');
 end

@@ -1,0 +1,80 @@
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Inner matrix dimensions must agree.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvfSH', '/home/ultimate/invspec/mcode/eigvfSH.m', 24)" style="font-weight:bold">eigvfSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvfSH.m',24,0)">line 24</a>)
+  L(i,:) = D_s(i)*a'*cijk(1:numeig,1:numeig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencostSH', '/home/ultimate/invspec/mcode/eigencostSH.m', 17)" style="font-weight:bold">eigencostSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencostSH.m',17,0)">line 17</a>)
+[V,lambda] = eigvfSH(a,numeig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH>@(a)eigencostSH(a,D_T,neig)', '/home/ultimate/invspec/mcode/mainSH.m', 120)" style="font-weight:bold">mainSH>@(a)eigencostSH(a,D_T,neig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',120,0)">line 120</a>)
+    test = @(a) eigencostSH(a,D_T,neig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 271)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',271,0)">line 271</a>)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH', '/home/ultimate/invspec/mcode/mainSH.m', 123)" style="font-weight:bold">mainSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',123,0)">line 123</a>)
+    [a,J_hist] = fminunc(test,a0,options);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 93)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',93,0)">line 93</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+Caused by:
+    Failure in initial user-supplied objective function evaluation. FMINUNC
+    cannot continue.} 
+test_script
+a'*cijk(1:numeig,1:numeig)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Inner matrix dimensions must agree.} 
+test_script
+if system_dependent('IsDebugMode')==1, dbcont; end
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('minus')" style="font-weight:bold"> - </a>
+Matrix dimensions must agree.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencostSH', '/home/ultimate/invspec/mcode/eigencostSH.m', 20)" style="font-weight:bold">eigencostSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencostSH.m',20,0)">line 20</a>)
+lambda_diff = lambda-lambda_T;         % take the normal difference
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH>@(a)eigencostSH(a,D_T,neig)', '/home/ultimate/invspec/mcode/mainSH.m', 120)" style="font-weight:bold">mainSH>@(a)eigencostSH(a,D_T,neig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',120,0)">line 120</a>)
+    test = @(a) eigencostSH(a,D_T,neig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 271)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',271,0)">line 271</a>)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH', '/home/ultimate/invspec/mcode/mainSH.m', 123)" style="font-weight:bold">mainSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',123,0)">line 123</a>)
+    [a,J_hist] = fminunc(test,a0,options);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 93)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',93,0)">line 93</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+Caused by:
+    Failure in initial user-supplied objective function evaluation. FMINUNC
+    cannot continue.} 
+test_script
+try open('eigvf'); catch edit('eigvf'); end
+if system_dependent('IsDebugMode')==1, dbquit; end
+test_script
+{Undefined function or variable 'eig0'.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencostSH', '/home/ultimate/invspec/mcode/eigencostSH.m', 32)" style="font-weight:bold">eigencostSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencostSH.m',32,0)">line 32</a>)
+    for i = 1:(numeig-eig0+1) % iterate relevant eigenvalue
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH>@(a)eigencostSH(a,D_T,neig)', '/home/ultimate/invspec/mcode/mainSH.m', 120)" style="font-weight:bold">mainSH>@(a)eigencostSH(a,D_T,neig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',120,0)">line 120</a>)
+    test = @(a) eigencostSH(a,D_T,neig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 271)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',271,0)">line 271</a>)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH', '/home/ultimate/invspec/mcode/mainSH.m', 123)" style="font-weight:bold">mainSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',123,0)">line 123</a>)
+    [a,J_hist] = fminunc(test,a0,options);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 93)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',93,0)">line 93</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+Caused by:
+    Failure in initial user-supplied objective function evaluation. FMINUNC
+    cannot continue.} 
+test_script
+{Attempted to access V(257,1); index out of bounds because size(V)=[256,256].
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencostSH', '/home/ultimate/invspec/mcode/eigencostSH.m', 33)" style="font-weight:bold">eigencostSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencostSH.m',33,0)">line 33</a>)
+      vij = V(j,i);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH>@(a)eigencostSH(a,D_T,neig)', '/home/ultimate/invspec/mcode/mainSH.m', 120)" style="font-weight:bold">mainSH>@(a)eigencostSH(a,D_T,neig)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',120,0)">line 120</a>)
+    test = @(a) eigencostSH(a,D_T,neig);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 271)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',271,0)">line 271</a>)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH', '/home/ultimate/invspec/mcode/mainSH.m', 123)" style="font-weight:bold">mainSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',123,0)">line 123</a>)
+    [a,J_hist] = fminunc(test,a0,options);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 93)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',93,0)">line 93</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+Caused by:
+    Failure in initial user-supplied objective function evaluation. FMINUNC
+    cannot continue.} 
+test_script
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m', 347)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/usr/local/MATLAB/R2015a/toolbox/optim/optim/fminunc.m',347,0)">line 347</a>)
+User-defined objective gradient does not have the correct number of elements:
+the gradient should have 1000 elements.
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mainSH', '/home/ultimate/invspec/mcode/mainSH.m', 123)" style="font-weight:bold">mainSH</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/mainSH.m',123,0)">line 123</a>)
+    [a,J_hist] = fminunc(test,a0,options);
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 93)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',93,0)">line 93</a>)
+  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...} 
+test_script

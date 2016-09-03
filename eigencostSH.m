@@ -1,4 +1,4 @@
-function varargout = eigencostSH(a,lambda_T,numeig)
+function varargout = eigencostSH(a,mu_T,numeig)
 % function [J,GJ] = eigencostSH(a,lambda_T,numeig)
 % In Spherical Harmonics basis
 % 
@@ -11,28 +11,31 @@ function varargout = eigencostSH(a,lambda_T,numeig)
 % GJ       - gradient
 % 
 
-numa = numel(a);
-if numeig > numel(lambda_T), numeig = numel(lambda_T); end
+% numa = numel(a);
+numa = numeig;
+if numeig > numel(mu_T), numeig = numel(mu_T); end
 %% get eigenvalues and eigenvectors
-[V,lambda] = eigvfSH(a,numeig);
+[V,mu] = eigvfSH(a,numeig);
 %% spectral cost and gradient
-lambda_T = lambda_T(end-numeig+1:end); % chop unused target values
-lambda_diff = lambda-lambda_T;         % take the normal difference
-lambda_diff = lambda_diff./lambda_T;   % change to relative difference
+mu_T = mu_T(end-numeig+1:end); % chop unused target values
+mu_diff = mu-mu_T;             % take the normal difference
+mu_diff = mu_diff./mu_T;       % change to relative difference
 
-J = .5*sum(lambda_diff(1:(end-1)).^2); % compute norm squared cost
+J = .5*sum(mu_diff(1:(end-1)).^2); % compute norm squared cost
 
 if (nargout <= 1)
   varargout{1} = J;
 else
   varargout{1} = J;
   GJ = zeros(numa,1);
-  for j = 1:numa % iterate relevant conformal factor
-    aj = a(j);
-    for i = 1:(numeig-eig0+1) % iterate relevant eigenvalue
-      vij = V(j,i);
-      wij = -lambda_diff(i)*lambda(i)*vij^2/aj^2;   % normal difference
-      wij = wij/lambda_T(i);                        % relative difference
+  for i = 1:(numeig-1) % iterate relevant eigenvalue
+    vi = V(:,i);
+    mdi = mu_diff(i);
+    mTi = mu_T(i);
+    parfor j = 1:numa % iterate relevant conformal factor
+      x = load(num2str(j,'../RSHIs/dRSHI%04d.mat'));
+      wij = mdi*vi'*x.pLpaj(1:numeig,1:numeig)*vi;   % normal difference
+      wij = wij/mTi;                                 % relative difference
       GJ(j) = GJ(j) + wij;
     end
   end

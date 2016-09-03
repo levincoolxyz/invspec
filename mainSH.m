@@ -1,5 +1,5 @@
-function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
-  D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+function [v,v_T,v_end,f,f_T,s_end,a_T,J_hist,Jc_hist,...
+  D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
   numeigI,pert,reg,refctl)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
@@ -36,8 +36,8 @@ if init_data.num ~= 4
 end
 %% target spectrum (and shapes)
 if target_data.num == 5
-  v_T = []; f_T = []; s_T = [];
-  D_T = target_data.D_T;
+  v_T = []; f_T = []; a_T = target_data.a;
+  D_T = target_data.dat;
   if numel(D_T) >= numeigI
     D_T = D_T(1:numeigI);
   else
@@ -46,9 +46,9 @@ if target_data.num == 5
 else
   % perturb with random conformal factors at vertices
   if target_data.num == 1
-    s_T = exp(-rand(numv,1)*pert);
+    a_T = exp(-rand(numv,1)*pert);
     f_T = f;
-    conf_T = sqrt(kron(1./s_T',1./s_T)); % averaing conformal factors at vertices to edges
+    conf_T = sqrt(kron(1./a_T',1./a_T)); % averaing conformal factors at vertices to edges
     elsq_T = elsq0.*conf_T(isedge); % apply to linearly indexed edge lengths
     [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
       reshape(v',[],1),isedge,elsq_T);
@@ -63,7 +63,7 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
-    [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+    [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
   % import wavefront object file
@@ -84,13 +84,13 @@ else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
       if init_data.num == 4
-        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+        [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         vmcf = v;
       else
-        [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+        [a_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
       end
     end
 
@@ -98,12 +98,12 @@ else
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
     if init_data.num == 4
-      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+      [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
       [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
       vmcf = v;
     else
-      [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+      [a_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
     end
   end
   
@@ -112,30 +112,30 @@ else
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
 %% MIEP2 via gradient / BFGS descent
-% s0 = exp(-zeros(numv,1));
-s0 = zeros(numv,1); % if using log conformal factors
+% a0 = [2*sqrt(pi);zeros(numv-1,1)];
+a0 = [2*sqrt(pi);ones(numv-1,1)./(2:numv)'];
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
 for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
   if strcmp(method, 'BFGS')
-    test = @(s) eigencostSH(s,D_T,neig);
+    test = @(a) eigencostSH(a,D_T,neig);
     options = optimset('GradObj','on','display','iter-detailed',...
       'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-    [s,J_hist] = fminunc(test,s,options);
+    [a,J_hist] = fminunc(test,a0,options);
   elseif strcmp(method, 'GD')
-    [J_hist,s] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
-      s0,D_T,neig);
+    [J_hist,a] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
+      a0,D_T,neig);
   else
     error('unknown descent method');
   end
 
-  s0 = s(:,end);  
+  a0 = a(:,end);  
 
   h = figure(); % manual inspection of conformal factors
 
-  crange = [min([s_T;s0]) max([s_T;s0])];
+  crange = [min([a_T;a0]) max([a_T;a0])];
   subplot(1,2,1); hold all; view(3); grid on; axis equal
-  trisurf(f_T,vmcf(:,1),vmcf(:,2),vmcf(:,3),s_T,...
+  trisurf(f_T,vmcf(:,1),vmcf(:,2),vmcf(:,3),a_T,...
     'facecolor','interp','edgecolor','none');
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
@@ -144,7 +144,7 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
   colorbar('southoutside')
 
   subplot(1,2,2); hold all; view(3); grid on; axis equal
-  trisurf(f,v(:,1),v(:,2),v(:,3),s0,...
+  trisurf(f,v(:,1),v(:,2),v(:,3),a0,...
     'facecolor','interp','edgecolor','none');
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
@@ -161,7 +161,7 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
   if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end
 % s_end = s(:,end);
-s_end = exp(s(:,end)); % if using log conformal factors
+s_end = exp(a(:,end)); % if using log conformal factors
 D_endp = eigvf(L,diag(1./s_end)*M,numeig);
 %% conformal embedding/fit
 conf = sqrt(kron(1./s_end',1./s_end)); % averaing conformal factors at vertices to edges
