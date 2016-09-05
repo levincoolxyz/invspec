@@ -77,7 +77,7 @@ else
       else
         vtmp = v;
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
-        vmcv = v;
+        vmcf = v;
         v = vtmp;
       end
     else

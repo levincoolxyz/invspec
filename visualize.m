@@ -56,7 +56,11 @@ title('resultant mesh');
 % vlim = max(max(abs(v)));
 % vlim = [-vlim vlim];
 
-[s_T,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
+if numel(s_T) ~= size(v_T,1)
+  [s_T,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
+else
+  v_T_mcf = v;
+end
 
 crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; grid on; axis equal

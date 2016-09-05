@@ -1,15 +1,16 @@
-function [v,v_T,v_end,f,f_T,s_end,a_T,J_hist,Jc_hist,...
+function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeigI,pert,reg,refctl)
+  numeigI,pert)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
-%   D_0,D_T,D_endp,D_end] = main(init_data,target_data,...
+%   D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-%   numeig,pert,reg,refctl)
+%   numeigI,pert)
 %
-% for help see comments in test_script.m
+% for help see comments in test_scriptSH.m
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
+maxL = sqrt(numeigI)-1;
 %% starting input mesh
 if init_data.num ~= 4
   % import wavefront object file
@@ -33,6 +34,7 @@ if init_data.num ~= 4
     load(['../meshes/' init_data.dat]);
   end
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+  Y_v = sphericalHarmonicBase(v,maxL);
 end
 %% target spectrum (and shapes)
 if target_data.num == 5
@@ -46,9 +48,9 @@ if target_data.num == 5
 else
   % perturb with random conformal factors at vertices
   if target_data.num == 1
-    a_T = exp(-rand(numv,1)*pert);
+    s_T = exp(-rand(numv,1)*pert);
     f_T = f;
-    conf_T = sqrt(kron(1./a_T',1./a_T)); % averaing conformal factors at vertices to edges
+    conf_T = sqrt(kron(1./s_T',1./s_T)); % averaing conformal factors at vertices to edges
     elsq_T = elsq0.*conf_T(isedge); % apply to linearly indexed edge lengths
     [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
       reshape(v',[],1),isedge,elsq_T);
@@ -63,7 +65,7 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
-    [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+    [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
   % import wavefront object file
@@ -72,25 +74,27 @@ else
       if init_data.num == 4
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
-        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         vmcf = v;
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+        Y_v = sphericalHarmonicBase(v,maxL);
       else
         vtmp = v;
-        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
-        vmcv = v;
+        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        vmcf = v;
         v = vtmp;
       end
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
       if init_data.num == 4
-        [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
-        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         vmcf = v;
+        [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+        Y_v = sphericalHarmonicBase(v,maxL);
       else
-        [a_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+        [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
       end
     end
 
@@ -98,71 +102,44 @@ else
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
     if init_data.num == 4
-      [a_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
-      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
       vmcf = v;
+      [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+      Y_v = sphericalHarmonicBase(v,maxL);
     else
-      [a_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+      [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
     end
   end
   
-  [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
-%   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
+  M_T = lapbel(vmcf,f_T);
+  Y_vmcf = sphericalHarmonicBase(vmcf,maxL);
+  delta = Y_vmcf'*M_T*Y_vmcf;
+  a_T = delta\(Y_vmcf'*M_T*s_T);
+  D_T = eigvfSH(a_T,numeig);
 end
 %% MIEP2 via gradient / BFGS descent
-% a0 = [2*sqrt(pi);zeros(numv-1,1)];
-a0 = [2*sqrt(pi);ones(numv-1,1)./(2:numv)'];
-vlim = max(max(abs(v)));
-vlim = [-vlim vlim];
-for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
-  if strcmp(method, 'BFGS')
-    test = @(a) eigencostSH(a,D_T,neig);
-    options = optimset('GradObj','on','display','iter-detailed',...
-      'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
-    [a,J_hist] = fminunc(test,a0,options);
-  elseif strcmp(method, 'GD')
-    [J_hist,a] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
-      a0,D_T,neig);
-  else
-    error('unknown descent method');
-  end
+% a0 = [2*sqrt(pi);zeros(numeig-1,1)];
+a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig)'];
+% a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig).^2'];
 
-  a0 = a(:,end);  
-
-  h = figure(); % manual inspection of conformal factors
-
-  crange = [min([a_T;a0]) max([a_T;a0])];
-  subplot(1,2,1); hold all; view(3); grid on; axis equal
-  trisurf(f_T,vmcf(:,1),vmcf(:,2),vmcf(:,3),a_T,...
-    'facecolor','interp','edgecolor','none');
-  set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-  xlabel('x'); ylabel('y'); zlabel('z');
-  title('spherical/cMCF mesh');
-  caxis(crange);
-  colorbar('southoutside')
-
-  subplot(1,2,2); hold all; view(3); grid on; axis equal
-  trisurf(f,v(:,1),v(:,2),v(:,3),a0,...
-    'facecolor','interp','edgecolor','none');
-  set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-  xlabel('x'); ylabel('y'); zlabel('z');
-  title('spectrally opt. mesh');
-  caxis(crange);
-  colorbar('southoutside')
-  
-  colormap jet
-  pause(.1);
-%   s_err = norm(s_T - s0)./norm(s_T)*100;
-%   fprintf('total conformal factor error = %g\n',s_err);
-  skipstr = input('Continue optimization? Y/N [Y]: \n','s');
-  close(h);
-  if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
+if strcmp(method, 'BFGS')
+  test = @(a) eigencostSH(a,D_T,numeig);
+  options = optimset('GradObj','on','display','iter-detailed',...
+    'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
+  [a,J_hist] = fminunc(test,a0,options);
+elseif strcmp(method, 'GD')
+  [J_hist,a] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
+    a0,[],D_T,numeig);
+else
+  error('unknown descent method');
 end
-% s_end = s(:,end);
-s_end = exp(a(:,end)); % if using log conformal factors
-D_endp = eigvf(L,diag(1./s_end)*M,numeig);
+
+a_end = a(:,end);
+D_endp = eigvfSH(a_end,numeig);
+
+s_end = Y_v*a_end;
+s_T = Y_v*a_T;
 %% conformal embedding/fit
 conf = sqrt(kron(1./s_end',1./s_end)); % averaing conformal factors at vertices to edges
 elsq_end = elsq0.*conf(isedge); % apply to linearly indexed edge lengths
@@ -176,19 +153,27 @@ plot(imag(D_endpp))
 plot(-real(D_endpp))
 plot(-flipud(real(D_endp)))
 legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum');
-if strcmp(method, 'BFGS')
-  test = @(v) conformalcost(v,isedge,elsq_end);
-  options = optimset('GradObj','on','display','iter-detailed',...
-    'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');
-  [vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
-elseif strcmp(method, 'GD')
-  [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
-    reshape(v',[],1),[],isedge,elsq_end);
+if norm(imag(D_endpp)) >= eps % pathological averaging
+  disp('pathological averaging (nontrivial imaginary spectrum)')
+  D_end = [];
+  v_end = [];
+  Jc_hist = Inf;
+  pause(1);
+else
+  if strcmp(method, 'BFGS')
+    test = @(v) conformalcost(v,isedge,elsq_end);
+    options = optimset('GradObj','on','display','iter-detailed',...
+      'maxiter',imax,'tolFun',etolC,'tolx',etolC,'largescale','off');
+    [vhist,Jc_hist] = fminunc(test,reshape(v',[],1),options);
+  elseif strcmp(method, 'GD')
+    [Jc_hist,vhist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
+      reshape(v',[],1),[],isedge,elsq_end);
+  end
+  v_end = reshape(vhist(:,end),3,[])';
+  [M_end,L_end] = lapbel(v_end,f);
+  D_end = eigvf(L_end,M_end,numeig);
 end
-v_end = reshape(vhist(:,end),3,[])';
-[M_end,L_end] = lapbel(v_end,f);
-D_end = eigvf(L_end,M_end,numeig);
-
+  
 end
 
 % initialize crucial data about a given mesh (really should be made object-oriented)

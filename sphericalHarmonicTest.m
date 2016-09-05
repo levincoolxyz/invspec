@@ -44,7 +44,7 @@ end
 %%
 apjlist = [];
 alslist = [];
-Lrange = 30;%[1:3 5 8 10 15 20 25 30];
+Lrange = 10;%[1:3 5 8 10 15 20 25 30];
 for maxL = Lrange
 %% get spherical harmonics on vertices
 [Y_v,LM] = sphericalHarmonicBase(v,maxL);
@@ -228,7 +228,7 @@ legend('projected SH spectrum','least squares SH spectrum','discrete cotan spect
   'location','best');
 % saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
 %%
-close all;
+% close all;
 figure(); hold all; grid on;
 plot(numeig:-1:1,abs((-D_pj+D_T)./D_T));
 % plot(numeig:-1:1,abs((-D_ls+D_T)./D_T));

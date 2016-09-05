@@ -20,6 +20,7 @@ if numeig > numel(mu_T), numeig = numel(mu_T); end
 mu_T = mu_T(end-numeig+1:end); % chop unused target values
 mu_diff = mu-mu_T;             % take the normal difference
 mu_diff = mu_diff./mu_T;       % change to relative difference
+% mu_diff = 1./mu-1./mu_T;       % take the inverse difference
 
 J = .5*sum(mu_diff(1:(end-1)).^2); % compute norm squared cost
 
@@ -32,6 +33,7 @@ else
     vi = V(:,i);
     mdi = mu_diff(i);
     mTi = mu_T(i);
+%     mTi = -mu(i)^2; % inverse difference
     parfor j = 1:numa % iterate relevant conformal factor
       x = load(num2str(j,'../RSHIs/dRSHI%04d.mat'));
       wij = mdi*vi'*x.pLpaj(1:numeig,1:numeig)*vi;   % normal difference
