@@ -31,13 +31,6 @@ end
 
 %% efficient storage scheme?
 
-%% memory test
-CIJK = cell(numeig,1);
-for i = 1:numeig
-  load(num2str(i,'../RSHI/RSHI%04d.mat'));
-  CIJK{i} = cijk;
-end
-
 %% visualize sparsity
 for i = 1:numeig
   load(num2str(i,'../RSHI/RSHI%04d.mat'));
