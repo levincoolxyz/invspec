@@ -30,4 +30,5 @@ else
   [V,D] = eig(L);
   [varargout{2},I] = sort(diag(D));
   varargout{1} = V(:,I);
+  varargout{3} = L;
 end

@@ -1,23 +1,24 @@
 clear;
-load '/home/ultimate/invspec/mcode/SH/bunnySHspecL=30.mat'
+load 'SH/forward/bunnySHspecL=30.mat'
 rng(1432543); % rand seed
-numa = 6^2;
+numa = 5^2;
 D_T = eigvfSH(a_pj,numa);
 
 % a = [7 2 .2 -.4 2 0 1 0 -1 -1 0 .5 zeros(1,numa-12)]' + .5*rand(numa,1)./(1:numa)';
-a = [2*sqrt(pi);zeros(numa-1,1)] + .5*rand(numa,1)./(1:numa)';
+% a = [2*sqrt(pi);zeros(numa-1,1)] + .5*rand(numa,1)./(1:numa)';
+a = a_pj(1:numa) + .5*rand(numa,1)./(1:numa)';
 numeig = numa;
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
-for h = eps^.25
+for h = 1e-6
 dJ = zeros(numa,1);
-% dJim = zeros(size(GJ));
 for i = 1:numel(a)
+% for i = 102
   da = zeros(size(a));
   da(i) = h;
   Jph = eigencostSH(a+da,D_T,numeig);
   Jmh = eigencostSH(a-da,D_T,numeig);
-  dJ(i) = (Jph-Jmh)/2/da(i);
+  dJ(i) = (Jph-Jmh)/2/h;
 end
 %%
 [~,GJ] = eigencostSH(a,D_T,numeig);
@@ -42,5 +43,5 @@ plot(abs(dJ),'rx:')
 plot(abs(GJ),'b-')
 set(gca,'yscale','log')
 legend('|\Delta J|','|\nabla J|');
-saveas(gcf,num2str(h,'SH/gradient verification h=%g.png'));
+% saveas(gcf,num2str(h,'SH/gradient verification h=%g.png'));
 end

@@ -11,7 +11,7 @@ imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
 numeig = 6^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
-pert = .5; % scaling coefficient used to control target perturbation
+pert = 2; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
@@ -30,8 +30,8 @@ init_data.dat = '500';
 %% target case == 1; random vertex conformal factor deformations
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
-% target_data.num = 2;
-% target_data.dat = @(v) abs(Y32(v));
+target_data.num = 2;
+target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
 % target_data.num = 3;
@@ -40,8 +40,8 @@ init_data.dat = '500';
 % target_data.dat = 'bunny449';
 % target_data.dat = 'spot';
 %% target case == 4; import face-vtx from *.mat file [need v_T and f_T]
-target_data.num = 4;
-target_data.dat = 'cow05';
+% target_data.num = 4;
+% target_data.dat = 'cow05';
 %% target case == 5; prescribed spectra
 % target_data.num = 5;
 % target_data.name = 'bunnySH';
@@ -80,8 +80,8 @@ target_data.dat = 'cow05';
   figh = visualizeSH(v,v_T,v_end,f,f_T,s_end,s_T,...
     J_hist,Jc_hist,D_0,D_T,D_endp,D_end,0);
   %% record said results
-  hgexport(figh,[endname '.png'],...
+  hgexport(figh,['SH/' endname '.png'],...
     hgexport('factorystyle'), 'Format', 'png'); 
-  save([endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
+  save(['SH/' endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
     'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
 % end

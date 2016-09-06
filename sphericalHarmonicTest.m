@@ -126,14 +126,14 @@ pause(.1);
 apjlist = padcat(apjlist,a_pj);
 alslist = padcat(alslist,a_ls);
 end
-% save(['SH/' target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist');
+% save(['SH/forward/' target 'SphericalHarmonics.' discriptor '.mat'],'apjlist','alslist');
 
 %% add caption and make gif
 % unix(['mogrify -font Liberation-Sans -fill white -undercolor ''#000000F0'' -pointsize 26 ' ...
 %   '-gravity NorthEast -annotate +10+10 %t ' target '*phericalH*' discriptor '.png']);
 % 
 % unix(['convert -delay 100 -loop 0 ' ...
-%   target '*phericalH*' discriptor '.png SH/' target 'SphericalHarmonics.' discriptor '.gif']);
+%   target '*phericalH*' discriptor '.png SH/forward/' target 'SphericalHarmonics.' discriptor '.gif']);
 % 
 % unix(['rm ' target '*phericalH*' discriptor '.png']);
 
@@ -226,7 +226,7 @@ ylabel('Laplacian Eigenvalues');
 title(num2str(maxL,'Conformal Factor Forward Problem in Spherical Harmonics L=%02d'));
 legend('projected SH spectrum','least squares SH spectrum','discrete cotan spectrum',...
   'location','best');
-% saveas(gcf,num2str(maxL,['SH/' target 'SHspecL=%d.png']));
+% saveas(gcf,num2str(maxL,['SH/forward/' target 'SHspecL=%d.png']));
 %%
 % close all;
 figure(); hold all; grid on;
@@ -235,7 +235,7 @@ plot(numeig:-1:1,abs((-D_pj+D_T)./D_T));
 set(gca,'yscale','log');
 xlabel('# of Eigenvalues');
 ylabel('log Laplacian Eigenvalues');
-saveas(gcf,num2str(maxL,['SH/' target 'SHspecLogDiffL=%d.png']));
+saveas(gcf,num2str(maxL,['SH/forward/' target 'SHspecLogDiffL=%d.png']));
 
-save(num2str(maxL,['SH/' target 'SHspecL=%d.mat']),'a_pj','D_pj');
+save(num2str(maxL,['SH/forward/' target 'SHspecL=%d.mat']),'a_pj','D_pj');
 end

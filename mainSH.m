@@ -125,7 +125,8 @@ a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig)'];
 
 if strcmp(method, 'BFGS')
   test = @(a) eigencostSH(a,D_T,numeig);
-  options = optimset('GradObj','on','display','iter-detailed',...
+%   options = optimset('GradObj','on','display','iter-detailed',...
+  options = optimset('GradObj','off','display','iter-detailed',...
     'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
   [a,J_hist] = fminunc(test,a0,options);
 elseif strcmp(method, 'GD')
@@ -147,14 +148,14 @@ elsq_end = elsq0.*conf(isedge); % apply to linearly indexed edge lengths
 figure(); view(3); axis equal;
 trisurf(f,v(:,1),v(:,2),v(:,3),tc);
 D_endpp = eigvf(Lc,Mc,numeig);
-figure();
-hold all;
-plot(imag(D_endpp))
-plot(-real(D_endpp))
-plot(-flipud(real(D_endp)))
-legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum');
-if norm(imag(D_endpp)) >= eps % pathological averaging
+if norm(imag(D_endpp)) >= 10*eps % pathological averaging
   disp('pathological averaging (nontrivial imaginary spectrum)')
+  figure();
+  hold all;
+  plot(imag(D_endpp))
+  plot(-real(D_endpp))
+  plot(-flipud(real(D_endp)))
+  legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum');
   D_end = [];
   v_end = [];
   Jc_hist = Inf;

@@ -46,6 +46,7 @@ D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
 
 % a = sym('a%d', [numeig 1]);
+% assume('a%d', 'real');
 % L = cell(numeig,1);
 % for i = 1:numeig
 %   load(num2str(i,'../RSHI/RSHI%04d.mat'));
