@@ -13,7 +13,7 @@ function [realY,LM] = sphericalHarmonicBase(v,L)
 [AZ,EL,R] = cart2sph(v(:,1),v(:,2),v(:,3));
 
 if std(R) >= 1e-2
-  error('input mesh is not sufficiently sphere like ...');
+  warning('input mesh is not sufficiently sphere like ...');
 end
 
 LM = [];

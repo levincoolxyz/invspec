@@ -85,10 +85,11 @@ end
   dv = vdiff(v,vold);
   fprintf('MCF iter#%d: |dv| = %g; sphericity = %g\n',iter,dv, sphericity);
   iter = iter + 1;
-  if abs(sphericity_old - sphericity) <= 5e-5
+  if abs(sphericity_old - sphericity) <= 2e-5 && sphericity <= 2e-2
     break;
   end
   if sphericity > 2
+    warning('unstable mean curvature flow');
     break;
   end
   vold = v;
@@ -106,6 +107,7 @@ if gif
   unix('rm mcf*.png');
 end
 
+% figure();trimesh(f0,v(:,1),v(:,2),v(:,3)); axis equal;
 end
 
 % function [vol] = calcVol(v,f)

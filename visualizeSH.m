@@ -144,7 +144,8 @@ if ~isempty(v2), plot(rei, abs(v2(1:end-1)),'ro'); end
 set(gca,'yscale','log');
 c1 = 0;
 c2 = 0.18;
-legendpos = 'southeast';
+% legendpos = 'southeast';
+legendpos = 'best';
 
 legend('(\lambda_{cMCF} - \lambda_{target})/\lambda_{target}',...
   '(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...

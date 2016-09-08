@@ -11,6 +11,7 @@ function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 maxL = sqrt(numeigI)-1;
+mcf_step = 1e5;
 %% starting input mesh
 if init_data.num ~= 4
   % import wavefront object file
@@ -65,7 +66,7 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
-    [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+    [s_T,vmcf] = meancurvflow(v_T,f_T,mcf_step,'c');
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
   % import wavefront object file
@@ -87,14 +88,14 @@ else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
       if init_data.num == 4
-        [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+        [s_T,v] = meancurvflow(v_T,f_T,mcf_step,'c');
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
         f = f_T;
         vmcf = v;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         Y_v = sphericalHarmonicBase(v,maxL);
       else
-        [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+        [s_T,vmcf] = meancurvflow(v_T,f_T,mcf_step,'c');
       end
     end
 
@@ -102,13 +103,13 @@ else
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
     if init_data.num == 4
-      [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
+      [s_T,v] = meancurvflow(v_T,f_T,mcf_step,'c');
       f = f_T;
       vmcf = v;
       [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
       Y_v = sphericalHarmonicBase(v,maxL);
     else
-      [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+      [s_T,vmcf] = meancurvflow(v_T,f_T,mcf_step,'c');
     end
   end
   
@@ -145,17 +146,18 @@ s_T = Y_v*a_T;
 conf = sqrt(kron(1./s_end',1./s_end)); % averaing conformal factors at vertices to edges
 elsq_end = elsq0.*conf(isedge); % apply to linearly indexed edge lengths
 [Mc,Lc,tc] = el2ew(f,elsq_end); % test if averaging conformal factors is good enough
-figure(); view(3); axis equal;
-trisurf(f,v(:,1),v(:,2),v(:,3),tc);
 D_endpp = eigvf(Lc,Mc,numeig);
 if norm(imag(D_endpp)) >= 10*eps % pathological averaging
-  disp('pathological averaging (nontrivial imaginary spectrum)')
+  warning('pathological averaging (nontrivial imaginary spectrum)');
   figure();
-  hold all;
+  subplot(1,2,1); hold all; view(3); axis equal;
+  trisurf(f,v(:,1),v(:,2),v(:,3),tc);
+  subplot(1,2,2); hold all; grid on;
   plot(imag(D_endpp))
   plot(-real(D_endpp))
   plot(-flipud(real(D_endp)))
-  legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum');
+  legend('imaginary averaged spectrum','real averaged spectrum','pre-averaging spectrum',...
+    'location','best');
   D_end = [];
   v_end = [];
   Jc_hist = Inf;
