@@ -1,4 +1,4 @@
-function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
+function [s,v,sa,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % Mean Curvature Flow of discrete surfaces
 % 
@@ -11,8 +11,10 @@ function [s,v,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % gif      - flag 1 to produce animated results, default to 0 otherwise
 % 
 % OUTPUTS
-% s        - resultant conformal factors
+% s        - resultant inverse conformal factors per vertex
 % v        - resultant vertex coordinates
+% sa       - resultant inverse conformal factors per face
+% M        - resultant (barycentric) mass matrix
 % 
 
 if (nargin<3) || isempty(h), h = 1; end
@@ -24,12 +26,12 @@ if (nargin<8) || isempty(gif), gif = 0; end
 
 % close all;
 numv = size(v0,1);
+numf = size(f0,1);
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 vdiff = @(v,vold) norm(vnorm(v - vold));
 
 zentrum0 = volCenter(v0,f0);
 v0 = v0 - repmat(zentrum0,numv,1);
-% scl0 = calcVol(v0,f0)^(1/3);
 scl0 = makeUnitArea(v0,f0);
 
 M = M0;
@@ -96,9 +98,34 @@ end
   sphericity_old = sphericity;
 end
 
-% s = 1./diag(M\M0);
-% s = diag(M0\M);
-s = diag(M)./diag(M0);
+% normalize mesh to surface area = 4*pi
+v0 = v0 - repmat(volCenter(v0,f0),numv,1);
+v0 = v0*makeUnitArea(v0,f0)*sqrt(4*pi);
+v = v - repmat(volCenter(v,f0),numv,1);
+v = v*makeUnitArea(v,f0)*sqrt(4*pi);
+
+s = zeros(numv,1);
+sa = zeros(numf,1);
+area_v0 = zeros(numf,1);
+area_v = zeros(numf,1);
+for fi = 1:size(f0,1)
+  vi = f0(fi,:);
+  area_v0(fi) = norm(cross(v0(vi(2),:) - v0(vi(1),:), v0(vi(3),:) - v0(vi(1),:)))/2;
+  area_v(fi) = norm(cross(v(vi(2),:) - v(vi(1),:), v(vi(3),:) - v(vi(1),:)))/2;
+  sa(fi) = (area_v(fi)/area_v0(fi));
+end
+
+for fi = 1:size(f0,1)
+  for idx = 0:2
+    i = f0(fi,idx+1);
+    j = f0(fi,mod(idx+1,3)+1);
+    k = f0(fi,mod(idx+2,3)+1);
+    s(i) = s(i) + sa(fi)*norm(cross(v(j,:) - v(i,:), v(k,:) - v(i,:)))/6;
+  end
+end
+s = s./diag(lapbel(v,f0));
+
+% s = diag(M)./diag(M0);
 
 s = full(s);
 
@@ -117,26 +144,26 @@ end
 %   vol = vol + dot(v(vi(1),:),cross(v(vi(2),:),v(vi(3),:)))/6;
 % end
 % end
-
-function scl = makeUnitArea(v,f)
-area = 0;
-for fi = 1:size(f,1)
-  vi = f(fi,:);
-  area = area + norm(cross(v(vi(2),:) - v(vi(1),:),...
-    v(vi(3),:) - v(vi(1),:)))/2;
-end
-scl = 1./sqrt(area);
-end
-
-function [zentrum,vol] = volCenter(v,f)
-zentrum = zeros(1,3);
-vol = 0;
-for fi = 1:size(f,1)
-  v1 = v(f(fi,1),:);
-  v2 = v(f(fi,2),:);
-  v3 = v(f(fi,3),:);
-  vol = vol + det([v1;v2;v3]);
-  zentrum = zentrum + (v1 + v2 + v3)*det([v1;v2;v3])/4;
-end
-zentrum = zentrum/vol;
-end
+% 
+% function scl = makeUnitArea(v,f)
+% area = 0;
+% for fi = 1:size(f,1)
+%   vi = f(fi,:);
+%   area = area + norm(cross(v(vi(2),:) - v(vi(1),:),...
+%     v(vi(3),:) - v(vi(1),:)))/2;
+% end
+% scl = 1./sqrt(area);
+% end
+% 
+% function [zentrum,vol] = volCenter(v,f)
+% zentrum = zeros(1,3);
+% vol = 0;
+% for fi = 1:size(f,1)
+%   v1 = v(f(fi,1),:);
+%   v2 = v(f(fi,2),:);
+%   v3 = v(f(fi,3),:);
+%   vol = vol + det([v1;v2;v3]);
+%   zentrum = zentrum + (v1 + v2 + v3)*det([v1;v2;v3])/4;
+% end
+% zentrum = zentrum/vol;
+% end

@@ -45,6 +45,7 @@ for l = 0:L % degree
     C = sqrt((2*l + 1)/(4*pi) * gamma(l - (0:l) + 1)./gamma(l + (0:l) + 1));
     % complex spherical harmonics
     Yml = repmat(C,numv,1).*Pml'.*exp(1i*repmat(0:l,numv,1).*repmat(AZ,1,l+1));
+%     Yml = repmat(C,numv,1).*Pml'.*exp(1i*repmat(0:l,numv,1).*repmat(AZ,1,l+1)).*repmat(R,1,l+1);
     
     % convert to real SH basis
     mneg = l*(l+1)+1+(-l:-1);

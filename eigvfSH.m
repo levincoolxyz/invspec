@@ -27,8 +27,8 @@ end
 if (nargout <= 1)
   varargout{1} = sort(eig(L));
 else
-  [V,D] = eig(L);
+  [V,D,W] = eig(L);
   [varargout{2},I] = sort(diag(D));
   varargout{1} = V(:,I);
-  varargout{3} = L;
+  varargout{3} = W(:,I);
 end

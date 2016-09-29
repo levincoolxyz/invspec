@@ -15,8 +15,7 @@ function varargout = eigencostSH(a,mu_T,numeig)
 numa = numeig;
 if numeig > numel(mu_T), numeig = numel(mu_T); end
 %% get eigenvalues and eigenvectors
-[V,mu] = eigvfSH(a,numeig);
-% [V,mu,L] = eigvfSH(a,numeig);
+[V,mu,W] = eigvfSH(a,numeig);
 % Lstruct = L ./ L';
 %% spectral cost and gradient
 mu_T = mu_T(end-numeig+1:end); % chop unused target values
@@ -47,7 +46,7 @@ else
     x = load(num2str(j,'../RSHIs/dRSHI%04d.mat'));
     dmuidaj = zeros(numeig-1,1);
     for i = 1:(numeig-1)
-      dmuidaj(i) = V(:,i)'*x.pLpaj(1:numeig,1:numeig)*V(:,i);
+      dmuidaj(i) = W(:,i)'*x.pLpaj(1:numeig,1:numeig)*V(:,i)/(W(:,i)'*V(:,i));
     end
     GJ(j) = sum(mu_diff(1:end-1)./mu_T(1:end-1).*dmuidaj);
   end

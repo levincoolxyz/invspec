@@ -1,4 +1,4 @@
-clear;
+clear; close all;
 %% some spherical harmonics
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
 Y10 = @(v) v(:,3)./vnorm(v);
@@ -9,9 +9,9 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 %% control parameters
 imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
-aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
-numeig = 6^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
-pert = 1; % scaling coefficient used to control target perturbation
+aC = .5; bC = .8; tC = 10; etolC = 1e-4; % embedding descent control
+numeig = 10^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+pert = .5; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
@@ -19,7 +19,7 @@ method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
 init_data.num = 2;
-init_data.dat = '1000';
+init_data.dat = '540';
 % init_data.dat = num2str(numeig);
 %% input case == 3; import face-vtx from *.mat file [need v and f]
 % init_data.num = 3;
@@ -37,7 +37,7 @@ init_data.dat = '1000';
 target_data.num = 3;
 % target_data.dat = 'bunny';
 % target_data.dat = 'bunny1k';
-target_data.dat = 'bunny449';
+target_data.dat = 'blob1k';
 % target_data.dat = 'spot';
 %% target case == 4; import face-vtx from *.mat file [need v_T and f_T]
 % target_data.num = 4;
@@ -76,7 +76,6 @@ target_data.dat = 'bunny449';
     numeig,pert);
   diary off;
   %% visualing results
-  close all;
   figh = visualizeSH(v,v_T,v_end,f,f_T,s_end,s_T,...
     J_hist,Jc_hist,D_0,D_T,D_endp,D_end,0);
   %% record said results

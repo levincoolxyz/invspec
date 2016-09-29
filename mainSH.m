@@ -34,6 +34,9 @@ if init_data.num ~= 4
   elseif init_data.num == 3
     load(['../meshes/' init_data.dat]);
   end
+  
+  v = v - repmat(volCenter(v,f),size(v,1),1);
+  v = v*makeUnitArea(v,f)*sqrt(4*pi);
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
   Y_v = sphericalHarmonicBase(v,maxL);
 end
@@ -56,6 +59,9 @@ else
     [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
       reshape(v',[],1),isedge,elsq_T);
     v_T = reshape(v_Thist(:,end),3,[])';
+    
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
 
   % perturb with given scalar field
   elseif target_data.num == 2
@@ -66,30 +72,38 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
     [s_T,vmcf] = meancurvflow(v_T,f_T,mcf_step,'c');
-    [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
+%     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
   % import wavefront object file
   elseif target_data.num == 3
     if exist(['mcf/' target_data.dat '.mat'],'file')
       if init_data.num == 4
-        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v','sa_T');
+        v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+        v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
         f = f_T;
         vmcf = v;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         Y_v = sphericalHarmonicBase(v,maxL);
       else
         vtmp = v;
-        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v','sa_T');
+        v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+        v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
         vmcf = v;
         v = vtmp;
       end
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
+      v_T = v_T - repmat(volCenter(v_T,f_T),numv,1);
+      v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
       if init_data.num == 4
         [s_T,v] = meancurvflow(v_T,f_T,mcf_step,'c');
-        save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v','sa_T');
         f = f_T;
         vmcf = v;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
@@ -102,6 +116,8 @@ else
   % load face-vertex from *.mat [need v_T and f_T]
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
     if init_data.num == 4
       [s_T,v] = meancurvflow(v_T,f_T,mcf_step,'c');
       f = f_T;
@@ -118,7 +134,10 @@ else
   delta = Y_vmcf'*M_T*Y_vmcf;
   a_T = delta\(Y_vmcf'*M_T*s_T);
   D_T = eigvfSH(a_T,numeig);
+%   [M_T,L_T] = lapbel(v_T,f_T);
+%   D_T = eigvf(L_T,M_T,numeig);
 end
+% s_T = Y_v*a_T;
 %% MIEP2 via gradient / BFGS descent
 % a0 = [2*sqrt(pi);zeros(numeig-1,1)];
 a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig)'];
@@ -126,8 +145,7 @@ a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig)'];
 
 if strcmp(method, 'BFGS')
   test = @(a) eigencostSH(a,D_T,numeig);
-%   options = optimset('GradObj','on','display','iter-detailed',...
-  options = optimset('GradObj','off','display','iter-detailed',...
+  options = optimset('GradObj','on','display','iter-detailed',...
     'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
   [a,J_hist] = fminunc(test,a0,options);
 elseif strcmp(method, 'GD')
@@ -141,7 +159,6 @@ a_end = a(:,end);
 D_endp = eigvfSH(a_end,numeig);
 
 s_end = Y_v*a_end;
-s_T = Y_v*a_T;
 %% conformal embedding/fit
 conf = sqrt(kron(1./s_end',1./s_end)); % averaing conformal factors at vertices to edges
 elsq_end = elsq0.*conf(isedge); % apply to linearly indexed edge lengths
@@ -176,7 +193,9 @@ else
   [M_end,L_end] = lapbel(v_end,f);
   D_end = eigvf(L_end,M_end,numeig);
 end
-  
+
+v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
 end
 
 % initialize crucial data about a given mesh (really should be made object-oriented)
