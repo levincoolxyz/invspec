@@ -40,8 +40,7 @@ else
 %   varargout{3} = W(:,I);
   [lambda,I] = sort(real(diag(D)));
   varargout{2} = (lambda(end-numeig+1:end));
-%   varargout{1} = V(end-numeig+1:end,I);
-%   varargout{3} = W(end-numeig+1:end,I);
-  varargout{1} = real(V(:,I(1:numeig)));
-  varargout{3} = real(W(:,I(1:numeig)));
+  varargout{1} = real(V(:,I(end-numeig+1:end)));
+  varargout{3} = real(W(:,I(end-numeig+1:end)));
+  varargout{4} = L; % for debugging
 end

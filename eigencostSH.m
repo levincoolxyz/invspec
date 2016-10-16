@@ -17,8 +17,6 @@ numL = (maxL+1)^2;
 if numeig > numel(mu_T), numeig = numel(mu_T); end
 %% get eigenvalues and eigenvectors
 [V,mu,W] = eigvfSH(a,numeig,maxL);
-% V = real(V);
-% W = real(W);
 % Lstruct = L ./ L'; % non symmetric matrix of only real eigenvalues IRL?!
 %% spectral cost and gradient
 mu_T = mu_T(end-numeig+1:end); % chop unused target values
@@ -33,9 +31,7 @@ if (nargout <= 1)
 else
   varargout{1} = J;
   GJ = zeros(numa,1);
-
-%   parfor j = 1:numL
-  for j = 1:numa
+  parfor j = 1:numa
     x = load(num2str(j,'../RSHIs/dRSHI%04d.mat'));
     dmuidaj = zeros(numeig-1,1);
     pLpaj = x.pLpaj(1:numL,1:numL);
@@ -47,6 +43,5 @@ else
   varargout{2} = GJ;
 end
 
-% to do #0: fix problem when numL =/= numeig
 % to do #1: work out arbitrary (inverse) weighting case
 % to do #2: work out repeating eigenvalue cases

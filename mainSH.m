@@ -165,7 +165,7 @@ else
   error('unknown descent method');
 end
 
-a_end = a(:,end);
+a_end = [a(:,end);zeros(numL-numeig,1)];
 D_endp = eigvfSH(a_end,numeig,maxL);
 
 s_end = Y_v*a_end;
