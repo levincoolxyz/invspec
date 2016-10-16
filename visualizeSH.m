@@ -1,4 +1,4 @@
-function [figh] = visualizeSH(v,v_T,v_end,f,f_T,s_end,s_T,...
+function [figh] = visualizeSH(v,v_T,v_end,vmcf,f,f_T,s_end,s_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
 % function [figh] = visualizeSH(v,v_T,v_end,f,f_T,s_end,s_T,...
 %   J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
@@ -61,27 +61,25 @@ title('resultant mesh');
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
 
-% if numel(s_T) ~= size(v_T,1)
-  [s_T,v_T_mcf] = meancurvflow(v_T,f_T,1e5,'c');
-% else
-%   v_T_mcf = v;
-% end
+if isempty(vmcf)
+  [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
+end
 
 crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; grid on; axis equal
 title('cMCF conformal factors (s)');
 
 % 3d spherical plot
-trisurf(f_T,v_T_mcf(:,1),v_T_mcf(:,2),v_T_mcf(:,3),s_T,...
-  'facecolor','interp','edgecolor','none');
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z'); view(3); grid on; 
+% trisurf(f_T,v_T_mcf(:,1),v_T_mcf(:,2),v_T_mcf(:,3),s_T,...
+%   'facecolor','interp','edgecolor','none');
+% set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+% xlabel('x'); ylabel('y'); zlabel('z'); view(3); grid on; 
 
 % hammer projection plot
-% [vham1,f_T_ham] = xyz2hammer(v_T_mcf);
-% trisurf(f_T_ham,vham1(:,1),vham1(:,2),vham1(:,3),s_T,...
-%   'facecolor','interp','edgecolor','none');
-% set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
+[vham1,f_T_ham] = xyz2hammer(vmcf);
+trisurf(f_T_ham,vham1(:,1),vham1(:,2),vham1(:,3),s_T,...
+  'facecolor','interp','edgecolor','none');
+set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
 
 caxis(crange);
 ch = colorbar('southoutside');
@@ -91,16 +89,16 @@ subplot(2,4,3); hold all; grid on; axis equal
 title('spectrally optimized conf. fact. (s)');
 
 % 3d spherical plot
-trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
-  'facecolor','interp','edgecolor','none');
-set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
-xlabel('x'); ylabel('y'); zlabel('z'); view(3);
+% trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
+%   'facecolor','interp','edgecolor','none');
+% set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
+% xlabel('x'); ylabel('y'); zlabel('z'); view(3);
 
 % hammer projection plot
-% [vham2,f_ham] = xyz2hammer(v);
-% trisurf(f_ham,vham2(:,1),vham2(:,2),vham2(:,3),s_end,...
-%   'facecolor','interp','edgecolor','none');
-% set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
+[vham2,f_ham] = xyz2hammer(v);
+trisurf(f_ham,vham2(:,1),vham2(:,2),vham2(:,3),s_end,...
+  'facecolor','interp','edgecolor','none');
+set(gca,'visible','off'); set(findall(gca, 'type', 'text'), 'visible', 'on'); % to see title etc.
 
 caxis(crange);
 ch = colorbar('southoutside');

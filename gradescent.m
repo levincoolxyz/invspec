@@ -47,6 +47,8 @@ for i = 1:imax
   while abs((tau-tau_old)/tau)>eps && abs(tau) > eps
     if abs(tau) < 1e-10
       warning('wee:too:low','small stepsize. tau = %g',tau);
+%       tau = 1;
+      break;
 %    elseif abs((tau - tau_old)/tau) > 1e-5
 %       fprintf('try tau = %g\n',tau);
 %    else
@@ -70,6 +72,7 @@ for i = 1:imax
       tau = 2*a;
     end
   end
+%   tau = 1e-3;
   fprintf('\n');
   v(:,i+1) = v(:,i) + tau*u;
   fprintf('descent iter#%d; J = %g; |GJ| = %g; tau = %g\n',...

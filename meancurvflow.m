@@ -11,9 +11,9 @@ function [s,v,sa,M] = meancurvflow(v0,f0,h,type,L0,M0,imax,gif)
 % gif      - flag 1 to produce animated results, default to 0 otherwise
 % 
 % OUTPUTS
-% s        - resultant inverse conformal factors per vertex
-% v        - resultant vertex coordinates
-% sa       - resultant inverse conformal factors per face
+% s        - resultant inverse (area) conformal factors per vertex
+% v        - resultant vertex coordinates (normalized to surface area = 4pi)
+% sa       - resultant inverse (area) conformal factors per face
 % M        - resultant (barycentric) mass matrix
 % 
 

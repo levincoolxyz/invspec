@@ -1,16 +1,16 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
-  D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
+  D_0,D_T,D_endp,D_end,vmcf] = mainSH(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeigI,pert)
+  numeigI,pert,maxL)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-%   numeigI,pert)
+%   numeigI,pert,maxL)
 %
 % for help see comments in test_scriptSH.m
 
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-maxL = sqrt(numeigI)-1;
+numL = (maxL+1)^2;
 mcf_step = 1e5;
 %% starting input mesh
 if init_data.num ~= 4
@@ -130,33 +130,43 @@ else
   end
   
   M_T = lapbel(vmcf,f_T);
-  Y_vmcf = sphericalHarmonicBase(vmcf,maxL);
+%   Y_vmcf = sphericalHarmonicBase(vmcf,maxL);
+  Y_vmcf = sphericalHarmonicBase(vmcf,6);
   delta = Y_vmcf'*M_T*Y_vmcf;
   a_T = delta\(Y_vmcf'*M_T*s_T);
-  D_T = eigvfSH(a_T,numeig);
+%   D_T = eigvfSH(a_T,numeig,maxL);
+  D_T = eigvfSH(a_T,numeig,6);
+  
 %   [M_T,L_T] = lapbel(v_T,f_T);
-%   D_T = eigvf(L_T,M_T,numeig);
+% %   D_T = eigvf(L_T,M_T,numeig);
+%   D_T = eigvf(L_T,M_T,numL);
 end
 % s_T = Y_v*a_T;
 %% MIEP2 via gradient / BFGS descent
-% a0 = [2*sqrt(pi);zeros(numeig-1,1)];
-a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig)'];
-% a0 = [2*sqrt(pi);ones(numeig-1,1)./(2:numeig).^2'];
+% a0 = [2*sqrt(pi);zeros(numL-1,1)];
+% a0 = [2*sqrt(pi);ones(numL-1,1)./(2:numL)'];
+% a0 = [2*sqrt(pi);ones(numL-1,1)./(2:numL).^2'];
+% a0 = [2*sqrt(pi);1e-3*ones(numL-1,1)./(2:numL)'];
+% a0 = [2*sqrt(pi);ones(numeig-1,1)./exp(2:numeig)';zeros(numL-numeig,1)];
+% a0 = [2*sqrt(pi);1e-3*ones(numeig-1,1)./exp(2:numeig)';zeros(numL-numeig,1)];
+% a0 = [2*sqrt(pi);1e-3*ones(numeig-1,1)./exp(2:numeig).^2';zeros(numL-numeig,1)];
+% a0 = [2*sqrt(pi);eps*ones(numL-1,1)];
+a0 = [2*sqrt(pi);eps*ones(numeig-1,1)];
 
 if strcmp(method, 'BFGS')
-  test = @(a) eigencostSH(a,D_T,numeig);
+  test = @(a) eigencostSH(a,D_T,numeig,maxL);
   options = optimset('GradObj','on','display','iter-detailed',...
     'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
   [a,J_hist] = fminunc(test,a0,options);
 elseif strcmp(method, 'GD')
   [J_hist,a] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
-    a0,[],D_T,numeig);
+    a0,[],D_T,numeig,maxL);
 else
   error('unknown descent method');
 end
 
 a_end = a(:,end);
-D_endp = eigvfSH(a_end,numeig);
+D_endp = eigvfSH(a_end,numeig,maxL);
 
 s_end = Y_v*a_end;
 %% conformal embedding/fit
@@ -191,7 +201,8 @@ else
   end
   v_end = reshape(vhist(:,end),3,[])';
   [M_end,L_end] = lapbel(v_end,f);
-  D_end = eigvf(L_end,M_end,numeig);
+%   D_end = eigvf(L_end,M_end,numeig);
+  D_end = eigvf(L_end,M_end,numL);
 end
 
 v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);

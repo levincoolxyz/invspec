@@ -1,27 +1,28 @@
 clear;
-load 'SH/forward/bunnySHspecL=30.mat'
+load 'SH/forward/blob18kSHspecL=30.mat'
 rng(1432543); % rand seed
-numa = 5^2;
-D_T = eigvfSH(a_pj,numa);
+numa = 7^2;
+maxL = 7;
+D_T = eigvfSH([a_pj(1:numa);zeros((maxL+1)^2-numa,1)],numa,maxL);
 
 % a = [7 2 .2 -.4 2 0 1 0 -1 -1 0 .5 zeros(1,numa-12)]' + .5*rand(numa,1)./(1:numa)';
 % a = [2*sqrt(pi);zeros(numa-1,1)] + .5*rand(numa,1)./(1:numa)';
-a = a_pj(1:numa) + .5*rand(numa,1)./(1:numa)';
+a = [a_pj(1:numa) + .5*rand(numa,1)./(1:numa)';zeros((maxL+1)^2-numa,1)];
 numeig = numa;
 %%
 % for h = [eps^.25 1e-6 sqrt(eps) eps]
 for h = 1e-6
 dJ = zeros(numa,1);
-for i = 1:numel(a)
+for i = 1:numeig
 % for i = 102
   da = zeros(size(a));
   da(i) = h;
-  Jph = eigencostSH(a+da,D_T,numeig);
-  Jmh = eigencostSH(a-da,D_T,numeig);
+  Jph = eigencostSH(a+da,D_T,numeig,maxL);
+  Jmh = eigencostSH(a-da,D_T,numeig,maxL);
   dJ(i) = (Jph-Jmh)/2/h;
 end
 %%
-[~,GJ] = eigencostSH(a,D_T,numeig);
+[~,GJ] = eigencostSH(a,D_T,numeig,maxL);
 reldiff = (dJ-GJ)./dJ;
 % reldiffim = (dJim-GJ)./dJ;
 % mean(reldiff)

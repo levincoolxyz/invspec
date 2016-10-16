@@ -11,12 +11,13 @@ clear; close all;
 % target = 'blob1k';
 % target = 'blob4k';
 target = 'blob18k';
+% target = 'blob96k';
 
 % discriptor = ''; %wrong
 discriptor = 'inv';
 % discriptor = 'log'; %wrong
 
-Lrange = [1:3 5 8 10 15 20 25 30];
+Lrange = 6;%[1:3 5 8 10 15 20 25 30];
 
 if exist(['mcf/' target '.mat'],'file')
   load(['mcf/' target '.mat'])
@@ -200,18 +201,24 @@ alslist = padcat(alslist,a_ls);
 % colorbar; colormap jet
 
 %% get original spectrum
-numeig = max(maxL+1)^2;
+% numeig = max(maxL+1)^2;
+numeig = 961;
 D_T = eigvf(L_T,M_T,numeig);
 D_c = eigvf(L,diag(sparse(1./s_T))*M,numeig);
 
 %% get SH basis spectrum
-numeig = max(maxL+1)^2;
-a_pj = apjlist(1:numeig,idx);
-a_ls = alslist(1:numeig,idx);
+numL = (maxL+1)^2;
+
 D_s = [];
-for l = 0:maxL
+for l = 0:30
     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
+
+for ll = 30:-2:maxL
+numeig = (ll+1)^2;
+% numeig = (30+1)^2;
+a_pj = [apjlist(1:numL,idx); zeros(numeig-numL,1)];
+a_ls = [alslist(1:numL,idx); zeros(numeig-numL,1)];
 
 L_pj = zeros(numeig);
 L_ls = zeros(numeig);
@@ -244,14 +251,25 @@ end
 D_pj = sort(eig(L_pj));
 D_ls = sort(eig(L_ls));
 
-%% compare spectrum
-rei = numeig:-1:2;
-figure();hold all;
-plot(rei,-D_pj(1:end-1),'--','linewidth',2)
-plot(rei,-D_ls(1:end-1),':','linewidth',2)
+if ll==30
+  figure(); hold all; grid on; set(gca,'yscale','log');
+end
 
-plot(rei,-D_T(end-numeig+1:end-1),'--','linewidth',2)
-plot(rei,-D_c(end-numeig+1:end-1),'k:','linewidth',2)
+% plot(numL:-1:1,-D_pj(end-numL+1:end)+D_T(end-numL+1:end))
+plot(numeig-1:-1:1,-(-D_pj(end-numeig+1:end-1)+D_T(end-numeig+1:end-1))./D_T(end-numeig+1:end-1))
+% set(gca,'yscale','log');
+end
+% set(gca,'yscale','linear');
+legend(num2str((30:-2:maxL)'),'location','best');
+title(num2str(maxL,'maxL=%d'));
+%% compare spectrum
+rei = numL:-1:2;
+figure();hold all;
+plot(rei,-D_pj(end-numL+1:end-1),'--','linewidth',2)
+plot(rei,-D_ls(end-numL+1:end-1),':','linewidth',2)
+
+plot(rei,-D_T(end-numL+1:end-1),'--','linewidth',2)
+plot(rei,-D_c(end-numL+1:end-1),'k:','linewidth',2)
 % plot(fliplr(rei),-D_s(2:end),':','linewidth',4)
 % if strfind(target,'spot')
 %   load spotspec.mat
@@ -262,7 +280,7 @@ plot(rei,-D_c(end-numeig+1:end-1),'k:','linewidth',2)
 %   D = [];
 % end
 % if size(D,1) > numel(rei)
-%   rei = [nan(size(size(D,1):-1:numeig+1)) rei];
+%   rei = [nan(size(size(D,1):-1:numL+1)) rei];
 % else
 %   rei = rei(end-size(D,1)+1:end-1);
 % end
@@ -270,7 +288,7 @@ plot(rei,-D_c(end-numeig+1:end-1),'k:','linewidth',2)
 %   plot(rei,-D(1:end-1,i));
 % end
 % set(gca,'xscale','log','yscale','log');
-ylim([0 max(-D_pj)*1.1])
+ylim([0 max(-D_pj(end-numL+1:end-1))*1.1])
 xlabel('# of Eigenvalues');
 ylabel('Laplacian Eigenvalues');
 title(num2str(maxL,'Conformal Factor Forward Problem in Spherical Harmonics L=%02d'));
@@ -282,7 +300,7 @@ saveas(gcf,num2str(maxL,['SH/forward/' target 'SHspecL=%d.png']));
 %%
 % close all;
 figure(); hold all; grid on;
-plot(numeig:-1:1,abs((-D_pj+D_T)./D_T));
+plot(numL:-1:1,abs((-D_pj(end-numL+1:end)+D_T)./D_T));
 set(gca,'yscale','log');
 xlabel('# of Eigenvalues');
 ylabel('Relative Error');
@@ -296,12 +314,12 @@ end
 if numel(Lrange) > 2
 close all;
 unix(['mogrify -font Liberation-Sans -fill white -undercolor ''#000000F0'' -pointsize 26 ' ...
-  '-gravity NorthEast -annotate +10+10 %t ' target '*phericalH*' discriptor '.png']);
+  '-gravity NorthEast -annotate +10+10 %t SH/forward/' target '*phericalH*' discriptor '.png']);
 
-unix(['convert -delay 100 -loop 0 ' ...
-  target '*phericalH*' discriptor '.png SH/forward/' target 'SphericalHarmonics.' discriptor '.gif']);
+unix(['convert -delay 100 -loop 0 SH/forward/' target '*phericalH*' ...
+  discriptor '.png SH/forward/' target 'SphericalHarmonics.' discriptor '.gif']);
 
-unix(['rm ' target '*phericalH*' discriptor '.png']);
+unix(['rm SH/forward/' target '*phericalH*' discriptor '.png']);
 end
 %% sphere-only test
 if strfind(target,'sphere')
