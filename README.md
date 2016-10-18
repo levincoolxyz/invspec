@@ -56,15 +56,26 @@ original spot with regularization
 *even finer mesh recursive run*
 ![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1043/i3_bun2_t3_bunny1043_e0.5p0r0.05.png "classic bunny as target with regularization fitted recursively")
 
-*more coming soon*
+**"Mesh-free" Spherical Harmonic Basis Solution**
 
+From now on we have *number of eigenvalues used = number of free SH basis function coefficient = n, LB operator expanded in 961 SH basis functions*
+
+PL spectrum as target: n = 36
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a36e36L30.png "blob mesh PL spectrum as target")
+n = 49
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png "blob mesh PL spectrum as target")
+n = 64
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a64e64L30.png "blob mesh PL spectrum as target")
+
+SH spectrum as target (cheating): n = 49
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png "blob mesh PL spectrum as target")
+
+Results were adjusted up to SO(3) to mod out the rigid rotation ambiguity
 ### Ways to go
 
 1. (ongoing) without prior knowledge of the target mesh, we will have to start from a uniform (coarse) spherical mesh and develop a suitable adaptive refinement scheme
 
 2. (banging my head) why does high frequency data matter in the FEM/hat function basis? the current way involves optimizing for them and then penalize for its noisyness via regularization, which seems very silly...
-
-2. (ongoing) one way to [maybe] resolve the above problem is to use the mesh independent "Fourier" spherical harmonic basis, but will it blend?
 
 2. in practice the inverse problem would not be about the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)
 
