@@ -4,6 +4,7 @@ if exist('SH/randq.mat','file')
   load SH/randq.mat
 else
   N = 5e2;
+%   N = 1e4;
   q = randn(N,4);
   q = bsxfun(@rdivide,q,sqrt(sum(q.^2,2)));
   save('SH/randq.mat','q','N');
@@ -23,12 +24,16 @@ vmcf = v;
 % endname = 'i2_540_t3_blob18k_e49SH';
 % endname = 'i2_540_t3_blob18k_e49exp';
 % endname = 'i2_540_t3_blob18k_e49inv';
-endname = 'i2_540_t3_blob18k_e49p0.5';
+% endname = 'i2_540_t3_blob18k_a49e49L30';
+endname = 'i2_540_t3_blob18k_a49e49L30s';
+% endname = 'i2_540_t3_blob18k_a49e49L12';
+% endname = 'i2_540_t3_blob18k_a64e64L30';
+% endname = 'i2_540_t3_blob18k_a36e36L30';
 % endname = 'i2_1000_t3_blob18k_e49SH';
 load(['SH/' endname '.mat']);
 %% compute cost of deviation at each random sample
 J = zeros(N,1);
-for i = 1:N
+parfor i = 1:N
   J(i) = rotcost(q(i,:)',s_T,vmcf,s_end,v);
 end
 [J,idx] = sort(J);

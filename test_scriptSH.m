@@ -12,8 +12,8 @@ aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-4; % embedding descent control
 maxL = 30; % max degree of SH basis considered
 numeig = 7^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
-% numeig = (maxL+1)^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
-pert = .5; % scaling coefficient used to control target perturbation
+numa = numeig; % just for the moment
+pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
@@ -70,14 +70,19 @@ target_data.dat = 'blob18k';
   else
     dumb = target_data.dat;
   end
-  endname = num2str([init_data.num, target_data.num, numeig, pert],...
-    ['i%d_' init_data.dat '_t%d_' dumb '_e%gp%g']);
+  if pert == 0
+    endname = num2str([init_data.num, target_data.num, numa, numeig, maxL],...
+      ['i%d_' init_data.dat '_t%d_' dumb '_a%ge%gL%g']);
+  else
+    endname = num2str([init_data.num, target_data.num, numa, numeig, maxL, pert],...
+      ['i%d_' init_data.dat '_t%d_' dumb '_a%ge%gL%gp%g']);
+  end
   %% main computation
   diary(['SH/' endname '.out']);
   [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
     D_0,D_T,D_endp,D_end,vmcf] = mainSH(init_data,target_data,...
     method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-    numeig,pert,maxL);
+    numeig,maxL,numa,pert);
   diary off;
   %% visualing results
   figh = visualizeSH(v,v_T,v_end,vmcf,f,f_T,s_end,s_T,...

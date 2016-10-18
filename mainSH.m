@@ -1,7 +1,7 @@
 function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end,vmcf] = mainSH(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeigI,pert,maxL)
+  numeigI,maxL,numa,pert)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
@@ -129,17 +129,14 @@ else
     end
   end
   
-  M_T = lapbel(vmcf,f_T);
+%   M_T = lapbel(vmcf,f_T);
 %   Y_vmcf = sphericalHarmonicBase(vmcf,maxL);
-  Y_vmcf = sphericalHarmonicBase(vmcf,6);
-  delta = Y_vmcf'*M_T*Y_vmcf;
-  a_T = delta\(Y_vmcf'*M_T*s_T);
+%   delta = Y_vmcf'*M_T*Y_vmcf;
+%   a_T = delta\(Y_vmcf'*M_T*s_T);
 %   D_T = eigvfSH(a_T,numeig,maxL);
-  D_T = eigvfSH(a_T,numeig,6);
   
-%   [M_T,L_T] = lapbel(v_T,f_T);
-% %   D_T = eigvf(L_T,M_T,numeig);
-%   D_T = eigvf(L_T,M_T,numL);
+  [M_T,L_T] = lapbel(v_T,f_T);
+  D_T = eigvf(L_T,M_T,numeig);
 end
 % s_T = Y_v*a_T;
 %% MIEP2 via gradient / BFGS descent
@@ -151,7 +148,7 @@ end
 % a0 = [2*sqrt(pi);1e-3*ones(numeig-1,1)./exp(2:numeig)';zeros(numL-numeig,1)];
 % a0 = [2*sqrt(pi);1e-3*ones(numeig-1,1)./exp(2:numeig).^2';zeros(numL-numeig,1)];
 % a0 = [2*sqrt(pi);eps*ones(numL-1,1)];
-a0 = [2*sqrt(pi);eps*ones(numeig-1,1)];
+a0 = [2*sqrt(pi);eps*ones(numa-1,1)];
 
 if strcmp(method, 'BFGS')
   test = @(a) eigencostSH(a,D_T,numeig,maxL);
@@ -165,7 +162,7 @@ else
   error('unknown descent method');
 end
 
-a_end = [a(:,end);zeros(numL-numeig,1)];
+a_end = [a(:,end);zeros(numL-numa,1)];
 D_endp = eigvfSH(a_end,numeig,maxL);
 
 s_end = Y_v*a_end;
@@ -201,8 +198,7 @@ else
   end
   v_end = reshape(vhist(:,end),3,[])';
   [M_end,L_end] = lapbel(v_end,f);
-%   D_end = eigvf(L_end,M_end,numeig);
-  D_end = eigvf(L_end,M_end,numL);
+  D_end = eigvf(L_end,M_end,numeig);
 end
 
 v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);

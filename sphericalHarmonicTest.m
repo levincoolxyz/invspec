@@ -214,7 +214,8 @@ for l = 0:30
     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
 
-for ll = 30:-2:maxL
+% for ll = 30:-2:maxL
+for ll = 30
 numeig = (ll+1)^2;
 % numeig = (30+1)^2;
 a_pj = [apjlist(1:numL,idx); zeros(numeig-numL,1)];

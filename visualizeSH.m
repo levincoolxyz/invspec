@@ -65,7 +65,8 @@ if isempty(vmcf)
   [s_T,vmcf] = meancurvflow(v_T,f_T,1e5,'c');
 end
 
-crange = [min([s_T;s_end]) max([s_T;s_end])];
+% crange = [min([s_T;s_end]) max([s_T;s_end])];
+crange = [min([s_T;]) max([s_T;])];
 subplot(2,4,2); hold all; grid on; axis equal
 title('cMCF conformal factors (s)');
 
@@ -105,12 +106,12 @@ ch = colorbar('southoutside');
 ylabel(ch,'1/s');
 %% compare spectra
 numeig = numel(D_T);
-[M,L] = lapbel(v,f);
+% [M_T,L_T] = lapbel(v_T,f_T);
+% D_T = eigvf(L_T,M_T,numeig);
+% [M,L] = lapbel(v,f);
 % D0 = eigvf(L,M,size(v,1));
-if size(s_T,1) ~= numv
-  s_T = ones(size(M,1),1);
-end
-D_MCF = eigvf(L,diag(1./s_T)*M,numeig);
+[Mmcf,Lmcf] = lapbel(vmcf,f_T);
+D_MCF = eigvf(Lmcf,sparse(diag(1./s_T))*Mmcf,numeig);
 
 v0 = (D_MCF - D_T)./D_T;
 v1 = (D_endp - D_T)./D_T;
