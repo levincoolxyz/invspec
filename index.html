@@ -86,7 +86,21 @@
 <p><em>even finer mesh recursive run</em>
 <img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1043/i3_bun2_t3_bunny1043_e0.5p0r0.05.png" alt="bun#3" title="classic bunny as target with regularization fitted recursively"></p>
 
-<p><em>more coming soon</em></p>
+<p><strong>"Mesh-free" Spherical Harmonic Basis Solution</strong></p>
+
+<p>From now on we have <em>number of eigenvalues used = number of free SH basis function coefficient = n, LB operator expanded in 961 SH basis functions</em></p>
+
+<p>PL spectrum as target: n = 36
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a36e36L30.png" alt="blob#1" title="blob mesh PL spectrum as target">
+n = 49
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png" alt="blob#1" title="blob mesh PL spectrum as target">
+n = 64
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a64e64L30.png" alt="blob#1" title="blob mesh PL spectrum as target"></p>
+
+<p>SH spectrum as target (cheating): n = 49
+<img src="https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png" alt="blob#1" title="blob mesh PL spectrum as target"></p>
+
+<p>Results were adjusted up to SO(3) to mod out the rigid rotation ambiguity</p>
 
 <h3>
 <a id="ways-to-go" class="anchor" href="#ways-to-go" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ways to go</h3>
@@ -94,10 +108,10 @@
 <ol>
 <li><p>(ongoing) without prior knowledge of the target mesh, we will have to start from a uniform (coarse) spherical mesh and develop a suitable adaptive refinement scheme</p></li>
 <li><p>(banging my head) why does high frequency data matter in the FEM/hat function basis? the current way involves optimizing for them and then penalize for its noisyness via regularization, which seems very silly...</p></li>
-<li><p>(ongoing) one way to [maybe] resolve the above problem is to use the mesh independent "Fourier" spherical harmonic basis, but will it blend?</p></li>
 <li><p>in practice the inverse problem would not be about the Laplace-Beltrami operator (need to consider bending energy of thin shell etc.)</p></li>
 <li><p>in practice higher frequencies will most definitly be prohibitively noisy</p></li>
-<li><p>can we guess the topology beforehand? would higher genus surfaces work in similar fashion despite planarity/hyperbolicity? (e.g. there are known non-trivial isospectral hyperbolic (g&gt;5) surfaces...)</p></li>
+<li><p>can we guess the topology beforehand? would higher genus surfaces work in similar fashion despite planarity/hyperbolicity? (e.g. there are known non-trivial isospectral hyperbolic (g&gt;5) surfaces...)
+(Yes. Reuter, Wolter, Peinecke 2006 ~ first 500 eigenvalues)</p></li>
 </ol>
 
       <footer class="site-footer">
