@@ -11,7 +11,7 @@ imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-4; % embedding descent control
 maxL = 30; % max degree of SH basis considered
-numeig = 7^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+numeig = 16^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 numa = numeig; % just for the moment
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed

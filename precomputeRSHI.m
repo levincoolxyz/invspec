@@ -1,10 +1,10 @@
 clear all;
-maxL = 30;
+maxL = 100;
 numeig = (maxL+1)^2;
 %% compute full triple Real Spherical Harmonics Integral
 
 [~,LM] = sphericalHarmonicBase([1 1 1],maxL);
-for i = 856:numeig
+for i = 1:numeig
   cijk = zeros(numeig);
   for j = 1:numeig
     akcijk = 0;
@@ -42,7 +42,7 @@ end
 % numeig = 36; %testing
 D_s = [];
 for l = 0:sqrt(numeig)-1
-D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
+  D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
 
 % a = sym('a%d', [numeig 1]);
@@ -59,13 +59,13 @@ for j = 11:numeig
   parfor i = 1:numeig
 %     pLpajcell{i} = diff(L{i},a(j));
 %     pLpaj(i,:) = double(pLpajcell{i});
-    x=load(num2str(i,'../RSHI/RSHI%04d.mat'));
+    x=load(num2str(i,'../RSHIs/RSHI%04d.mat'));
 %     da = sparse(1,j,1,1,numeig);
 %     pLpaj(i,:) = D_s(i)*da*cijk;
 %     pLpaj(i,:) = D_s(i)*da*cijk(1:numeig,1:numeig);
     pLpaj(i,:) = D_s(i)*x.cijk(j,:);
 %     pLpaj(i,:) = D_s(i)*cijk(j,1:numeig);
   end
-  pLpaj = sparse(pLpaj);
+%   pLpaj = sparse(pLpaj);
   save(num2str(j,'../RSHIs/dRSHI%04d.mat'),'pLpaj'); % need to buy more RAM
 end

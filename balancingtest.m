@@ -1,6 +1,6 @@
 clear;
 vnorm = @(v) sqrt(v(:,3).^2+v(:,1).^2+v(:,2).^2);
-c = [.3 0 0];
+c0 = [.3 0 0];
 %% theoretical spec
 numeig = 1024;
 N = 5;
@@ -20,7 +20,7 @@ scl0 = makeUnitArea(v,f);
 [M,L] = lapbel(v,f);
 D(:,1) = eigvf(L,M,numeig);
 %% do inverted fine mesh
-vinv = sphinv(v,c);
+vinv = sphinv(v,c0);
 scl = makeUnitArea(vinv,f);
 vinv = vinv - repmat(volCenter(vinv,f),size(v,1),1);
 vinv = vinv*scl/scl0;
@@ -38,7 +38,7 @@ for i = 2:N+1
   end
   [M,L] = lapbel(v,f);
   scl0 = makeUnitArea(v,f);
-  vinv = sphinv(v,c);
+  vinv = sphinv(v,c0);
   scl = makeUnitArea(vinv,f);
   vinv = vinv - repmat(volCenter(vinv,f),size(v,1),1);
   vinv = vinv*scl/scl0;
@@ -70,7 +70,7 @@ saveas(gcf,'sphere_spec_test.png');
 
 %% visualize spherical inversion on sphere
 scl0 = makeUnitArea(v,f);
-vinv = sphinv(v,c);
+vinv = sphinv(v,c0);
 % vinv = sphinv(v,[.5 0 0]);
 % vinv = sphinv(v,[.9 0 0]);
 scl = makeUnitArea(vinv,f);
@@ -81,3 +81,50 @@ vinv = vinv*scl/scl0;
 % trimesh(f,v(:,1),v(:,2),v(:,3));
 figure(); hold all; view(3); grid on; axis equal
 trimesh(f,vinv(:,1),vinv(:,2),vinv(:,3));
+%% mobius balancing test
+clear
+load mcf/blob1k.mat
+numv = size(v_T,1);
+c0 = [10 1 1];
+scl = makeUnitArea(v_T,f_T);
+v_T = v_T - repmat(volCenter(v_T,f_T),numv,1);
+v_T = v_T*scl*sqrt(4*pi);
+vinv = sphinv(v_T,c0);
+scl = makeUnitArea(vinv,f_T);
+vinv = vinv - repmat(volCenter(vinv,f_T),numv,1);
+vinv = vinv*scl*sqrt(4*pi);
+[vba1,c1] = mobiusbalancing(v_T,v_T,f_T);
+scl = makeUnitArea(vba1,f_T);
+vba1 = vba1 - repmat(volCenter(vba1,f_T),numv,1);
+vba1 = vba1*scl*sqrt(4*pi);
+[vba2,c2] = mobiusbalancing(v_T,vinv,f_T);
+scl = makeUnitArea(vba2,f_T);
+vba2 = vba2 - repmat(volCenter(vba2,f_T),numv,1);
+vba2 = vba2*scl*sqrt(4*pi);
+
+close all; figure();
+set(gcf,'outerposition',[0, 0, 1920, 1080]);
+
+subplot(2,2,1); hold all; view(3); grid on; axis equal
+title('original mesh')
+xlabel('x'); ylabel('y'); zlabel('z');
+trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
+text(4,1,-0.5,num2str([0 0 0],'%g\n'));
+
+subplot(2,2,3); hold all; view(3); grid on; axis equal
+title('Moebius-balanced mesh')
+xlabel('x'); ylabel('y'); zlabel('z');
+trimesh(f_T,vba1(:,1),vba1(:,2),vba1(:,3));
+text(4,1,-0.5,num2str(c1,'%g\n'));
+
+subplot(2,2,2); hold all; view(3); grid on; axis equal
+title('apply double inversion')
+xlabel('x'); ylabel('y'); zlabel('z');
+trimesh(f_T,vinv(:,1),vinv(:,2),vinv(:,3));
+text(-4,1,0.5,num2str(c0,'%g\n'));
+
+subplot(2,2,4); hold all; view(3); grid on; axis equal
+title('Moebius-balanced inverted mesh')
+xlabel('x'); ylabel('y'); zlabel('z');
+trimesh(f_T,vba2(:,1),vba2(:,2),vba2(:,3));
+text(-4,1,0.5,num2str(c2,'%g\n'));
