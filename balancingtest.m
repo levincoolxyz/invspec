@@ -68,7 +68,7 @@ title('Relative eigenvalue differences');
 xlabel('# of eigenvalues');
 saveas(gcf,'sphere_spec_test.png');
 
-%% visualize spherical inversion on sphere
+%% visualize double spherical inversion on sphere
 scl0 = makeUnitArea(v,f);
 vinv = sphinv(v,c0);
 % vinv = sphinv(v,[.5 0 0]);
@@ -81,11 +81,41 @@ vinv = vinv*scl/scl0;
 % trimesh(f,v(:,1),v(:,2),v(:,3));
 figure(); hold all; view(3); grid on; axis equal
 trimesh(f,vinv(:,1),vinv(:,2),vinv(:,3));
-%% mobius balancing test
+%% double spherical inversion test
 clear
 load mcf/blob1k.mat
 numv = size(v_T,1);
-c0 = [10 1 1];
+c0 = [.1 .1 .1];
+scl = makeUnitArea(v_T,f_T);
+v_T = v_T - repmat(volCenter(v_T,f_T),numv,1);
+v_T = v_T*scl*sqrt(4*pi);
+vinv = sphinv(v_T,c0);
+% vinv = sphinv(vinv,c0);
+scl = makeUnitArea(vinv,f_T);
+vinv = vinv - repmat(volCenter(vinv,f_T),numv,1);
+vinv = vinv*scl*sqrt(4*pi);
+vinv2 = sphinv(vinv,-c0);
+scl = makeUnitArea(vinv2,f_T);
+vinv2 = vinv2 - repmat(volCenter(vinv2,f_T),numv,1);
+vinv2 = vinv2*scl*sqrt(4*pi);
+
+close all; figure();
+set(gcf,'outerposition',[0, 0, 1920, 540]);
+ 
+subplot(1,3,1); hold all; view(3); grid on; axis equal
+trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
+subplot(1,3,2); hold all; view(3); grid on; axis equal
+trimesh(f_T,vinv(:,1),vinv(:,2),vinv(:,3));
+subplot(1,3,3); hold all; view(3); grid on; axis equal
+trimesh(f_T,vinv2(:,1),vinv2(:,2),vinv2(:,3));
+%% mobius balancing test
+clear
+load mcf/blob1k.mat
+% fid = fopen('../meshes/bunny1043.obj','rt');
+% [v_T,f_T] = readwfobj(fid);
+
+numv = size(v_T,1);
+c0 = [.5 0 .1];
 scl = makeUnitArea(v_T,f_T);
 v_T = v_T - repmat(volCenter(v_T,f_T),numv,1);
 v_T = v_T*scl*sqrt(4*pi);
@@ -93,29 +123,43 @@ vinv = sphinv(v_T,c0);
 scl = makeUnitArea(vinv,f_T);
 vinv = vinv - repmat(volCenter(vinv,f_T),numv,1);
 vinv = vinv*scl*sqrt(4*pi);
+% vinv = sphinv(vinv,[0 .3 .2]);
+% scl = makeUnitArea(vinv,f_T);
+% vinv = vinv - repmat(volCenter(vinv,f_T),numv,1);
+% vinv = vinv*scl*sqrt(4*pi);
+
 [vba1,c1] = mobiusbalancing(v_T,v_T,f_T);
 scl = makeUnitArea(vba1,f_T);
 vba1 = vba1 - repmat(volCenter(vba1,f_T),numv,1);
 vba1 = vba1*scl*sqrt(4*pi);
-[vba2,c2] = mobiusbalancing(v_T,vinv,f_T);
+[vba2,c2] = mobiusbalancing(vinv,v_T,f_T);
 scl = makeUnitArea(vba2,f_T);
 vba2 = vba2 - repmat(volCenter(vba2,f_T),numv,1);
 vba2 = vba2*scl*sqrt(4*pi);
 
+% dcm = pa(v_T,f_T); % princomp(v_T);
+% % dcm = [dcm(:,2) dcm(:,3) dcm(:,1)];
+% dcm = dcm*det(dcm); % ensure orientation preserving
+% v_T = dcmrot(v_T,dcm);
+% 
+% dcm = pa(vba2,f_T); % princomp(v_T);
+% dcm = dcm*det(dcm); % ensure orientation preserving
+% vba2 = dcmrot(vba2,dcm);
+
 close all; figure();
 set(gcf,'outerposition',[0, 0, 1920, 1080]);
-
+ 
 subplot(2,2,1); hold all; view(3); grid on; axis equal
 title('original mesh')
 xlabel('x'); ylabel('y'); zlabel('z');
 trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
-text(4,1,-0.5,num2str([0 0 0],'%g\n'));
+text(4,1,-2,num2str([0 0 0],'%g\n'));
 
 subplot(2,2,3); hold all; view(3); grid on; axis equal
 title('Moebius-balanced mesh')
 xlabel('x'); ylabel('y'); zlabel('z');
 trimesh(f_T,vba1(:,1),vba1(:,2),vba1(:,3));
-text(4,1,-0.5,num2str(c1,'%g\n'));
+text(4,1,-2,num2str(c1,'%g\n'));
 
 subplot(2,2,2); hold all; view(3); grid on; axis equal
 title('apply double inversion')

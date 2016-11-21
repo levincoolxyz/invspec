@@ -1,0 +1,218 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{amsmath,amscd,amsthm,amsbsy,upref}
+\usepackage{amssymb}
+%\usepackage{amsrefs}
+\usepackage{tikz, tikz-cd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{slashbox}
+
+%%% typeset "pushout" or "pushout" if put in top left corner
+\newcommand{\po}{\arrow[dr, phantom, "\ulcorner" near end]}
+\newcommand{\pb}{\arrow[dr, phantom, "\lrcorner" near start]}
+\newcommand{\htpyeq}{\simeq}
+\newcommand{\homeom}{\cong}
+\newcommand{\wedgeprod}{\vee}
+\newcommand{\smashprod}{\wedge}
+\newcommand{\maps}{\text{Maps}}
+
+\newcommand{\nibf}{\noindent \textbf}
+\newcommand{\niit}{\noindent \textit}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cpx}{\mathbb{C}}
+\newcommand{\Quat}{\mathbb{H}}
+\newcommand{\Octo}{\mathbb{O}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{hthm}[thm]{*Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{con}[thm]{Conjecture}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem*{exer*}{Exercise}
+\newtheorem{bpe}[thm]{Blank Paper Exercise}
+\newtheorem{apex}[thm]{Applications Exercise}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{scho}[thm]{Scholium}
+\newtheorem*{Exthm}{Example Theorem}
+\newtheorem*{Thm}{Theorem}
+\newtheorem*{Con}{Conjecture}
+\newtheorem*{Axiom}{Axiom}
+\theoremstyle{definition}
+\newtheorem*{Ex}{Example}
+\newtheorem*{Def}{Definition}
+\newtheorem*{lem*}{Lemma}
+\newtheorem*{rmk*}{Remark}
+
+
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ord}{\operatorname{ord}}
+\def\pfrac#1#2{{\left(\frac{#1}{#2}\right)}}
+\def\pp#1#2{{\frac{\partial #1}{\partial #2}}}
+%\def\pp#1#2#3{{\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
+\def\dd#1#2{{\frac{\partial #1}{\partial #2}}}
+\def\integrate#1#2#3#4{{\int_{#1}^{#2}#3\,#4}}
+\def\eval#1#2#3{{\Big[#3\Big]_{#1}^{#2}}}
+\def\restrict#1{{\Big|_{#1}}}
+\def\inv#1{#1^{-1}}
+\def\Set#1#2{{\left\lbrace#1\suchthat#2 \right\rbrace}}
+\def\f#1#2{{\frac{#1}{#2}}}
+\def\*{\cdot}
+\def\laplace#1{{\mathcal{L}\{#1\}}}
+\def\invlaplace#1{{\inv{\mathcal{L}}\{#1\}}}
+\def\fourier#1{{\mathcal{F}\{#1\}}}
+\def\invfourier#1{{\inv{\mathcal{F}}\{#1\}}}
+\def\conj#1{{\overline{#1}}}
+\newcommand{\suchthat}{\;\big|\;}
+\newcommand{\imply}{\Rightarrow}
+\newcommand{\imbly}{\Leftarrow}
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
+\newcommand{\Union}{\bigcup}
+\newcommand{\Intersect}{\bigcap}
+\newcommand\closure[1]{\overline{#1}}
+\newcommand{\setdiff}{\backslash}
+\def\mat#1{\mathsf{#1}}
+\def\vect#1{\mathbf{#1}}
+
+\begingroup
+    \catcode `\@ = 11
+    \catcode `\~ = 13
+    \catcode `\% = 12
+    \protected\long\gdef\cmt@remove#1%~{\endgroup}
+    \ifdefined~
+        \global\let\cmt@old~
+    \else
+        \global\let\cmt@old\relax
+    \fi
+    \protected\gdef~{\begingroup\catcode`%=12
+        \futurelet\next\cmt@}
+    \protected\gdef\cmt@
+      {\ifx%\next
+           \expandafter\cmt@remove
+       \else
+           \endgroup\expandafter\cmt@old
+       \fi}
+\endgroup
+
+\pagestyle{fancy}
+~%
+\fancyhead[C]{%
+	\footnotesize\sffamily
+	\yourname\quad\---\quad
+	webpage: \textcolor{blue}{\yourweb}\quad\---\quad
+	Email: \textcolor{blue}{\youremail}}
+%~
+
+%\newcommand{\doctitle}{}
+%\newcommand{\yourname}{Feng Ling}
+%\newcommand{\youremail}{\href{mailto:fling@usc.edu}{FLing@usc.edu}}
+%\newcommand{\yourweb}{\url{http://gofling.me}}
+
+%\usepackage[
+%colorlinks=false,
+%hidelinks = true,
+%breaklinks,
+%pdftitle={\yourname - \doctitle},
+%pdfauthor={\yourname},
+%unicode
+%]{hyperref}
+
+\linespread{1.2}
+\setlength{\parskip}{.3em}
+\usepackage{titling}
+
+\pretitle{\vspace{-8em}\begin{center}\Large\bfseries}
+\posttitle{\end{center}}
+\preauthor{\vspace{-1em}\begin{center}\large\ttfamily}
+\postauthor{\end{center}}
+\predate{\vspace{-1.5em}\begin{center}}
+\postdate{\vspace{-2em}\end{center}}
+%\predate{\vspace{-4em}\begin{center}}
+%\postdate{\vspace{-1em}\end{center}}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{\vspace{-1.5em}}
+\renewcommand{\absnamepos}{empty}
+
+\usepackage{datetime}
+\newdateformat{monthyear}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+\title{Results Summary}
+\author{Feng Ling}
+\date{\monthyear\today}
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section{The Problem}
+The question in exploration is the 2D discrete inverse spectral problem, namely that can one obtain the metric of a 2D discrete surface from its discrete Laplace-Beltrami spectrum? To make this problem simpler, we assume the surface have the topology of $\mathbb S^2$, then its metric would be conformally equivalent to that of a discrete sphere. So we only need to obtain the conformal map to recover the surface.
+
+Another ambiguity is what do we mean by the discrete spectrum. We attempted 2 general cases: one obtained through weighted cotan operator (degree 1 FEM) on triangular meshes, one obtained through Wigner 3j symbols in spherical harmonic basis. The first one we are confident about the accuracy of the eigenvalues with respect to that of the smooth surface (at least in the fine mesh limit), the second would be mesh independent and roughly correspond to features of varying spatial frequency/resolution.
+
+\section{Experiments and Results}
+\subsection{target shapes}
+\begin{enumerate}
+	\item overly symmetric star shapes (sphere flowed under low-order spherical harmonics)
+	
+	\item classic (evil) bunny
+	\item spot the cow (melted)
+	\item fancy blob
+\end{enumerate}
+\subsection{simplicial basis inverse problem}
+\subsubsection{raw}
+
+\subsubsection{regularized}
+
+\subsection{spherical harmonics basis forward problem}
+
+\subsection{spherical harmonics basis inverse problem}
+
+\section{A To-Do list}
+\subsection{M\"obius balancing routine}
+For reference, Prof. Keenan have a write-up and working C codes in his suite of geometry processing codes.
+The current MATLAB implementation is experiencing oscillatory behaviors likely due to some sort of silly undiscovered bug.
+
+\subsection{Regularization in spherical harmonics basis}
+if we make an equivalence between low-high frequency to spherical harmonic basis coefficients, we can assume (the analogy is from conditions on function being smooth and its Fourier coefficients) the coefficients must decrease as much as possible as soon as possible for the smoothiest solution.
+Naively, we can add a term $\propto \sum_i w_i a_{l,m}^2$ to the cost where $w_i$ grows at the appropriate rate (e.g. $exp(l)$ or $l^k$ for some positive $k>1$). But this did not work so well.
+
+\subsection{Structured optimization}
+Again assuming the above equivalence, it might stand to reason that we shall first optimize for lower frequency features ($a_{l,m}$ with small $l$?) and then move on to refining the higher frequency ones.
+
+Related to this is that there is no indication how many coefficient should be used.
+
+\subsection{Precomputing more 3j symbols}
+maybe it will be worthwhile to utilize some state-of-the-art method to calculate as many 3j symbols as one's RAM can handle to eliminate this uncertainty for the experiments.
+
+Reference: 
+
+\subsection{Topology}
+we also would like to calculate the topology of the surface from the spectrum beforehand. In the smooth setting, we can infer these from the \textbf{asymptotics} of heat trace from the spectrum. In the discrete case, it is not immediate how to extract these information. A reference is found to mention successfully doing this through some sort of curve fitting. Or just machine learning?
+
+Reference: 
+
+\subsection{Adaptive remeshing for the simplical inverse problem}
+Since it works pretty well in the simplicial setting when we regularize and use enough eigenvalues (up to embedding issues), the only obstacle barring us from full victory is the apparent need to assume MCF starting mesh. The idea to improve here is to remesh at each step according to the current conformal factor solution. Practically speaking, it might preserve more sanity to try these in a better development environment (so no more MATLAB non OOP shenanigans, at least not with the built-in BFGS optimization algorithm).
+\end{document}

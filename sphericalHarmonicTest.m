@@ -13,11 +13,13 @@ clear; close all;
 target = 'blob18k';
 % target = 'blob96k';
 
-% discriptor = ''; %wrong
-discriptor = 'inv';
-% discriptor = 'log'; %wrong
+% discriptor = ''; %this is wrong
+discriptor = 'inv'; % do not change this
+% discriptor = 'log'; %this is also wrong
 
-Lrange = 6;%[1:3 5 8 10 15 20 25 30];
+maxLcomputed = 30; % maxL precomputed in precomputeRSHI.m
+
+Lrange = 6;%[1:3 5 8 10 15 20 25 maxLcomputed];
 
 if exist(['mcf/' target '.mat'],'file')
   load(['mcf/' target '.mat'])
@@ -201,7 +203,6 @@ alslist = padcat(alslist,a_ls);
 % colorbar; colormap jet
 
 %% get original spectrum
-% numeig = max(maxL+1)^2;
 numeig = 961;
 D_T = eigvf(L_T,M_T,numeig);
 D_c = eigvf(L,diag(sparse(1./s_T))*M,numeig);
@@ -210,14 +211,14 @@ D_c = eigvf(L,diag(sparse(1./s_T))*M,numeig);
 numL = (maxL+1)^2;
 
 D_s = [];
-for l = 0:30
+for l = 0:maxLcomputed
     D_s = [D_s, repmat(-l*(l+1),1,2*l+1)]; % spherical harmonic eigenvalues
 end
 
-% for ll = 30:-2:maxL
-for ll = 30
+for ll = maxLcomputed:-2:maxL
+% for ll = maxLcomputed
 numeig = (ll+1)^2;
-% numeig = (30+1)^2;
+% numeig = (maxLcomputed+1)^2;
 a_pj = [apjlist(1:numL,idx); zeros(numeig-numL,1)];
 a_ls = [alslist(1:numL,idx); zeros(numeig-numL,1)];
 
@@ -252,7 +253,7 @@ end
 D_pj = sort(eig(L_pj));
 D_ls = sort(eig(L_ls));
 
-if ll==30
+if ll==maxLcomputed
   figure(); hold all; grid on; set(gca,'yscale','log');
 end
 
@@ -261,7 +262,7 @@ plot(numeig-1:-1:1,-(-D_pj(end-numeig+1:end-1)+D_T(end-numeig+1:end-1))./D_T(end
 % set(gca,'yscale','log');
 end
 % set(gca,'yscale','linear');
-legend(num2str((30:-2:maxL)'),'location','best');
+legend(num2str((maxLcomputed:-2:maxL)'),'location','best');
 title(num2str(maxL,'maxL=%d'));
 %% compare spectrum
 rei = numL:-1:2;

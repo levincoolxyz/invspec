@@ -1,0 +1,295 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage{textcomp}
+\usepackage{titlesec}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{amsmath,amscd,amsthm,amsbsy,upref}
+\usepackage{amssymb}
+%\usepackage{amsrefs}
+\usepackage{tikz, tikz-cd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{slashbox}
+
+%%% typeset "pushout" or "pushout" if put in top left corner
+\newcommand{\po}{\arrow[dr, phantom, "\ulcorner" near end]}
+\newcommand{\pb}{\arrow[dr, phantom, "\lrcorner" near start]}
+\newcommand{\htpyeq}{\simeq}
+\newcommand{\homeom}{\cong}
+\newcommand{\wedgeprod}{\vee}
+\newcommand{\smashprod}{\wedge}
+\newcommand{\maps}{\text{Maps}}
+
+\newcommand{\nibf}{\noindent \textbf}
+\newcommand{\niit}{\noindent \textit}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Cpx}{\mathbb{C}}
+\newcommand{\Quat}{\mathbb{H}}
+\newcommand{\Octo}{\mathbb{O}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\A}{\mathbb{A}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{hthm}[thm]{*Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{con}[thm]{Conjecture}
+\newtheorem{exer}[thm]{Exercise}
+\newtheorem*{exer*}{Exercise}
+\newtheorem{bpe}[thm]{Blank Paper Exercise}
+\newtheorem{apex}[thm]{Applications Exercise}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{scho}[thm]{Scholium}
+\newtheorem*{Exthm}{Example Theorem}
+\newtheorem*{Thm}{Theorem}
+\newtheorem*{Con}{Conjecture}
+\newtheorem*{Axiom}{Axiom}
+\theoremstyle{definition}
+\newtheorem*{Ex}{Example}
+\newtheorem*{Def}{Definition}
+\newtheorem*{lem*}{Lemma}
+\newtheorem*{rmk*}{Remark}
+
+
+\newcommand\abs[1]{\left|#1\right|}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\ord}{\operatorname{ord}}
+\def\pfrac#1#2{{\left(\frac{#1}{#2}\right)}}
+\def\pp#1#2{{\frac{\partial #1}{\partial #2}}}
+%\def\pp#1#2#3{{\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
+\def\dd#1#2{{\frac{\partial #1}{\partial #2}}}
+\def\integrate#1#2#3#4{{\int_{#1}^{#2}#3\,#4}}
+\def\eval#1#2#3{{\Big[#3\Big]_{#1}^{#2}}}
+\def\restrict#1{{\Big|_{#1}}}
+\def\inv#1{#1^{-1}}
+\def\Set#1#2{{\left\lbrace#1\suchthat#2 \right\rbrace}}
+\def\f#1#2{{\frac{#1}{#2}}}
+\def\*{\cdot}
+\def\laplace#1{{\mathcal{L}\{#1\}}}
+\def\invlaplace#1{{\inv{\mathcal{L}}\{#1\}}}
+\def\fourier#1{{\mathcal{F}\{#1\}}}
+\def\invfourier#1{{\inv{\mathcal{F}}\{#1\}}}
+\def\conj#1{{\overline{#1}}}
+\newcommand{\suchthat}{\;\big|\;}
+\newcommand{\imply}{\Rightarrow}
+\newcommand{\imbly}{\Leftarrow}
+\newcommand{\union}{\cup}
+\newcommand{\intersect}{\cap}
+\newcommand{\Union}{\bigcup}
+\newcommand{\Intersect}{\bigcap}
+\newcommand\closure[1]{\overline{#1}}
+\newcommand{\setdiff}{\backslash}
+\def\mat#1{\mathsf{#1}}
+\def\vect#1{\mathbf{#1}}
+
+\begingroup
+    \catcode `\@ = 11
+    \catcode `\~ = 13
+    \catcode `\% = 12
+    \protected\long\gdef\cmt@remove#1%~{\endgroup}
+    \ifdefined~
+        \global\let\cmt@old~
+    \else
+        \global\let\cmt@old\relax
+    \fi
+    \protected\gdef~{\begingroup\catcode`%=12
+        \futurelet\next\cmt@}
+    \protected\gdef\cmt@
+      {\ifx%\next
+           \expandafter\cmt@remove
+       \else
+           \endgroup\expandafter\cmt@old
+       \fi}
+\endgroup
+
+\pagestyle{fancy}
+~%
+\fancyhead[C]{%
+	\footnotesize\sffamily
+	\yourname\quad\---\quad
+	webpage: \textcolor{blue}{\yourweb}\quad\---\quad
+	Email: \textcolor{blue}{\youremail}}
+%~
+
+%\newcommand{\doctitle}{}
+%\newcommand{\yourname}{Feng Ling}
+%\newcommand{\youremail}{\href{mailto:fling@usc.edu}{FLing@usc.edu}}
+%\newcommand{\yourweb}{\url{http://gofling.me}}
+
+%\usepackage[
+%colorlinks=false,
+%hidelinks = true,
+%breaklinks,
+%pdftitle={\yourname - \doctitle},
+%pdfauthor={\yourname},
+%unicode
+%]{hyperref}
+
+\linespread{1.2}
+\setlength{\parskip}{.3em}
+\usepackage{titling}
+
+\pretitle{\vspace{-8em}\begin{center}\Large\bfseries}
+\posttitle{\end{center}}
+\preauthor{\vspace{-1em}\begin{center}\large\ttfamily}
+\postauthor{\end{center}}
+\predate{\vspace{-1.5em}\begin{center}}
+\postdate{\vspace{-2em}\end{center}}
+%\predate{\vspace{-4em}\begin{center}}
+%\postdate{\vspace{-1em}\end{center}}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{\vspace{-1.5em}}
+\renewcommand{\absnamepos}{empty}
+
+\usepackage{datetime}
+\newdateformat{monthyear}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+\title{INVSPEC Documentation}
+\author{Feng Ling}
+\date{\monthyear\today}
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section{Contents}
+This repository (\url{https://github.com/levincoolxyz/invspec}) contains a MATLAB implementation of various codes used and results obtained in attempting to tackle the 2D discrete inverse spectral problem. Things are organized in several folders as follows:
+
+\begin{enumerate}
+	\item ``/'' (root)
+	
+	  treat this as a typical /src folder (it did not have further structure for now due a lack of interest in managing paths variable in MATLAB, sorry).
+	  
+	\item ``/SH''
+		
+	  this folder contains results of the inverse problem using the spherical harmonic bases. the subfolder named ``/SH/forward'' contains that of the forward problem.
+	  
+	\item \verb|$MESH|=``/../meshes''
+	
+	  this is where you should populate all the \verb|*.obj| or \verb|*.mat| mesh files. 
+	  Currently there are a family of bunny meshes, a family of spot the cow meshes (\verb|cow*.mat| are melted cows), and a family of blob meshes.
+	  
+	\item ``/mcf''
+	
+	  in this folder lies the results of (conformal) modified Mean Curvature Flow meshes.
+	  
+	\item ``/bunny''
+	
+	this folder contains results of the inverse problem on bunny mesh using the simplicial bases
+	
+	\item ``/spot''
+	
+	this folder contains results of the inverse problem on spot the cow mesh using the simplicial bases
+	
+	\item ``/harmonic''
+	
+	this folder contains results of the inverse problem on some harmonic (low order spherical harmonic symmetric) mesh using the simplicial bases
+	
+\end{enumerate}
+
+\section{How to Use this}
+Since everything is in MATLAB, just fire it up and have fun! But seriously, the main ``executables'' are the script files with name \verb|test_script*.m|. There are also other script files that each purposed to test submodules of the code base. Their usage are summarized below individually.
+\subsection{gradient verification utility}
+\verb|gradverify*.m|
+These scripts verify if the cost functions (both simplicial basis and spherical harmonic basis) return gradients that match finite difference calculations.
+\subsection{simplicial basis inverse problem}
+\verb|test_script.m|
+This is the top level script that attempts to solve the inverse spectral problem in simplicial/linear basis. 
+
+One can modify the maximum iterations and error tolerances to their liking and the key parameters specific to our problem are
+\begin{enumerate}
+	\item \verb|numeig|, number of dicrete eigenvalues used for the optimization. It indicates a ratio if it is between 0 and 1. If it is larger than 1 it means the exact \textit{integer} number of eigenvalues considered. If it is below 0 it means use all possible discrete eigenvalues;
+	
+	\item \verb|reg|, a scalar weighting the importance between the cost of matching the spectrum and bilaplacian regularization term ($J = J_{spec}+ reg \cdot J_{bi\nabla}$);
+	
+	\item \verb|method|, BFGS means using the MATLAB built-in fminunc, GD means using the in-house gradient descent with line search (slower but more user control). The gradient descent and line search have been debugged extensively so it should be relatively trustworthy.
+	
+	\item \verb|input_data|, a structure where the property field \verb|num| (integer) indicates the type of input data and \verb|dat| (string) encodes the data/where to get it.
+	\begin{enumerate}
+		\item \verb|.num=1|, import a mesh in face-vertex format from \verb|*.obj| file named by the \verb|.dat| field.
+		
+		\item \verb|.num=2|, create a spherical mesh of with the total number of vertices equal to the integer encoded by \verb|.dat| field. This uses some mesh optimization written by other people.
+		
+		\item \verb|.num=3|, import a mesh in face-vertex format from \verb|*.mat| file named by the \verb|.dat| field. This file should contain a variable $v$ for vertices and $f$ for face indices.
+		
+		\item \verb|.num=4|, use the steady state Modified conformal Mean Curvature Flow of the target mesh as the input mesh.
+		
+	\end{enumerate}
+	
+	\item \verb|target_data|, a structure where the property field \verb|num| (integer) indicates the type of input data and \verb|data| (string or inline function) encodes the data/where to get it.
+	\begin{enumerate}
+		\item \verb|.num=1|, create a mesh based on the input with a small random conformal factor per vertex.
+		
+		\item \verb|.num=2|, create a mesh with a prescribed perturbation from the input mesh along its vertex normals proportional (\verb|pert|) to a scalar function (\verb|.dat| encodes the inline function).
+		
+		\item \verb|.num=3|, import a mesh in face-vertex format from \verb|*.obj| file named by the \verb|.dat| field.
+		
+		\item \verb|.num=4|, import a mesh in face-vertex format from \verb|*.mat| file named by the \verb|.data| field. This file should contain a variable $v_T$ for vertices and $f_T$ for face indices.
+		
+		\item \verb|.num=5|, specify explicitly the target spectrum in the \verb|.dat| field.
+		
+	\end{enumerate}
+	
+	\item \verb|refctl|, a variable (thresholds) that is used by the incomplete adaptive refinement routine. Advise to \textit{ignore and develop your own better version}.
+	
+\end{enumerate}
+
+\subsection{computation of 3j symbols}
+\verb|precompute.m|
+
+This script computes the Wigner 3j symbols and their derivatives w.r.t. the spherical harmonic basis conformal coefficients for the \textit{real} spherical harmonics functions (scaled to be on a unit sphere). The only parameter is \verb|maxL|, which indicates the largest degree of spherical harmonics that are being considered. It might be worthwhile to adapt other people's more efficient/accurate computation and storage schemes. e.g. WIGXJPF \url{http://fy.chalmers.se/subatom/wigxjpf/}.
+
+\subsection{spherical harmonic basis forward problem}
+\verb|SphericalHarmonicTest.m|
+
+This script verifies that our spherical harmonic representation provides good enough conformal factor and spectrum convergence with the simplicial basis, which is known to be correct (in the fine mesh limit) for a variety of reasons (DEC, degree 1 FEM ...).
+
+The only inputs are (1) the string variable \verb|target| that reference the mesh, assuming the path is relative to \verb|$MESH|, and (2) the integer variable \verb|Lrange|, which is the range of different degrees of spherical harmonics that wanted to be explored (to test convergence). 
+
+\subsection{spherical harmonic basis inverse problem}
+\verb|test_scriptSH.m|
+This is the top level script that attempts to solve the inverse spectral problem in the spherical harmonics basis. 
+
+One can modify the maximum iterations and error tolerances to their liking and the key parameters specific to our problem are
+\begin{enumerate}
+	\item \verb|numeig|, number of dicrete eigenvalues used for the optimization. It indicates a ratio if it is between 0 and 1. If it is larger than 1 it means the exact \textit{integer} number of eigenvalues considered. If it is below 0 it means use all possible discrete eigenvalues;
+	
+	\item \verb|maxL|, maximal degree of spherical harmonics considered, this impacts execution speed significantly. Advise to use \verb|maxL| in \verb|precomputeRSHI.m| for maximum accuracy.;
+	
+	\item \verb|numa|, number of spherical harmonic conformal coefficients estimated. So far it seems a number close to \verb|numeig| yields reasonable results, but more exploration is needed as it is not obvious how this interacts with the descent especially if some regularization is included;
+	
+	\item \verb|method|, BFGS means using the MATLAB built-in fminunc, GD means using the in-house gradient descent with line search (slower but more user control). The gradient descent and line search have been debugged extensively so it should be relatively trustworthy;
+	
+	\item \verb|input_data|, a structure where the property field \verb|num| (integer) indicates the type of input data and \verb|dat| (string) encodes the data/where to get it. This structure has functions exactly the same as that of 2.2(4);
+	
+	\item \verb|target_data|, a structure where the property field \verb|num| (integer) indicates the type of input data and \verb|data| (string or inline function) encodes the data/where to get it. This structure has functions exactly the same as that of 2.2(5).
+\end{enumerate}
+
+\subsection{conformal factor alignments}
+scalar scaling should be resolved by the opimization, so all that is left are conformal invariances and isometries. The only nontrivial non-isometric conformal invariance that applies to a surface is the double spherical inversions. We can try balancing the factors via M\:obius balancing. A routine modeled after Prof.~Keenan's write-up is implemented unsuccessfully in \verb|Mobiusbalancing.m|. Some debugging tests can be found in the final code block named ``mobius balancing test'' of \verb|balancingtest.m|
+
+For the left-over rotational SO(3) isometries, there are two ways:
+\begin{enumerate}
+	\item naive method using a uniformly random sample of SU2/quaternions plus \verb|fminsearch|
+	
+	immediately after running \verb|test_script*.m|, run \verb|rot_test.m| (the key is the have the correct string for the \textit{endname} variable).
+	\item PCA (extrinsic or intrinsic)
+	
+	Personally I think this does not behave nicely enough for noisy results (since it essentially only minimizes the maximum inertia point and minimum inertia point), but YMMV i.e. I might have made a mistake.
+\end{enumerate}
+
+\end{document}

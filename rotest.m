@@ -1,4 +1,4 @@
-clear;
+% clear;
 %% gather uniformly random (maybe uniform grid later) samples of unit quaternions i.e. S^3
 if exist('SH/randq.mat','file')
   load SH/randq.mat
@@ -30,7 +30,8 @@ vmcf = v;
 % endname = 'i2_540_t3_blob18k_a64e64L30';
 % endname = 'i2_540_t3_blob18k_a100e100L30';
 % endname = 'i2_540_t3_blob18k_a225e225L30';
-endname = 'i2_540_t3_blob18k_a256e256L30s';
+% endname = 'i2_540_t3_blob18k_a256e256L30s';
+% endname = 'i2_540_t3_blob18k_a256e256L30';
 % endname = 'i2_540_t3_blob18k_a36e36L30';
 % endname = 'i2_1000_t3_blob18k_e49SH';
 load(['SH/' endname '.mat']);

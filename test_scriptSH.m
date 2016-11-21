@@ -13,6 +13,7 @@ aC = .5; bC = .8; tC = 10; etolC = 1e-4; % embedding descent control
 maxL = 30; % max degree of SH basis considered
 numeig = 16^2; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 numa = numeig; % just for the moment
+% numa = 20^2; % number of free (nonzero) SH basis coefficients
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
@@ -79,7 +80,7 @@ target_data.dat = 'blob18k';
   end
   %% main computation
   diary(['SH/' endname '.out']);
-  [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
+  [v,v_T,v_end,f,f_T,a_end,s_end,s_T,J_hist,Jc_hist,...
     D_0,D_T,D_endp,D_end,vmcf] = mainSH(init_data,target_data,...
     method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
     numeig,maxL,numa,pert);
@@ -91,5 +92,5 @@ target_data.dat = 'blob18k';
   hgexport(figh,['SH/' endname '.png'],...
     hgexport('factorystyle'), 'Format', 'png'); 
   save(['SH/' endname '.mat'],'v','v_T','v_end','f','f_T','s_end','s_T',...
-    'D_0','D_T','D_endp','D_end','J_hist','Jc_hist');
+    'D_0','D_T','D_endp','D_end','J_hist','Jc_hist','a_end');
 % end

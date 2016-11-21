@@ -12,7 +12,7 @@ function varargout = eigencostSH(a,mu_T,numeig,maxL)
 % GJ       - gradient
 % 
 
-numa = numeig; % assumed b/c otherwise problem is not full rank/well posed
+numa = numel(a);
 numL = (maxL+1)^2;
 if numeig > numel(mu_T), numeig = numel(mu_T); end
 %% get eigenvalues and eigenvectors
@@ -25,6 +25,13 @@ mu_diff = mu_diff./mu_T;       % change to relative difference
 % mu_diff = 1./mu-1./mu_T;       % take the inverse difference
 
 J = .5*sum(mu_diff(1:(end-1)).^2); % compute norm squared cost
+% C = 1e-2;
+% w = [];
+% for l = 0:sqrt(numa)-1
+% %     w = [w; repmat(l^k,2*l+1,1)];
+%     w = [w; repmat(exp(l),2*l+1,1)];
+% end
+% J = J + C*a'*diag(w)*a; % regularization based on Fourier smoothness
 
 if (nargout <= 1)
   varargout{1} = J;
@@ -41,6 +48,7 @@ else
     GJ(j) = sum(mu_diff(1:end-1)./mu_T(1:end-1).*dmuidaj);
   end
   varargout{2} = GJ;
+%   varargout{2} = GJ + C*2*a.*w;
 end
 
 % to do #1: work out arbitrary (inverse) weighting case
