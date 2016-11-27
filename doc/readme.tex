@@ -270,7 +270,9 @@ One can modify the maximum iterations and error tolerances to their liking and t
 	
 	\item \verb|maxL|, maximal degree of spherical harmonics considered, this impacts execution speed significantly. Advise to use \verb|maxL| in \verb|precomputeRSHI.m| for maximum accuracy.;
 	
-	\item \verb|numa|, number of spherical harmonic conformal coefficients estimated. So far it seems a number close to \verb|numeig| yields reasonable results, but more exploration is needed as it is not obvious how this interacts with the descent especially if some regularization is included;
+	\item \verb|numa|, number of spherical harmonic conformal coefficients estimated. So far it seems a number close to \verb|numeig| yields reasonable results, but more exploration is needed as it is not obvious how this interacts with the quality of the solution;
+	
+	\item \verb|reg|, a scalar weighting the importance between the cost of matching the spectrum and bilaplacian regularization term ($J = J_{spec}+ reg \cdot J_{bi\nabla}$);
 	
 	\item \verb|method|, BFGS means using the MATLAB built-in fminunc, GD means using the in-house gradient descent with line search (slower but more user control). The gradient descent and line search have been debugged extensively so it should be relatively trustworthy;
 	

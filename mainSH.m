@@ -1,11 +1,11 @@
 function [v,v_T,v_end,f,f_T,a_end,s_end,s_T,J_hist,Jc_hist,...
   D_0,D_T,D_endp,D_end,vmcf] = mainSH(init_data,target_data,...
   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-  numeigI,maxL,numa,pert)
+  numeigI,maxL,numa,pert,reg)
 % function [v,v_T,v_end,f,f_T,s_end,s_T,J_hist,Jc_hist,...
 %   D_0,D_T,D_endp,D_end] = mainSH(init_data,target_data,...
 %   method,imax,aC,bC,tC,etolC,aS,bS,tS,etolS,...
-%   numeigI,pert,maxL)
+%   numeigI,maxL,numa,pert,reg)
 %
 % for help see comments in test_scriptSH.m
 
@@ -151,13 +151,13 @@ end
 a0 = [2*sqrt(pi);eps*ones(numa-1,1)];
 
 if strcmp(method, 'BFGS')
-  test = @(a) eigencostSH(a,D_T,numeig,maxL);
+  test = @(a) eigencostSH(a,D_T,numeig,maxL,reg);
   options = optimset('GradObj','on','display','iter-detailed',...
     'maxiter',imax,'tolFun',etolS,'tolx',etolS,'largescale','off');
   [a,J_hist] = fminunc(test,a0,options);
 elseif strcmp(method, 'GD')
   [J_hist,a] = gradescent(@eigencostSH,imax,aS,bS,tS,etolS,0,...
-    a0,[],D_T,numeig,maxL);
+    a0,[],D_T,numeig,maxL,reg);
 else
   error('unknown descent method');
 end

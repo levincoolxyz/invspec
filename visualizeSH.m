@@ -1,4 +1,4 @@
-function [figh] = visualizeSH(v,v_T,v_end,vmcf,f,f_T,s_end,s_T,...
+function [figh] = visualizeSH(v,v_T,v_end,vmcf,f,f_T,a_end,s_end,s_T,...
   J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
 % function [figh] = visualizeSH(v,v_T,v_end,f,f_T,s_end,s_T,...
 %   J_hist,Jc_hist,D_0,D_T,D_endp,D_end,pcable)
@@ -24,6 +24,29 @@ if pcable
   v = dcmrot(v,dcm);
   if ~isempty(v_T), v_T = dcmrot(v_T,dcm_T); end
   v_end = dcmrot(v_end,dcm_end);
+end
+%% show SH coefficient decay
+if ~isempty(a_end)
+  a = nonzeros(a_end);
+  L = 0:sqrt(numel(a))-1;
+  amean = zeros(size(L));
+  aup = zeros(size(L));
+  adown = zeros(size(L));
+  for l = L
+    al = (abs(a((1:2*l+1)+l^2)));
+    amean(l+1) = mean(al);
+    aup(l+1) = max(al)-mean(al);
+    adown(l+1) = mean(al)-min(al);
+  end
+  figure(); hold all; grid on;
+  errorbar(L,log10(amean),.434*(adown./amean),.434*(aup./amean),'r:x')
+  plot(L,log10(1./L),'k--');
+  plot(L,log10(1./L.^2),'k--');
+  legend('mean','L^{-1}','L^{-2}');
+  set(gca,'xlim',[0 max(L)]);
+  ylabel('Coefficient Magnitude $log(|a|)$','interpreter','latex');
+  xlabel('SH Degree $L$','interpreter','latex');
+  title('Spherical Harmonic Coefficients Decay vs. its Degree');
 end
 %% initialize
 figh = figure();
