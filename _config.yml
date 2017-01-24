@@ -1,0 +1,8 @@
+title: Invspec
+description: 2d discrete inverse spectral problem
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
