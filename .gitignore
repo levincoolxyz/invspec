@@ -238,8 +238,11 @@ doc/*.log
 *.fls
 *.synctex.gz
 *.fdb_latexmk
-*.pdfnode_modules/
-node_modules/
-node_modules/
+*.pdf
+
+bunny/
+SH/
+mcf/
 spot/
 harmonics/
+*.gif
