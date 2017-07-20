@@ -24,51 +24,51 @@ Some codes here (on mesh optimization and a demo of spherical harmonics) are not
 
 ### Results
 
-![ani#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i3_300_t2_abs(Y33(v))_e0.1-1p0.5.gif "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
-![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i3_300_t2_abs(Y33(v))_e0.1-1p0.5.gif "discrete Y33 spherical harmonic target with varying percent of eigenvalues used")
+![ani#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i3_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 (cheating) optimize for cMCF spectrum instead
-![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
+![ani#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i2_300_t2_abs(Y32(v))_e0.1p0.5-2.gif "discrete Y32 spherical harmonic target with varying amount of deformation")
 
 **Tests with Spot the cow**
 
 smoothed cow without bi-laplacian regularization
-![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/cow/i4_mcf_t4_cow03_e1p0r0.png "smoothed Spot as target without regularization")
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i4_mcf_t4_cow03_e1p0r0.png "smoothed Spot as target without regularization")
 
 original spot with regularization
 
-![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/spot/i4_mcf_t3_spot1k_e1p0r0.1.png "Spot as target with regularization")
+![spot#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i4_mcf_t3_spot1k_e1p0r0.1.png "Spot as target with regularization")
 
 **Tests with bunny**
 
-![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/i4_mcf_t3_bunny327_e0.95p0r0.05.png "classic bunny as target with regularization")
+![bun#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i4_mcf_t3_bunny327_e0.95p0r0.05.png "classic bunny as target with regularization")
 
 *recursive run*
-![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive327/i3_bun3_t3_bunny327_e0.5p0r0.01.png "classic bunny as target with regularization fitted recursively")
+![bun#2](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i3_bun3_t3_bunny327_e0.5p0r0.01.png "classic bunny as target with regularization fitted recursively")
 
 *finer mesh recursive run*
-![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/i3_bun2_t3_bunny602_e0.95p0r0.1.png "classic bunny as target with regularization fitted recursively")
+![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i3_bun2_t3_bunny602_e0.95p0r0.1.png "classic bunny as target with regularization fitted recursively")
 
 *Before and After* (with minor smoothing)
 
-![bbfe](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/before.png)![baft](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive602/after.png)
+![bbfe](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/before.png)![baft](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/after.png)
 
 *even finer mesh recursive run*
-![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/bunny/recursive1043/i3_bun2_t3_bunny1043_e0.5p0r0.05.png "classic bunny as target with regularization fitted recursively")
+![bun#3](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i3_bun2_t3_bunny1043_e0.5p0r0.05.png "classic bunny as target with regularization fitted recursively")
 
 **"Mesh-free" Spherical Harmonic Basis Solution**
 
 From now on we have *number of eigenvalues used = number of free SH basis function coefficient = n, LB operator expanded in 961 SH basis functions*
 
 PL spectrum as target: n = 36
-![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a36e36L30.png "blob mesh PL spectrum as target")
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i2_540_t3_blob18k_a36e36L30.png "blob mesh PL spectrum as target")
 n = 49
-![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png "blob mesh PL spectrum as target")
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i2_540_t3_blob18k_a49e49L30.png "blob mesh PL spectrum as target")
 n = 64
-![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a64e64L30.png "blob mesh PL spectrum as target")
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i2_540_t3_blob18k_a64e64L30.png "blob mesh PL spectrum as target")
 
 SH spectrum as target (cheating): n = 49
-![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/SH/i2_540_t3_blob18k_a49e49L30.png "blob mesh PL spectrum as target")
+![blob#1](https://raw.githubusercontent.com/levincoolxyz/invspec/master/doc/page/i2_540_t3_blob18k_a49e49L30s.png "blob mesh PL spectrum as target")
 
 Results were adjusted up to SO(3) to mod out the rigid rotation ambiguity
 ### Ways to go
