@@ -239,3 +239,4 @@ doc/*.log
 *.synctex.gz
 *.fdb_latexmk
 *.pdfnode_modules/
+node_modules/
