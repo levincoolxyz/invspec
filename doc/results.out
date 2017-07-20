@@ -1,17 +1,23 @@
 \BOOKMARK [1][-]{section.1}{The Problem}{}% 1
-\BOOKMARK [1][-]{section.2}{Experiments and Results}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{target shapes}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{simplicial basis inverse problem}{section.2}% 4
-\BOOKMARK [3][-]{subsubsection.2.2.1}{raw}{subsection.2.2}% 5
-\BOOKMARK [3][-]{subsubsection.2.2.2}{regularized}{subsection.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.3}{spherical harmonics basis forward problem}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.4}{spherical harmonics basis inverse problem}{section.2}% 8
-\BOOKMARK [3][-]{subsubsection.2.4.1}{raw}{subsection.2.4}% 9
-\BOOKMARK [3][-]{subsubsection.2.4.2}{regularized}{subsection.2.4}% 10
-\BOOKMARK [1][-]{section.3}{A To-Do list}{}% 11
-\BOOKMARK [2][-]{subsection.3.1}{M\366bius balancing routine}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.2}{Regularization in spherical harmonics basis}{section.3}% 13
-\BOOKMARK [2][-]{subsection.3.3}{Structured optimization}{section.3}% 14
-\BOOKMARK [2][-]{subsection.3.4}{Precomputing more 3j symbols}{section.3}% 15
-\BOOKMARK [2][-]{subsection.3.5}{Topology}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.6}{Adaptive remeshing for the simplical inverse problem}{section.3}% 17
+\BOOKMARK [1][-]{section.2}{Methods}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Simplicial basis}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Spherical harmonic basis}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Regularization}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Experiments and Results}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{target shapes}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Simplicial basis inverse problem}{section.3}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.1}{raw}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.2}{regularized}{subsection.3.2}% 10
+\BOOKMARK [3][-]{subsubsection.3.2.3}{recursive fit}{subsection.3.2}% 11
+\BOOKMARK [3][-]{subsubsection.3.2.4}{Discussion}{subsection.3.2}% 12
+\BOOKMARK [2][-]{subsection.3.3}{Spherical harmonics basis forward problem}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.4}{Spherical harmonics basis inverse problem}{section.3}% 14
+\BOOKMARK [3][-]{subsubsection.3.4.1}{raw}{subsection.3.4}% 15
+\BOOKMARK [3][-]{subsubsection.3.4.2}{regularized}{subsection.3.4}% 16
+\BOOKMARK [1][-]{section.4}{A To-Do list}{}% 17
+\BOOKMARK [2][-]{subsection.4.1}{M\366bius balancing routine}{section.4}% 18
+\BOOKMARK [2][-]{subsection.4.2}{Structured optimization}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.3}{Precomputing more 3j symbols}{section.4}% 20
+\BOOKMARK [2][-]{subsection.4.4}{Topology}{section.4}% 21
+\BOOKMARK [2][-]{subsection.4.5}{Adaptive remeshing for the simplical inverse problem}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.6}{Embedding problem}{section.4}% 23

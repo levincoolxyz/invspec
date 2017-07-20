@@ -1,6 +1,11 @@
 \documentclass[11pt]{article}
 \usepackage[letterpaper,margin=.5in]{geometry}
 \usepackage{fancyhdr}
+
+\usepackage{cancel}
+\usepackage{matlab-prettifier}
+\usepackage{mcode}
+%\usepackage{ctex}
 \usepackage{hyperref}
 \usepackage{mathtools}
 \usepackage{multicol}
@@ -16,6 +21,30 @@
 \usepackage{tikz, tikz-cd}
 \usetikzlibrary{matrix,arrows,decorations.pathmorphing}
 \usepackage{slashbox}
+\usepackage{esint}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\usepackage{natbib}
+\usepackage{epstopdf}
+\usepackage{verbatim}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{todonotes}
+\usepackage{lineno}
+\usepackage{bbold}
+\usepackage{array}
+\usepackage{mathrsfs}
+\usepackage{amsbsy}
+\usepackage{mathtools}
+\usepackage{chngcntr}
+\newcolumntype{?}{!{\vrule width 1pt}}
+\newcolumntype{C}{>{\centering\arraybackslash}p{3.7cm}}
+\newcolumntype{L}{>{\raggedright\arraybackslash}p{3.9cm}}
+\newcolumntype{e}{>{\raggedright\arraybackslash}p{2.5cm}}
+\newcolumntype{k}{>{\raggedright\arraybackslash}p{2cm}}
+\newcolumntype{l}{>{\raggedright\arraybackslash}p{3.2cm}}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}p{3.7cm}}
+\allowdisplaybreaks
 
 %%% typeset "pushout" or "pushout" if put in top left corner
 \newcommand{\po}{\arrow[dr, phantom, "\ulcorner" near end]}
@@ -62,14 +91,13 @@
 \newtheorem*{lem*}{Lemma}
 \newtheorem*{rmk*}{Remark}
 
-
-\newcommand\abs[1]{\left|#1\right|}
+\def\abs#1{\left|#1\right|}
 \newcommand{\lcm}{\operatorname{lcm}}
 \newcommand{\ord}{\operatorname{ord}}
 \def\pfrac#1#2{{\left(\frac{#1}{#2}\right)}}
 \def\pp#1#2{{\frac{\partial #1}{\partial #2}}}
-%\def\pp#1#2#3{{\frac{\partial^{#3} #1}{\partial #2^{#3}}}}
-\def\dd#1#2{{\frac{\partial #1}{\partial #2}}}
+\def\DD#1#2{{\frac{\mathrm{D} #1}{\mathrm{D} #2}}}
+\def\dd#1#2{{\frac{\mathrm{d} #1}{\mathrm{d} #2}}}
 \def\integrate#1#2#3#4{{\int_{#1}^{#2}#3\,#4}}
 \def\eval#1#2#3{{\Big[#3\Big]_{#1}^{#2}}}
 \def\restrict#1{{\Big|_{#1}}}
@@ -92,7 +120,18 @@
 \newcommand\closure[1]{\overline{#1}}
 \newcommand{\setdiff}{\backslash}
 \def\mat#1{\mathsf{#1}}
-\def\vect#1{\mathbf{#1}}
+\def\vect#1{\boldsymbol{\mathbf{#1}}}
+\def\real#1{\Re\mathfrak{e}\left[{#1}\right]}
+\def\imag#1{\Im\mathfrak{m}\left[{#1}\right]}
+
+\def\div{\nabla\cdot}
+\def\grad{\nabla}
+\def\curl{\nabla\times}
+\def\lap{\nabla^2}
+\def\vint#1{\iiint#1\,\operatorname{d}V}
+\def\sint#1{\varoiint#1\,\operatorname{d}S}
+
+\def\checkmarkcross{\checkmark\kern-1.2ex\raisebox{.7ex}{\rotatebox[origin=c]{125}{--}}}
 
 \begingroup
     \catcode `\@ = 11
@@ -145,8 +184,8 @@
 \posttitle{\end{center}}
 \preauthor{\vspace{-1em}\begin{center}\large\ttfamily}
 \postauthor{\end{center}}
-\predate{\vspace{-1.5em}\begin{center}}
-\postdate{\vspace{-2em}\end{center}}
+\predate{\vspace{-2.5em}\begin{center}}
+\postdate{\vspace{-2.5em}\end{center}}
 %\predate{\vspace{-4em}\begin{center}}
 %\postdate{\vspace{-1em}\end{center}}
 
@@ -158,7 +197,7 @@
 \newdateformat{monthyear}{%
   \monthname[\THEMONTH], \THEYEAR}
 
-\title{Results Summary}
+\title{Discrete Inverse Spectral Problem - Progress Summary}
 \author{Feng Ling}
 \date{\monthyear\today}
 \begin{document}
@@ -167,40 +206,133 @@
 \thispagestyle{empty}
 
 \section{The Problem}
-The question in exploration is the 2D discrete inverse spectral problem, namely that can one obtain the metric of a 2D discrete surface from its discrete Laplace-Beltrami spectrum? To make this problem simpler, we assume the surface have the topology of $\mathbb S^2$, then its metric would be conformally equivalent to that of a discrete sphere. So we only need to obtain the conformal map to recover the surface.
+The question in exploration is the 2D discrete inverse spectral problem, namely that can one obtain the metric of a 2D discrete surface from its discrete Laplace-Beltrami spectrum? To make this problem simpler, we assume the surface have the topology of $\mathbb S^2$, then its metric would be conformally equivalent to that of a discrete sphere. So we only need to obtain a conformal map that recovers the surface from the sphere.
 
-Another ambiguity is what do we mean by the discrete spectrum. We attempted 2 general cases: one obtained through weighted cotan operator (degree 1 FEM) on triangular meshes, one obtained through Wigner 3j symbols in spherical harmonic basis. The first one we are confident about the accuracy of the eigenvalues with respect to that of the smooth surface (at least in the fine mesh limit), the second would be mesh independent and roughly correspond to features of varying spatial frequency/resolution.
+\section{Methods}
+We approach this problem by na\"ively optimizing the`energy' $E(\vect{c})$ that represents the squared difference between the discrete spectrum of the current shape $\vect{\lambda}$, and that of a target shape, $\vect{\lambda}_{T}$, where $\vect{c}$ is the diagonal conformal factors of the shape in comparison to the round sphere. \textit{i.e.}~Let $E(\mat{L}(\vect{c}))=\f12|\vect{\lambda}-\vect{\lambda}_{T}|^2$, where $\mat L$ is our choice of the Laplace-Beltrami operator of the current surface, and we will compute its gradient $\grad E(\mat{L}(\vect{c})) = |\vect{\lambda}-\vect{\lambda}_{T}|\pp{\vect\lambda}{\mat{L}}\pp{\mat{L}}{\vect{c}}$ and do simple gradient descent (or BFGS).
+
+In order to measure success, we first use the modified conformal Mean Curvature Flow (cMCF) of the original mesh to obtain a set of conformal factors to which we compare our optimized factors. Then we also try to use another gradient based method to re-embed our optimized conformal factors into a mesh and visually inspect its differences with the the original target mesh.
+
+\subsection{Simplicial basis}
+
+If we use triangle shape functions (linear FEM basis functions) and triangular mesh to initialize our sphere, then its LB spectrum can be estimated by the standard weighted \textit{cotan operator}.
+There are known results about the accuracy of the eigenvalues of this discrete operator with respect to that of the smooth surface, at least in the fine mesh limit.
+Its spectrum will be called the piecewise linear (PL) spectrum.
+\subsection{Spherical harmonic basis}
+
+We can also use spherical harmonics (SH) as our basis functions to represent our sphere. This way, there is no dependence on which specific mesh we start with as the final target shape will simply be the sum of the corresponding harmonics with the desired magnitudes. through Wigner 3j symbols 
+
+Without giving any proofs, it is intuition to believe that eigenvalues of different harmonics should roughly correspond to features of varying spatial frequencies as only higher and higher degress harmonics have finer and finer `bumps.'
+
+\subsection{Regularization}
+We can also append a bi-Laplacian regularization term to our energy $E$ to (hopefully) overcome high-frequency discretization noises. This is reasonable because assuming the change in metric is small between each time step, we want to minimize fluctuations of the current Laplace-Beltrami operator, hence its Laplacian (approximated by itself) should be $0$ or very small.
 
 \section{Experiments and Results}
 \subsection{target shapes}
+We have tested our methods on the following shapes,
 \begin{enumerate}
-	\item overly symmetric star shapes (sphere flowed under low-order spherical harmonics)
+	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+	\item ``star-shaped'' surfaces
 	
-	\item classic (evil) bunny
-	\item spot the cow (melted)
-	\item fancy blob
+		These are surfaces obtained from a spherical mesh flowed along its mesh normals proportional to some scalar spherical harmonic functions ($|Y_3^3|$ on the right).
+	\end{minipage}
+	\hfill
+	\hspace*{6em}
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\includegraphics[width=.4\textwidth]{{{eps/Y33}}}
+		\end{figure}
+	\end{minipage}
+	
+	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+	\item classic bunny
+	
+		This is the archetypal mesh used by computer graphics literature. While it have many crucial features interesting for robust testing, its ears require rather large conformal factors that might not work too well with na\"ive gradient descent type methods.
+	\end{minipage}
+	\hfill
+	\hspace*{6em}
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\includegraphics[width=.4\textwidth]{{{eps/bunny}}}
+		\end{figure}
+	\end{minipage}
+	
+	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+	\item spot the cow
+	
+		This is a tamer version of the bunny as it has slightly rounder protrusions due to its cartoon-ish looks. We also tested some procedures on a sequence of ``melted'' versions (meshes that underwent cMCF before it becomes a round sphere).
+	\end{minipage}
+	\hfill
+	\hspace*{6em}
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\includegraphics[width=.4\textwidth]{{{eps/spot}}}
+		\end{figure}
+	\end{minipage}
+	
+	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+	\item the blob
+	
+		To avoid large changes in conformal factors yet maintain some asymmetry and generality, this blob is used for testing in spherical harmonic basis problems as we want to be able to test performance of our method against frequency truncations.
+	\end{minipage}
+	\hfill
+	\hspace*{6em}
+	\begin{minipage}{0.6\textwidth}
+		\begin{figure}[H]
+			\includegraphics[width=.4\textwidth]{{{eps/blob}}}
+		\end{figure}
+	\end{minipage}	
+	
 \end{enumerate}
-\subsection{simplicial basis inverse problem}
+\subsection{Simplicial basis inverse problem}
 \subsubsection{raw}
 
 \subsubsection{regularized}
+\begin{figure}[H]
+	\hspace*{-6em}
+	\includegraphics[width=1.2\textwidth]{{{eps/i4_mcf_t3_bunny2164_e0.95p0r0.05}}}
+	\caption{a=1196, r=0.05, \\\scriptsize note that the inverse conformal factors are plotted on the hammer projections.}
+\end{figure}
 
-\subsection{spherical harmonics basis forward problem}
-convergence w.r.t. maxL and w.r.t. numa
+\subsubsection{recursive fit}
 
-\subsection{spherical harmonics basis inverse problem}
+In an attempt to fit the sharp conformal factors at the ears, the resultant mesh fit is again put into the algorithm to be fitted 2 more times and we obtain some mesh actually resembling the target bunny mesh!
+
+\subsubsection{Discussion}
+Since our simplicial basis are attached to some given mesh, we have to work with a PL embedding of the sphere that is the result of the cMCF bunny mesh. This is clearly undesirable as in real life we would not have access to a correctly adaptively refined spherical mesh to begin our gradient descent. To attack this problem, we believe either: 1) we develop a adaptive scheme where we start with a coarse mesh and gradually refine the mesh where the fitted conformal factor is getting large [adaptive mesh], 2) or we have to run structured optimizations that start with lower frequencies and move on to higher frequencies later [recursive optimization].
+
+\subsection{Spherical harmonics basis forward problem}
+
+Before diving into the inverse problem, we need to verify that the LB spectrum can be well represented by a truncated spectrum in spherical harmonic basis.
+
+In Figure \ref{fig:SHforward} below we demonstrate some convergence of the spectrum from above to some value versus the convergence from below when looking at PL spectrum.
+
+convergence w.r.t. maximal degree and w.r.t. the number of free SH basis coefficients
+
+\subsection{Spherical harmonics basis inverse problem}
 \subsubsection{raw}
 
+\begin{figure}[H]
+	\hspace*{-6em}
+	\includegraphics[width=1.2\textwidth]{{{eps/i2_540_t3_blob18k_a256e256L30}}}
+	\caption{a=256, L=30x30}
+\end{figure}
+
 \subsubsection{regularized}
+
+\begin{figure}[H]
+	\hspace*{-6em}
+	\includegraphics[width=1.2\textwidth]{{{eps/i2_540_t3_blob18k_a256e256L30r1e-06}}}
+	\caption{a=256, L=30x30, R=1e-6}
+\end{figure}
 
 \section{A To-Do list}
 \subsection{M\"obius balancing routine}
-For reference, Prof. Keenan have a write-up and working C codes in his suite of geometry processing codes.
-The current MATLAB implementation is experiencing oscillatory behaviors likely due to some sort of silly undiscovered bug.
+For reference, Prof.~Keenan Crane have a write-up and working C codes in his geometry processing toolset. The current MATLAB implementation is experiencing (too much?) oscillatory behavior possibly due to some sort of silly bug.
 
-\subsection{Regularization in spherical harmonics basis}
-if we make an equivalence between low-high frequency to spherical harmonic basis coefficients, we can assume (the analogy is from conditions on function being smooth and its Fourier coefficients) the coefficients must decrease as much as possible as soon as possible for the smoothiest solution.
-Naively, we can add a term $\propto \sum_i w_i a_{l,m}^2$ to the cost where $w_i$ grows at the appropriate rate (e.g. $exp(l)$ or $l^k$ for some positive $k>1$). But this did not work so well.
+%\subsection{Regularization in spherical harmonics basis}
+%if we make an equivalence between low-high frequency to spherical harmonic basis coefficients, we can assume (the analogy is from conditions on function being smooth and its Fourier coefficients) the coefficients must decrease as much as possible as soon as possible for the smoothiest solution.
+%Naively, we can add a term $\propto \sum_i w_i a_{l,m}^2$ to the cost where $w_i$ grows at the appropriate rate (e.g. $exp(l)$ or $l^k$ for some positive $k>1$). But this did not work so well.
 
 \subsection{Structured optimization}
 Again assuming the above equivalence, it might stand to reason that we shall first optimize for lower frequency features ($a_{l,m}$ with small $l$?) and then move on to refining the higher frequency ones.
@@ -213,10 +345,15 @@ maybe it will be worthwhile to utilize some state-of-the-art method to calculate
 Reference: 
 
 \subsection{Topology}
-we also would like to calculate the topology of the surface from the spectrum beforehand. In the smooth setting, we can infer these from the \textbf{asymptotics} of heat trace from the spectrum. In the discrete case, it is not immediate how to extract these information. A reference is found to mention successfully doing this through some sort of curve fitting. Or just machine learning?
+We also would like to calculate the topology of the surface from the spectrum beforehand. In the smooth setting, we can infer these from the \textbf{asymptotics} of heat trace from the spectrum. In the discrete case, it is not immediate how to extract these information. A reference is found to mention successfully doing this through some sort of curve fitting. Or is this a suitable task for machine learning? And after knowing a topology with $g\geq1$, can be also use the corresponding harmonic basis functions?
 
-Reference: 
+Reference: Martin Reuter, Franz-Erich Wolter, Niklas Peinecke, ``Laplace-Beltrami spectra as `Shape-DNA' of surfaces and solids''
+
+\url{http://reuter.mit.edu/blue/papers/reuter-shapeDNA06/reuter-shapeDNA06.pdf}
 
 \subsection{Adaptive remeshing for the simplical inverse problem}
 Since it works pretty well in the simplicial setting when we regularize and use enough eigenvalues (up to embedding issues), the only obstacle barring us from full victory is the apparent need to assume MCF starting mesh. The idea to improve here is to remesh at each step according to the current conformal factor solution. Practically speaking, it might preserve more sanity to try these in a better development environment (so no more MATLAB non OOP shenanigans, at least not with the built-in BFGS optimization algorithm).
+
+\subsection{Embedding problem}
+Visually and numerically, it seems that we can obtain spectrally optimized conformal factors that matches the desired cMCF ones. However, the (again) na\"ive way of re-inflating a sphere using a scalar conformal factor field seems to less than efficient, as in we need very fine meshes and the na\"ive algorithm scales with number of meshes used squared. But this should be a problem that others have and will continue to tackle even on their own.
 \end{document}

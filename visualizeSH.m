@@ -56,19 +56,23 @@ colormap('jet');
 %% compare mesh
 if isempty(v_T)
   subplot(2,4,1);
-  title('target spectrum');
+  title('Target spectrum');
   set(gca, 'visible', 'off')
 else
-  subplot(2,4,1); hold all; view(3); grid on; axis equal
+  subplot(2,4,1); hold all; grid on; axis equal
+%   view(3); 
+  view([-68 68]);set(gca,'fontsize',16)
   trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
   vlim = max(max(abs(v_T)));
   vlim = [-vlim vlim];
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
   xlabel('x'); ylabel('y'); zlabel('z');
-  title('target mesh');
+  title('Target mesh');
 end
 
-subplot(2,4,4); hold all; view(3); grid on; axis equal
+subplot(2,4,4); hold all; grid on; axis equal
+%   view(3); 
+  view([-68 68]);set(gca,'fontsize',16)
 if ~isempty(v_end)
   trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
   vlim = max([vlim max(max(abs(v_end)))]);
@@ -78,7 +82,7 @@ if ~isempty(v_end)
 else
   text(0,0,0,'N/A'); grid off; axis off;
 end
-title('resultant mesh');
+title('Resultant mesh');
 
 %% compare conformal factors
 vlim = max(max(abs(v)));
@@ -91,7 +95,8 @@ end
 % crange = [min([s_T;s_end]) max([s_T;s_end])];
 crange = [min([s_T;]) max([s_T;])];
 subplot(2,4,2); hold all; grid on; axis equal
-title('cMCF conformal factors (s)');
+title('cMCF conformal factors');
+set(gca,'fontsize',16)
 
 % 3d spherical plot
 % trisurf(f_T,v_T_mcf(:,1),v_T_mcf(:,2),v_T_mcf(:,3),s_T,...
@@ -110,7 +115,8 @@ ch = colorbar('southoutside');
 ylabel(ch,'1/s');
 
 subplot(2,4,3); hold all; grid on; axis equal
-title('spectrally optimized conf. fact. (s)');
+title('Spectrally optimized factors');
+set(gca,'fontsize',16)
 
 % 3d spherical plot
 % trisurf(f,v(:,1),v(:,2),v(:,3),s_end,...
@@ -180,11 +186,11 @@ set(gca,'xlim',[2 numel(D_T)])
 xm = get(gca,'xlim');
 ym = get(gca,'ylim');
 ym = [ym(1) 2]; set(gca,'ylim',ym);
+set(gca,'fontsize',16)
 set(gca,'xscale','log');
 % text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
 text(floor(max(xm)^.4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
-  num2str([numel(J_hist) J_hist(end) numel(Jc_hist) Jc_hist(end), ...
-  numeig],...
-  ['iter#%d: J_{MIEP2} = %g     ',...
-  'iter#%d: J_{embedding} = %g   numeig=%d']));
+  num2str([J_hist(end) Jc_hist(end) numeig],...
+  ['J_{MIEP2} = %g     ',...
+  'J_{embedding} = %g   numeig=%d']));
 end

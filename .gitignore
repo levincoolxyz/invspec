@@ -231,3 +231,11 @@ condor.log
 #tacc job queue
 *.sbatch
 lslog.o*
+
+#latex
+*.aux
+doc/*.log
+*.fls
+*.synctex.gz
+*.fdb_latexmk
+*.pdf

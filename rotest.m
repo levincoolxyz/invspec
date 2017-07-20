@@ -1,6 +1,7 @@
 % function rotest(endname)
-clear
-endname = 'i2_540_t3_blob18k_a256e256L30';
+% clear
+% endname = 'i2_540_t3_blob18k_a256e256L30';
+endname = 'i2_540_t3_blob18k_a256e256L30r1e-06';
 %% gather uniformly random (maybe uniform grid later) samples of unit quaternions i.e. S^3
 if exist('SH/randq.mat','file')
   load SH/randq.mat

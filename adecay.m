@@ -49,6 +49,7 @@ end
 plot(L,log10(1./L),'k-');
 plot(L,log10(1./L.^2),'k-');
 % plot(L,log10(exp(-L)),'k--');
+set(gca,'fontsize',16)
 legend([lg;'L^{-1}';'L^{-2}']);%;'exp(-L)']);
 set(gca,'xlim',[0 max(L)]);
 ylabel('Coefficient Magnitude $log(|a|)$','interpreter','latex');
