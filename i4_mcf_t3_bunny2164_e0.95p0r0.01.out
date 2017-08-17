@@ -1,0 +1,369 @@
+MCF iter#1: |dv| = 50.3636; sphericity = 0.969092
+MCF iter#2: |dv| = 31.1659; sphericity = 1.08683
+MCF iter#3: |dv| = 17.1904; sphericity = 0.902567
+MCF iter#4: |dv| = 18.8126; sphericity = 0.626015
+MCF iter#5: |dv| = 23.7876; sphericity = 0.35899
+MCF iter#6: |dv| = 21.6356; sphericity = 0.133499
+MCF iter#7: |dv| = 14.1314; sphericity = 0.0222363
+MCF iter#8: |dv| = 6.44879; sphericity = 0.0867292
+MCF iter#9: |dv| = 1.80786; sphericity = 0.0923878
+MCF iter#10: |dv| = 1.78351; sphericity = 0.0648366
+MCF iter#11: |dv| = 2.51002; sphericity = 0.0285128
+MCF iter#12: |dv| = 2.14707; sphericity = 0.00336357
+MCF iter#13: |dv| = 1.25472; sphericity = 0.0147237
+MCF iter#14: |dv| = 0.417618; sphericity = 0.0169989
+MCF iter#15: |dv| = 0.268561; sphericity = 0.0126725
+MCF iter#16: |dv| = 0.434635; sphericity = 0.00662094
+MCF iter#17: |dv| = 0.393651; sphericity = 0.00261084
+MCF iter#18: |dv| = 0.250281; sphericity = 0.00306532
+MCF iter#19: |dv| = 0.105888; sphericity = 0.00364244
+MCF iter#20: |dv| = 0.0444539; sphericity = 0.00330116
+MCF iter#21: |dv| = 0.0690689; sphericity = 0.00273085
+MCF iter#22: |dv| = 0.0696972; sphericity = 0.00244222
+MCF iter#23: |dv| = 0.0513431; sphericity = 0.00241947
+MCF iter#24: |dv| = 0.0329251; sphericity = 0.00244368
+MCF iter#25: |dv| = 0.0274817; sphericity = 0.00243617
+Starting parallel pool (parpool) using the 'local' profile ...
+connected to 4 workers.
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1      6.22084e+08                      4.18e+07
+     1           2       2.0534e+08    2.39413e-08       1.68e+07  
+     2           3      1.22276e+08              1       7.41e+06  
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+MEvent. CASE!
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbcont; end
+     3           4      6.76819e+07              1       3.74e+06  
+     4           5      4.09155e+07              1       1.95e+06  
+     5           6      2.42104e+07              1       5.56e+06  
+     6           7      1.14801e+07              1       1.48e+06  
+     7           8      8.05074e+06              1       1.74e+06  
+     8           9      4.59493e+06              1       1.55e+06  
+     9          10      2.77535e+06              1       7.94e+05  
+    10          11      1.88914e+06              1        3.4e+05  
+    11          12      1.36794e+06              1       1.25e+05  
+    12          13      1.01802e+06              1       5.97e+04  
+    13          14           756690              1       4.56e+04  
+    14          15           556251              1       3.66e+04  
+    15          16           400898              1       2.78e+04  
+    16          17           288304              1       1.95e+04  
+    17          18           205797              1       1.38e+04  
+    18          19           111232              1       8.42e+03  
+    19          20          77964.4              1       5.53e+03  
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+    20          21          61067.8              1       3.89e+03  
+    21          22            39124              1       2.52e+03  
+[Warning: The shifted operator is close to singular or badly scaled. RCOND =
+0.000000. Consider using a different value for sigma.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>WarnIfIllConditioned', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 851)" style="font-weight:bold">eigs>WarnIfIllConditioned</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',851,0)">line 851</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>AminusSigmaBSolve', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 825)" style="font-weight:bold">eigs>AminusSigmaBSolve</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',825,0)">line 825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>getOps', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 719)" style="font-weight:bold">eigs>getOps</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',719,0)">line 719</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 100)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',100,0)">line 100</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvf', '/home/ultimate/invspec/mcode/eigvf.m', 22)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvf.m',22,0)">line 22</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencost', '/home/ultimate/invspec/mcode/eigencost.m', 22)" style="font-weight:bold">eigencost</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencost.m',22,0)">line 22</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main>@(s)eigencost(s,M,L,D_T,neig,reg)', '/home/ultimate/invspec/mcode/main.m', 152)" style="font-weight:bold">main>@(s)eigencost(s,M,L,D_T,neig,reg)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',152,0)">line 152</a>)
+  In lineSearch>bracketingPhase
+  In lineSearch
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminusub', '/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/private/fminusub.m', 189)" style="font-weight:bold">fminusub</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/private/fminusub.m',189,0)">line 189</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/fminunc.m', 457)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/fminunc.m',457,0)">line 457</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 156)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',156,0)">line 156</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 87)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',87,0)">line 87</a>)] 
+    22          23          10562.8              1            260  
+
+Optimization completed: The <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'first_order_opt_unc','CSHelpWindow');">first-order optimality measure</a>, 6.231360e-06, is less 
+than <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'optimality_tolerance_unc','CSHelpWindow');">options.OptimalityTolerance</a> = 1.000000e-05.
+
+Optimization Metric                                          Options
+relative norm(gradient) =   6.23e-06             OptimalityTolerance =   1e-05 (selected)
+
+[Warning: The shifted operator is close to singular or badly scaled. RCOND =
+0.000000. Consider using a different value for sigma.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>WarnIfIllConditioned', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 851)" style="font-weight:bold">eigs>WarnIfIllConditioned</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',851,0)">line 851</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>AminusSigmaBSolve', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 825)" style="font-weight:bold">eigs>AminusSigmaBSolve</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',825,0)">line 825</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>getOps', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 719)" style="font-weight:bold">eigs>getOps</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',719,0)">line 719</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 100)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',100,0)">line 100</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvf', '/home/ultimate/invspec/mcode/eigvf.m', 11)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvf.m',11,0)">line 11</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 253)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',253,0)">line 253</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 87)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',87,0)">line 87</a>)] 
+                                                        First-order 
+ Iteration  Func-count       f(x)        Step-size       optimality
+     0           1      3.25042e+91                      6.03e+42
+
+Optimization stopped because the objective function cannot be decreased in the 
+current <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'search_direction','CSHelpWindow');">search direction</a>. Either the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'pred_change','CSHelpWindow');">predicted change in the objective function</a>,
+or the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'line_search_interval','CSHelpWindow');">line search interval</a> is less than eps.

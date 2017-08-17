@@ -374,6 +374,7 @@ INPUT ./eps/spot.png
 INPUT eps/blob.png
 INPUT ./eps/blob.png
 INPUT ./eps/blob.png
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm
 INPUT eps/i4_mcf_t3_bunny2164_e0.95p0r0.05.eps
 INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05.eps
 INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05.eps
@@ -383,7 +384,15 @@ INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05.eps
 INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05-eps-converted-to.pdf
 INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05-eps-converted-to.pdf
 INPUT ./eps/i4_mcf_t3_bunny2164_e0.95p0r0.05-eps-converted-to.pdf
-INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm
+INPUT eps/rec_bunny602_e0.95p0r0.1.eps
+INPUT ./eps/rec_bunny602_e0.95p0r0.1.eps
+INPUT ./eps/rec_bunny602_e0.95p0r0.1.eps
+INPUT ./eps/rec_bunny602_e0.95p0r0.1-eps-converted-to.pdf
+INPUT ./eps/rec_bunny602_e0.95p0r0.1-eps-converted-to.pdf
+INPUT ./eps/rec_bunny602_e0.95p0r0.1.eps
+INPUT ./eps/rec_bunny602_e0.95p0r0.1-eps-converted-to.pdf
+INPUT ./eps/rec_bunny602_e0.95p0r0.1-eps-converted-to.pdf
+INPUT ./eps/rec_bunny602_e0.95p0r0.1-eps-converted-to.pdf
 INPUT eps/i2_540_t3_blob18k_a256e256L30.eps
 INPUT ./eps/i2_540_t3_blob18k_a256e256L30.eps
 INPUT ./eps/i2_540_t3_blob18k_a256e256L30.eps
@@ -420,6 +429,7 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.p
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb

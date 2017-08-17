@@ -32,6 +32,9 @@ if init_data.num ~= 4
   elseif init_data.num == 3
     load(['../meshes/' init_data.dat]);
   end
+  
+  v = v - repmat(volCenter(v,f),size(v,1),1);
+  v = v*makeUnitArea(v,f)*sqrt(4*pi);
   [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 end
 %% target spectrum (and shapes)
@@ -53,6 +56,9 @@ else
     [~,v_Thist] = gradescent(@conformalcost,imax,aC,bC,tC,etolC,0,...
       reshape(v',[],1),isedge,elsq_T);
     v_T = reshape(v_Thist(:,end),3,[])';
+    
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
 
   % perturb with given scalar field
   elseif target_data.num == 2
@@ -63,6 +69,8 @@ else
     vn = Hn./repmat(H,1,3);
     v_T = v - repmat(target_data.dat(v),1,3).*vn*pert;
     f_T = f;
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
     [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
     [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
 
@@ -71,18 +79,24 @@ else
     if exist(['mcf/' target_data.dat '.mat'],'file')
       if init_data.num == 4
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
+        v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+        v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
         f = f_T;
         [numv,numeig,isedge,elsq0,M,L,D_0] = initialize(v,f,numeigI);
         vmcf = v;
       else
         vtmp = v;
         load(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T');
+        v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+        v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
         vmcf = v;
         v = vtmp;
       end
     else
       fid = fopen(['../meshes/' target_data.dat '.obj'],'rt');
       [v_T,f_T] = readwfobj(fid);
+      v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+      v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
       if init_data.num == 4
         [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
         save(['mcf/' target_data.dat '.mat'],'v_T','f_T','s_T','v');
@@ -97,6 +111,8 @@ else
   % load face-vertex from *.mat [need v_T and f_T]
   elseif target_data.num == 4
     load(['../meshes/' target_data.dat]);
+    v_T = v_T - repmat(volCenter(v_T,f_T),size(v_T,1),1);
+    v_T = v_T*makeUnitArea(v_T,f_T)*sqrt(4*pi);
     if init_data.num == 4
       [s_T,v] = meancurvflow(v_T,f_T,1e5,'c');
       f = f_T;
@@ -112,17 +128,19 @@ else
 %   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
 %% refinement criterion
-if init_data.num == 4
+if init_data.num == 4 || isempty(refctl)
   scheck = Inf; % disable refinement routines for cMCF'ed mesh
   sthreshold = 0; % abs(log(1/(conformal factors)))
+  refinestop = @(x,optimValues,state) max(exp(x))>scheck;
+  refineIter = 0;
 else
   scheck = refctl(1); % abs(log(1/(conformal factors)))
   sthreshold = refctl(3);
   sgthreshold = refctl(4);
+  refinestop = @(x,optimValues,state) max(exp(x))>scheck;
+  refineIter = 0;
+  maxRefine = refctl(2);
 end
-refinestop = @(x,optimValues,state) max(exp(x))>scheck;
-refineIter = 0;
-maxRefine = refctl(2);
 %% MIEP2 via gradient / BFGS descent
 % s0 = exp(-zeros(numv,1));
 s0 = zeros(numv,1); % if using log conformal factors
@@ -222,7 +240,11 @@ for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40
   pause(.1);
 %   s_err = norm(s_T - s0)./norm(s_T)*100;
 %   fprintf('total conformal factor error = %g\n',s_err);
-  skipstr = input('Continue optimization? Y/N [Y]: \n','s');
+  if isempty(refctl)
+    skipstr = 'y';
+  else
+    skipstr = input('Continue optimization? Y/N [Y]: \n','s');
+  end
   close(h);
   if ~isempty(skipstr), if skipstr == 'N' || skipstr == 'n', break; end; end
 end

@@ -29,16 +29,21 @@ figh = figure();
 set(gcf,'outerposition',[0, 0, 1920, 1080]);
 vlim = [];
 colormap('jet');
+crange = [min([s_T;s_end]) max([s_T;s_end])];
 %% compare mesh
 if isempty(v_T)
   subplot(2,4,1);
   title('Target spectrum');
   set(gca, 'visible', 'off')
 else
+  v_T = v_T - mean(v_T);
   subplot(2,4,1); hold all; grid on; axis equal
-%   view(3); 
-  view([-68 68]);set(gca,'fontsize',16)
-  trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
+  view(3); 
+  view([54 54]);
+%   view([-68 68]);
+  set(gca,'fontsize',16)
+%   trimesh(f_T,v_T(:,1),v_T(:,2),v_T(:,3));
+  trisurf(f_T,v_T(:,1),v_T(:,2),v_T(:,3),s_T);
   vlim = max(max(abs(v_T)));
   vlim = [-vlim vlim];
   set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
@@ -46,10 +51,14 @@ else
   title('Target mesh');
 end
 
+v_end = v_end - mean(v_end);
 subplot(2,4,4); hold all; grid on; axis equal
-%   view(3); 
-  view([-68 68]);set(gca,'fontsize',16)
-trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
+  view(3); 
+  view([54 54]);
+%   view([-68 68]);
+  set(gca,'fontsize',16)
+% trimesh(f,v_end(:,1),v_end(:,2),v_end(:,3));
+trisurf(f,v_end(:,1),v_end(:,2),v_end(:,3),s_end);
 vlim = max([vlim max(max(abs(v_end)))]);
 vlim = [-vlim vlim];
 set(gca,'xlim',vlim,'ylim',vlim,'zlim',vlim);
@@ -66,7 +75,6 @@ else
   v_T_mcf = v;
 end
 
-crange = [min([s_T;s_end]) max([s_T;s_end])];
 subplot(2,4,2); hold all; grid on; axis equal
 title('cMCF conformal factors');
 set(gca,'fontsize',16)
@@ -147,22 +155,23 @@ rei = size(v0,1):-1:2;
 % c2 = 0;
 % legendpos = 'northeast';
 
-% log |relative error| plot
-plot(rei, abs(v0(1:end-1)),'b--','linewidth',2);
-plot(rei, abs(v1(1:end-1)),'k-','linewidth',2);
-plot(rei, abs(v2(1:end-1)),'ro');
-plot(rei, abs(v3(1:end-1)),'g--','linewidth',2);
+% log |relative error| plot,...
+plot(rei, abs(v0(1:end-1)),'b--','linewidth',2,'displayname',...
+  '|1-\lambda_{cMCF}/\lambda_{T}|');
+plot(rei, abs(v1(1:end-1)),'k-','linewidth',2,'displayname',...
+  '|1-\lambda_{spec}/\lambda_{T}|');
+plot(rei, abs(v2(1:end-1)),'ro--','displayname',...
+  '|1-\lambda_{embed}/\lambda_{T}|');
+plot(rei, abs(v3(1:end-1)),'g--','linewidth',2,'displayname',...
+  '|1-\lambda_{init}/\lambda_{T}|');
 set(gca,'yscale','log');
 c1 = 0;
 c2 = 0.18;
-legendpos = 'southeast';
+legendpos = 'best';
 
-legend('(\lambda_{cMCF} - \lambda_{target})/\lambda_{target}',...
-  '(\lambda_{MIEP2} - \lambda_{target})/\lambda_{target}',...
-  '(\lambda_{final embed} - \lambda_{target})/\lambda_{target}',...
-  'location',legendpos);
+legend('location',legendpos);
 xlabel('# of eigenvalues (in ascending magnitudes)');
-title('Deviation from target Laplacian eigenvalues');
+title('Relative deviation from target spectrum \lambda_{T}');
 
 set(gca,'xlim',[2 numel(D_T)])
 xm = get(gca,'xlim');
@@ -170,9 +179,9 @@ ym = get(gca,'ylim');
 ym = [ym(1) 2]; set(gca,'ylim',ym);
 set(gca,'fontsize',16)
 set(gca,'xscale','log');
-% text(floor(max(xm)/4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
-text(floor(max(xm)^.4),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
+% text(floor(max(xm)/45),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
+text(floor(max(xm)^.45),((ym(2)/ym(1))^c2*ym(2) + c1*diff(ym)),...
   num2str([J_hist(end) Jc_hist(end) numeig],...
-  ['J_{MIEP2} = %g     ',...
-  'J_{embedding} = %g   numeig=%d']));
+  ['J_{spec} = %g     ',...
+  'J_{embed} = %g   numeig=%d']));
 end

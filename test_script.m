@@ -10,29 +10,30 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
-numeig = .9; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+numeig = .95; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
 reg = 0.05; % regularization coefficient
-refctl = [abs(log(1/(1.9))) 3 ...     % check threshold and maximum refine steps
-  abs(log(1/(1.3))) abs(log(1/(1.2)))]; % abs and grad refine threshold
+% refctl = [abs(log(1/(1.9))) 3 ...     % check threshold and maximum refine steps
+%   abs(log(1/(1.3))) abs(log(1/(1.2)))]; % abs and grad refine threshold
+refctl = [];
 method = 'BFGS'; % BFGS => fminunc, GD => in-house gradient descent
 %% input case == 1; import face-vtx from *.obj file
 % init_data.num = 1;
 % init_data.dat = 'sphere_small';
 %% input case == 2; sphere of ssize # of vtx
-init_data.num = 2;
-init_data.dat = '400';
+% init_data.num = 2;
+% init_data.dat = '800';
 %% input case == 3; import face-vtx from *.mat file [need v and f]
 % init_data.num = 3;
 % init_data.dat = 'mcfbun327';
 % init_data.dat = '550';
-% init_data.dat = 'bun2';
+% init_data.dat = 'bun1';
 % init_data.dat = 'bun2sph';
 % init_data.dat = 'spot1';
 %% input case == 4; use steady state cMCF of the target mesh
-% init_data.num = 4;
-% init_data.dat = 'mcf';
+init_data.num = 4;
+init_data.dat = 'mcf';
 %% target case == 1; random vertex conformal factor deformations
 % target_data.num = 1;
 %% target case == 2; prescribed perturbation (of sphere) along vtx normal
@@ -40,10 +41,11 @@ init_data.dat = '400';
 % target_data.dat = @(v) abs(Y32(v));
 % target_data.dat = @(v) abs(Y33(v));
 %% target case == 3; import face-vtx from *.obj file
-% target_data.num = 3;
+target_data.num = 3;
+% target_data.dat = 'blob1k';
 % target_data.dat = 'bunny';
-% target_data.dat = 'bunny2k';
-% target_data.dat = 'bunny1k';
+target_data.dat = 'bunny2164';
+% target_data.dat = 'bunny1043';
 % target_data.dat = 'bunny789';
 % target_data.dat = 'bunny602';
 % target_data.dat = 'bunny540';

@@ -241,7 +241,9 @@ doc/*.log
 *.pdf
 
 bunny/
-SH/
-mcf/
 spot/
 harmonics/
+blob/
+
+mcf/
+forwardSH/

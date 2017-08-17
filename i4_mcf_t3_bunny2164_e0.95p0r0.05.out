@@ -1,0 +1,19 @@
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>@(v)U\(L\(P*applyB(v)))', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 823)" style="font-weight:bold">eigs>@(v)U\(L\(P*applyB(v)))</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',823,0)">line 823</a>)
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs>CallARPACK', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 968)" style="font-weight:bold">eigs>CallARPACK</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',968,0)">line 968</a>)
+            workd(:,cols(2)) = applyOP(workd(:,cols(1)));
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigs', '/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m', 113)" style="font-weight:bold">eigs</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/matlab/sparfun/eigs.m',113,0)">line 113</a>)
+[V, d, flag, timings, t0] = CallARPACK(applyOP, applyM, n, k, ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigvf', '/home/ultimate/invspec/mcode/eigvf.m', 22)" style="font-weight:bold">eigvf</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigvf.m',22,0)">line 22</a>)
+    [V,D] = eigs(L,M,numeig,sigma);
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('eigencost', '/home/ultimate/invspec/mcode/eigencost.m', 22)" style="font-weight:bold">eigencost</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/eigencost.m',22,0)">line 22</a>)
+[V,lambda] = eigvf(L,diag(1./exp(s))*M,numeig); % log-conformal factors
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main>@(s)eigencost(s,M,L,D_T,neig,reg)', '/home/ultimate/invspec/mcode/main.m', 152)" style="font-weight:bold">main>@(s)eigencost(s,M,L,D_T,neig,reg)</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',152,0)">line 152</a>)
+    test = @(s) eigencost(s,M,L,D_T,neig,reg);
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fminunc', '/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/fminunc.m', 301)" style="font-weight:bold">fminunc</a> (<a href="matlab: opentoline('/storage/ext/matmat/MATLAB/R2017a/toolbox/optim/optim/fminunc.m',301,0)">line 301</a>)
+        [f,GRAD] = feval(funfcn{3},x,varargin{:});
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('main', '/home/ultimate/invspec/mcode/main.m', 156)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/main.m',156,0)">line 156</a>)
+    [s,J_hist,exitflag] = fminunc(test,s0,options);
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('test_script', '/home/ultimate/invspec/mcode/test_script.m', 87)" style="font-weight:bold">test_script</a> (<a href="matlab: opentoline('/home/ultimate/invspec/mcode/test_script.m',87,0)">line 87</a>)
+    D_0,D_T,D_endp,D_end] = main(init_data,target_data,...} 
+test_script

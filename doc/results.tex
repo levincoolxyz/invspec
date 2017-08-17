@@ -239,6 +239,7 @@ We have tested our methods on the following shapes,
 	\hfill
 	\hspace*{6em}
 	\begin{minipage}{0.6\textwidth}
+		\vspace*{-8em}
 		\begin{figure}[H]
 			\includegraphics[width=.4\textwidth]{{{eps/Y33}}}
 		\end{figure}
@@ -252,6 +253,7 @@ We have tested our methods on the following shapes,
 	\hfill
 	\hspace*{6em}
 	\begin{minipage}{0.6\textwidth}
+		\vspace*{-1em}
 		\begin{figure}[H]
 			\includegraphics[width=.4\textwidth]{{{eps/bunny}}}
 		\end{figure}
@@ -265,6 +267,7 @@ We have tested our methods on the following shapes,
 	\hfill
 	\hspace*{6em}
 	\begin{minipage}{0.6\textwidth}
+		\vspace*{-1em}
 		\begin{figure}[H]
 			\includegraphics[width=.4\textwidth]{{{eps/spot}}}
 		\end{figure}
@@ -278,16 +281,44 @@ We have tested our methods on the following shapes,
 	\hfill
 	\hspace*{6em}
 	\begin{minipage}{0.6\textwidth}
+		\vspace*{-1em}
 		\begin{figure}[H]
 			\includegraphics[width=.4\textwidth]{{{eps/blob}}}
 		\end{figure}
 	\end{minipage}	
 	
 \end{enumerate}
+\subsection{parameter nomenclature}
+In order of appearance: 
+\begin{enumerate}
+	\item 
+	numeig - the total number of eigenvalues being optimized
+	
+	\item 
+	pert - a scalar proportional to how distorted the target shape is comparing to a round sphere.
+	
+	\item 
+	numa - the total number of a
+	
+	\item 
+	maxL - the maximal degree used by spherical harmonic basis approximation
+\end{enumerate}
+
 \subsection{Simplicial basis inverse problem}
 \subsubsection{raw}
-
+\begin{enumerate}
+	\item Stability against feature `smoothness' of the target mesh
+	
+	To guarantee higher success rates, the star-shaped surfaces (from $|Y_3^2|$) are used. We vary the craziness of the target mesh by supplying a scaling perturbation constant $p\in\R^{\geq0}$ where $p=0$ is unperturbed sphere and $p\rightarrow\infty$ limits to the actual spherical harmonic shape with singular points.
+	
+	\item Stability against the number of optimized eigenvalues
+	
+	Fixing the target surface to be the star-shaped surfaces (from $|Y_3^3|$) with a perturbation constant of 0.5,
+	
+\end{enumerate}
 \subsubsection{regularized}
+
+To attack the problem for more complicated target shapes such as the bunny, we used a 
 \begin{figure}[H]
 	\hspace*{-6em}
 	\includegraphics[width=1.2\textwidth]{{{eps/i4_mcf_t3_bunny2164_e0.95p0r0.05}}}
@@ -296,7 +327,14 @@ We have tested our methods on the following shapes,
 
 \subsubsection{recursive fit}
 
-In an attempt to fit the sharp conformal factors at the ears, the resultant mesh fit is again put into the algorithm to be fitted 2 more times and we obtain some mesh actually resembling the target bunny mesh!
+To demonstrate that our optimized conformal factor indeed encode the desired geometric information and even a very simple mesh reconstruction method can yield some visual results despite the large conformal factors at the ears and feet, we passed a resultant mesh from a regularized fit through the algorithm one more time to obtain a new resultant mesh more resemblant to the target bunny as below.
+\begin{figure}[H]
+	\hspace*{-6em}
+	\includegraphics[width=1.2\textwidth]{{{eps/rec_bunny602_e0.95p0r0.1}}}
+	\caption{a=572, r=0.1, \\\scriptsize note that the inverse conformal factors are plotted on the hammer projections.}
+\end{figure}
+
+An interesting result is that when using our na\"ive mesh reconstruction, the size of conformal factors can force protrusion of the ears but local errors make them curl pathologically. Also in some cases the features became inverted during the reconstruction (\textit{e.g.}~the tail).
 
 \subsubsection{Discussion}
 Since our simplicial basis are attached to some given mesh, we have to work with a PL embedding of the sphere that is the result of the cMCF bunny mesh. This is clearly undesirable as in real life we would not have access to a correctly adaptively refined spherical mesh to begin our gradient descent. To attack this problem, we believe either: 1) we develop a adaptive scheme where we start with a coarse mesh and gradually refine the mesh where the fitted conformal factor is getting large [adaptive mesh], 2) or we have to run structured optimizations that start with lower frequencies and move on to higher frequencies later [recursive optimization].
@@ -343,6 +381,7 @@ Related to this is that there is no indication how many coefficient should be us
 maybe it will be worthwhile to utilize some state-of-the-art method to calculate as many 3j symbols as one's RAM can handle to eliminate this uncertainty for the experiments.
 
 Reference: 
+\url{http://epubs.siam.org/doi/abs/10.1137/S1064827503422932}
 
 \subsection{Topology}
 We also would like to calculate the topology of the surface from the spectrum beforehand. In the smooth setting, we can infer these from the \textbf{asymptotics} of heat trace from the spectrum. In the discrete case, it is not immediate how to extract these information. A reference is found to mention successfully doing this through some sort of curve fitting. Or is this a suitable task for machine learning? And after knowing a topology with $g\geq1$, can be also use the corresponding harmonic basis functions?
