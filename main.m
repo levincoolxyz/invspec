@@ -124,8 +124,8 @@ else
   end
   
   [M_T,L_T] = lapbel(v_T,f_T);
-  D_T = eigvf(L_T,M_T,numeig);
-%   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
+%   D_T = eigvf(L_T,M_T,numeig);
+  D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
 %% refinement criterion
 if init_data.num == 4 || isempty(refctl)

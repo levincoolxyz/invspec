@@ -175,10 +175,6 @@ This repository (\url{https://github.com/levincoolxyz/invspec}) contains a MATLA
 	
 	  treat this as a typical /src folder (it did not have further structure for now due a lack of interest in managing paths variable in MATLAB, sorry).
 	  
-	\item ``/SH''
-		
-	  this folder contains results of the inverse problem using the spherical harmonic bases. the subfolder named ``/SH/forward'' contains that of the forward problem.
-	  
 	\item \verb|$MESH|=``/../meshes''
 	
 	  this is where you should populate all the \verb|*.obj| or \verb|*.mat| mesh files. 
@@ -186,7 +182,7 @@ This repository (\url{https://github.com/levincoolxyz/invspec}) contains a MATLA
 	  
 	\item ``/mcf''
 	
-	  in this folder lies the results of (conformal) modified Mean Curvature Flow meshes.
+	  in this folder lies the results of conformal modified Mean Curvature Flow (cMCF) meshes.
 	  
 	\item ``/bunny''
 	
@@ -200,6 +196,13 @@ This repository (\url{https://github.com/levincoolxyz/invspec}) contains a MATLA
 	
 	this folder contains results of the inverse problem on some harmonic (low order spherical harmonic symmetric) mesh using the simplicial bases
 	
+	\item ``/blob''
+	
+	this folder contains results of the inverse problem on the blob mesh (with subfolder SH containing results via spherical harmonic basis).
+	
+	\item ``/forwardSH''
+	
+	this folder contains results of the forward problem of verifying convergence of eigenvalues when using the spherical harmonic bases.
 \end{enumerate}
 
 \section{How to Use this}
