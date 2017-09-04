@@ -10,10 +10,10 @@ Y43 = @(v) (7*v(:,3).^2-3*vnorm(v).^2).*v(:,1).*v(:,3)./(vnorm(v)).^4;
 imax = 4e3; % descent maximum iteration
 aS = .7; bS = .7; tS = 10; etolS = 1e-5; % MIEP2 descent control
 aC = .5; bC = .8; tC = 10; etolC = 1e-5; % embedding descent control
-numeig = .95; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
+numeig = .9; % number of eigenvalues used, 0<x<=1 ratio, x<=0 full
 pert = 0; % scaling coefficient used to control target perturbation
 rng(1432543); % rand seed
-reg = 0.05; % regularization coefficient
+reg = 0.01; % regularization coefficient
 % refctl = [abs(log(1/(1.9))) 3 ...     % check threshold and maximum refine steps
 %   abs(log(1/(1.3))) abs(log(1/(1.2)))]; % abs and grad refine threshold
 refctl = [];
@@ -47,10 +47,10 @@ target_data.num = 3;
 % target_data.dat = 'bunny2164';
 % target_data.dat = 'bunny1043';
 % target_data.dat = 'bunny789';
-% target_data.dat = 'bunny602';
+target_data.dat = 'bunny602';
 % target_data.dat = 'bunny540';
 % target_data.dat = 'bunny449';
-target_data.dat = 'bunny327';
+% target_data.dat = 'bunny327';
 % target_data.dat = 'bunny210';
 % target_data.dat = 'spot487';
 % target_data.dat = 'spot1k';

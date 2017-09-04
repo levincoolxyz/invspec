@@ -124,8 +124,8 @@ else
   end
   
   [M_T,L_T] = lapbel(v_T,f_T);
-%   D_T = eigvf(L_T,M_T,numeig);
-  D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
+  D_T = eigvf(L_T,M_T,numeig);
+%   D_T = eigvf(L,diag(1./s_T)*M,numeig); % cheat with cMCF spectra (if init_data=4)
 end
 %% refinement criterion
 if init_data.num == 4 || isempty(refctl)
@@ -142,11 +142,12 @@ else
   maxRefine = refctl(2);
 end
 %% MIEP2 via gradient / BFGS descent
-% s0 = exp(-zeros(numv,1));
-s0 = zeros(numv,1); % if using log conformal factors
+% if isempty(s0)
+  s0 = zeros(numv,1); % if using log conformal factors
+% end
 vlim = max(max(abs(v)));
 vlim = [-vlim vlim];
-for neig = [numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))%[2:20 40:20:numeig]
+for neig = numeig%[2 numeig/2 numeig]%(unique(round(logspace(log10(2),log10(numeig),5))))
   if neig < .2*numv, reg = 0; end
   if strcmp(method, 'BFGS')
     test = @(s) eigencost(s,M,L,D_T,neig,reg);

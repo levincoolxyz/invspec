@@ -197,7 +197,7 @@
 \newdateformat{monthyear}{%
   \monthname[\THEMONTH], \THEYEAR}
 
-\title{Discrete Inverse Spectral Problem - Progress Summary}
+\title{Discrete Inverse Spectral Problem - Technical Summary}
 \author{Feng Ling}
 \date{\monthyear\today}
 \begin{document}
@@ -213,22 +213,28 @@ We approach this problem by na\"ively optimizing the`energy' $E(\vect{c})$ that 
 
 In order to measure success, we first use the modified conformal Mean Curvature Flow (cMCF) of the original mesh to obtain a set of conformal factors to which we compare our optimized factors. Then we also try to use another gradient based method to re-embed our optimized conformal factors into a mesh and visually inspect its differences with the the original target mesh.
 
-\subsection{Simplicial basis}
+\subsection{In simplicial basis}
 
 If we use triangle shape functions (linear FEM basis functions) and triangular mesh to initialize our sphere, then its LB spectrum can be estimated by the standard weighted \textit{cotan operator}.
 There are known results about the accuracy of the eigenvalues of this discrete operator with respect to that of the smooth surface, at least in the fine mesh limit.
 Its spectrum will be called the piecewise linear (PL) spectrum.
-\subsection{Spherical harmonic basis}
 
-We can also use spherical harmonics (SH) as our basis functions to represent our sphere. This way, there is no dependence on which specific mesh we start with as the final target shape will simply be the sum of the corresponding harmonics with the desired magnitudes. through Wigner 3j symbols 
+\subsection{In spherical harmonic basis}
+
+We can also use spherical harmonic (SH) functions, Laplacian eigenfunctions of the standard round sphere, as basis functions to decompose the Laplace-Beltrami operator of arbitrary genus 0 surface. This way, there is no dependence on which specific mesh we start with as the final target shape will simply be the sum of the corresponding harmonics with the desired magnitudes. through Wigner 3j symbols 
 
 Without giving any proofs, it is intuition to believe that eigenvalues of different harmonics should roughly correspond to features of varying spatial frequencies as only higher and higher degress harmonics have finer and finer `bumps.'
 
 \subsection{Regularization}
 We can also append a bi-Laplacian regularization term to our energy $E$ to (hopefully) overcome high-frequency discretization noises. This is reasonable because assuming the change in metric is small between each time step, we want to minimize fluctuations of the current Laplace-Beltrami operator, hence its Laplacian (approximated by itself) should be $0$ or very small.
 
+\subsection{Performance and validation}
+Since there are additional problems associated with re-embedding a surface based on its conformal factors (see Section \ref{embed}), we will measure the metric accuracy by comparing a set of final optimized conformal factors with that obtained by applying cMCF to our target surfaces. Specifically, we will use mean squared difference between the two sets of conformal factors upto rotational invariance (see Section \ref{mobius}).
+
+In addition, it might be useful to validate our method further by recomputing the eigenvalues between the target mesh with those of a spherical mesh plus cMCF and final optimized conformal factors, as well as those of the final embedded mesh.
+
 \section{Experiments and Results}
-\subsection{target shapes}
+\subsection{Tested target shapes}
 We have tested our methods on the following shapes,
 \begin{enumerate}
 	\noindent\begin{minipage}{0.5\textwidth}\raggedright
@@ -239,16 +245,30 @@ We have tested our methods on the following shapes,
 	\hfill
 	\hspace*{6em}
 	\begin{minipage}{0.6\textwidth}
-		\vspace*{-8em}
+		\vspace*{-2em}
 		\begin{figure}[H]
 			\includegraphics[width=.4\textwidth]{{{eps/Y33}}}
 		\end{figure}
 	\end{minipage}
 	
 	\noindent\begin{minipage}{0.5\textwidth}\raggedright
-	\item classic bunny
+		\item the blob
+		
+		To avoid large changes and high frequency data in conformal factor magnitudes yet allow some asymmetry, this blob is used as the general benchmark for our methods.
+	\end{minipage}
+	\hfill
+	\hspace*{6em}
+	\begin{minipage}{0.6\textwidth}
+		\vspace*{-1em}
+		\begin{figure}[H]
+			\includegraphics[width=.35\textwidth]{{{eps/blob}}}
+		\end{figure}
+	\end{minipage}	
+
+	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+	\item bunny
 	
-		This is the archetypal mesh used by computer graphics literature. While it have many crucial features interesting for robust testing, its ears require rather large conformal factors that might not work too well with na\"ive gradient descent type methods.
+		Not only the archetypal mesh used by computer graphics literature, the bunny is very useful for tests about robustness. We attempted to recover this mesh from its spectrum in the simplicial setting only for we .
 	\end{minipage}
 	\hfill
 	\hspace*{6em}
@@ -259,59 +279,30 @@ We have tested our methods on the following shapes,
 		\end{figure}
 	\end{minipage}
 	
-	\noindent\begin{minipage}{0.5\textwidth}\raggedright
-	\item spot the cow
+%	\noindent\begin{minipage}{0.5\textwidth}\raggedright
+%	\item spot the cow
+%	
+%		This is a tamer version of the bunny as it has slightly rounder protrusions due to its cartoon-ish looks. We also tested some procedures on a sequence of ``melted'' versions (meshes that underwent cMCF before it becomes a round sphere).
+%	\end{minipage}
+%	\hfill
+%	\hspace*{6em}
+%	\begin{minipage}{0.6\textwidth}
+%		\vspace*{-1em}
+%		\begin{figure}[H]
+%			\includegraphics[width=.4\textwidth]{{{eps/spot}}}
+%		\end{figure}
+%	\end{minipage}
 	
-		This is a tamer version of the bunny as it has slightly rounder protrusions due to its cartoon-ish looks. We also tested some procedures on a sequence of ``melted'' versions (meshes that underwent cMCF before it becomes a round sphere).
-	\end{minipage}
-	\hfill
-	\hspace*{6em}
-	\begin{minipage}{0.6\textwidth}
-		\vspace*{-1em}
-		\begin{figure}[H]
-			\includegraphics[width=.4\textwidth]{{{eps/spot}}}
-		\end{figure}
-	\end{minipage}
-	
-	\noindent\begin{minipage}{0.5\textwidth}\raggedright
-	\item the blob
-	
-		To avoid large changes in conformal factors yet maintain some asymmetry and generality, this blob is used for testing in spherical harmonic basis problems as we want to be able to test performance of our method against frequency truncations.
-	\end{minipage}
-	\hfill
-	\hspace*{6em}
-	\begin{minipage}{0.6\textwidth}
-		\vspace*{-1em}
-		\begin{figure}[H]
-			\includegraphics[width=.4\textwidth]{{{eps/blob}}}
-		\end{figure}
-	\end{minipage}	
-	
-\end{enumerate}
-\subsection{parameter nomenclature}
-In order of appearance: 
-\begin{enumerate}
-	\item 
-	numeig - the total number of eigenvalues being optimized
-	
-	\item 
-	pert - a scalar proportional to how distorted the target shape is comparing to a round sphere.
-	
-	\item 
-	numa - the total number of a
-	
-	\item 
-	maxL - the maximal degree used by spherical harmonic basis approximation
 \end{enumerate}
 
 \subsection{Simplicial basis inverse problem}
 \subsubsection{raw}
 \begin{enumerate}
-	\item Stability against feature `smoothness' of the target mesh
+	\item Performance against feature `smoothness' of the target mesh
 	
 	To guarantee higher success rates, the star-shaped surfaces (from $|Y_3^2|$) are used. We vary the craziness of the target mesh by supplying a scaling perturbation constant $p\in\R^{\geq0}$ where $p=0$ is unperturbed sphere and $p\rightarrow\infty$ limits to the actual spherical harmonic shape with singular points.
 	
-	\item Stability against the number of optimized eigenvalues
+	\item Performance against the number of optimized eigenvalues
 	
 	Fixing the target surface to be the star-shaped surfaces (from $|Y_3^3|$) with a perturbation constant of 0.5,
 	
@@ -337,8 +328,9 @@ To demonstrate that our optimized conformal factor indeed encode the desired geo
 An interesting result is that when using our na\"ive mesh reconstruction, the size of conformal factors can force protrusion of the ears but local errors make them curl pathologically. Also in some cases the features became inverted during the reconstruction (\textit{e.g.}~the tail).
 
 \subsubsection{Discussion}
-Since our simplicial basis are attached to some given mesh, we have to work with a PL embedding of the sphere that is the result of the cMCF bunny mesh. This is clearly undesirable as in real life we would not have access to a correctly adaptively refined spherical mesh to begin our gradient descent. To attack this problem, we believe either: 1) we develop a adaptive scheme where we start with a coarse mesh and gradually refine the mesh where the fitted conformal factor is getting large [adaptive mesh], 2) or we have to run structured optimizations that start with lower frequencies and move on to higher frequencies later [recursive optimization].
+Since our simplicial basis are attached to some given mesh, we have to work with a PL embedding of the sphere that is the result of the cMCF bunny mesh. This is clearly undesirable as in real life we would not have access to a correctly adaptively refined spherical mesh to begin our gradient descent. To attack this problem, we believe either: 1) we develop a adaptive scheme where we start with a coarse mesh and gradually refine the mesh where the fitted conformal factor is getting large [adaptive mesh], 2) or we have to run structured optimizations that start with lower frequencies and move on to higher frequencies later [recursive optimization]. However, care needs to be taken when doing such schemes as simply running gradient descent on just the first $n$ eigenvalues for $n\in\{1,2,\dots\}$ tends to give out mostly `trivial' but highly localized solutions\footnote{I think it might have to do with the partitioning eigenvalues }.
 
+ts ears require rather large conformal factors that might not work too well with na\"ive gradient descent type methods.
 \subsection{Spherical harmonics basis forward problem}
 
 Before diving into the inverse problem, we need to verify that the LB spectrum can be well represented by a truncated spectrum in spherical harmonic basis.
@@ -364,23 +356,27 @@ convergence w.r.t. maximal degree and w.r.t. the number of free SH basis coeffic
 	\caption{a=256, L=30x30, R=1e-6}
 \end{figure}
 
-\section{A To-Do list}
-\subsection{M\"obius balancing routine}
+\newpage
+\appendix
+\section*{APPENDIX}
+
+\section{Questions and a to-do list}
+\subsection{M\"obius balancing}
+\label{mobius}
+Since conformal isometries on a sphere could be any M\"obius transformation, we need to mod out the most correct map before comparing conformal factors directly.
+
 For reference, Prof.~Keenan Crane have a write-up and working C codes in his geometry processing toolset. The current MATLAB implementation is experiencing (too much?) oscillatory behavior possibly due to some sort of silly bug.
 
-%\subsection{Regularization in spherical harmonics basis}
-%if we make an equivalence between low-high frequency to spherical harmonic basis coefficients, we can assume (the analogy is from conditions on function being smooth and its Fourier coefficients) the coefficients must decrease as much as possible as soon as possible for the smoothiest solution.
-%Naively, we can add a term $\propto \sum_i w_i a_{l,m}^2$ to the cost where $w_i$ grows at the appropriate rate (e.g. $exp(l)$ or $l^k$ for some positive $k>1$). But this did not work so well.
+Currently we employ a simple search algorithm to find a rigid body rotation that minimizes mean squared difference between target and final conformal factors. This seems to be both necessary and sufficient for the SH (mesh-independent) problem for now.
 
 \subsection{Structured optimization}
-Again assuming the above equivalence, it might stand to reason that we shall first optimize for lower frequency features ($a_{l,m}$ with small $l$?) and then move on to refining the higher frequency ones.
+Assuming the intuitive equivalence between smaller magnitude Laplacian eigenvalues/functions to lower frequency features, it might stand to reason that we can first optimize for lower frequency features (for SH formulations, $a_{l,m}$ where $l$ is small), and employ a `suitable' method to \textbf{keep} the lower frequency result then refine higher frequency eigenvalues/features.
 
-Related to this is that there is no indication how many coefficient should be used.
+A second natural question is then when should we stop? For simplicial spectrum, we know that the very high frequency eigenvalues associate to noises due to the triangle basis functions. But how does one distinguish a trade-off point where unwanted noise overcomes wanted geometric information? Does a similar threshold even exist for SH formulation?
 
 \subsection{Precomputing more 3j symbols}
-maybe it will be worthwhile to utilize some state-of-the-art method to calculate as many 3j symbols as one's RAM can handle to eliminate this uncertainty for the experiments.
-
-Reference: 
+It would probably be worthwhile to utilize some state-of-the-art techniques to calculate as many 3j symbols as one's RAM can handle to speed up further operations. 
+Example reference: 
 \url{http://epubs.siam.org/doi/abs/10.1137/S1064827503422932}
 
 \subsection{Topology}
@@ -390,9 +386,31 @@ Reference: Martin Reuter, Franz-Erich Wolter, Niklas Peinecke, ``Laplace-Beltram
 
 \url{http://reuter.mit.edu/blue/papers/reuter-shapeDNA06/reuter-shapeDNA06.pdf}
 
-\subsection{Adaptive remeshing for the simplical inverse problem}
-Since it works pretty well in the simplicial setting when we regularize and use enough eigenvalues (up to embedding issues), the only obstacle barring us from full victory is the apparent need to assume MCF starting mesh. The idea to improve here is to remesh at each step according to the current conformal factor solution. Practically speaking, it might preserve more sanity to try these in a better development environment (so no more MATLAB non OOP shenanigans, at least not with the built-in BFGS optimization algorithm).
+\subsection{Adaptive remeshing for the simplical case}
+Our method so far only succeeds when we start from the cMCF spherical mesh in the simplicial setting. This is an unfortunate result of the explicit mesh dependence of our simplicial Laplacian operator. In other words, we get what we want if we start with a spherical mesh that is pre-adpated to its features sizes in terms of local sharpness (e.g. more vertices if there is a long thin protusion/. So the conjecture is that if we adapt our mesh at each step based on the magnitude of the current conformal factors, we should be able to recover the correct solution also.
+
+This task is probably better done if the program is independently coded without MATLAB as the fast built-in BFGS optimization algorithm can only used more or less as a blackbox.
 
 \subsection{Embedding problem}
-Visually and numerically, it seems that we can obtain spectrally optimized conformal factors that matches the desired cMCF ones. However, the (again) na\"ive way of re-inflating a sphere using a scalar conformal factor field seems to less than efficient, as in we need very fine meshes and the na\"ive algorithm scales with number of meshes used squared. But this should be a problem that others have and will continue to tackle even on their own.
+\label{embed}
+Our method seems capable of recovering a set of spectrally optimized conformal factors that roughly matches features of factors obtained through cMCF. However, the na\"ive re-inflating strategy of finding vertex position that yield edge lengths proportional to the set of conformal factors is slow (scales with number of triangles squared) and suffer from local ambiguities (bumps could become dips) and high frequency noises. The issue with ambiguities is most likely a result of this method only working with ``intrinsic'' stretching constraints without any knowledge about the shape's ``extrinsic'' bending information. For noise reduction maybe a similar bi-Laplacian regularization term could help this simple gradient descent as before.
+
+If we cook up a set of geometric parameters (some sort of `extrinsic' angles?) encoding local bending information associated to the extrinsic Dirac operators akin to conformal factors to Laplace-Beltrami, we might be able to use both ends of the operator `spectrum' to fully recover all necessary information to reconstruct surfaces...
+
+\section{Nomenclature}
+In order of appearance: 
+\begin{enumerate}
+	\item 
+	\texttt{numeig} - the total number of eigenvalues being optimized
+	
+	\item 
+	\texttt{pert} - a scalar proportional to how distorted the target shape is comparing to a round sphere.
+	
+	\item 
+	\texttt{numa} - the total number of a
+	
+	\item 
+	\texttt{maxL} - the maximal degree used by spherical harmonic basis approximation
+\end{enumerate}
+
 \end{document}
